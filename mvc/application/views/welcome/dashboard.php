@@ -1,6 +1,8 @@
 <?= $header; ?>
 	<style type="text/css">
 
+	*{margin: 0px; padding: 0px;}
+	
 	::selection{ background-color: #E13300; color: white; }
 	::moz-selection{ background-color: #E13300; color: white; }
 	::webkit-selection{ background-color: #E13300; color: white; }
@@ -57,12 +59,15 @@
 		margin: 20px 0 0 0;
 	}
 	
-	#container{
-		margin: 10px;
-		border: 1px solid #D0D0D0;
-		-webkit-box-shadow: 0 0 8px #D0D0D0;
+	.main-content{
+		margin-top: 50px;
+		padding-bottom: 50px;
 	}
+
+
+
 	</style>
+
 
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
@@ -77,11 +82,13 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-              <ul class="dropdown-menu">
+            <li><a href="#about">Acerca de</a></li>
+            <li><a href="#contact">Contacto</a></li>
+          </ul>
+          <ul class ="nav navbar-nav pull-right">
+          	<li class="dropdown ">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Usuario  <span class="glyphicon glyphicon-user"></span> <b class="caret"></b></a>
+              <ul class="pull-right dropdown-menu">
                 <li><a href="#">Action</a></li>
                 <li><a href="#">Another action</a></li>
                 <li><a href="#">Something else here</a></li>
@@ -96,23 +103,103 @@
       </div>
     </div>
 
-<div id="container">
-	<h1>Bienvenido al Sistema del servicio Comunitario UCAB!</h1>
 
-	<div id="body">
-		</p>Este proyecto es desarrollado por los alumnos de la materia de desarrollo de software 
-		de la UCAB Guayana , bajo la tutela del Prof. Julio Canelon.
-		</p>
+  <script> 
+    // using JQUERY's ready method to know when all dom elements are rendered
+    $( document ).ready(function () {
+      // set an on click on the button
+	
+      $("#main-panel a").click(function () {
+ 
+        	$("#main-panel>li.active").removeClass("active");
+        	
+        	$(this).parent().addClass("active");
 
-		<p>
-			Mas documentacion , coming soon. 
+        	$("#main-title").text($(this).text());	
+        	
+	        $.get($(this).text(), function (data) {
 
-		</p>
+	          $("#main-panel-body").html(data);
+	        });
+			
+      });
+
+       });
+	
+  </script>
+
+  <div class="container">
+
+
+ <div class="row">
+
+	 <div class="col-md-6 col-sm-12 col-lg-8">
+
+  <div class="navbar navbar-default">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Panel de control</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul id="main-panel" class="nav navbar-nav">
+            <li class="active"><a href="#">Proyectos</a></li>
+            <li><a href="#">Prestadores</a></li>
+            <li><a href="#">Localidades</a></li>
+    
+          </ul>
+         
+        </div><!--/.nav-collapse -->
+      </div>
+
+
 	</div>
 
-	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds</p>
 </div>
 
+   <div class="row">
+   	
+        <div class="col-md-6 col-sm-12 col-lg-8">
 
-			<img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn1/50233_30716286911_5061413_n.jpg">
+        <div class="panel panel-success">
+	        <div class="panel-heading">
+	          <h3 id="main-title" class="panel-title">Administracion</h3>
+			</div>
+
+	        <div id="main-panel-body" class="panel-body">
+							<h1>Welcome to CodeIgniter lol !</h1>
+
+						<div id="body">
+							<p>The page you are looking at is being generated dynamically by CodeIgniter.</p>
+
+							<p>If you would like to edit this page you'll find it located at:</p>
+							<code>application/views/welcome_message.php</code>
+
+							<p>The corresponding controller for this page is found at:</p>
+							<code>application/controllers/welcome.php</code>
+
+							<p>If you are exploring CodeIgniter for the very first time, you should start by reading the <a href="user_guide/">User Guide</a>.</p>
+						</div>
+
+						<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds</p>
+
+			</div>
+
+
+ 
+    </div>
+
+</div> 
+
+</div><!-- /Row / Option's panel -->
+
+
+
+</div><!-- /Container -->
+
+
+
 <?= $footer; ?>
