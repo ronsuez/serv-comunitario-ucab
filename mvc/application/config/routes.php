@@ -42,5 +42,11 @@ $route['default_controller'] = "welcome";
 $route['404_override'] = '';
 
 
+/* routing for welcome controller */
+$route['Proyectos']="proyecto/index";
+$route['Localidades']="localidad/index";
+$route['Prestadores']="prestador/index";
+
+
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
