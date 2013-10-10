@@ -1,11 +1,4 @@
-<html>
-<head>
-	<title></title>
-	<!-- Bootstrap -->
-	<link href="bootstrap-3.0.0/dist/css/bootstrap.min.css" rel="stylesheet" media="screen">
 
-</head>
-<body>
 	<div class="container">
 		<div class="panel panel-default">
 			<div class="panel-body">
@@ -75,5 +68,3 @@
 			</div><!-- /panel-body -->
 		</div><!-- /panel panel-default -->
 	</div><!-- /container -->
-</body>
-</html>
