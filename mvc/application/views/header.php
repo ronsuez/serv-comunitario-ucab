@@ -28,8 +28,7 @@
   
     <script src=<?php echo  base_url()."application/views/bootstrap/js/jquery.js"; ?> type="text/javascript"></script>
   	<script src=<?php echo  base_url()."application/views/bootstrap/js/bootstrap.js"; ?> type="text/javascript"></script>
-
-    <script src=<?php echo  base_url()."application/views/js/less.js"; ?> type="text/javascript"></script>
+        
     <script src=<?php echo  base_url()."application/libraries/validate.js"; ?> type="text/javascript"></script>
 
 
