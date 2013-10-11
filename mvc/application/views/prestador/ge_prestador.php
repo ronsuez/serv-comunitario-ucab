@@ -27,15 +27,15 @@
         </script>
 
 <ul class="nav nav-tabs" id="myTab">
-  <li class=""><a href="#home" data-url="insertar_prestador" >Inscribir</a></li>
-  <li class="active"><a href="#profile" >Consultar modificar</a></li>
-  <li><a href="#messages">Reportes</a></li>
+  <li class=""><a href="#insribir" data-url="Prestadores" >Inscribir</a></li>
+  <li class="active"><a href="#consultar" data-url="insertar_prestador">Consultar modificar</a></li>
 </ul>
 
 <div class="tab-content">
-  <div class="tab-pane active " id="home">home</div>
-  <div class="tab-pane" id="profile"></div>
+  <div class="tab-pane active " id="inscribir"></div>
+  <div class="tab-pane" id="consultar"></div>
   
+</div>
 <script>
   $(function () {
     $('#myTab').tab();
