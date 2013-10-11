@@ -8,23 +8,9 @@
 </script>
 
  
-    <div class="container theme-showcase">
-
-<div class="header">
-        <h1>Gestión de Prestadores</h1>
-
-        <ul class="nav nav-tabs" id="tabs">
-          <li class="active"><a href="#" id="crear">Inscribir</a></li>
-          <li><a href="#" id="p_consultar_modificar">Consultar/Modificar</a></li>
-            <li><a href="#" id="p_finalizar">Finalizar</a></li>
-        </ul>
-      </div>
+    <div class="container">
 
 
-      <div class="tab-content" >
-
-
-        <div id="crear" class="fade tab-pane active">
       <!--Consultar / modificar prestador-->
       <div class="jumbotron" >
         <center><h3>Busqueda de Prestadores</h3></center>
@@ -141,8 +127,4 @@
 
   </div> <!-- /consultar/modificar-->
      
-     </div> <!-- /tab-content -->
-
-
-    </div> <!-- /container -->
-
+     
