@@ -170,7 +170,7 @@
 			</div>
 
 	        <div id="main-panel-body" class="panel-body">
-							<h1>Welcome to CodeIgniter lol !</h1>
+							<h1>Welcome to CodeIgniter , powered by openshift !</h1>
 
 						<div id="body">
 							<p>The page you are looking at is being generated dynamically by CodeIgniter.</p>
