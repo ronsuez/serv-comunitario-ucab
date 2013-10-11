@@ -45,7 +45,8 @@ $route['404_override'] = '';
 /* routing for welcome controller */
 $route['Proyectos']="proyecto/index";
 $route['Localidades']="localidad/index";
-$route['Prestadores']="prestador/insertar";
+$route['Prestadores']="prestador/index";
+$route['insertar_prestador']="prestador/insertar";
 
 
 /* End of file routes.php */
