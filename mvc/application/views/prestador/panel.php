@@ -10,18 +10,33 @@
  
     <div class="container theme-showcase">
 
-      <!-- Main jumbotron for a primary marketing message or call to action -->
-      <div class="jumbotron">
+<div class="header">
+        <h1>Gestión de Prestadores</h1>
+
+        <ul class="nav nav-tabs" id="tabs">
+          <li class="active"><a href="#" id="p_crear">Inscribir</a></li>
+          <li><a href="#" id="p_consultar_modificar">Consultar/Modificar</a></li>
+            <li><a href="#" id="p_finalizar">Finalizar</a></li>
+        </ul>
+      </div>
+
+
+      <div class="tab-content" >
+
+
+        <div id="crear" class="fade tab-pane active">
+      <!--Consultar / modificar prestador-->
+      <div class="jumbotron" >
         <center><h3>Busqueda de Prestadores</h3></center>
 
-        <form action="demo_form.asp">
+        <form id="form-busqueda">
         <h4>Nombre</h4>
         <input type="text" class="form-control" placeholder="Nombre">
 
         <h4>CI</h4>
         <input type="text" class="form-control" placeholder="Cedula">
 
-        <button type="submit" class="btn btn-default">Submit</button>
+        <button type="submit" class="btn btn-default">Buscar</button>
         </form> 
 
       </div>
@@ -124,6 +139,10 @@
   <button type="button" class="btn btn-default btn-lg">Imprimir Notificacion Culminacion</button>
 </p></center>
 
+  </div> <!-- /consultar/modificar-->
      
+     </div> <!-- /tab-content -->
+
+
     </div> <!-- /container -->
 
