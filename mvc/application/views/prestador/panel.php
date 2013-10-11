@@ -14,7 +14,7 @@
         <h1>Gestión de Prestadores</h1>
 
         <ul class="nav nav-tabs" id="tabs">
-          <li class="active"><a href="#" id="p_crear">Inscribir</a></li>
+          <li class="active"><a href="#" id="crear">Inscribir</a></li>
           <li><a href="#" id="p_consultar_modificar">Consultar/Modificar</a></li>
             <li><a href="#" id="p_finalizar">Finalizar</a></li>
         </ul>
