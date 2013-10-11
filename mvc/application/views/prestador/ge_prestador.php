@@ -1,8 +1,13 @@
 
         <script>
                   
-                  $(document).ready(function() {
-                  
+    $(document).ready(function() {
+    
+     $(function () {
+            $('#myTab').tab();
+        });
+        
+        
         $('#myTab a').click(function (e) {
             e.preventDefault();
             
@@ -17,7 +22,7 @@
           });
 
           // load first tab content
-          $('#home').load($('.active a').attr("data-url"),function(result){
+          $('#inscribir').load($('.active a').attr("data-url"),function(result){
             $('.active a').tab('show');
           });
 
@@ -32,13 +37,8 @@
 </ul>
 
 <div class="tab-content">
-  <div class="tab-pane active " id="inscribir"></div>
+  <div class="tab-pane active" id="inscribir"></div>
   <div class="tab-pane" id="consultar"></div>
   
 </div>
-<script>
-  $(function () {
-    $('#myTab').tab();
-  });
-</script>
 
