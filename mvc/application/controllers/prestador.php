@@ -34,7 +34,7 @@ class Prestador extends CI_Controller {
 	public function index()
 	{
 	
-		$this->load->view($this->controller.'panel');
+		$this->load->view($this->controller.'ge_prestador');
 	}
 
 		public function insertar()
