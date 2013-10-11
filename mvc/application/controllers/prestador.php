@@ -37,6 +37,12 @@ class Prestador extends CI_Controller {
 		$this->load->view($this->controller.'panel');
 	}
 
+		public function insertar()
+	{
+	
+		$this->load->view($this->controller.'insertar_prestadores');
+	}
+
 }
 
 /* End of file welcome.php */
