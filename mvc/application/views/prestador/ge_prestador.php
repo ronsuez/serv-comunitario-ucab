@@ -7,7 +7,7 @@
             $('#myTab').tab();
         });
         
-        $('#myTab a').click(function (e) {
+        $('#myTab li a').click(function (e) {
             e.preventDefault();
             
             var url = $(this).attr("data-url");
@@ -21,7 +21,7 @@
           });
 
           // load first tab content
-          $('#inscribir').load($('.active a').attr("data-url"),function(result){
+          $('#inscribir').load($('#myTab li.active a').attr("data-url"),function(result){
             $('.active a').tab('show');
           });
 
