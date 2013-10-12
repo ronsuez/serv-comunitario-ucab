@@ -3,10 +3,7 @@
                   
     $(document).ready(function() {
     
-     $(function () {
-            $('#myTab').tab();
-        });
-        
+
         
         $('#myTab a').click(function (e) {
             e.preventDefault();
@@ -32,8 +29,8 @@
         </script>
 
 <ul class="nav nav-tabs" id="myTab">
-  <li class=""><a href="#insribir" data-url="Prestadores" >Inscribir</a></li>
-  <li class="active"><a href="#consultar" data-url="insertar_prestador">Consultar modificar</a></li>
+  <li class="active"><a href="#insribir" data-url="Prestadores" >Inscribir</a></li>
+  <li class=""><a href="#consultar" data-url="insertar_prestador">Consultar modificar</a></li>
 </ul>
 
 <div class="tab-content">
