@@ -14,13 +14,19 @@
             
             // ajax load from data-url
             $(href).load(url,function(result){      
-                pane.tab('show');
+                    
+                    $(this.href).html(result);
+                    pane.tab('show');
+                
+                
             });
           });
 
           // load first tab content
           $('#inscribir').load($('.active a').attr("data-url"),function(result){
-            $('.active a').tab('show');
+                    $(this.href).html(result);
+                    
+                        $('.active a').tab('show');
           });
 
         
@@ -39,3 +45,4 @@
   
 </div>
 
+     
