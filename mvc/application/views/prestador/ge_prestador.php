@@ -36,7 +36,7 @@
 </ul>
 
 <div class="tab-content">
-  <div class="tab-pane active " id="inscribir"></div>
+  <div class="tab-pane active" id="inscribir"></div>
   <div class="tab-pane" id="consultar"></div>
   
 </div>
