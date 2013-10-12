@@ -47,7 +47,7 @@ $route['Proyectos']="proyecto/index";
 $route['Localidades']="localidad/index";
 $route['Prestadores']="prestador/index";
 $route['insertar_prestador']="prestador/insertar";
-
+$route['consultar_prestador']="prestador/consultar";
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
