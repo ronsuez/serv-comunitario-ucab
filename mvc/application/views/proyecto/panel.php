@@ -64,10 +64,10 @@
 						<textarea class="form-control" id="descripcion" placeholder="Producto, plan de trabajom recursos requeridos, cronograma."></textarea>
 			  		</div>
 			  	</div>
-			  	<br><input type="submit" class="btn btn-default" id="enviar" value="Crear Proyecto"></input><br><br>
+			  
 			</div>	
 
-                            
+                           	<br><input type="submit" class="btn btn-default" id="enviar" value="Crear Proyecto"></input><br><br> 
                             
                           </div> <!--/tab-crear-->
                     
