@@ -31,8 +31,8 @@
         </script>
 
 <ul class="nav nav-tabs" id="myTab">
-  <li class=""><a href="#inscribir" data-url="insertar_prestador" >Inscribir</a></li>
-  <li class="active"><a href="#consultar" data-url="consultar_prestador">Consultar modificar</a></li>
+  <li class="active"><a href="#inscribir" data-url="insertar_prestador" >Inscribir</a></li>
+  <li class=""><a href="#consultar" data-url="consultar_prestador">Consultar modificar</a></li>
 </ul>
 
 <div class="tab-content">
