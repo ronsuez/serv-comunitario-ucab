@@ -26,17 +26,26 @@
 											<h3 class="panel-title">Datos del prestador </h3>
 										</div>
 											<div class="panel-body">
-										<p><h5>  Nombre:  <span class="label "></span>________________________</h5></p>
-										<p><h5>  Cedula:  <span class="label "></span>________________________</h5></p>
-										<p><h5>  Direccion:  <span class="label"></span>________________________</h5></p>
-										<p><h5>  Telefono:  <span class="label"></span>________________________</h5></p>
-										<p><h5>  Email:  <span class="label"></span>________________________</h5></p>
+												 <div class="col-xs-6">
 
-										<p><h5>  Escula:  <span class="label"></span>________________________</h5></p> 
-										<p><h5>  Carrera:  <span class="label"></span>________________________</h5></p>
-										<p><h5>  No.Expediente:  <span class="label"></span>________________________</h5></p>
-										<p><h5>  Semestre:  <span class="label"></span>________________________</h5></p>
-									</div>
+												 		<img src="http://1120.gogiro.com/wp-content/uploads/2012/04/facebook-profile-picture-no-pic-avatar.jpg" alt="Avatar" class="img-thumbnail">
+
+												 </div>
+
+
+  												<div class="col-xs-6"><p><h5>  Nombre:  <span class="label "></span>________________________</h5></p>
+															<p><h5>  Cedula:  <span class="label "></span>________________________</h5></p>
+															<p><h5>  Direccion:  <span class="label"></span>________________________</h5></p>
+															<p><h5>  Telefono:  <span class="label"></span>________________________</h5></p>
+															<p><h5>  Email:  <span class="label"></span>________________________</h5></p>
+
+															<p><h5>  Escula:  <span class="label"></span>________________________</h5></p> 
+															<p><h5>  Carrera:  <span class="label"></span>________________________</h5></p>
+															<p><h5>  No.Expediente:  <span class="label"></span>________________________</h5></p>
+															<p><h5>  Semestre:  <span class="label"></span>________________________</h5></p>
+												</div>
+											
+											</div>
 								</div>
 								
 
