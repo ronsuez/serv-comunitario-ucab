@@ -42,12 +42,20 @@ $route['default_controller'] = "welcome";
 $route['404_override'] = '';
 
 
-/* routing for welcome controller */
+/* routing for proyecto controller */
 $route['Proyectos']="proyecto/index";
-$route['Localidades']="localidad/index";
+$route['insertar_proyecto']="proyecto/insertar";
+$route['consultar_proyecto']="proyecto/modificar";
+
+/* routing for prestadores controller */
 $route['Prestadores']="prestador/index";
 $route['insertar_prestador']="prestador/insertar";
 $route['consultar_prestador']="prestador/consultar";
+
+
+$route['Localidades']="localidad/index";
+
+$route['listar_loc']="localidad/listar";
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

@@ -28,6 +28,8 @@ class Localidad extends CI_Controller {
 
 			$this->controller="localidad/";
 
+			$this->load->model('localidad_model');
+
 		}
 
 
@@ -35,6 +37,13 @@ class Localidad extends CI_Controller {
 	{
 	
 		$this->load->view($this->controller.'panel');
+	}
+
+
+	public function listar()
+	{
+		
+			echo $this->localidad_model->listar();
 	}
 
 }

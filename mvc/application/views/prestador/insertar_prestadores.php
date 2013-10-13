@@ -9,19 +9,21 @@
 					</span>
 				</div><!-- /input-group -->
 				<br>
-				<div class="form-group">
-					<label for="">Nombres</label>
-					<input type="text" class="form-control" placeholder="Introduzca los nombres del prestador"></input>
-				</div>
-				<div class="form-group">
-					<label for="">Apellidos</label>
-					<input type="text" class="form-control" placeholder="Introduzca los apellidos del prestador"></input>
-				</div>
-
+			
 				<!-- Datos personales -->
 				<div class="panel panel-info">
 					<div class="panel-heading">Datos Personales</div>
 					<div class="panel-body">
+
+							<div class="form-group">
+							<label for="">Nombres</label>
+							<input type="text" class="form-control" placeholder="Introduzca los nombres del prestador"></input>
+						</div>
+						<div class="form-group">
+							<label for="">Apellidos</label>
+							<input type="text" class="form-control" placeholder="Introduzca los apellidos del prestador"></input>
+						</div>
+
 						<div class="form-group">
 							<label>Correo electr&oacute;nico</label>
 							<input type="text" class="form-control" placeholder="Introduzca el correo electr&oacute;nico"></input>

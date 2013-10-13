@@ -82,8 +82,8 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">Acerca de</a></li>
-            <li><a href="#contact">Contacto</a></li>
+            <li class=""><a href="#about">Acerca de</a></li>
+            <li class=""><a href="#contact">Contacto</a></li>
           </ul>
           <ul class ="nav navbar-nav pull-right">
           	<li class="dropdown ">
@@ -109,7 +109,9 @@
     $( document ).ready(function () {
       // set an on click on the button
 	
-      $("#main-panel a").click(function () {
+      $("#main-panel a").click(function (e) {
+
+      		e.preventDefault();
  
         	$("#main-panel>li.active").removeClass("active");
         	
@@ -146,9 +148,9 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul id="main-panel" class="nav navbar-nav">
-            <li class="active"><a href="#">Proyectos</a></li>
-            <li><a href="#">Prestadores</a></li>
-            <li><a href="#">Localidades</a></li>
+            <li class=""><a href="gest-proyecto">Proyectos</a></li>
+            <li class=""><a href="gest-prestador">Prestadores</a></li>
+            <li class=""><a href="gest-localidad">Localidades</a></li>
     
           </ul>
          

@@ -34,8 +34,21 @@ class Proyecto extends CI_Controller {
 	public function index()
 	{
 	
-		$this->load->view($this->controller.'panel');
+		$this->load->view($this->controller.'ge_proyecto');
 	}
+
+	public function inscribir()
+	{
+	
+		$this->load->view($this->controller.'insertar_proyecto');
+	}
+
+	public function modificar()
+	{
+	
+		$this->load->view($this->controller.'modificar');
+	}
+
 
 }
 
