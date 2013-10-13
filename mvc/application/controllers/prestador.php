@@ -48,6 +48,13 @@ class Prestador extends CI_Controller {
 	
 		$this->load->view($this->controller.'panel');
 	}
+
+	     	public function asignar_pro()
+	{
+	
+		$this->load->view($this->controller.'asignar_proyecto');
+	}
+     
         
         
 

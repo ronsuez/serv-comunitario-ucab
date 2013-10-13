@@ -27,8 +27,9 @@
     <!-- Placed at the end of the document so the pages load faster -->
   
     <script src=<?php echo  base_url()."application/views/bootstrap/js/jquery.js"; ?> type="text/javascript"></script>
-  	<script src=<?php echo  base_url()."application/views/bootstrap/js/bootstrap.js"; ?> type="text/javascript"></script>
-        
+  	
+    <script src=<?php echo  base_url()."application/views/bootstrap/js/bootstrap.js"; ?> type="text/javascript"></script>
+    
     <script src=<?php echo  base_url()."application/libraries/validate.js"; ?> type="text/javascript"></script>
 
 

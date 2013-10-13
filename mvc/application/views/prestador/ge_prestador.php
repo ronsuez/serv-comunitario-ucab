@@ -15,10 +15,13 @@
             $(href).load(url,function(result){      
                 pane.tab('show');
             });
-          });
-        
-        });
-        
+
+         });
+
+
+ });
+
+  
     </script>
 
 <style>
@@ -34,6 +37,8 @@
        <ul class="nav nav-tabs" id="myTab">
           <li class="active"><a href="#inscribir" data-url="insertar_prestador" >Inscribir</a></li>
           <li class=""><a href="#consultar" data-url="consultar_prestador">Consultar/Modificar</a></li>
+          <li class=""><a href="#asignar_pro" data-url="asignar_proyecto">Asignar Proyecto</a></li>
+     
         </ul>
       </div>
 
@@ -51,6 +56,8 @@
         </div><!-- /input-group -->
         <br>
       
+      <form name="form-prestador" action="#" method="POST">
+
         <!-- Datos personales -->
         <div class="panel panel-info">
           <div class="panel-heading">Datos Personales</div>
@@ -58,28 +65,28 @@
 
               <div class="form-group">
                   <label for="">Nombres</label>
-                  <input type="text" class="form-control" placeholder="Introduzca los nombres del prestador"></input>
+                  <input name="word" type="text" class="form-control" placeholder="Introduzca los nombres del prestador"></input>
                 </div>
                 <div class="form-group">
                   <label for="">Apellidos</label>
-                  <input type="text" class="form-control" placeholder="Introduzca los apellidos del prestador"></input>
+                  <input name="word" type="text" class="form-control" placeholder="Introduzca los apellidos del prestador"></input>
                 </div>
 
             <div class="form-group">
               <label>Correo electr&oacute;nico</label>
-              <input type="text" class="form-control" placeholder="Introduzca el correo electr&oacute;nico"></input>
+              <input name="email" type="text" class="form-control" placeholder="Introduzca el correo electr&oacute;nico"></input>
             </div>
             <div class="form-group">  
               <label for="">Tel&eacute;fono celular</label>
-              <input type="text" class="form-control" placeholder="Introduzca un tel&eacute;fono celular"></input>
+              <input name="phone" type="text" class="form-control" placeholder="Introduzca un tel&eacute;fono celular"></input>
             </div>
             <div class="form-group">
               <label for="">Tel&eacute;fono de habitaci&oacute;n</label>
-              <input type="text" class="form-control" placeholder="Introduzca un tel&eacute;fono habitaci&oacute;n"></input>
+              <input  name="phone" type="text" class="form-control" placeholder="Introduzca un tel&eacute;fono habitaci&oacute;n"></input>
             </div>
             <div class="form-group">
               <label for="">Direccion de habitaci&oacute;n</label>
-              <input type="text" class="form-control" placeholder="Introduzca una direccion de habitaci&oacute;n"></input>
+              <input   type="text" class="form-control" placeholder="Introduzca una direccion de habitaci&oacute;n"></input>
             </div>
           </div>
         </div>
@@ -103,17 +110,22 @@
           </div>
         </div>
 
-        <!-- Foto -->
-        <form enctype="multipart/form-data" action="uploader.php" method="POST">
-          <label for="">Foto: </label>
-          <input name="uploadedfile" type="file"></input>
-        </form> 
+
+    <!-- Indicates a successful or positive action -->
+          <button type="submit" class="btn btn-success">Success</button>
+
+          <!-- Indicates caution should be taken with this action -->
+          <button type="reset" class="btn btn-warning">Warning</button>
+
+       </form> <!-- /form-prestador--> 
       </div><!-- /panel-body -->
     </div><!-- /panel panel-default -->
+  
   </div><!-- /container -->
 
   </div>
   <div class="tab-pane" id="consultar"></div>
+    <div class="tab-pane" id="asignar_pro"></div>
   
 </div>
 

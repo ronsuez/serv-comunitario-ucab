@@ -51,11 +51,10 @@ $route['consultar_proyecto']="proyecto/modificar";
 $route['Prestadores']="prestador/index";
 $route['insertar_prestador']="prestador/insertar";
 $route['consultar_prestador']="prestador/consultar";
+$route['asignar_proyecto']="prestador/asignar_pro";
 
+$route['404_override'] = '';
 
-$route['Localidades']="localidad/index";
-
-$route['listar_loc']="localidad/listar";
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
