@@ -53,6 +53,10 @@ $route['insertar_prestador']="prestador/insertar";
 $route['consultar_prestador']="prestador/consultar";
 $route['asignar_proyecto']="prestador/asignar_pro";
 
+/* routing for localidades controller */
+$route['Localidades']="localidad/index";
+$route['listar_loc']="localidad/insertar";
+
 $route['404_override'] = '';
 
 
