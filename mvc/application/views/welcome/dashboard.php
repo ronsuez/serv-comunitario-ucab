@@ -135,7 +135,7 @@
 
  <div class="row">
 
-	 <div class="col-md-6 col-sm-12 col-lg-8">
+	 <div class="col-md-6 col-sm-12 col-lg-12">
 
   <div class="navbar navbar-default">
         <div class="navbar-header">
@@ -164,7 +164,7 @@
 
    <div class="row">
    	
-        <div class="col-md-6 col-sm-12 col-lg-8">
+        <div class="col-md-6 col-sm-12 col-lg-12">
 
         <div class="panel panel-success">
 	        <div class="panel-heading">
