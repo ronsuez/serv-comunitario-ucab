@@ -20,9 +20,8 @@ $(document).ready(function() {
         $.get("listar_loc", function (data) {
 
               // update the section with the {categorie's list}
-              $("#ejecuta").html(data);
 
-              $("#suscribe").html(data);
+              $("#ejecuta,#suscribe").html(data);
             });
 
     });
