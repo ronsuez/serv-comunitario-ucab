@@ -33,7 +33,8 @@
     <script src=<?php echo  base_url()."application/libraries/validate.js"; ?> type="text/javascript"></script>
 
 
-
+ <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAplQ1u5cTjjFvQ7WKBajuP1LmnK-6pDkI&sensor=false">
+                          </script>
 
   </head>
 

@@ -106,6 +106,45 @@
 	</div>
 
 
+	<div class="panel panel-default">
+		<div class="panel-heading"> Horario de trabajo</div>
+		<div class="panel-body">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Domingo</th>
+        <th>Lunes</th>
+        <th>Martes</th>
+        <th>Miercoles</th>
+        <th>Jueves</th>
+        <th>Viernes</th>
+        <th>Sabado</th>
+      </tr>
+    </thead>
+  <tbody>
+    <tr>
+      <td>7:00 - 8:00</td>
+    </tr>
+    <tr>
+      <td>8:00 - 9:00</td>
+    </tr>
+    <tr>
+      <td>9:00 - 10:00</td>
+    </tr>
+    <tr>
+      <td>10:00 - 11:00</td>
+    </tr>
+    <tr>
+      <td>11:00 - 12:00</td>
+    </tr>
+
+    </tbody>
+</table>
+</div>
+	</div>
+
+
+
 </div>	<!--/container-->
 
 <script type="text/javascript">

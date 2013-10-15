@@ -28,7 +28,7 @@
 											<div class="panel-body">
 												 <div class="col-xs-6">
 
-												 		<img src="http://1120.gogiro.com/wp-content/uploads/2012/04/facebook-profile-picture-no-pic-avatar.jpg" alt="Avatar" class="img-thumbnail">
+												 		<img  style=" margin-right:80px; width: 140px; height: 140px;" src="http://1120.gogiro.com/wp-content/uploads/2012/04/facebook-profile-picture-no-pic-avatar.jpg" alt="Avatar" class="img-thumbnail">
 
 												 </div>
 
