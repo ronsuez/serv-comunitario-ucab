@@ -9,7 +9,13 @@ $(document).ready(function(){
   $(".collapse").collapse();
 
 
-    $('#myModal').modal("hide");
+  $('#myModal').modal("hide");
+
+
+    $("#consultar_proyecto").click(function(){
+
+          
+    });
 
 
   });
@@ -82,6 +88,8 @@ button a:hover{
 
 }
 </style>
+
+
 
 <div class="container">
 
@@ -173,24 +181,18 @@ button a:hover{
 </div>
 </div>
 
-<br><br>
-<center>
-<button type="button" class="btn btn-primary" data-toggle="modal" href="#myModal">Reportar Horas</button>
 
-<!-- Indicates a successful or positive action -->
-<button type="button" class="btn btn-success" > <a href="consulproy.html">Consultar Proyecto</a></button>
-
-<!-- Contextual button for informational alert messages -->
-<button type="button" class="btn btn-info">Inscribir Proyeto</button>
-
-<!-- Indicates caution should be taken with this action -->
-<button type="button" class="btn btn-warning">Carta Culminacion</button>
-</center>
-<br><br>
 
 <ol class="breadcrumb">
-  <h5> Proyecto Actual</h5>
-  <li class="active">/* Debe aparecer el Nombre Proyecto Actual */ </li>
+  <h5> Proyecto actuales</h5>
+ <select class="form-control">
+  <option>Seleccione proyecto</option>
+  <option>CompuBus 1 </option>
+  <option>CompuBus 2</option>
+  <option>3</option>
+  <option>4</option>
+  <option>5</option>
+</select>
 </ol>
 
   <table class="table table-hover">
@@ -231,6 +233,21 @@ button a:hover{
 </table>
 
 <h4>Total</h4>
+
+<br><br>
+<center>
+<button type="button" class="btn btn-primary" data-toggle="modal" href="#myModal">Reportar Horas</button>
+
+<!-- Indicates a successful or positive action -->
+<button type="button" id="consultar_proyecto" class="btn btn-success" >Consultar Proyecto</a></button>
+
+<!-- Contextual button for informational alert messages -->
+<button type="button" class="btn btn-info">Inscribir Proyeto</button>
+
+<!-- Indicates caution should be taken with this action -->
+<button type="button" class="btn btn-warning">Carta Culminacion</button>
+</center>
+
 <br><br><br><br>
 
 <center><p>

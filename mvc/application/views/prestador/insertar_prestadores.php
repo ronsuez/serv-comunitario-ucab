@@ -62,6 +62,17 @@
               <label for="">Menci&oacute;n</label>
               <input type="text" class="form-control" placeholder="Introduzca la menci&oacute;n"></input>
             </div>
+
+             <div class="form-group">
+                 <!-- Foto -->
+            <form enctype="multipart/form-data" action="uploader.php" method="POST">
+                <label for="">Foto: </label>
+                <input name="uploadedfile" type="file"></input>        
+
+              </form> 
+
+            </div>
+            
           </div>
         </div>
 
