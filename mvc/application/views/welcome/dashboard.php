@@ -65,6 +65,29 @@
 	}
 
 
+	#loading{
+
+		margin: auto;
+
+		width: 500px;
+		height: 300px;
+	
+	}
+
+	#loading img{
+
+		width: 200px;
+		height: 200px;
+		
+	 position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+	}
+
 
 	</style>
 
@@ -117,14 +140,30 @@
         	
         	$(this).parent().addClass("active");
 
-        	$("#main-title").text($(this).text());	
-        	
-	        $.get($(this).text(), function (data) {
+        	$("#main-title").text($(this).text());
 
-	          $("#main-panel-body").html(data);
-	        });
-			
-      });
+        	
+	        	// add loading image to div
+   		 $('#main-panel-body').html('<div id="loading"><img src="./jar-loading.gif"></div>');
+    
+			    // run ajax request
+			    $.ajax({
+			        type: "GET",
+			        url: $(this).text(),
+			        success: function (data) {
+			            // replace div's content with returned data
+			         
+							setTimeout(function() {
+						    $('#main-panel-body').html(data);
+						},1000);
+			        }
+			   		
+			   		});
+					
+						
+			      });
+
+    
 
        });
 	
