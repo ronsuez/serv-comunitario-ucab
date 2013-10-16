@@ -48,7 +48,7 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = 'localhost';
+$db['default']['hostname'] = $_ENV['OPENSHIFT_MYSQL_DB_HOST'];
 $db['default']['username'] = 'adminNxTUqFY';
 $db['default']['password'] = 'B93lB-nwG6DG';
 $db['default']['database'] = 'servcom';
