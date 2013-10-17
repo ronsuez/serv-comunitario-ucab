@@ -36,6 +36,17 @@
  <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAplQ1u5cTjjFvQ7WKBajuP1LmnK-6pDkI&sensor=false">
                           </script>
 
+
+  <script src=<?php echo  base_url()."application/views/js/ckeditor/ckeditor.js" ; ?>  type="text/javascript" ></script>
+
+  <script src=<?php echo  base_url()."application/views/js/ckeditor/config.js" ; ?>  type="text/javascript" ></script>
+
+  <script src=<?php echo  base_url()."application/views/js/ckeditor/styles.js" ; ?>  type="text/javascript" ></script>
+
+  <link href="<?php echo base_url() ; ?>application/views/js/ckeditor/skins/moono/editor.css" rel="stylesheet">
+
+  <script src=<?php echo  base_url()."application/views/js/ckeditor/adapters/jquery.js" ; ?>  type="text/javascript" ></script>
+    
   </head>
 
   <body>
