@@ -10,6 +10,9 @@
       // Replace the <textarea id="editor"> with an CKEditor
       // instance, using default configurations.
 
+
+//Inicializdor para los editores de texto enriquecido para cad text-area
+
   // "article-body" is the name of a textarea element.
 var editor1 = CKEDITOR.inline( 'text-editor1' );
   
@@ -18,7 +21,33 @@ var editor2 = CKEDITOR.inline( 'text-editor2' );
 var editor3 = CKEDITOR.inline( 'text-editor3' );
   
     
-   
+//Inicializdor y handler para el validador del form insertar-proyecto
+
+   $("#addform-proyecto").validate({
+
+    rules:{
+
+      email:"required",
+      descripcion:"required",
+      diagnostico : "required"
+    },
+    messages: {
+      email: {
+        required: 'El campo es requerido'
+      },
+       titulo_proyecto: {
+        required: 'El campo es requerido'
+      },
+       descripcion: {
+        required: 'El campo es requerido'
+      },
+       diagnostico: {
+        required: 'El campo es requerido'
+      }
+    }
+  });
+
+
 
 </script>
 
@@ -34,15 +63,24 @@ var editor3 = CKEDITOR.inline( 'text-editor3' );
 </style>
 <div class="container">
 
-
+<!-- Custom rules and messages via data- attributes -->
+<form class="cmxform" id="addform-proyecto" method="post" action="">
 
      <div class="panel panel-default">
                <div class="panel-heading"> Datos basicos del proyecto </div>
                <div class="panel-body">
                    <div class="form-group">
                        <label for="titulo_proyecto">Título del proyecto</label>
-                       <input  type="text" class="form-control" id="titulo_proyecto">
+                       <input  name="titulo_proyecto" type="text" class="form-control" id="titulo_proyecto" data-rule-required="true">
                   </div>
+                      
+                      <div class="form-group">
+                       <label for="cmail">email</label>
+                      <input class="form-control" id="cemail" name="email" data-rule-email="true" 
+                          data-msg-email="Introduce una direccion de correo valida" />
+                      </div>
+
+
                   <div class="form-group">
                        <label for="suscribe">Organización o comunidad quien suscribe convenio</label>
                        <select class="form-control" id="suscribe">
@@ -82,8 +120,8 @@ var editor3 = CKEDITOR.inline( 'text-editor3' );
 
                   <div  class="form-group">
                       <label for="descripcion">Diagnostico</label>
-                      <div  id="text-editor1" contenteditable="true" name="diagnostico" class="text-area form-control"  placeholder="Diagnóstico de la situación, justificación, impacto.">
-                         Diagnóstico de la situación, justificación, impacto. 
+                      <div   id="text-editor1"  contenteditable="true" name="diagnostico" class="text-area form-control"  placeholder="Diagnóstico de la situación, justificación, impacto.">
+                        <textarea id="ccomment" name="comment" required></textarea>
                       </div>
                  </div>
                  <div class="form-group">
@@ -111,7 +149,7 @@ var editor3 = CKEDITOR.inline( 'text-editor3' );
 
                   <div class="form-group">
                       <label for="descripcion">Objetivos generales</label>
-                      <textarea class="form-control" id="descripcion" placeholder="Diagnóstico de la situación, justificación, impacto."></textarea>
+                      <textarea class="form-control" id="descripcion" placeholder="Diagnóstico de la situación, justificación, impacto." required></textarea>
                  </div>
                  <div class="form-group">
                       <label for="objetivos">Objetivos especificos</label>
@@ -161,6 +199,6 @@ var editor3 = CKEDITOR.inline( 'text-editor3' );
 
        </div> 
   <br><input type="submit" class="btn btn-default" id="enviar" value="Crear Proyecto"></input><br><br> 
-
+</form>
 
 </div> <!--/container-->

@@ -70,15 +70,14 @@
 	<h1>Welcome to CodeIgniter lol !</h1>
 
 	<div id="body">
-		<p>The page you are looking at is being generated dynamically by CodeIgniter.</p>
-
-		<p>If you would like to edit this page you'll find it located at:</p>
-		<code>application/views/welcome_message.php</code>
-
-		<p>The corresponding controller for this page is found at:</p>
-		<code>application/controllers/welcome.php</code>
-
-		<p>If you are exploring CodeIgniter for the very first time, you should start by reading the <a href="user_guide/">User Guide</a>.</p>
+		<h1>Bienvenido al sistema de gestion de Servicio comunatario</h1>
+		<p>
+			El sistema permite la administracion de los proyectos y prestadores de servicio comunitario
+			de la Universidad Catolica Andres Bello	, el sistema nace como una iniciativa
+			de los estudiantes de la catedra de Desarrollo del Software para automatizar
+			el proceso de gestion del servicio comunitario realizado por proyeccion a la comunidad y las escuelas de
+			cada carrera. 
+		</p>
 	</div>
 
 	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds</p>

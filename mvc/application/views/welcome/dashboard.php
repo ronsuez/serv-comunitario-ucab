@@ -211,18 +211,36 @@
 			</div>
 
 	        <div id="main-panel-body" class="panel-body">
-							<h1>Welcome to CodeIgniter , powered by openshift and git!</h1>
+							<h1>Bienvenido al sistema de gestion de Servicio comunitario</h1>
 
 						<div id="body">
-							<p>The page you are looking at is being generated dynamically by CodeIgniter.</p>
+							
+										<p>
+											El sistema permite la administracion de los proyectos y prestadores de servicio comunitario
+											de la Universidad Catolica Andres Bello.</p>
 
-							<p>If you would like to edit this page you'll find it located at:</p>
-							<code>application/views/welcome_message.php</code>
+										<p>
+											El proyecto nace como una iniciativa
+											de los estudiantes de la catedra de Desarrollo del Software para automatizar
+											el proceso de gestion del servicio comunitario realizado por proyeccion a la comunidad y las escuelas de
+											cada carrera. 
+										</p>
 
-							<p>The corresponding controller for this page is found at:</p>
-							<code>application/controllers/welcome.php</code>
+										<p>
+												El sistema esta escrito en PHP,JS,HTML,CSS utilizando el framework MVC <em>Codeingiter</em>
+												integrado con el framework CSS <em>Bootstrap</em> para el diseno de la interfaz de usuario. 
+										</p>
 
-							<p>If you are exploring CodeIgniter for the very first time, you should start by reading the <a href="user_guide/">User Guide</a>.</p>
+										<p>
+												Servcom-UCAB esta alojado en la nube a traves de un servicio de PaaS provisto por <em>Openshift</em> de Red Hat , ademas el 
+												codigo fuente del sistema esta publicado en github ya que se utilizo git como herramienta de control de versiones
+												para el desarrollo distribuido del sistema. 
+										</p>
+
+
+										<p>
+												EL repositorio de Servcom-UCAB esta disponible en <a href="https://github.com/ronsuez/serv-comunitario-ucab" target="_blank">Servcom-ucab</a>.							
+										</p>
 						</div>
 
 						<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds</p>
