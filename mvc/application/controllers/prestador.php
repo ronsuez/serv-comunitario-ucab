@@ -40,13 +40,13 @@ class Prestador extends CI_Controller {
 		public function insertar()
 	{
 	
-		$this->load->view($this->controller.'insertar_prestadores');
+		$this->load->view($this->controller.'insertar_prestador');
 	}
         
         	public function consultar()
 	{
 	
-		$this->load->view($this->controller.'panel');
+		$this->load->view($this->controller.'consultar_prestador');
 	}
 
 	     	public function asignar_pro()

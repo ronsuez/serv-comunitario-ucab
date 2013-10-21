@@ -40,6 +40,12 @@ class Localidad extends CI_Controller {
 	}
 
 
+	public function insertar()
+	{
+	
+		$this->load->view($this->controller.'insertar_localidad');
+	}
+
 	public function listar()
 	{
 		

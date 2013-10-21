@@ -56,8 +56,8 @@ $route['hola']="prestador/hola";
 
 /* routing for localidades controller */
 $route['Localidades']="localidad/index";
-$route['listar_loc']="localidad/insertar";
-
+$route['listar_loc']="localidad/listar";
+$route['insertar_localidad']="localidad/insertar";
 $route['404_override'] = '';
 
 
