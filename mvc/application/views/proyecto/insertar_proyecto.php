@@ -2,7 +2,7 @@
 
 <script type="text/javascript">
 
-
+$(document).ready(function() {
       // This call can be placed at any point after the
       // <textarea>, or inside a <head><script> in a
       // window.onload event handler.
@@ -11,14 +11,34 @@
       // instance, using default configurations.
 
 
-//Inicializdor para los editores de texto enriquecido para cad text-area
+//Inicializdor para los editores de texto enriquecido para cada text-area
 
-  // "article-body" is the name of a textarea element.
-var editor1 = CKEDITOR.inline( 'text-editor1' );
+
+  // "Text-area para la descripcion del proyecto.
+
+var editor1 = CKEDITOR.inline( 'text-diagnostico' );
   
-var editor2 = CKEDITOR.inline( 'text-editor2' );
+var editor2 = CKEDITOR.inline( 'text-justificacion' );
     
-var editor3 = CKEDITOR.inline( 'text-editor3' );
+var editor3 = CKEDITOR.inline( 'text-impacto' );
+  
+  // "Text-area para los objetivos del proyecto.
+  
+var editor4 = CKEDITOR.inline( 'text-objetivos-g' );
+  
+var editor5 = CKEDITOR.inline( 'text-objetivos-e' );
+    
+var editor6 = CKEDITOR.inline( 'text-metas' );
+
+var editor7 = CKEDITOR.inline( 'text-producto' );
+  
+  // "Text-area para la descripcion del proyecto.
+  
+var editor8 = CKEDITOR.inline( 'text-plan-trabajo' );
+  
+var editor9 = CKEDITOR.inline( 'text-recursos' );
+    
+var editor10 = CKEDITOR.inline( 'text-cronograma' );
   
     
 //Inicializdor y handler para el validador del form insertar-proyecto
@@ -47,7 +67,15 @@ var editor3 = CKEDITOR.inline( 'text-editor3' );
     }
   });
 
+ //carga via ajax el listado de localidades 
+        $.get("listar_loc", function (data) {
 
+              // update the section with the {categorie's list}
+
+              $("#ejecuta,#suscribe").html(data);
+            });
+
+    });
 
 </script>
 
@@ -73,14 +101,7 @@ var editor3 = CKEDITOR.inline( 'text-editor3' );
                        <label for="titulo_proyecto">Título del proyecto</label>
                        <input  name="titulo_proyecto" type="text" class="form-control" id="titulo_proyecto" data-rule-required="true">
                   </div>
-                      
-                      <div class="form-group">
-                       <label for="cmail">email</label>
-                      <input class="form-control" id="cemail" name="email" data-rule-email="true" 
-                          data-msg-email="Introduce una direccion de correo valida" />
-                      </div>
-
-
+                  
                   <div class="form-group">
                        <label for="suscribe">Organización o comunidad quien suscribe convenio</label>
                        <select class="form-control" id="suscribe">
@@ -120,21 +141,21 @@ var editor3 = CKEDITOR.inline( 'text-editor3' );
 
                   <div  class="form-group">
                       <label for="descripcion">Diagnostico</label>
-                      <div   id="text-editor1"  contenteditable="true" name="diagnostico" class="text-area form-control"  placeholder="Diagnóstico de la situación, justificación, impacto.">
+                      <div   id="text-diagnostico"  contenteditable="true" name="diagnostico" class="text-area form-control"  placeholder="Diagnóstico de la situación, justificación, impacto.">
                         <textarea id="ccomment" name="comment" required></textarea>
                       </div>
                  </div>
                  <div class="form-group">
-                      <label for="objetivos">Justificacion</label>
-                      <div id="text-editor2" contenteditable="true" class="text-area  form-control" placeholder="Objetivos generales, objetivos específicos, metas, producto.">
+                      <label for="justificacion">Justificacion</label>
+                      <div id="text-justificacion" contenteditable="true" class="text-area  form-control" placeholder="Objetivos generales, objetivos específicos, metas, producto.">
                         Objetivos generales, objetivos específicos, metas, producto.
                       </div>
                  </div>
 
                  <div class="form-group">
-                      <label for="estrategias">Impacto</label>
+                      <label for="impacto">Impacto</label>
                      
-                       <div id="text-editor3" contenteditable="true" class="text-area  form-control" placeholder="Objetivos generales, objetivos específicos, metas, producto.">
+                       <div id="text-impacto" contenteditable="true" class="text-area  form-control" placeholder="Objetivos generales, objetivos específicos, metas, producto.">
                         Producto, plan de trabajom recursos requeridos, cronograma.
                       </div>
                  </div>
@@ -148,21 +169,37 @@ var editor3 = CKEDITOR.inline( 'text-editor3' );
 
 
                   <div class="form-group">
-                      <label for="descripcion">Objetivos generales</label>
-                      <textarea class="form-control" id="descripcion" placeholder="Diagnóstico de la situación, justificación, impacto." required></textarea>
+                      <label for="text-objetivos-g">Objetivos generales</label>
+          
+                       <div id="text-objetivos-g" contenteditable="true" class="text-area  form-control" placeholder="Objetivos generales, objetivos específicos, metas, producto.">
+                        Producto, plan de trabajom recursos requeridos, cronograma.
+                      </div>
+
                  </div>
+
                  <div class="form-group">
-                      <label for="objetivos">Objetivos especificos</label>
-                      <textarea class="form-control" id="Objetivos" placeholder="Objetivos generales, objetivos específicos, metas, producto."></textarea>
-                 </div>
+                      <label for="text-objetivos-e">Objetivos especificos</label>
+                       <div id="text-objetivos-e" contenteditable="true" class="text-area  form-control" placeholder="Objetivos generales, objetivos específicos, metas, producto.">
+                        Producto, plan de trabajom recursos requeridos, cronograma.
+                      </div>
+                
+                </div>
+
                  <div class="form-group">
-                      <label for="estrategias">Metas</label>
-                      <textarea class="form-control" id="descripcion" placeholder="Producto, plan de trabajom recursos requeridos, cronograma."></textarea>
+
+                      <label for="text-metas">Metas</label>
+                      <div id="text-metas" contenteditable="true" class="text-area  form-control" placeholder="Objetivos generales, objetivos específicos, metas, producto.">
+                        Producto, plan de trabajom recursos requeridos, cronograma.
+                      </div>
+                 
                  </div>
             
                  <div class="form-group">
-                      <label for="estrategias">Producto</label>
-                      <textarea class="form-control" id="descripcion" placeholder="Producto, plan de trabajom recursos requeridos, cronograma."></textarea>
+                      <label for="text-producto">Producto</label>
+                       <div id="text-producto" contenteditable="true" class="text-area  form-control" placeholder="Objetivos generales, objetivos específicos, metas, producto.">
+                        Producto, plan de trabajom recursos requeridos, cronograma.
+                      </div>
+
                  </div>
             
 
@@ -176,21 +213,30 @@ var editor3 = CKEDITOR.inline( 'text-editor3' );
               <div class="panel-body">
 
 
-                  <div class="form-group">
-                      <label for="descripcion">Producto</label>
-                      <textarea class="form-control" id="descripcion" placeholder="Diagnóstico de la situación, justificación, impacto."></textarea>
-                 </div>
+      
+                 
                  <div class="form-group">
-                      <label for="objetivos">Plan de trabajo</label>
-                      <textarea class="form-control" id="Objetivos" placeholder="Objetivos generales, objetivos específicos, metas, producto."></textarea>
+                      <label for="text-plan-trabajo">Plan de trabajo</label>
+                    <div id="text-plan-trabajo" contenteditable="true" class="text-area  form-control" placeholder="Objetivos generales, objetivos específicos, metas, producto.">
+                        Producto, plan de trabajom recursos requeridos, cronograma.
+                      </div>
+                 
                  </div>
+                 
                  <div class="form-group">
-                      <label for="estrategias">Recursos requeridos</label>
-                      <textarea class="form-control" id="descripcion" placeholder="Producto, plan de trabajom recursos requeridos, cronograma."></textarea>
+                      <label for="text-recursos">Recursos requeridos</label>
+                      <div id="text-recursos" contenteditable="true" class="text-area  form-control" placeholder="Objetivos generales, objetivos específicos, metas, producto.">
+                        Producto, plan de trabajom recursos requeridos, cronograma.
+                      </div>
+                 
                  </div>
+                 
                  <div class="form-group">
-                      <label for="estrategias">Cronograma</label>
-                      <textarea class="form-control" id="descripcion" placeholder="Producto, plan de trabajom recursos requeridos, cronograma."></textarea>
+                      <label for="text-cronograma">Cronograma</label>
+                      <div id="text-cronograma" contenteditable="true" class="text-area  form-control" placeholder="Objetivos generales, objetivos específicos, metas, producto.">
+                        Producto, plan de trabajom recursos requeridos, cronograma.
+                      </div>
+                 
                  </div>
            
 

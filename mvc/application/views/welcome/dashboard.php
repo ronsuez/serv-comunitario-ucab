@@ -131,6 +131,21 @@
     // using JQUERY's ready method to know when all dom elements are rendered
     $( document ).ready(function () {
       // set an on click on the button
+
+
+		$( document ).ajaxStart(function() {
+		  console.log( "Triggered ajaxStart handler." );
+
+
+		 
+		})
+
+
+		$( document ).ajaxComplete(function() {
+		  console.log( "Triggered ajaxComplete handler." );
+
+		})
+
 	
       $("#main-panel a").click(function (e) {
 
@@ -144,19 +159,23 @@
 
         	
 	        	// add loading image to div
-   		 $('#main-panel-body').html('<div id="loading"><img src="./jar-loading.gif"></div>');
-    
+  
 			    // run ajax request
 			    $.ajax({
-			        type: "GET",
-			        url: $(this).text(),
-			        success: function (data) {
-			            // replace div's content with returned data
-			         
-							setTimeout(function() {
-						    $('#main-panel-body').html(data);
-						},1000);
-			        }
+			    		  beforeSend: function(){
+					     // Handle the beforeSend event
+					      	$('#main-panel-body').html('<div id="loading"><img src="./jar-loading.gif"></div>');
+    
+					   },
+					        type: "GET",
+					        url: $(this).text(),
+					        success: function (data) {
+					            // replace div's content with returned data
+					         
+									setTimeout(function() {
+								    $('#main-panel-body').html(data);
+								},1000);
+					        }
 			   		
 			   		});
 					

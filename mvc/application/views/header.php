@@ -33,9 +33,9 @@
     
     
 
-<!-- Libreria para el uso de la API de google maps 
+<!-- Libreria para el uso de la API de google maps -->
  <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAplQ1u5cTjjFvQ7WKBajuP1LmnK-6pDkI&sensor=false">
-                          </script>-->
+                          </script>
 
 
 <!-- Librerias para el editor de texto enriquecido (ckeditor.js)-->
