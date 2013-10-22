@@ -7,6 +7,7 @@ Desarrolladores :
  Nicolas Quijada 
  Ronald Suez
  Daniel Iglesias
+ Mireya Orta
  y contando...
 
  Directorio de la aplicacion MVC 
