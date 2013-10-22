@@ -14,7 +14,7 @@ Desarrolladores :
 	+aplicacion
 		+---config
 			--+config.php (se especifica la base_url)
-			--+autoload.php (se especifica la base_url)
+			--+autoload.php (se cargan las librerias del sistema)
 			--+database.php (Se especifican los parametros de conexion a la BD)
 			--+routes.php (defines todas las rutas de tu aplicacion)
 		+---controllers
@@ -22,3 +22,4 @@ Desarrolladores :
 		+---views
 		
 	+system
+(
