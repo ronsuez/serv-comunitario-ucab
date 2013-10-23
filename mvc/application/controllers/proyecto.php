@@ -50,37 +50,6 @@ class Proyecto extends CI_Controller {
 	}
 
 
-	public function registrar(){
-
-		$informacion = json_decode($this->input->post('texto'));
-
-		$datos = json_decode($this->input->post('datos'));
-
-			//print_r($informacion);
-			//$rows = $informacion->fetchAll();
-
-			foreach ($datos as $item) {
-							echo $item->name." :".$item->value."<br>";
-
-							echo "<br>";
-				}
-
-				echo ("<br>informacion <br>");
-
-			foreach ($informacion as $item2) {
-				
-							echo $item2->name." :".$item2->value."<br>";
-
-							echo "<br>";
-				}
-
-			
-
-		}
-
-	
-
-
 }
 
 /* End of file welcome.php */
