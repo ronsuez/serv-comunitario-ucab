@@ -1,7 +1,28 @@
 proyecto de servicio comunitario UCAB Guayana , desarrollado por
-la clase de Desarrollo de software dictada por el Prof. Julio Canelon
+la clase de Desarrollo de software dictada por el Prof. Julio Canelon.
 
-Para la parte de los proyectos , 
+Desarrolladores :
+ Oscar Bastardo
+ Juan Pareles
+ Nicolas Quijada 
+ Ronald Suez
+ Daniel Iglesias
+ Mireya Orta
+ y contando...
 
-la organizacion o localidad que suscribe el convenio es un listado
-de las localidades donde trabaja el servicio comunitario
+ Directorio de la aplicacion MVC 
+	
+	MVC
+	+aplicacion
+		+---config
+			--+config.php (se especifica la base_url)
+			--+autoload.php (se cargan las librerias del sistema)
+			--+database.php (Se especifican los parametros de conexion a la BD)
+			--+routes.php (defines todas las rutas de tu aplicacion)
+		+---controllers
+		+---models
+		+---views
+		
+	+system
+	+--otras librerias !
+(
