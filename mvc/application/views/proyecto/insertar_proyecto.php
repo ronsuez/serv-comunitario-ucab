@@ -52,19 +52,12 @@ var editor10 = CKEDITOR.inline( 'text-cronograma' );
       diagnostico : "required"
     },
     messages: {
-      email: {
-        required: 'El campo es requerido'
-      },
+     
        titulo_proyecto: {
-        required: 'El campo es requerido'
-      },
-       descripcion: {
-        required: 'El campo es requerido'
-      },
-       diagnostico: {
         required: 'El campo es requerido'
       }
     }
+  
   });
 
  //carga via ajax el listado de localidades 
@@ -76,6 +69,50 @@ var editor10 = CKEDITOR.inline( 'text-cronograma' );
             });
 
     });
+
+  $("#addform-proyecto").submit(function (e){
+
+
+      e.preventDefault();
+
+
+    if ($(this).valid()){
+
+        var dinamic_text = "[";
+
+       $('div [class~=text-area]').each(function (){
+
+        if($(this).attr("id") === "text-cronograma"){
+
+                  dinamic_text = dinamic_text +'{"name":"'+$(this).attr("id")+'","value":"'+$(this).html()+'"}]';
+        
+                  }else{
+                      
+                    dinamic_text = dinamic_text +'{"name":"'+$(this).attr("id")+'","value":"'+$(this).html()+'"},';
+
+                  }
+
+                  
+        });
+
+        var titulo = JSON.stringify($(this).serializeArray());
+        
+      
+
+          $.post("registrar_proyecto",{texto: dinamic_text,
+                                       datos: titulo  
+                },function (data){
+
+
+                    $("#inscribir").html(data);
+
+              });
+
+    }
+
+  });
+
+
 
 </script>
 
@@ -104,13 +141,13 @@ var editor10 = CKEDITOR.inline( 'text-cronograma' );
                   
                   <div class="form-group">
                        <label for="suscribe">Organización o comunidad quien suscribe convenio</label>
-                       <select class="form-control" id="suscribe">
+                       <select class="form-control" name="suscribe" id="suscribe">
                            <option value="">Seleccione</option>
                       </select>
                  </div>
                  <div class="form-group">
                      <label for="ejecuta">Organización o comunidad donde se ejecuta el proyecto</label>
-                     <select class="form-control" id="ejecuta">
+                     <select class="form-control" name="ejecuta" id="ejecuta">
                          <option value="">Seleccione</option>
                     </select>
                </div>
@@ -141,14 +178,19 @@ var editor10 = CKEDITOR.inline( 'text-cronograma' );
 
                   <div  class="form-group">
                       <label for="descripcion">Diagnostico</label>
-                      <div   id="text-diagnostico"  contenteditable="true" name="diagnostico" class="text-area form-control"  placeholder="Diagnóstico de la situación, justificación, impacto.">
-                        <textarea id="ccomment" name="comment" required></textarea>
+                      <div   id="text-diagnostico"  contenteditable="true" name="diagnostico" class="text-area form-control">
+                        Caracterización de la situación que enmarca al problema, es 
+                        decir las condiciones en las cuales se encuentra  la localidad u 
+                        organización en la que se ejecutará el proyecto. 
+
                       </div>
                  </div>
                  <div class="form-group">
                       <label for="justificacion">Justificacion</label>
                       <div id="text-justificacion" contenteditable="true" class="text-area  form-control" placeholder="Objetivos generales, objetivos específicos, metas, producto.">
-                        Objetivos generales, objetivos específicos, metas, producto.
+                        Motivaciones que llevan a desarrollar el proyecto (por qué y 
+                        para qué). Valor o importancia de éste.  
+
                       </div>
                  </div>
 
@@ -156,7 +198,10 @@ var editor10 = CKEDITOR.inline( 'text-cronograma' );
                       <label for="impacto">Impacto</label>
                      
                        <div id="text-impacto" contenteditable="true" class="text-area  form-control" placeholder="Objetivos generales, objetivos específicos, metas, producto.">
-                        Producto, plan de trabajom recursos requeridos, cronograma.
+                        Estimación de cantidad de personas que se beneficiarán directa
+                          e indirectamente  con el proyecto. Descripción de ventajas y 
+                          oportunidades que acarreará para la comunidad. 
+
                       </div>
                  </div>
             </div>
@@ -172,7 +217,7 @@ var editor10 = CKEDITOR.inline( 'text-cronograma' );
                       <label for="text-objetivos-g">Objetivos generales</label>
           
                        <div id="text-objetivos-g" contenteditable="true" class="text-area  form-control" placeholder="Objetivos generales, objetivos específicos, metas, producto.">
-                        Producto, plan de trabajom recursos requeridos, cronograma.
+                      Propósito global que se persigue.
                       </div>
 
                  </div>
@@ -180,7 +225,9 @@ var editor10 = CKEDITOR.inline( 'text-cronograma' );
                  <div class="form-group">
                       <label for="text-objetivos-e">Objetivos especificos</label>
                        <div id="text-objetivos-e" contenteditable="true" class="text-area  form-control" placeholder="Objetivos generales, objetivos específicos, metas, producto.">
-                        Producto, plan de trabajom recursos requeridos, cronograma.
+                        Propósitos específicos del proyecto a través de los cuales se 
+                        alcanzará el objetivo general. 
+
                       </div>
                 
                 </div>
@@ -189,7 +236,7 @@ var editor10 = CKEDITOR.inline( 'text-cronograma' );
 
                       <label for="text-metas">Metas</label>
                       <div id="text-metas" contenteditable="true" class="text-area  form-control" placeholder="Objetivos generales, objetivos específicos, metas, producto.">
-                        Producto, plan de trabajom recursos requeridos, cronograma.
+                        Cuantificación física de  los  objetivos específicos del proyecto.
                       </div>
                  
                  </div>
@@ -197,7 +244,10 @@ var editor10 = CKEDITOR.inline( 'text-cronograma' );
                  <div class="form-group">
                       <label for="text-producto">Producto</label>
                        <div id="text-producto" contenteditable="true" class="text-area  form-control" placeholder="Objetivos generales, objetivos específicos, metas, producto.">
-                        Producto, plan de trabajom recursos requeridos, cronograma.
+                        Elementos a ser entregados a la organización o comunidad 
+                        como resultado final del proyecto (pueden ser tangibles o 
+                        intangibles).
+
                       </div>
 
                  </div>
@@ -218,7 +268,10 @@ var editor10 = CKEDITOR.inline( 'text-cronograma' );
                  <div class="form-group">
                       <label for="text-plan-trabajo">Plan de trabajo</label>
                     <div id="text-plan-trabajo" contenteditable="true" class="text-area  form-control" placeholder="Objetivos generales, objetivos específicos, metas, producto.">
-                        Producto, plan de trabajom recursos requeridos, cronograma.
+                        Relación entre las metas y los objetivos, las actividades y las 
+                        acciones y los recursos que permitirán alcanzar el objetivo 
+                        general (que queremos lograr, lo que haremos y cómo lo haremos)
+
                       </div>
                  
                  </div>
@@ -226,15 +279,22 @@ var editor10 = CKEDITOR.inline( 'text-cronograma' );
                  <div class="form-group">
                       <label for="text-recursos">Recursos requeridos</label>
                       <div id="text-recursos" contenteditable="true" class="text-area  form-control" placeholder="Objetivos generales, objetivos específicos, metas, producto.">
-                        Producto, plan de trabajom recursos requeridos, cronograma.
-                      </div>
+                        <ol>
+                          <li>Materiales<br></li>
+                          <li>Humanos<br></li>
+                          <li>Financieros</li>
+                        </ol>
+                    </div>
                  
                  </div>
                  
                  <div class="form-group">
                       <label for="text-cronograma">Cronograma</label>
                       <div id="text-cronograma" contenteditable="true" class="text-area  form-control" placeholder="Objetivos generales, objetivos específicos, metas, producto.">
-                        Producto, plan de trabajom recursos requeridos, cronograma.
+                        Diagrama de la secuencia de actividades a desarrollar para 
+                        ejecutar el proyecto y los tiempos previstos para la realización 
+                        de cada una de ellas (anexar si es necesario)
+
                       </div>
                  
                  </div>
