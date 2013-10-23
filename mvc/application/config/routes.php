@@ -46,7 +46,7 @@ $route['404_override'] = '';
 $route['Proyectos']="proyecto/index";
 $route['insertar_proyecto']="proyecto/inscribir";
 $route['consultar_proyecto']="proyecto/modificar";
-
+$route['registrar_proyecto']="proyecto/registrar";
 /* routing for prestadores controller */
 $route['Prestadores']="prestador/index";
 $route['insertar_prestador']="prestador/insertar";
