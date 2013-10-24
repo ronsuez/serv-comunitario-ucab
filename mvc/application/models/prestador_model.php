@@ -16,14 +16,14 @@
 public function listar_datos_prestador($cedula){
 
             /* Query Datos Personales  */
-            $query1 = $this->db->query("SELECT CI_prestador, Nombre, Apellido, Email, Celular, Telefono, Direccion 
+            $query1 = $this->db->query("SELECT ci, nombre, apellido, email, celular, telefono, direccion 
                                         FROM  `prestador` 
-                                        WHERE CI_prestador = $cedula");
+                                        WHERE ci = $cedula");
 
             /* Query Datos Academicos */
-            $query2 = $this->db->query("SELECT No_exp, Escuela, Semestre, Mencion
+            $query2 = $this->db->query("SELECT no_exp, escuela, semestre, mencion
                                         FROM  `prestador` 
-                                        WHERE CI_prestador = $cedula");
+                                        WHERE ci = $cedula");
 
             $salida = $query1->result_array();
 
