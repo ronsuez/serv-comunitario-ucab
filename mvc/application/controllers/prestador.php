@@ -28,6 +28,8 @@ class Prestador extends CI_Controller {
 
 			$this->controller="prestador/";
 
+			$this->load->model("prestador_model");
+
 		}
 
 
@@ -60,7 +62,23 @@ class Prestador extends CI_Controller {
 	
 		$this->load->view($this->controller.'hola');
 	}
-        
+     
+     	public function ver_datos_personales()
+	{
+	 				$id=$this->input->post('id');
+
+			 $salida=$this->prestador_model->listar_datos_prestador($id);
+	
+			 	if($salida == -1){
+
+			 		echo "No se encontro";
+			 	}else{
+
+					
+			 	return $salida;
+		 		
+			 	}
+	}   
         
 
 }

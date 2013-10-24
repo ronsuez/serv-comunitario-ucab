@@ -47,13 +47,14 @@ $route['Proyectos']="proyecto/index";
 $route['insertar_proyecto']="proyecto/inscribir";
 $route['consultar_proyecto']="proyecto/modificar";
 
+
 /* routing for prestadores controller */
 $route['Prestadores']="prestador/index";
 $route['insertar_prestador']="prestador/insertar";
 $route['consultar_prestador']="prestador/consultar";
 $route['asignar_proyecto']="prestador/asignar_pro";
 $route['hola']="prestador/hola";
-
+$route['consultar_datos_prestador']="prestador/ver_datos_personales";
 /* routing for localidades controller */
 $route['Localidades']="localidad/index";
 $route['listar_loc']="localidad/listar";

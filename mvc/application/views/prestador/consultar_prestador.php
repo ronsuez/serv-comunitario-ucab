@@ -12,9 +12,18 @@ $(document).ready(function(){
   $('#myModal').modal("hide");
 
 
-    $("#consultar_proyecto").click(function(){
+    $("#consultar_prestador").click(function(){
 
+
+        alert($("#id_cedula").val());
           
+          var cedula=$("#id_cedula").val();
+
+          $.post("consultar_datos_prestador",{id:cedula},function(data){
+
+              
+ 
+          });  
     });
 
 
@@ -101,9 +110,9 @@ button a:hover{
             <div class="panel-body">
               
               <div class="input-group input-group-sm">
-                <input type="text" class="form-control" placeholder="Introduzca nombre o c&eacute;dula del prestador"></input>
+                <input id="id_cedula" type="text" class="form-control" placeholder="Introduzca nombre o c&eacute;dula del prestador"></input>
                 <span class="input-group-btn">
-                  <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+                  <button id="consultar_prestador" class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
                 </span>
               </div><!-- /input-group -->
 
@@ -160,7 +169,6 @@ button a:hover{
     </div>
   </div>
 
-
   <div class="panel panel-default">
     <div class="panel-heading">
       <h4 class="panel-title">
@@ -182,6 +190,9 @@ button a:hover{
 </div>
 
 
+<br><br>
+<br><br>
+<br><br>
 
 <ol class="breadcrumb">
   <h5> Proyecto actuales</h5>
