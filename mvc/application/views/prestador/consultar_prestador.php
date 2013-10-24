@@ -21,8 +21,32 @@ $(document).ready(function(){
 
           $.post("consultar_datos_prestador",{id:cedula},function(data){
 
-              
- 
+             var datos_personales =JSON.parse(data)[0];
+
+             // console.log(datos_personales[0].Telefono);
+
+
+            $("#nombre").val(datos_personales.Nombre);
+
+
+            $("#apellido").val(datos_personales.Apellido);
+
+
+            $("#celular").text(datos_personales.Celular);
+
+
+            $("#telefono").text(datos_personales.Telefono);
+
+
+            $("#email").text(datos_personales.Email);
+
+
+            $("#cedula").text(datos_personales.CI_prestador);
+
+
+            $("#direccion").text(datos_personales.Direccion);
+
+
           });  
     });
 
@@ -133,9 +157,9 @@ button a:hover{
           <fieldset disabled>
             <div class="form-group">
               <label>Nombre</label>
-              <input type="text" id="disabledTextInput" class="form-control" placeholder="Nombre del Alumno">
+              <input type="text" id="nombre" class="form-control" placeholder="Nombre del Alumno">
               <label>Apellido</label>
-              <input type="text" id="disabledTextInput" class="form-control" placeholder="Apellido del Alumno">
+              <input type="text" id="apellido" class="form-control" placeholder="Apellido del Alumno">
             </div>
           </fieldset>
         </form>
@@ -155,7 +179,7 @@ button a:hover{
     <div class="panel-heading">
       <h4 class="panel-title">
         <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-          Datos Personales
+           Datos Personales
         </a>
       </h4>
     </div>
@@ -163,7 +187,13 @@ button a:hover{
       <div class="panel-body">
         
 
-        sentencia sql
+         <ul>
+                <li>Cedula : <span id="cedula"></span></li>
+                <li>Telefono :<span id="telefono"></span></li>
+                <li>Email :<span id="email"></span></li>
+                <li>Celular :<span id="celular"></span></li>
+                <li>Direccion :<span id="direccion"></span></li>
+            </ul>
 
       </div>
     </div>

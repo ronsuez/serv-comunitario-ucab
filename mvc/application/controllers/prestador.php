@@ -75,7 +75,7 @@ class Prestador extends CI_Controller {
 			 	}else{
 
 					
-			 	return $salida;
+			 		echo json_encode($salida);
 		 		
 			 	}
 	}   

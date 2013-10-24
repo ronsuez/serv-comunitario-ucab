@@ -55,6 +55,9 @@
 
 <script src=<?php echo  base_url()."application/views/js/jquery.validator/jquery.validate.js" ; ?>  type="text/javascript"></script>
 
+<script src=<?php echo  base_url()."application/libraries/jquery.json-2.4.js" ; ?>  type="text/javascript"></script>
+
+
 
   </head>
 

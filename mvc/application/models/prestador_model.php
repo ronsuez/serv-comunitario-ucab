@@ -25,7 +25,7 @@ public function listar_datos_prestador($cedula){
                                         FROM  `prestador` 
                                         WHERE CI_prestador = $cedula");
 
-            $salida = array('datos_personales' => $query1->result_array(), 'datos_academicos' =>$query2->result_array());
+            $salida = $query1->result_array();
 
                 if ($query1->num_rows() > 0 || $query2->num_rows() > 0)
                 {
