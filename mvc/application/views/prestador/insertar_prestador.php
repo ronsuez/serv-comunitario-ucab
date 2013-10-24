@@ -1,5 +1,5 @@
 
-
+ <script>
 	<div class="container">
 		<div class="panel panel-default">
 			<div class="panel-body">
@@ -11,7 +11,7 @@
 				</div><!-- /input-group -->
 				<br>
 			
-      <form name="form-prestador" action="#" method="POST" >
+      <form name="form-prestador" id="form-prestador" action="#" method="POST" >
 
         <!-- Datos personales -->
         <div class="panel panel-info">
@@ -20,11 +20,11 @@
 
               <div class="form-group">
                   <label for="">Nombres</label>
-                  <input name="word" type="text" class="form-control" placeholder="Introduzca los nombres del prestador"></input>
+                  <input name="nombres" type="text" class="form-control" placeholder="Introduzca los nombres del prestador"></input>
                 </div>
                 <div class="form-group">
                   <label for="">Apellidos</label>
-                  <input name="word" type="text" class="form-control" placeholder="Introduzca los apellidos del prestador"></input>
+                  <input name="apellidos" type="text" class="form-control" placeholder="Introduzca los apellidos del prestador"></input>
                 </div>
 
             <div class="form-group">
@@ -33,15 +33,15 @@
             </div>
             <div class="form-group">  
               <label for="">Tel&eacute;fono celular</label>
-              <input name="phone" type="text" class="form-control" placeholder="Introduzca un tel&eacute;fono celular"></input>
+              <input name="telefono" type="text" class="form-control" placeholder="Introduzca un tel&eacute;fono celular"></input>
             </div>
             <div class="form-group">
               <label for="">Tel&eacute;fono de habitaci&oacute;n</label>
-              <input  name="phone" type="text" class="form-control" placeholder="Introduzca un tel&eacute;fono habitaci&oacute;n"></input>
+              <input  name="telefono" type="text" class="form-control" placeholder="Introduzca un tel&eacute;fono habitaci&oacute;n"></input>
             </div>
             <div class="form-group">
               <label for="">Direccion de habitaci&oacute;n</label>
-              <input   type="text" class="form-control" placeholder="Introduzca una direccion de habitaci&oacute;n"></input>
+              <input  name="direccion" type="text" class="form-control" placeholder="Introduzca una direccion de habitaci&oacute;n"></input>
             </div>
           </div>
         </div>
@@ -88,3 +88,81 @@
     </div><!-- /panel panel-default -->
   
 	</div><!-- /container -->
+
+
+//funcionalidad para la regla alfebetica
+jQuery.validator.addMethod("alpha", function(value, element) {
+          return this.optional(element) || value == value.match(/^[a-zA-Z ]+$/);
+},"Solo caracteres (Aa-Zz).");
+        
+    $( "#form-prestador" ).validate({
+
+           success: function(label) {
+                  //label.addClass("valid").text("Correcto!")
+                  $("label.valid, label.error").remove();
+              },
+
+          rules: {
+            nombre: {
+              required: true,
+              alpha:true
+              },
+              responsable :{
+                required: true,
+                alpha:true
+              },email :{
+                  required: true,
+                  email: true
+                },telefono:{
+                  required: true,
+                  number: true,
+                  maxlength:11,
+                  minlength:11
+                },direccion:{
+                    required:true
+                },parroquia:{
+                  required:true
+                },gender:{
+                  required:true
+                }
+              },
+
+              messages:{
+                nombre : {
+                      required:"Este campo es requerido",
+                },responsable :{
+                      required:"Este campo es requerido"
+
+                },email : {
+                  required:"Este campo es requerido",
+                  email:"Introduzca una direcion de correo valida"
+
+                },telefono :{
+                  required :"Este campo es requerido",
+                  number :"debe contener solo digitos (0-9)",
+                  minlength:"debe tener 11 digitos(e.g 0416585684)",
+                  maxlength:"debe tener maximo 11 digitos (e.g 0416585684)"
+                },direccion:{
+                  required:"Debe especificar la direccion de la localidad"
+                },parroquia:{
+                  required:"Debe seleccionar una parroquia"
+                }
+              }
+            
+          });
+
+           $("#form-prestador").submit(function (e){
+
+
+      e.preventDefault();
+
+
+          if ($(this).valid()){
+                alert("valid");
+              }else{  
+              alert("non valid");
+              }
+                        
+        });
+
+        </script>

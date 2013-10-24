@@ -6,6 +6,9 @@ Desarrolladores :
  Juan Pareles
  Nicolas Quijada 
  Ronald Suez
+ Daniel Iglesias
+ Mireya Orta
+ Ana Urquiola
  y contando...
 
  Directorio de la aplicacion MVC 
@@ -22,4 +25,5 @@ Desarrolladores :
 		+---views
 		
 	+system
+	+--otras librerias !
 (
