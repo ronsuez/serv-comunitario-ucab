@@ -1,6 +1,7 @@
 
 	<div class="container">
-		<div class="panel panel-default">
+		
+    <div class="panel panel-default">
 			<div class="panel-body">
 				<div class="input-group input-group-sm">
 					<input type="text" class="form-control" placeholder="Introduzca nombre o c&eacute;dula del prestador"></input>
@@ -8,22 +9,26 @@
 						<button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
 					</span>
 				</div><!-- /input-group -->
-				<br>
-			
-      <form name="form-prestador" id="form-prestador" action="#" method="POST" >
+				
+		</div>
+  </div>
+      <br>
+
+
+  <form name="form-prestador" id="form-prestador" action="#" method="POST" >
 
         <!-- Datos personales -->
         <div class="panel panel-info">
           <div class="panel-heading">Datos Personales</div>
           <div class="panel-body">
-
+   
               <div class="form-group">
                   <label for="">Nombres</label>
-                  <input name="nombres" type="text" class="form-control" placeholder="Introduzca los nombres del prestador"></input>
+                  <input name="nombre" type="text" class="form-control" placeholder="Introduzca los nombres del prestador"></input>
                 </div>
                 <div class="form-group">
                   <label for="">Apellidos</label>
-                  <input name="apellidos" type="text" class="form-control" placeholder="Introduzca los apellidos del prestador"></input>
+                  <input name="apellido" type="text" class="form-control" placeholder="Introduzca los apellidos del prestador"></input>
                 </div>
 
             <div class="form-group">
@@ -32,11 +37,11 @@
             </div>
             <div class="form-group">  
               <label for="">Tel&eacute;fono celular</label>
-              <input name="telefono" type="text" class="form-control" placeholder="Introduzca un tel&eacute;fono celular"></input>
+              <input name="telefono_cel" type="text" class="form-control" placeholder="Introduzca un tel&eacute;fono celular"></input>
             </div>
             <div class="form-group">
               <label for="">Tel&eacute;fono de habitaci&oacute;n</label>
-              <input  name="telefono" type="text" class="form-control" placeholder="Introduzca un tel&eacute;fono habitaci&oacute;n"></input>
+              <input  name="telefono_hab" type="text" class="form-control" placeholder="Introduzca un tel&eacute;fono habitaci&oacute;n"></input>
             </div>
             <div class="form-group">
               <label for="">Direccion de habitaci&oacute;n</label>
@@ -72,19 +77,24 @@
 
             </div>
             
+
+              <div class="form-group">
+
+                <!-- Indicates a successful or positive action -->
+                      <input type="submit" class="btn btn-success" value="Enviar" ></input>
+
+                      <!-- Indicates caution should be taken with this action -->
+                      <button type="reset" class="btn btn-warning">Warning</button>
+
+                
+              </div>  
+              
+              </form> <!-- /form-prestador-->
+               
           </div>
         </div>
 
-      
-    <!-- Indicates a successful or positive action -->
-          <input type="submit" class="btn btn-success" value="Enviar" ></input>
-
-          <!-- Indicates caution should be taken with this action -->
-          <button type="reset" class="btn btn-warning">Warning</button>
-
-   </form> <!-- /form-prestador-->
-      </div><!-- /panel-body -->
-    </div><!-- /panel panel-default -->
+    
   
 	</div><!-- /container -->
 
@@ -101,52 +111,57 @@ jQuery.validator.addMethod("alpha", function(value, element) {
            success: function(label) {
                   //label.addClass("valid").text("Correcto!")
                   $("label.valid, label.error").remove();
-              },
-
-          rules: {
+            },errorPlacement: function (error, element) {
+                //$(element).tooltipster('update', $(error).text());
+                  alert($(element).text()+":"+$(error).text());
+            
+            },rules: {
             nombre: {
               required: true,
               alpha:true
               },
-              responsable :{
+              apellido :{
                 required: true,
                 alpha:true
               },email :{
                   required: true,
                   email: true
-                },telefono:{
+                },telefono_hab:{
                   required: true,
                   number: true,
                   maxlength:11,
                   minlength:11
                 },direccion:{
                     required:true
-                },parroquia:{
-                  required:true
-                },gender:{
-                  required:true
+                },telefono_cel:{
+                  required: true,
+                  number: true,
+                  maxlength:11,
+                  minlength:11
                 }
               },
 
               messages:{
                 nombre : {
                       required:"Este campo es requerido",
-                },responsable :{
+                },apellido :{
                       required:"Este campo es requerido"
 
                 },email : {
                   required:"Este campo es requerido",
                   email:"Introduzca una direcion de correo valida"
-
-                },telefono :{
+                },telefono_hab :{
+                  required :"Este campo es requerido",
+                  number :"debe contener solo digitos (0-9)",
+                  minlength:"debe tener 11 digitos(e.g 0416585684)",
+                  maxlength:"debe tener maximo 11 digitos (e.g 0416585684)"
+                },telefono_cel :{
                   required :"Este campo es requerido",
                   number :"debe contener solo digitos (0-9)",
                   minlength:"debe tener 11 digitos(e.g 0416585684)",
                   maxlength:"debe tener maximo 11 digitos (e.g 0416585684)"
                 },direccion:{
                   required:"Debe especificar la direccion de la localidad"
-                },parroquia:{
-                  required:"Debe seleccionar una parroquia"
                 }
               }
             
