@@ -8,6 +8,7 @@ Desarrolladores :
  Ronald Suez
  Daniel Iglesias
  Mireya Orta
+ Ana Urquiola
  y contando...
 
  Directorio de la aplicacion MVC 
