@@ -52,13 +52,6 @@
         });
     </script>
 
-<style type="text/css">
-    .gender{
-
-      display: inline-block;
-    }
-</style>
-  
     
   <div class="container">
       

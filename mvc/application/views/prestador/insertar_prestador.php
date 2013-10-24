@@ -1,5 +1,4 @@
 
- <script>
 	<div class="container">
 		<div class="panel panel-default">
 			<div class="panel-body">
@@ -52,15 +51,15 @@
           <div class="panel-body">
             <div class="form-group">
               <label for="">Numero de expediente</label>
-              <input type="text" class="form-control" placeholder="Introduzca el numero de expediente"></input>
+              <input type="expediente" class="form-control" placeholder="Introduzca el numero de expediente"></input>
             </div>
             <div class="form-group">
               <label for="">Escuela</label>
-              <input type="text" class="form-control" placeholder="Introduzca el nombre de la escuela"></input>
+              <input type="escuela" class="form-control" placeholder="Introduzca el nombre de la escuela"></input>
             </div>
             <div class="form-group">
               <label for="">Menci&oacute;n</label>
-              <input type="text" class="form-control" placeholder="Introduzca la menci&oacute;n"></input>
+              <input type="escuela" class="form-control" placeholder="Introduzca la menci&oacute;n"></input>
             </div>
 
              <div class="form-group">
@@ -78,7 +77,7 @@
 
       
     <!-- Indicates a successful or positive action -->
-          <button type="submit" class="btn btn-success">Success</button>
+          <input type="submit" class="btn btn-success" value="Enviar" ></input>
 
           <!-- Indicates caution should be taken with this action -->
           <button type="reset" class="btn btn-warning">Warning</button>
@@ -89,13 +88,15 @@
   
 	</div><!-- /container -->
 
+<script>
+
 
 //funcionalidad para la regla alfebetica
 jQuery.validator.addMethod("alpha", function(value, element) {
           return this.optional(element) || value == value.match(/^[a-zA-Z ]+$/);
 },"Solo caracteres (Aa-Zz).");
         
-    $( "#form-prestador" ).validate({
+    $("#form-prestador").validate({
 
            success: function(label) {
                   //label.addClass("valid").text("Correcto!")
@@ -151,7 +152,7 @@ jQuery.validator.addMethod("alpha", function(value, element) {
             
           });
 
-           $("#form-prestador").submit(function (e){
+  $("#form-prestador").submit(function (e){
 
 
       e.preventDefault();
