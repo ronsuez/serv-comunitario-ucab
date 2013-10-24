@@ -26,25 +26,25 @@ $(document).ready(function(){
              // console.log(datos_personales[0].Telefono);
 
 
-            $("#nombre").val(datos_personales.Nombre);
+            $("#nombre").val(datos_personales.nombre);
 
 
-            $("#apellido").val(datos_personales.Apellido);
+            $("#apellido").val(datos_personales.apellido);
 
 
-            $("#celular").text(datos_personales.Celular);
+            $("#celular").text(datos_personales.celular);
 
 
-            $("#telefono").text(datos_personales.Telefono);
+            $("#telefono").text(datos_personales.telefono);
 
 
-            $("#email").text(datos_personales.Email);
+            $("#email").text(datos_personales.email);
 
 
-            $("#cedula").text(datos_personales.CI_prestador);
+            $("#cedula").text(datos_personales.ci);
 
 
-            $("#direccion").text(datos_personales.Direccion);
+            $("#direccion").text(datos_personales.direccion);
 
 
           });  
