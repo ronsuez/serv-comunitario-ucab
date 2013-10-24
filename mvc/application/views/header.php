@@ -51,7 +51,7 @@
 
   <script src=<?php echo  base_url()."application/views/js/ckeditor/adapters/jquery.js" ; ?>  type="text/javascript" ></script>
     
-    <!-- librerias para jquery.validate.js -->
+    <!-- librerias para jquery.validate.js --> 
 
 <script src=<?php echo  base_url()."application/views/js/jquery.validator/jquery.validate.js" ; ?>  type="text/javascript"></script>
 

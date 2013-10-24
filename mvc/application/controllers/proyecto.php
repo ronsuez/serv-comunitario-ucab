@@ -57,9 +57,6 @@ class Proyecto extends CI_Controller {
 
 		    $datos = json_decode($this->input->post('datos'));
 
-		      //print_r($informacion);
-		      //$rows = $informacion->fetchAll();
-
 		      foreach ($datos as $item) {
 		              echo $item->name." :".$item->value."<br>";
 
