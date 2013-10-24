@@ -42,7 +42,7 @@ $route['default_controller'] = "welcome";
 $route['404_override'] = '';
 
 
-/* routing for proyecto controller */
+/* routing for proyecto controller__*/
 $route['Proyectos']="proyecto/index";
 $route['insertar_proyecto']="proyecto/inscribir";
 $route['consultar_proyecto']="proyecto/modificar";
