@@ -9,6 +9,7 @@ Desarrolladores :
  Daniel Iglesias
  Mireya Orta
  Ana Urquiola
+ Luis Seijas
  y contando...
 
  Directorio de la aplicacion MVC 
