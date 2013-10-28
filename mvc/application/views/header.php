@@ -22,6 +22,8 @@
     </style>
     <link href="<?php echo base_url() ; ?>application/views/bootstrap/css/bootstrap.css" rel="stylesheet">
     
+  <link href="<?php echo base_url() ; ?>application/views/css/toastr.css" rel="stylesheet">
+    
     <!-- Le javascript
     ================================================== -->
     <!-- Libreria de jquery.js -->
@@ -57,6 +59,7 @@
 
 <script src=<?php echo  base_url()."application/libraries/jquery.json-2.4.js" ; ?>  type="text/javascript"></script>
 
+<script src=<?php echo  base_url()."application/views/js/toastr.js" ; ?>  type="text/javascript"></script>
 
 
   </head>
