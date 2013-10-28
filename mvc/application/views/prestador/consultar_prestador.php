@@ -1,10 +1,29 @@
 
 
 
+
 <!--Consultar / modificar prestador-->
 
 <script>
 $(document).ready(function(){
+
+//configuracion de las ventanas de alerta
+
+toastr.options = {
+  "closeButton": true,
+  "debug": false,
+  "positionClass": "toast-top-right",
+  "onclick": null,
+  "showDuration": "300",
+  "hideDuration": "1000",
+  "timeOut": "5000",
+  "extendedTimeOut": "1000",
+  "showEasing": "swing",
+  "hideEasing": "linear",
+  "showMethod": "fadeIn",
+  "hideMethod": "fadeOut"
+}
+
 
   $(".collapse").collapse();
 
@@ -15,39 +34,75 @@ $(document).ready(function(){
     $("#consultar_prestador").click(function(){
 
 
-        alert($("#id_cedula").val());
+       // alert($("#id_cedula").val());
           
           var cedula=$("#id_cedula").val();
 
-          $.post("consultar_datos_prestador",{id:cedula},function(data){
+                  if(!cedula){
 
-             var datos_personales =JSON.parse(data)[0];
+                          toastr.warning("No envies campos vacios");
+                  }else{
 
-             // console.log(datos_personales[0].Telefono);
+                      $.post("consultar_datos_prestador",{id:cedula},function(data){
 
+                            var estado =JSON.parse(data)["estado"]; 
 
-            $("#nombre").val(datos_personales.nombre);
+                                   console.log(JSON.parse(data));
 
+                             
+                              if(estado === "-1"){
 
-            $("#apellido").val(datos_personales.apellido);
-
-
-            $("#celular").text(datos_personales.celular);
-
-
-            $("#telefono").text(datos_personales.telefono);
+                                  toastr.error("prestador no encontrado");
 
 
-            $("#email").text(datos_personales.email);
+                              }else{
+
+                                var datos_personales =JSON.parse(data)["datos_personales"][0];
+                            
+                              var datos_academicos =JSON.parse(data)["datos_academicos"][0];
+                              
+                      
+
+                            $("#nombre").val(datos_personales.nombre);
 
 
-            $("#cedula").text(datos_personales.ci);
+                            $("#apellido").val(datos_personales.apellido);
 
 
-            $("#direccion").text(datos_personales.direccion);
+                            $("#celular").text(datos_personales.celular);
 
 
-          });  
+                            $("#telefono").text(datos_personales.telefono);
+
+
+                            $("#email").text(datos_personales.email);
+
+
+                            $("#cedula").text(datos_personales.ci);
+
+
+                            $("#direccion").text(datos_personales.direccion);
+
+
+                              //datos academicos
+
+
+                            $("#nro_exp").text(datos_academicos.no_exp);
+
+
+                            $("#escuela").text(datos_academicos.escuela);
+
+
+                            $("#mencion").text(datos_academicos.mencion);
+
+
+                            $("#semestre").text(datos_academicos.semestre);
+
+                         
+                        }
+                         });
+                    
+                        }  
     });
 
 
@@ -207,10 +262,16 @@ button a:hover{
         </a>
       </h4>
     </div>
-    <div id="collapseTwo" class="panel-collapse collapse">
+    <div id="collapseTwo" class="panel-collapse collapse in">
       <div class="panel-body">
        
-       sentencia sql
+            
+         <ul>
+                <li>Nro. Expendiente : <span id="nro_exp"></span></li>
+                <li>Escuela :<span id="escuela"></span></li>
+                <li>Mencion :<span id="mencion"></span></li>
+                <li>Semestre :<span id="semestre"></span></li>
+            </ul>
 
 
       </div>

@@ -67,17 +67,12 @@ class Prestador extends CI_Controller {
 	{
 	 				$id=$this->input->post('id');
 
-			 $salida=$this->prestador_model->listar_datos_prestador($id);
+			 		$salida=$this->prestador_model->listar_datos_prestador($id);
 	
-			 	if($salida == -1){
-
-			 		echo "No se encontro";
-			 	}else{
-
-					
-			 		echo json_encode($salida);
+			
+			 echo json_encode($salida);
 		 		
-			 	}
+			 
 	}   
         
 
