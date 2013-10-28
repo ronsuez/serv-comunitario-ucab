@@ -59,12 +59,12 @@
               <input type="expediente" class="form-control" placeholder="Introduzca el numero de expediente"></input>
             </div>
             <div class="form-group">
-              <label for="">Escuela</label>
+              <label for="escuela">Escuela</label>
               <input type="escuela" class="form-control" placeholder="Introduzca el nombre de la escuela"></input>
             </div>
             <div class="form-group">
-              <label for="">Menci&oacute;n</label>
-              <input type="escuela" class="form-control" placeholder="Introduzca la menci&oacute;n"></input>
+              <label for="mencion">Menci&oacute;n</label>
+              <input type="mencion" class="form-control" placeholder="Introduzca la menci&oacute;n"></input>
             </div>
 
              <div class="form-group">
@@ -110,12 +110,15 @@ jQuery.validator.addMethod("alpha", function(value, element) {
 
            success: function(label) {
                   //label.addClass("valid").text("Correcto!")
-                  $("label.valid, label.error").remove();
-            },errorPlacement: function (error, element) {
-                //$(element).tooltipster('update', $(error).text());
-                  alert($(element).text()+":"+$(error).text());
-            
-            },rules: {
+                  //$("label.valid, label.error").remove();
+            },highlight: function(element, errorClass) {
+
+                 $(element).parent().removeClass("has-success").addClass("has-error");
+              },
+              unhighlight: function(element, errorClass) {
+                 $(element).parent().removeClass("has-error").addClass("has-success");
+               
+              },rules: {
             nombre: {
               required: true,
               alpha:true
