@@ -57,7 +57,11 @@ toastr.options = {
 
                               }else{
 
-                                var datos_personales =JSON.parse(data)["datos_personales"][0];
+                                 toastr.success("Prestador encontrado");
+
+
+
+                              var datos_personales =JSON.parse(data)["datos_personales"][0];
                             
                               var datos_academicos =JSON.parse(data)["datos_academicos"][0];
                               

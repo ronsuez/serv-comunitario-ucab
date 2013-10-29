@@ -47,21 +47,18 @@ var editor10 = CKEDITOR.inline( 'text-cronograma' );
 
     rules:{
 
-      email:"required",
-      descripcion:"required",
-      diagnostico : "required"
+      titulo_proyecto:"required",
+      suscribe:"required",
+      ejecuta : "required"
     },
     messages: {
-      email: {
+      titulo_proyecto: {
         required: 'El campo es requerido'
       },
-       titulo_proyecto: {
+       suscribe: {
         required: 'El campo es requerido'
       },
-       descripcion: {
-        required: 'El campo es requerido'
-      },
-       diagnostico: {
+       ejecuta: {
         required: 'El campo es requerido'
       }
     }
@@ -105,7 +102,8 @@ var editor10 = CKEDITOR.inline( 'text-cronograma' );
         
       
 
-          $.post("registrar_proyecto",{texto: dinamic_text,                                       datos: titulo  
+          $.post("registrar_proyecto",{texto: dinamic_text,
+                                       datos: titulo  
                },function (data){
 
 
