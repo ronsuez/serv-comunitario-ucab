@@ -1,0 +1,33 @@
+
+Navs:
+.nav nav-tabs
+
+
+Buscar Prestador:
+.panel panel-default            		//clase del div general del panel
+     .panel-heading         			//clase del div de la cabecera del panel
+          .panel-title   			//clase del h3
+     .panel-body	        		//clase del div del body donde va el input
+          .input-group .input-group-sm    	//clase del input
+
+
+Paneles de formulario:
+.panel panel-default				//clase del div de los panels
+     .panel-heading				//clase del div de la cabecera del panel
+          .panel-title				//clase del div de la cabecera del panel
+     .panel-body				//clase del div del body del panel
+
+
+Buttons:
+
+Submit Button:
+.btn btn-success				//clase del boton de submit de los formularios
+
+Cancel Button:
+.btn btn-default				//clase del boton cancelar
+
+Buttons de Accion:
+.btn btn-info					//clase de los botones como Reportar/consultar/inscribir/carta culminacion
+
+Edit Button:
+.btn btn-primary				//clase de los botones para editar despues de consultar
