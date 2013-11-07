@@ -1,4 +1,3 @@
-
 Navs:
 .nav nav-tabs
 
@@ -21,7 +20,7 @@ Paneles de formulario:
 Buttons:
 
 Submit Button:
-.btn btn-success				//clase del boton de submit de los formularios
+.btn btn-success				//clase del boton de submit de los formularios (registrar/subir/actualizar)
 
 Cancel Button:
 .btn btn-default				//clase del boton cancelar
