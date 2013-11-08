@@ -114,6 +114,9 @@ var editor10 = CKEDITOR.inline( 'text-cronograma' );
 
   });
 
+  $("#ayuda").popover();
+  
+
     });
 
 </script>
@@ -180,6 +183,9 @@ var editor10 = CKEDITOR.inline( 'text-cronograma' );
 
                   <div  class="form-group">
                       <label for="descripcion">Diagnostico</label>
+                      <button id="ayuda" type="button" class="btn btn-default pull-right" data-container="body" data-toggle="popover" data-placement="left" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." data-original-title="" title="">
+                            ayuda
+                      </button>
                         <div   id="text-diagnostico"  contenteditable="true" name="diagnostico" class="text-area form-control">
                         Caracterización de la situación que enmarca al problema, es 
                         decir las condiciones en las cuales se encuentra  la localidad u 
