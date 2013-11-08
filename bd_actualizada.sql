@@ -9,7 +9,7 @@ Database: MySQL 5.0
 
 -- Table Asesor
 
-CREATE TABLE Asesor
+CREATE TABLE asesor
 (
   ci_asesor Bigint(20) NOT NULL,
   nombre_asesor Varchar(20) NOT NULL,
@@ -21,12 +21,12 @@ CREATE TABLE Asesor
 )
 ;
 
-ALTER TABLE Asesor ADD PRIMARY KEY (ci_asesor)
+ALTER TABLE asesor ADD PRIMARY KEY (ci_asesor)
 ;
 
 -- Table Localidad
 
-CREATE TABLE Localidad
+CREATE TABLE localidad
 (
   id_localidad Int NOT NULL AUTO_INCREMENT,
   parroquia_localidad Varchar(20) NOT NULL,
@@ -43,7 +43,7 @@ CREATE TABLE Localidad
 
 -- Table Coordinador
 
-CREATE TABLE Coordinador
+CREATE TABLE coordinador
 (
   ci_coord Bigint(20) NOT NULL,
   escuela_coord Varchar(20) NOT NULL,
@@ -55,12 +55,12 @@ CREATE TABLE Coordinador
 )
 ;
 
-ALTER TABLE Coordinador ADD PRIMARY KEY (ci_coord)
+ALTER TABLE coordinador ADD PRIMARY KEY (ci_coord)
 ;
 
 -- Table Prestador
 
-CREATE TABLE Prestador
+CREATE TABLE prestador
 (
   ci_prestador Bigint(20) NOT NULL,
   nombre_prestador Varchar(20) NOT NULL,
@@ -76,19 +76,19 @@ CREATE TABLE Prestador
 )
 ;
 
-ALTER TABLE Prestador ADD PRIMARY KEY (ci_prestador)
+ALTER TABLE prestador ADD PRIMARY KEY (ci_prestador)
 ;
 
 -- Table Proyecto
 
-CREATE TABLE Proyecto
+CREATE TABLE proyecto
 (
   id_proyecto Bigint(20) NOT NULL AUTO_INCREMENT,
   fecha_ini Date NOT NULL,
   nombre_proyecto Varchar(20) NOT NULL,
   ci_coord Bigint(20) NOT NULL,
   ci_asesor Bigint(20) NOT NULL,
-  dignostico_proyecto Varchar(200),
+  diagnostico_proyecto Varchar(200),
   justificacion_proyecto Varchar(200),
   impacto_proyecto Varchar(200),
   obj_generales_proyecto Varchar(200),
@@ -105,7 +105,7 @@ CREATE TABLE Proyecto
 
 -- Table Ejecuta
 
-CREATE TABLE Ejecuta
+CREATE TABLE ejecuta
 (
   id_proyecto Bigint(20) NOT NULL,
   ci_coord Bigint(20) NOT NULL,
@@ -114,12 +114,12 @@ CREATE TABLE Ejecuta
 )
 ;
 
-ALTER TABLE Ejecuta ADD PRIMARY KEY (id_proyecto,ci_coord,ci_asesor,id_localidad)
+ALTER TABLE ejecuta ADD PRIMARY KEY (id_proyecto,ci_coord,ci_asesor,id_localidad)
 ;
 
 -- Table Participa
 
-CREATE TABLE Participa
+CREATE TABLE participa
 (
   ci_prestador Bigint(20) NOT NULL,
   id_proyecto Bigint(20) NOT NULL,
@@ -138,21 +138,21 @@ ALTER TABLE Participa ADD PRIMARY KEY (ci_prestador,id_proyecto,ci_coord,ci_ases
 
 -- Create relationships section ------------------------------------------------- 
 
-ALTER TABLE Proyecto ADD CONSTRAINT coordina FOREIGN KEY (ci_coord) REFERENCES Coordinador (ci_coord) ON DELETE NO ACTION ON UPDATE NO ACTION
+ALTER TABLE proyecto ADD CONSTRAINT coordina FOREIGN KEY (ci_coord) REFERENCES coordinador (ci_coord) ON DELETE NO ACTION ON UPDATE NO ACTION
 ;
 
-ALTER TABLE Proyecto ADD CONSTRAINT asesora FOREIGN KEY (ci_asesor) REFERENCES Asesor (ci_asesor) ON DELETE NO ACTION ON UPDATE NO ACTION
+ALTER TABLE proyecto ADD CONSTRAINT asesora FOREIGN KEY (ci_asesor) REFERENCES asesor (ci_asesor) ON DELETE NO ACTION ON UPDATE NO ACTION
 ;
 
-ALTER TABLE Ejecuta ADD CONSTRAINT se FOREIGN KEY (id_proyecto, ci_coord, ci_asesor) REFERENCES Proyecto (id_proyecto, ci_coord, ci_asesor) ON DELETE NO ACTION ON UPDATE NO ACTION
+ALTER TABLE ejecuta ADD CONSTRAINT se FOREIGN KEY (id_proyecto, ci_coord, ci_asesor) REFERENCES proyecto (id_proyecto, ci_coord, ci_asesor) ON DELETE NO ACTION ON UPDATE NO ACTION
 ;
 
-ALTER TABLE Ejecuta ADD CONSTRAINT en FOREIGN KEY (id_localidad) REFERENCES Localidad (id_localidad) ON DELETE NO ACTION ON UPDATE NO ACTION
+ALTER TABLE ejecuta ADD CONSTRAINT en FOREIGN KEY (id_localidad) REFERENCES localidad (id_localidad) ON DELETE NO ACTION ON UPDATE NO ACTION
 ;
 
-ALTER TABLE Participa ADD CONSTRAINT Relationship7 FOREIGN KEY (ci_prestador) REFERENCES Prestador (ci_prestador) ON DELETE NO ACTION ON UPDATE NO ACTION
+ALTER TABLE participa ADD CONSTRAINT Relationship7 FOREIGN KEY (ci_prestador) REFERENCES prestador (ci_prestador) ON DELETE NO ACTION ON UPDATE NO ACTION
 ;
 
-ALTER TABLE Participa ADD CONSTRAINT Relationship8 FOREIGN KEY (id_proyecto, ci_coord, ci_asesor) REFERENCES Proyecto (id_proyecto, ci_coord, ci_asesor) ON DELETE NO ACTION ON UPDATE NO ACTION
+ALTER TABLE participa ADD CONSTRAINT Relationship8 FOREIGN KEY (id_proyecto, ci_coord, ci_asesor) REFERENCES Proyecto (id_proyecto, ci_coord, ci_asesor) ON DELETE NO ACTION ON UPDATE NO ACTION
 ;
 
