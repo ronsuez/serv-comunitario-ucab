@@ -134,7 +134,7 @@ var editor10 = CKEDITOR.inline( 'text-cronograma' );
 <form class="cmxform" id="addform-proyecto" method="post" action="">
 
      <div class="panel panel-default">
-               <div class="panel-heading"> Datos basicos del proyecto </div>
+               <div class="panel-heading">Datos basicos del proyecto </div>
                <div class="panel-body">
                    <div class="form-group">
                        <label for="titulo_proyecto">Título del proyecto</label>
