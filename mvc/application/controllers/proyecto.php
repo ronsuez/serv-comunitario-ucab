@@ -28,6 +28,8 @@ class Proyecto extends CI_Controller {
 
 			$this->controller="proyecto/";
 
+			$this->load->model("proyecto_model");
+
 		}
 
 
@@ -57,22 +59,9 @@ class Proyecto extends CI_Controller {
 
 		    $datos = json_decode($this->input->post('datos'));
 
-		      foreach ($datos as $item) {
-		              echo $item->name." :".$item->value."<br>";
+		    $registro = $this->proyecto_model->registrar_proyecto($informacion,$datos);
 
-		              echo "<br>";
-		        }
-
-		        echo ("<br>informacion <br>");
-
-		      foreach ($informacion as $item2) {
-		        
-		              echo $item2->name." :".$item2->value."<br>";
-
-		              echo "<br>";
-		        }
-
-		      
+		    echo $registro;
 
 		    }
 
