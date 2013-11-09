@@ -70,7 +70,47 @@
                 }
                     
       
-        }
+    }
+
+    public function registrar_proyecto($info,$dato){
+
+            foreach($dato as $item){
+                if ($item->name == "titulo_proyecto")
+                    $nombre_proyecto = $item->value;
+            }
+
+            foreach($info as $item2){
+                if ($item2->name == "text-diagnostico")
+                    $diagnostico_proyecto=$item2->value;
+                if ($item2->name == "text-justificacion")
+                    $justificacion_proyecto=$item2->value;
+                if ($item2->name == "text-impacto")
+                    $impacto_proyecto=$item2->value;
+                if ($item2->name == "text-objetivos-g")
+                    $obj_generales_proyecto=$item2->value;
+                if ($item2->name == "text-objetivos-e")
+                    $obj_especificos_proyecto=$item2->value;
+                if ($item2->name == "text-metas")
+                    $metas_proyecto=$item2->value;
+                if ($item2->name == "text-producto")
+                    $producto_proyecto=$item2->value;
+                if ($item2->name == "text-plan-trabajo")
+                    $plan_trabajo_proyecto=$item2->value;
+                if ($item2->name == "text-recursos")
+                    $recursos_proyecto=$item2->value;
+                if ($item2->name == "text-cronograma")
+                    $cronograma_proyecto=$item2->value;
+            }
+
+            $query = $this->db->query("INSERT INTO proyecto(nombre_proyecto,ci_coord,ci_asesor,diagnostico_proyecto,justificacion_proyecto,impacto_proyecto,obj_generales_proyecto,obj_especificos_proyecto,metas_proyecto,producto_proyecto,plan_trabajo_proyecto,recursos_requeridos_proyecto,cronograma_proyecto) 
+                                       VALUES ('$nombre_proyecto',13,12,'$diagnostico_proyecto','$justificacion_proyecto','$impacto_proyecto','$obj_generales_proyecto','$obj_especificos_proyecto','$metas_proyecto','$producto_proyecto','$plan_trabajo_proyecto','$recursos_proyecto','$cronograma_proyecto')");
+
+            if ($query)
+                return "bien";
+            else
+                return $this->db->_error_name();
+
+    }
 
     
 
