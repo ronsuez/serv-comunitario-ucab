@@ -222,9 +222,9 @@ button a:hover{
           <fieldset disabled>
             <div class="form-group">
               <label>Nombre</label>
-              <input type="text" id="nombre" class="form-control" placeholder="Nombre del Alumno">
+              <input type="text" id="nombre_prestador" class="form-control" placeholder="Nombre del Alumno">
               <label>Apellido</label>
-              <input type="text" id="apellido" class="form-control" placeholder="Apellido del Alumno">
+              <input type="text" id="apellido_prestador" class="form-control" placeholder="Apellido del Alumno">
             </div>
           </fieldset>
         </form>
