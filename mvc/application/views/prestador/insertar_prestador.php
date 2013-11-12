@@ -96,6 +96,7 @@ form label.error{
               <option value="relaciones industriales">Relaciones Industriales</option>
               <option value="educacion">Educaci&oacute;n</option>
               <option value="derecho">Derecho</option>
+          </select>
           </div>
           <div class="form-group">
             <label for="">Semestre</label>
