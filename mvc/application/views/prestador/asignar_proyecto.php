@@ -333,7 +333,7 @@ button a:hover{
 									<div class="panel-heading">
 										<h4 class="panel-title">
 											<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-												Datos Academicos
+												Datos Académicos
 											</a>
 										</h4>
 									</div>
@@ -363,7 +363,7 @@ button a:hover{
 									<div class="panel panel-default">
 
 											<div class="panel-heading">
-											  <h3 class="panel-title">Buscar Coordinado o Asesor</h3>
+											  <h3 class="panel-title">Buscar Coordinador o Asesor</h3>
 											</div>
 											<div class="panel-body">
 											  
@@ -409,7 +409,7 @@ button a:hover{
 												
 												<div class="panel panel-default">
 												<div class="panel-heading">
-												   <h3 class="panel-title">Cordinadores/Asesores participante en el proyecto</h3>
+												   <h3 class="panel-title">Coordinador(es)/Asesor(es) participante(s) en el proyecto</h3>
 												</div>
 												<div id="collapseOne" class="panel-collapse collapse in">
 												  <div class="panel-body">
@@ -484,7 +484,7 @@ button a:hover{
 											  </table>
 							  </form>
 									<button type="button" class="btn btn-success"> Inscribir Proyecto </button>
-									<button type="button" class="btn btn-success"> Generar Reporte </button>
+									<button type="button" class="btn btn-warning"> Generar Reporte </button>
 							</div>
 						 </div>			
 										
