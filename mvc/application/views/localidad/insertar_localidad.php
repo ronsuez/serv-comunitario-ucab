@@ -1,4 +1,3 @@
-
   <script>
 
 
@@ -59,30 +58,30 @@
 
         <!-- Datos sobre la organizacion -->
         <div class="panel panel-info">
-          <div class="panel-heading">Datos de la organizacion</div>
+          <div class="panel-heading">Datos de la Organización</div>
           <div class="panel-body">
 
               <div class="form-group">
-                  <label for="">Nombre de la organizacion:</label>
+                  <label for="">Nombre de la Organización </label>
                   <input id="nombre" name="nombre" type="text" class="form-control" placeholder="Introduzca los nombres del prestador"></input>
                 </div>
                  <div class="form-group">
-                  <label for="">Responsable :</label>
+                  <label for="">Responsable </label>
                   <input id="responsable" name="responsable" type="text" class="form-control" placeholder="Introduzca los nombres del prestador"></input>
                 </div>
 
                 <div class="form-group">
-                  <label for="">Correo electronico:</label>
+                  <label for="">Correo Electrónico </label>
                   <input id="email" name="email" type="email" class="form-control" placeholder="Introduzca los nombres del prestador"></input>
                 </div>
 
             <div class="form-group">
-              <label for="">Tel&eacute;fono de habitaci&oacute;n:</label>
+              <label for="">Tel&eacute;fono de Habitaci&oacute;n </label>
               <input  id="telefono" name="telefono" type="text" class="form-control" placeholder="Introduzca un tel&eacute;fono habitaci&oacute;n"></input>
             </div>
  				
  				<div class="form-group">
-                      <label for="direccion">Direccion :</label>
+                      <label for="direccion">Dirección </label>
                       <textarea class="form-control" name="direccion" id="direccion" placeholder="Producto, plan de trabajom recursos requeridos, cronograma." ></textarea>
                  </div>
          
@@ -91,7 +90,7 @@
 
         <!-- Datos de la localidad -->
         <div class="panel panel-info">
-          <div class="panel-heading">Datos de ubicacion</div>
+          <div class="panel-heading">Datos de Ubicación</div>
           <div class="panel-body">
            		 <div class="form-group">
                      <label for="estado">Estado</label>
@@ -108,12 +107,12 @@
                          <option value="cachamay">Cachamay</option>
                          <option value="chirica">Chirica</option>
                          <option value="dalla_costa">Dalla Costa</option>
-                         <option value="once_de_abril">Once de abril</option>
-                         <option value="pozo_verde">Pozo verde</option>
-                         <option value="simon_bolivar">Simon Bolivar</option>
+                         <option value="once_de_abril">Once de Abril</option>
+                         <option value="pozo_verde">Pozo Verde</option>
+                         <option value="simon_bolivar">Simón Bolívar</option>
                          <option value="unare">Unare</option>
                          <option value="universidad">Universidad</option>
-                         <option value="vista_al_sol">Vista al sol</option>
+                         <option value="vista_al_sol">Vista al Sol</option>
                          <option value="yocoima">Yocoima</option>
                        
                     </select>
@@ -122,7 +121,7 @@
 
           <!-- Mapa de google -->
         <div class="panel panel-info">
-          <div class="panel-heading">Ubicacion en el mapa</div>
+          <div class="panel-heading">Ubicación en el Mapa</div>
           <div class="panel-body">
            			<h1>Aqui va el mapa </h1>
                   <div id="coordinates">
@@ -148,7 +147,7 @@
           <button type="submit" class="btn btn-success">Guardar</button>
 
           <!-- Indicates caution should be taken with this action -->
-          <button type="reset" class="btn btn-warning">Cancelar</button>
+          <button type="reset" class="btn btn-default">Cancelar</button>
 
        </form> <!-- /form-prestador--> 
       </div><!-- /panel-body -->
@@ -212,23 +211,23 @@ jQuery.validator.addMethod("alpha", function(value, element) {
 
               messages:{
                 nombre : {
-                      required:"Este campo es requerido",
+                      required:"*Este campo es requerido",
                 },responsable :{
-                      required:"Este campo es requerido"
+                      required:"*Este campo es requerido"
 
                 },email : {
-                  required:"Este campo es requerido",
-                  email:"Introduzca una direcion de correo valida"
+                  required:"*Este campo es requerido",
+                  email:"*Introduzca una dirección de correo válida"
 
                 },telefono :{
-                  required :"Este campo es requerido",
-                  number :"debe contener solo digitos (0-9)",
-                  minlength:"debe tener 11 digitos(e.g 0416585684)",
-                  maxlength:"debe tener maximo 11 digitos (e.g 0416585684)"
+                  required :"*Este campo es requerido",
+                  number :"*Debe contener solo dígitos (0-9)",
+                  minlength:"*Debe tener 11 dígitos(e.g 0416585684)",
+                  maxlength:"*Debe tener máximo 11 dígitos (e.g 0416585684)"
                 },direccion:{
-                  required:"Debe especificar la direccion de la localidad"
+                  required:"*Debe especificar la dirección de la localidad"
                 },parroquia:{
-                  required:"Debe seleccionar una parroquia"
+                  required:"*Debe seleccionar una parroquia"
                 }
               }
             
