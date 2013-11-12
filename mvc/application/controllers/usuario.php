@@ -48,8 +48,8 @@ class Usuario extends CI_Controller {
 
 			$user_name = $this->usuario_model->get_info_user($info_user[0]["cedula"],$info_user[0]["tipo"]);
 
-			$this->session->set_userdata('name', $user_name[0]["nombre"]);
-			$this->session->set_userdata('last_name', $user_name[0]["apellido"]);
+			$this->session->set_userdata('name', $user_name[0]["nombre_coord"]);
+			$this->session->set_userdata('last_name', $user_name[0]["apellido_coord"]);
 
 			redirect("/dashboard");
 
