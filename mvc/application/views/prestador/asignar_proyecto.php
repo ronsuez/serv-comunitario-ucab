@@ -254,7 +254,7 @@ button a:hover{
 				<div class="col-sm-12">
 					<div class="panel panel-default">  <!-- panel total inicio-->
 						<div class="panel-heading">
-							<h3 class="panel-title">Inscripcion de Proyectos</h3>
+							<h3 class="panel-title">Inscripción de Proyectos</h3>
 						</div>
 						<div class="panel-body">
 						
@@ -266,7 +266,7 @@ button a:hover{
 											<div class="panel-body">
 											  
 											  <div class="input-group input-group-sm">
-												<input id="id_cedula" type="text" class="form-control" placeholder="Introduzca nombre o cedula del Prestador"></input>
+												<input id="id_cedula" type="text" class="form-control" placeholder="Introduzca c&eacute;dula del Prestador"></input>
 												<span class="input-group-btn">
 												  <button id="consultar_prestador" class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
 												</span>
@@ -289,9 +289,9 @@ button a:hover{
 										  <fieldset disabled>
 											<div class="form-group">
 											  <label>Nombre</label>
-											  <input type="text" id="nombre" class="form-control" placeholder="Nombre del Alumno">
+											  <input type="text" id="nombre" class="form-control" placeholder="Nombre del Prestador">
 											  <label>Apellido</label>
-											  <input type="text" id="apellido" class="form-control" placeholder="Apellido del Alumno">
+											  <input type="text" id="apellido" class="form-control" placeholder="Apellido del Prestador">
 											</div>
 										  </fieldset>
 										</form>
@@ -398,7 +398,7 @@ button a:hover{
 												 
 												</form>
 												</br>
-												<button id="consultar_coordinador" type="button" class="btn btn-default"> inscribir Coordinador </button>
+												<button id="consultar_coordinador" type="button" class="btn btn-success"> Inscribir Coordinador </button>
 										</div>
 									</div>
 									
@@ -451,7 +451,7 @@ button a:hover{
                </div>
 			   
 			   <div class="form-group">
-                     <label for="parroquia">Periodo Academico</label>
+                     <label for="parroquia">Periodo Académico</label>
                      <select name="parroquia" class="form-control" id="parroquia">
 						<option value="">Seleccione</option>
                          <option value="">2013-21</option>
@@ -466,7 +466,7 @@ button a:hover{
 							
 							  <td>Fecha Inicio de Proyecto <input type="text"  class="panel panel-default"  placeholder="dd/mm/aa"></td>
 							  
-							  <td>Horas Semanales de servicio: <input for="proyecto" type="text"  class="panel panel-default">
+							  <td>Horas Semanales de Servicio: <input for="proyecto" type="text"  class="panel panel-default">
 															 
 									<table class="table">
 												
