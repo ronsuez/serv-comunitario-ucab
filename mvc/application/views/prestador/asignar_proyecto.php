@@ -368,7 +368,7 @@ button a:hover{
 											<div class="panel-body">
 											  
 											  <div class="input-group input-group-sm">
-												<input id="id_cedula_coord" type="text" class="form-control" placeholder="Introduzca nombre o cedula del Coordinado o Asesor"></input>
+												<input id="id_cedula_coord" type="text" class="form-control" placeholder="Introduzca cédula del Coordinador o Asesor"></input>
 												<span class="input-group-btn">
 												  <button id="consultar_coordinador" class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
 												</span>
@@ -409,12 +409,12 @@ button a:hover{
 												
 												<div class="panel panel-default">
 												<div class="panel-heading">
-												   <h3 class="panel-title">Coordinador(es)/Asesor(es) participante(s) en el proyecto</h3>
+												   <h3 class="panel-title">Coordinador(es)/Asesor(es) participante(s) en el Proyecto</h3>
 												</div>
 												<div id="collapseOne" class="panel-collapse collapse in">
 												  <div class="panel-body">
 															
-															lista de coordinadores y asesores que participan el proyecto selencionado anteriormente!!!!</br>
+															Lista de Coordinadores y Asesores que participan el proyecto seleccionado anteriormente!!!!</br>
 															-</br>
 															-</br>
 															-</br>
