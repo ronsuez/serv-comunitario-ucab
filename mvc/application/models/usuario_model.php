@@ -38,7 +38,7 @@ public function check_user($user,$pass){
 
                 if($tipo == "CO"){
 
-                 $query=$this->db->query("SELECT * FROM coordinador WHERE ci='$id'");
+                 $query=$this->db->query("SELECT * FROM coordinador WHERE cedula='$id'");
                 
                 }
 
