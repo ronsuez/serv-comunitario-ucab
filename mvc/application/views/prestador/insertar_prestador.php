@@ -18,12 +18,12 @@ form label.error{
     <div class="panel panel-default">
 
       <div class="panel-heading">
-        <h3 class="panel-title">Buscar prestador</h3>
+        <h3 class="panel-title">Buscar Prestador</h3>
       </div>
       <div class="panel-body">
 
         <div class="input-group input-group-sm">
-          <input id="id_cedula" type="text" class="form-control" placeholder="Introduzca nombre o c&eacute;dula del prestador"></input>
+          <input id="id_cedula" type="text" class="form-control" placeholder="Introduzca c&eacute;dula del prestador"></input>
           <span class="input-group-btn">
             <button id="consultar_prestador" class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
           </span>
@@ -44,8 +44,8 @@ form label.error{
         <div class="panel-body">
 
           <div class="form-group">
-            <label for="">Cedula</label>
-            <input id="cedula" name="cedula" type="text" class="form-control" placeholder="Introduzca la cedula del prestador"></input>
+            <label for="">C&eacute;dula</label>
+            <input id="cedula" name="cedula" type="text" class="form-control" placeholder="Introduzca la c&eacute;dula del prestador"></input>
           </div>
           <div class="form-group">
             <label for="">Nombres</label>
@@ -57,39 +57,45 @@ form label.error{
           </div>
 
           <div class="form-group">
-            <label>Correo electr&oacute;nico</label>
+            <label>Correo Electr&oacute;nico</label>
             <input id="email" name="email" type="text" class="form-control" placeholder="Introduzca el correo electr&oacute;nico"></input>
           </div>
           <div class="form-group">  
-            <label for="">Tel&eacute;fono celular</label>
+            <label for="">Tel&eacute;fono Celular</label>
             <input id="telefono_cel" name="telefono_cel" type="text" class="form-control" placeholder="Introduzca un tel&eacute;fono celular"></input>
           </div>
           <div class="form-group">
-            <label for="">Tel&eacute;fono de habitaci&oacute;n</label>
-            <input id="telefono_hab" name="telefono_hab" type="text" class="form-control" placeholder="Introduzca un tel&eacute;fono habitaci&oacute;n"></input>
+            <label for="">Tel&eacute;fono de Habitaci&oacute;n</label>
+            <input id="telefono_hab" name="telefono_hab" type="text" class="form-control" placeholder="Introduzca un tel&eacute;fono de habitaci&oacute;n"></input>
           </div>
           <div class="form-group">
-            <label for="">Direccion de habitaci&oacute;n</label>
-            <input id="direccion" name="direccion" type="text" class="form-control" placeholder="Introduzca una direccion de habitaci&oacute;n"></input>
+            <label for="">Direcci&oacute;n de Habitaci&oacute;n</label>
+            <input id="direccion" name="direccion" type="text" class="form-control" placeholder="Introduzca una direcci&oacute;n de habitaci&oacute;n"></input>
           </div>
         </div>
       </div>
 
-      <!-- Datos academicos -->
+      <!-- Datos académicos -->
       <div class="panel panel-default">
         <div class="panel-heading">Datos Acad&eacute;micos</div>
         <div class="panel-body">
           <div class="form-group">
-            <label for="">Numero de expediente</label>
+            <label for="">Numero de Expediente</label>
             <input type="text" id="expediente" name="expediente" class="form-control" placeholder="Introduzca el numero de expediente"></input>
           </div>
           <div class="form-group">
-            <label for="">Escuela</label>
-            <input type="text" id="escuela" name="escuela" class="form-control" placeholder="Introduzca el nombre de la escuela"></input>
-          </div>
-          <div class="form-group">
-            <label for="">Menci&oacute;n</label>
-            <input type="text" id="mencion" name="mencion" class="form-control" placeholder="Introduzca la menci&oacute;n"></input>
+            <label for="">Carrera</label>
+            <select id="carrera" name="carrera" class="form-control">
+              <option value="">Seleccione</option>
+              <option value="ingenieria informatica">Ingenier&iacute;a Inform&aacute;tica</option>
+              <option value="ingenieria civil">Ingenier&iacute;a Civil</option>
+              <option value="ingenieria industrial">Ingenier&iacute;a Industrial</option>
+              <option value="comunicacion social">Comunicaci&oacute;n Social</option>
+              <option value="administracion">Administraci&oacute;n</option>
+              <option value="contaduria">Contadur&iacute;a</option>
+              <option value="relaciones industriales">Relaciones Industriales</option>
+              <option value="educacion">Educaci&oacute;n</option>
+              <option value="derecho">Derecho</option>
           </div>
           <div class="form-group">
             <label for="">Semestre</label>
@@ -164,8 +170,7 @@ $("#form-prestador").validate({
     nombre: {
       required: true,
       alpha:true
-    },
-    apellido :{
+    },apellido :{
       required: true,
       alpha:true
     },email :{
@@ -183,30 +188,57 @@ $("#form-prestador").validate({
       number: true,
       maxlength:11,
       minlength:11
+    },expediente: {
+      required: true,
+      number:true
+    },semestre:{
+      required: true
+    },cedula: {
+      required: true,
+      number: true
+    },carrera: {
+      required: true
     }
   },
 
   messages:{
     nombre : {
       required:"*Este campo es requerido",
+
     },apellido :{
       required:"*Este campo es requerido"
 
     },email : {
       required:"*Este campo es requerido",
-      email:"*Introduzca una direcion de correo valida"
+      email:"*Introduzca una dirección de correo válida"
+
     },telefono_hab :{
       required :"*Este campo es requerido",
-      number :"*Debe contener solo digitos (0-9)",
-      minlength:"*Debe tener 11 digitos(e.g 0416585684)",
-      maxlength:"*Debe tener maximo 11 digitos (e.g 0416585684)"
+      number :"*Debe contener solo dígitos (0-9)",
+      minlength:"*Debe tener 11 dígitos(e.g 0416585684)",
+      maxlength:"*Debe tener máximo 11 dígitos (e.g 0416585684)"
+
     },telefono_cel :{
       required :"*Este campo es requerido",
-      number :"*Debe contener solo digitos (0-9)",
-      minlength:"*Debe tener 11 digitos(e.g 0416585684)",
-      maxlength:"*Debe tener maximo 11 digitos (e.g 0416585684)"
+      number :"*Debe contener solo dígitos (0-9)",
+      minlength:"*Debe tener 11 dígitos(e.g 0416585684)",
+      maxlength:"*Debe tener máximo 11 dígitos (e.g 0416585684)"
+
     },direccion:{
-      required:"*Debe especificar la direccion de la localidad"
+      required:"*Debe especificar la dirección de la localidad"
+
+    },expediente: {
+      required: "*Este campo es requerido",
+      number: "*Debe contener solo dígitos (0-9)"
+
+    },semestre: {
+      required: "*Este campo es requerido"
+
+    },cedula: {
+      required: "*Este campo es requerido",
+      number: "*Debe contener solo dígitos (0-9)"
+    },carrera: {
+      required: "*Este campo es requerido"
     }
   }
 
@@ -227,8 +259,11 @@ $("#form-prestador").submit(function (e) {
     var expediente = $("#expediente").val();
     var escuela = $("#escuela").val();
     var mencion = $("#mencion").val();
+    var cedula = $("#cedula").val();
+    var semestre = $("#semestre").val();
 
     $.post("insertar_datos_prestador",{
+      cedula_pre:cedula,
       nombre_pre:nombre,
       apellido_pre:apellido,
       email_pre:email,
@@ -237,7 +272,9 @@ $("#form-prestador").submit(function (e) {
       direccion_pre:direccion,
       expediente_pre:expediente,
       escuela_pre:escuela,
-      mencion_pre:mencion },
+      mencion_pre:mencion,
+      semestre_pre:semestre
+      },
       
       function(data){
         alert(data);
