@@ -40,6 +40,32 @@
 
         
     }
+    
+    
+   //funcion para consultar los datos del coordinador
+   public function listar_datos_coordinador($cedula){
+
+
+        $query1 = $this->db->query("SELECT ci_coord, nombre_coord, apellido_coord, email_coord, celular_coord, telefono_coord, escuela_coord 
+                                        FROM  `coordinador` 
+                                        WHERE ci_coord = $cedula");
+                                        
+        $salida =  array('estado'=>"1",'datos_coordinador' =>$query1->result_array());
+
+
+        if ($query1->num_rows() > 0 )
+                {
+
+                    return $salida;
+            
+                }else{
+
+                    $salida =  array('estado' =>"-1");    
+                    
+                    return $salida;
+                }
+    }
+
 
 
     public function insertar_datos($nombre, $apellido, $celular, $email, $telefono, $direccion, $expediente, $escuela, $mencion)
