@@ -20,61 +20,77 @@ class Prestador extends CI_Controller {
 
 	private $controller;
 
-		function __construct(){
+	function __construct(){
 
-			parent::__construct();
+		parent::__construct();
 
 			//$this->load->helper('author_helper');
 
-			$this->controller="prestador/";
+		$this->controller="prestador/";
 
-			$this->load->model("prestador_model");
+		$this->load->model("prestador_model");
 
-		}
+	}
 
 
-	public function index()
-	{
-	
+	public function index() {
+
 		$this->load->view($this->controller.'ge_prestador');
 	}
 
-		public function insertar()
-	{
-	
+	public function insertar() {
+
 		$this->load->view($this->controller.'insertar_prestador');
 	}
-        
-        	public function consultar()
-	{
-	
+
+	public function consultar() {
+
 		$this->load->view($this->controller.'consultar_prestador');
 	}
 
-	     	public function asignar_pro()
-	{
-	
+	public function asignar_pro() {
+
 		$this->load->view($this->controller.'asignar_proyecto');
 	}
-     
-     	public function hola()
-	{
-	
+
+	public function hola() {
+
 		$this->load->view($this->controller.'hola');
 	}
-     
-     	public function ver_datos_personales()
-	{
-	 				$id=$this->input->post('id');
 
-			 		$salida=$this->prestador_model->listar_datos_prestador($id);
-	
-			
-			 echo json_encode($salida);
-		 		
-			 
+	public function ver_datos_personales() {
+
+		$id=$this->input->post('id');
+
+		$salida=$this->prestador_model->listar_datos_prestador($id);
+
+		if($salida == -1){
+
+			echo "No se encontro";
+		
+		} 
+		else {
+
+			echo json_encode($salida);
+
+		}
 	}   
-        
+
+	public function insertar_datos_prestador()
+	{			
+		$nombre = $this->input->post('nombre_pre');
+		$apellido = $this->input->post('apellido_pre');
+		$email = $this->input->post('email_pre');
+		$celular = $this->input->post('celular_pre');
+		$telefono = $this->input->post('telefono_pre');
+		$direccion = $this->input->post('direccion_pre');
+		$expediente = $this->input->post('expediente_pre');
+		$escuela = $this->input->post('escuela_pre');
+		$mencion = $this->input->post('mencion_pre');
+
+		$salida=$this->prestador_model->insertar_datos($nombre, $apellido, $celular, $email, $telefono, $direccion, $expediente, $escuela, $mencion);
+	}
+
 
 }
 
