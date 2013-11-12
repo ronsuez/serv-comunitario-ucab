@@ -37,13 +37,25 @@ class Welcome extends CI_Controller {
 
 		$page_struct= array('header'=>$this->load->view('header','',TRUE) , 'footer'=>$this->load->view('footer','',TRUE));
 
-		$this->load->view($this->controller.'dashboard',$page_struct);
+		$this->load->view($this->controller.'login',$page_struct);
 	}
 
 
-	public function welcome_message()
+	public function dashboard()
 	{
-		$this->load->view($this->controller.'welcome_message');
+
+		  if( !$this->session->userdata('isLoggedIn') ) {
+        		
+        		redirect('/'); //redirige a la pagina de inicio de sesion
+    	
+    		}else {
+        
+				$page_struct= array('header'=>$this->load->view('header','',TRUE) , 'footer'=>$this->load->view('footer','',TRUE));
+
+				$this->load->view($this->controller.'dashboard',$page_struct);
+
+   			 }
+		
 	}
 
 
