@@ -56,6 +56,8 @@ $route['consultar_prestador']="prestador/consultar";
 $route['asignar_proyecto']="prestador/asignar_pro";
 $route['hola']="prestador/hola";
 $route['consultar_datos_prestador']="prestador/ver_datos_personales";
+$route['insertar_datos_prestador']="prestador/insertar_datos_prestador";
+
 /* routing for localidades controller */
 $route['Localidades']="localidad/index";
 $route['listar_loc']="localidad/listar";
