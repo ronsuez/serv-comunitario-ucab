@@ -1,6 +1,5 @@
 
 
-
 <!--Consultar / modificar prestador-->
 
 <script>
@@ -356,8 +355,8 @@ button a:hover{
 <br><br><br><br>
 
 <center><p>
-  <button type="button" class="btn btn-info btn-lg">Finalizar Prestacion en este Proyecto </button>
-  <button type="button" class="btn btn-info btn-lg">Imprimir Notificacion Culminacion</button>
+  <button type="button" class="btn btn-success btn-lg">Finalizar Prestación en este Proyecto </button>
+  <button type="button" class="btn btn-warning btn-lg">Imprimir Notificación de Culminación</button>
 </p></center>
 
 <!-- Modal -->
