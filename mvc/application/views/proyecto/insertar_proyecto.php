@@ -260,7 +260,7 @@ $(document).ready(function() {
 
 
 <div class="panel panel-default">
-  <div class="panel-heading"> Estratégias</div>
+  <div class="panel-heading"> Estrategias</div>
   <div class="panel-body">
 
 
