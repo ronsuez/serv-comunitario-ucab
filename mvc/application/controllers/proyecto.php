@@ -51,6 +51,20 @@ class Proyecto extends CI_Controller {
 		$this->load->view($this->controller.'modificar');
 	}
 
+	
+	
+
+	public function ver_datos_coordinador()
+	{
+	 				$id2=$this->input->post('id2');
+
+			 		$salida=$this->proyecto_model->listar_datos_coordinador($id2);
+	
+			
+			 echo json_encode($salida);
+		 		
+			 
+	}
 
 
 	 public function registrar(){
