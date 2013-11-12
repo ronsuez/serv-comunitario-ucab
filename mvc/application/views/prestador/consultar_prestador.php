@@ -1,4 +1,3 @@
-
 <!--Consultar / modificar prestador-->
 
 <script>
@@ -43,7 +42,7 @@ $("#btn_consultar_proyecto").click(function(){
 
        // alert($("#id_cedula").val());
           
-          var cedula=$("#id_cedula").val();
+          var cedula=$("#id_prestador_cedula").val();
 
                   if(!cedula){
 
@@ -200,7 +199,7 @@ button a:hover{
             <div class="panel-body">
               
               <div class="input-group input-group-sm">
-                <input id="id_cedula" type="text" class="form-control" placeholder="Introduzca nombre o c&eacute;dula del prestador"></input>
+                <input id="id_prestador_cedula" type="text" class="form-control" placeholder="Introduzca nombre o c&eacute;dula del prestador"></input>
                 <span class="input-group-btn">
                   <button id="c_datos_prestador" class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
                 </span>
