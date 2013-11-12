@@ -56,9 +56,9 @@
       
       <form id="form-localidad" name="form-localidad" action="#" method="POST" >
 
-        <!-- Datos sobre la organizacion -->
+        <!-- Datos sobre la organización -->
         <div class="panel panel-info">
-          <div class="panel-heading">Datos de la Organización</div>
+          <div class="panel-default">Datos de la Organización</div>
           <div class="panel-body">
 
               <div class="form-group">
@@ -90,7 +90,7 @@
 
         <!-- Datos de la localidad -->
         <div class="panel panel-info">
-          <div class="panel-heading">Datos de Ubicación</div>
+          <div class="panel-default">Datos de Ubicación</div>
           <div class="panel-body">
            		 <div class="form-group">
                      <label for="estado">Estado</label>
@@ -121,7 +121,7 @@
 
           <!-- Mapa de google -->
         <div class="panel panel-info">
-          <div class="panel-heading">Ubicación en el Mapa</div>
+          <div class="panel-default">Ubicación en el Mapa</div>
           <div class="panel-body">
            			<h1>Aqui va el mapa </h1>
                   <div id="coordinates">
