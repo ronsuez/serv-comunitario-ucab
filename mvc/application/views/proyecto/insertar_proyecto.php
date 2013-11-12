@@ -301,7 +301,7 @@ $(document).ready(function() {
 </div>
 
 </div> 
-<br><input type="submit" class="btn btn-sucess" id="enviar" value="Crear Proyecto"></input><br><br> 
+<br><input type="submit" class="btn btn-success" id="enviar" value="Crear Proyecto"></input><br><br> 
 </form>
 
     </div> <!--/container-->
