@@ -16,7 +16,7 @@
 public function check_user($user,$pass){
 
     
-    $query = $this->db->query("SELECT cedula,tipo FROM  usuario WHERE cedula = '$user' AND contrasena = '$pass' ");
+    $query = $this->db->query("SELECT cedula,tipo FROM  usuario WHERE user = '$user' AND contrasena = '$pass' ");
 
       $salida = $query->result_array();
 
