@@ -73,40 +73,40 @@ $("#btn_consultar_proyecto").click(function(){
                               
                       
 
-                            $("#nombre").val(datos_personales.nombre_prestador);
+                            $("#nombre_prestador").val(datos_personales.nombre_prestador);
 
 
-                            $("#apellido").val(datos_personales.Apellido_prestador);
+                            $("#apellido_prestador").val(datos_personales.Apellido_prestador);
 
 
-                            $("#celular").text(datos_personales.celular_prestador);
+                            $("#celular_prestador").text(datos_personales.celular_prestador);
 
 
-                            $("#telefono").text(datos_personales.telefono_prestador);
+                            $("#telefono_prestador").text(datos_personales.telefono_prestador);
 
 
-                            $("#email").text(datos_personales.email_prestador);
+                            $("#email_prestador").text(datos_personales.email_prestador);
 
 
-                            $("#cedula").text(datos_personales.ci_prestador);
+                            $("#cedula_prestador").text(datos_personales.ci_prestador);
 
 
-                            $("#direccion").text(datos_personales.direccion_prestador);
+                            $("#direccion_prestador").text(datos_personales.direccion_prestador);
 
 
                               //datos academicos
 
 
-                            $("#nro_exp").text(datos_academicos.no_exp_prestador);
+                            $("#nro_exp_prestador").text(datos_academicos.no_exp_prestador);
 
 
-                            $("#escuela").text(datos_academicos.escuela_prestador);
+                            $("#escuela_prestador").text(datos_academicos.escuela_prestador);
 
 
-                            $("#mencion").text(datos_academicos.mencion_prestador);
+                            $("#mencion_prestador").text(datos_academicos.mencion_prestador);
 
 
-                            $("#semestre").text(datos_academicos.semestre_prestador);
+                            $("#semestre_prestador").text(datos_academicos.semestre_prestador);
 
                          
                         }
@@ -253,11 +253,11 @@ button a:hover{
         
 
             <ul>
-                <li>Cedula : <span id="cedula"></span></li>
-                <li>Telefono :<span id="telefono"></span></li>
-                <li>Email :<span id="email"></span></li>
-                <li>Celular :<span id="celular"></span></li>
-                <li>Direccion :<span id="direccion"></span></li>
+                <li>Cedula : <span id="cedula_prestador"></span></li>
+                <li>Telefono :<span id="telefono_prestador"></span></li>
+                <li>Email :<span id="email_prestador"></span></li>
+                <li>Celular :<span id="celular_prestador"></span></li>
+                <li>Direccion :<span id="direccion_prestador"></span></li>
             </ul>
 
       </div>
@@ -277,10 +277,10 @@ button a:hover{
        
             
          <ul>
-                <li>Nro. Expendiente : <span id="nro_exp"></span></li>
-                <li>Escuela :<span id="escuela"></span></li>
-                <li>Mencion :<span id="mencion"></span></li>
-                <li>Semestre :<span id="semestre"></span></li>
+                <li>Nro. Expendiente : <span id="nro_exp_prestador"></span></li>
+                <li>Escuela :<span id="escuela_prestador"></span></li>
+                <li>Mencion :<span id="mencion_prestador"></span></li>
+                <li>Semestre :<span id="semestre_prestador"></span></li>
             </ul>
 
 
