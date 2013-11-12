@@ -1,7 +1,6 @@
 
 
 
-
 <!--Consultar / modificar prestador-->
 
 <script>
@@ -193,7 +192,7 @@ button a:hover{
             <div class="panel-body">
               
               <div class="input-group input-group-sm">
-                <input id="id_cedula" type="text" class="form-control" placeholder="Introduzca nombre o c&eacute;dula del prestador"></input>
+                <input id="id_cedula" type="text" class="form-control" placeholder="Introduzca c&eacute;dula del prestador"></input>
                 <span class="input-group-btn">
                   <button id="consultar_prestador" class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
                 </span>
@@ -342,23 +341,23 @@ button a:hover{
 
 <br><br>
 <center>
-<button type="button" class="btn btn-primary" data-toggle="modal" href="#myModal">Reportar Horas</button>
+<button type="button" class="btn btn-info" data-toggle="modal" href="#myModal">Reportar Horas</button>
 
 <!-- Indicates a successful or positive action -->
-<button type="button" id="consultar_proyecto" class="btn btn-success" >Consultar Proyecto</a></button>
+<button type="button" id="consultar_proyecto" class="btn btn-info" >Consultar Proyecto</a></button>
 
 <!-- Contextual button for informational alert messages -->
 <button type="button" class="btn btn-info">Inscribir Proyeto</button>
 
 <!-- Indicates caution should be taken with this action -->
-<button type="button" class="btn btn-warning">Carta Culminacion</button>
+<button type="button" class="btn btn-info">Carta Culminacion</button>
 </center>
 
 <br><br><br><br>
 
 <center><p>
-  <button type="button" class="btn btn-primary btn-lg">Finalizar Prestacion en este Proyecto </button>
-  <button type="button" class="btn btn-default btn-lg">Imprimir Notificacion Culminacion</button>
+  <button type="button" class="btn btn-info btn-lg">Finalizar Prestacion en este Proyecto </button>
+  <button type="button" class="btn btn-info btn-lg">Imprimir Notificacion Culminacion</button>
 </p></center>
 
 <!-- Modal -->
