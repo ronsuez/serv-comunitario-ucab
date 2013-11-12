@@ -1,4 +1,3 @@
-
 <!--/Consultar/Modificar proyecto-->
 <style>
 #accordion{
@@ -10,11 +9,11 @@
 <div class="container">
 
 	<div class="panel panel-default">
-		<div class="panel-heading">Formulario de busqueda </div>
+		<div class="panel-heading">Formulario de Búsqueda </div>
 		<div class="panel-body">
 			<form class="form-inline" role="form">
 				<div class="form-group">
-					<label class="sr-only" for="exampleInputEmail2">Titulo del proyecto</label>
+					<label class="sr-only" for="exampleInputEmail2">Título del proyecto</label>
 					<input type="text" class="form-control" id="proyecto" placeholder="Nombre del proyecto..">
 				</div>
 				<div class="form-group">
@@ -33,7 +32,7 @@
 	</div>
 
 	<div class="panel panel-default">
-		<div class="panel-heading">Descripcion del proyecto</div>
+		<div class="panel-heading">Descripción del proyecto</div>
 		<div class="panel-body">
 
 
@@ -55,7 +54,7 @@
 					<div class="panel-heading">
 						<h4 class="panel-title">
 							<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-								Descripcion
+								Descripción
 							</a>
 						</h4>
 					</div>
@@ -83,7 +82,7 @@
 					<div class="panel-heading">
 						<h4 class="panel-title">
 							<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-								Estrategias
+								Estratégias
 							</a>
 						</h4>
 					</div>
@@ -107,7 +106,7 @@
 
 
 	<div class="panel panel-default">
-		<div class="panel-heading"> Horario de trabajo</div>
+		<div class="panel-heading"> Horario de Trabajo</div>
 		<div class="panel-body">
   <table class="table table-bordered">
     <thead>
@@ -115,10 +114,10 @@
         <th>Domingo</th>
         <th>Lunes</th>
         <th>Martes</th>
-        <th>Miercoles</th>
+        <th>Miércoles</th>
         <th>Jueves</th>
         <th>Viernes</th>
-        <th>Sabado</th>
+        <th>Sábado</th>
       </tr>
     </thead>
   <tbody>
