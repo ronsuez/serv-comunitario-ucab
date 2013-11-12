@@ -1,4 +1,3 @@
-
 	<script>
 $(document).ready(function(){
 
@@ -484,8 +483,8 @@ button a:hover{
 												
 											  </table>
 							  </form>
-									<button type="button" class="btn btn-default"> Inscribir Proyecto </button>
-									<button type="button" class="btn btn-default"> Generar Reporte </button>
+									<button type="button" class="btn btn-success"> Inscribir Proyecto </button>
+									<button type="button" class="btn btn-success"> Generar Reporte </button>
 							</div>
 						 </div>			
 										
