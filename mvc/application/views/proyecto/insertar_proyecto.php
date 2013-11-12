@@ -1,4 +1,3 @@
-
 <script type="text/javascript">
 
 $(document).ready(function() {
@@ -133,21 +132,21 @@ $(document).ready(function() {
     <form class="cmxform" id="addform-proyecto" method="post" action="">
 
      <div class="panel panel-default">
-       <div class="panel-heading">Datos basicos del proyecto </div>
+       <div class="panel-heading">Datos Básicos del Proyecto </div>
        <div class="panel-body">
            <div class="form-group">
-               <label for="titulo_proyecto">Título del proyecto</label>
+               <label for="titulo_proyecto">Título del Proyecto</label>
                <input  name="titulo_proyecto" type="text" class="form-control" id="titulo_proyecto" data-rule-required="true">
            </div>
 
            <div class="form-group">
-               <label for="suscribe">Organización o comunidad quien suscribe convenio</label>
+               <label for="suscribe">Organización o Comunidad quien suscribe convenio</label>
                <select class="form-control"  name="suscribe" id="suscribe">
                    <option value="">Seleccione</option>
                </select>
            </div>
            <div class="form-group">
-             <label for="ejecuta">Organización o comunidad donde se ejecuta el proyecto</label>
+             <label for="ejecuta">Organización o Comunidad donde se ejecuta el proyecto</label>
              <select class="form-control" name="ejecuta" id="ejecuta">
                  <option value="">Seleccione</option> 
              </select>
@@ -159,26 +158,26 @@ $(document).ready(function() {
 
 </br>
 <center>
-    <button type="button" class="btn btn-primary" data-toggle="modal" href="#myModal">Reportar Horas</button>
+    <button type="button" class="btn btn-info" data-toggle="modal" href="#myModal">Reportar Horas</button>
 
     <!-- Indicates a successful or positive action -->
-    <button type="button" id="consultar_proyecto" class="btn btn-success" >Consultar Proyecto</a></button>
+    <button type="button" id="consultar_proyecto" class="btn btn-info" >Consultar Proyecto</a></button>
 
     <!-- Contextual button for informational alert messages -->
-    <button type="button" class="btn btn-info">Inscribir Proyeto</button>
+    <button type="button" class="btn btn-info">Inscribir Proyecto</button>
 
     <!-- Indicates caution should be taken with this action -->
-    <button type="button" class="btn btn-warning">Carta Culminacion</button>
+    <button type="button" class="btn btn-info">Carta Culminación</button>
 </center>
 
 </br>
 <div class="panel panel-default">
-  <div class="panel-heading"> Descripcion del proyecto </div>
+  <div class="panel-heading"> Descripción del proyecto </div>
   <div class="panel-body">
 
 
       <div  class="form-group">
-          <label for="text-descripcion">Diagnostico</label>
+          <label for="text-descripcion">Diagnóstico</label>
           <button id="ayuda_diagnostico" type="button" class="btn btn-default pull-right" data-container="body" data-toggle="popover" data-placement="left" data-content="Caracterización de la situación que enmarca al problema, es decir las condiciones en las cuales se encuentra  la localidad u organización en la que se ejecutará el proyecto." data-original-title="" title="">
             Ayuda
         </button>
@@ -186,7 +185,7 @@ $(document).ready(function() {
         </div>
     </div>
     <div class="form-group">
-      <label for="text-justificacion">Justificacion</label>
+      <label for="text-justificacion">Justificación</label>
       <button id="ayuda_justificacion" type="button" class="btn btn-default pull-right" data-container="body" data-toggle="popover" data-placement="left" data-content="Motivaciones que llevan a desarrollar el proyecto (por qué y para qué). Valor o importancia de éste." data-original-title="" title="">
         Ayuda
     </button>
@@ -212,7 +211,7 @@ $(document).ready(function() {
 
 
       <div class="form-group">
-          <label for="text-objetivos-g">Objetivos generales</label>
+          <label for="text-objetivos-g">Objetivos Generales</label>
           <button id="ayuda_objetivos-g" type="button" class="btn btn-default pull-right" data-container="body" data-toggle="popover" data-placement="left" data-content="Propósito global que se persigue." data-original-title="" title="">
             Ayuda
         </button>
@@ -224,7 +223,7 @@ $(document).ready(function() {
     </div>
 
     <div class="form-group">
-      <label for="text-objetivos-e">Objetivos especificos</label>
+      <label for="text-objetivos-e">Objetivos Específicos</label>
       <button id="ayuda_objetivos-e" type="button" class="btn btn-default pull-right" data-container="body" data-toggle="popover" data-placement="left" data-content="Propósitos específicos del proyecto a través de los cuales se alcanzará el objetivo general." data-original-title="" title="">
         Ayuda
     </button>
@@ -261,14 +260,14 @@ $(document).ready(function() {
 
 
 <div class="panel panel-default">
-  <div class="panel-heading"> Estrategias</div>
+  <div class="panel-heading"> Estratégias</div>
   <div class="panel-body">
 
 
 
 
      <div class="form-group">
-      <label for="text-plan-trabajo">Plan de trabajo</label>
+      <label for="text-plan-trabajo">Plan de Trabajo</label>
       <button id="ayuda_plan-trabajo" type="button" class="btn btn-default pull-right" data-container="body" data-toggle="popover" data-placement="left" data-content="Relación entre las metas y los objetivos, las actividades y las acciones y los recursos que permitirán alcanzar el objetivo general (que queremos lograr, lo que haremos y cómo lo haremos)." data-original-title="" title="">
         Ayuda
     </button>
@@ -278,7 +277,7 @@ $(document).ready(function() {
 </div>
 
 <div class="form-group">
-  <label for="text-recursos">Recursos requeridos</label>
+  <label for="text-recursos">Recursos Requeridos</label>
   <button id="ayuda_recursos" type="button" class="btn btn-default pull-right" data-container="body" data-toggle="popover" data-placement="left" data-content="Materiales, Humanos y Financieros." data-original-title="" title="">
     Ayuda
 </button>
@@ -302,7 +301,7 @@ $(document).ready(function() {
 </div>
 
 </div> 
-<br><input type="submit" class="btn btn-default" id="enviar" value="Crear Proyecto"></input><br><br> 
+<br><input type="submit" class="btn btn-sucess" id="enviar" value="Crear Proyecto"></input><br><br> 
 </form>
 
     </div> <!--/container-->
