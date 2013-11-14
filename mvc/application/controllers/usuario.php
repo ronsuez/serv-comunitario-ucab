@@ -48,9 +48,13 @@ class Usuario extends CI_Controller {
 
 			$user_name = $this->usuario_model->get_info_user($info_user[0]["cedula"],$info_user[0]["tipo"]);
 
+				var_dump($user_name);
+
 			$this->session->set_userdata('name', $user_name[0]["nombre_coord"]);
 			$this->session->set_userdata('last_name', $user_name[0]["apellido_coord"]);
 
+			$this->session->set_userdata('escuela', $user_name[0]["escuela_coord"]);
+			
 			redirect("/dashboard");
 
 			//echo json_encode(array('status' =>"0"));
@@ -95,6 +99,7 @@ class Usuario extends CI_Controller {
 
 			$this->session->set_userdata('isLoggedIn', "0");
 			$this->session->set_userdata('user_name', "");
+			$this->session->set_userdata('escuela', "");
 			$this->session->sess_destroy();
 
 			redirect("/");

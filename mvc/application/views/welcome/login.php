@@ -1,4 +1,12 @@
-<?= $header; ?>
+<? echo  $header; 
+	
+	 if( $this->session->userdata('isLoggedIn') ) {
+        		
+        
+        		redirect('/dashboard'); //redirige al dashboard
+   			 }
+
+?>
 <style>
 
 
@@ -7,7 +15,6 @@
 	border: 1px solid #D6D6D6;
 	padding: 30px;
 	background-color: white; 
-       //login'box
 }
 
 #login-box label{
@@ -42,7 +49,7 @@ h2, h4 {
 	<div id= "main-content" class="row jumbotron">
 	<!-- 	<div class="col-xs-12 col-md-1">
 		</div> -->
-		<div class="col-xs-12 col-md-7">
+		<div class="col-md-6 col-sm-12 col-lg-12">
 			<br>
 			<div class="logo"><a href="https://schooltraq.com/">Servcom-UCAB</a></div>
 			<h3 class="login-heading">Que bueno tenerte de vuelta :)</h3>
@@ -55,17 +62,6 @@ h2, h4 {
 		</div>
 		<div id="login-box" class="col-xs-12 col-md-4">
 
-
-			<span id="error-message">
-				<?php if($this->input->get("login")=="-1"){
-						 echo "Ups. Parece que hubo un problema con tus datos.";
-						}else{
-							echo "";
-						}
-
-				?>
-
-			</span>
 			<form id="login" method="POST"  action="login" class="form-signin">
 				<h2 class="form-signin-heading">Inicia Sesi&#243;n</h2>
 				<h4 class="form-signin-heading">Para acceder a los servicios del sistema</h4>
@@ -77,18 +73,18 @@ h2, h4 {
 							    <label for="pass">Clave de acceso</label>
 							    <input type="password" name="pass" id="pass" class="form-control" placeholder="Contrase&#241;a" required>
 					</div>
-				
-					  <div class="form-group">
-							    <label for "tipo" class="control-label">Tipo de usuario</label>
-						<select id="tipo" name="tipo" class="form-control">
-					  <option value="">Seleccione</option>
-					  <option value="CO">Coordinador</option>
-					  <option value="DE">Director</option>
-					  <option value="DE">P. A la comunidad</option>
+					
 
-					</select>
-					</div>
-			
+			<span id="error-message">
+				<?php if($this->input->get("login")=="-1"){
+						 echo "Ups. Parece que hubo un problema con tus datos.";
+						}else{
+							echo "";
+						}
+
+				?>
+
+			</span>
 				
 					<br>
 				<button class="btn btn-lg btn-primary btn-block" type="submit">Iniciar Sesi&#243;n</button>

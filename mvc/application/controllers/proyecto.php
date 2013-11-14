@@ -67,6 +67,21 @@ class Proyecto extends CI_Controller {
 	}
 
 
+		public function ver_proyectos()
+	{
+	 				$id=$this->input->post('id_proyecto');
+
+			 		$salida=$this->proyecto_model->listar_proyectos($id);
+	
+			
+			 echo json_encode($salida);
+		 		
+			 
+	}
+
+
+
+
 	 public function registrar(){
 
 		    $informacion = json_decode($this->input->post('texto'));
@@ -75,7 +90,12 @@ class Proyecto extends CI_Controller {
 
 		    $registro = $this->proyecto_model->registrar_proyecto($informacion,$datos);
 
-		    echo $registro;
+		    // $registro;
+
+		    	$data= array('datos' =>$datos ,'informacion' =>$informacion , "estado"=> $registro);
+
+		    echo $this->load->view($this->controller."ver_proyecto",$data,TRUE);
+
 
 		    }
 

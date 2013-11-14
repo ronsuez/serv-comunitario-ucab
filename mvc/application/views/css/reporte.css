@@ -1,0 +1,17 @@
+ table{
+
+		border-collapse:collapse; 
+
+		table-layout:fixed;
+	}
+table tbody td {
+    	width: 330px;
+		}
+
+.about-info{
+
+			height: auto;
+			width: 100px;
+			font-style: bold;
+	}
+

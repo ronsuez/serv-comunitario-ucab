@@ -5,29 +5,64 @@
 	margin-top: 30px;
 }
 
+#results{
+	
+	display: none;
+}
+
+.search{
+
+	
+
+	height: 100px;
+
+}
 </style>
+
+
+<script>
+	$("#buscar_proyecto").on("submit",function(e){
+
+			e.preventDefault();
+
+			$("#results").css("display","block");
+			$("#results").css("height","100px");
+
+
+			$("#search_results").html($(this).serialize());
+
+	});
+</script>
+
 <div class="container">
 
 	<div class="panel panel-default">
 		<div class="panel-heading">Formulario de Búsqueda </div>
 		<div class="panel-body">
-			<form class="form-inline" role="form">
+			<form id="buscar_proyecto" class="form-inline" role="form">
 				<div class="form-group">
 					<label class="sr-only" for="exampleInputEmail2">Título del proyecto</label>
-					<input type="text" class="form-control" id="proyecto" placeholder="Nombre del proyecto..">
+					<input type="text" class="form-control" id="titulo" name="titulo" placeholder="Nombre del proyecto..">
 				</div>
 				<div class="form-group">
-					<select class="form-control">
-						<option>Seleccione</option>
-						<option>Todos</option>
-						<option>Activos</option>
-						<option>Financiados</option>
+					<select id="tipo" name="tipo" class="form-control">
+						<option value="">Seleccione</option>
+						<option value="todos">Todos</option>
+						<option value="activos">Activos</option>
+						<option value="financiados">Financiados</option>
 
 					</select>
 				</div>
 
-				<button type="submit" class="btn btn-success">Buscar</button>
+				<button  type="submit" class="btn btn-success">Buscar</button>
 			</form>
+
+			<div id="results">
+				<label>Resultados</label>
+				<div id="search_results">
+
+				</div>
+			</div>
 		</div>
 	</div>
 

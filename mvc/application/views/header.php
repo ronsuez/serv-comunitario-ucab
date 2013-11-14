@@ -24,6 +24,7 @@
     
   <link href="<?php echo base_url() ; ?>application/views/css/toastr.css" rel="stylesheet">
     
+    
     <!-- Le javascript
     ================================================== -->
     <!-- Libreria de jquery.js -->
@@ -33,11 +34,10 @@
       <!-- libreria de bootstrap.js -->
     <script src=<?php echo  base_url()."application/views/bootstrap/js/bootstrap.js"; ?> type="text/javascript"></script>
     
-    
-
-<!-- Libreria para el uso de la API de google maps -->
+  
+<!-- Libreria para el uso de la API de google maps 
  <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAplQ1u5cTjjFvQ7WKBajuP1LmnK-6pDkI&sensor=false">
-                          </script>
+                          </script>-->
 
 
 <!-- Librerias para el editor de texto enriquecido (ckeditor.js)-->
@@ -57,7 +57,7 @@
 
 <script src=<?php echo  base_url()."application/views/js/jquery.validator/jquery.validate.js" ; ?>  type="text/javascript"></script>
 
-<script src=<?php echo  base_url()."application/libraries/jquery.json-2.4.js" ; ?>  type="text/javascript"></script>
+<script src=<?php echo  base_url()."application/libraries/messages.js" ; ?>  type="text/javascript"></script>
 
 <script src=<?php echo  base_url()."application/views/js/toastr.js" ; ?>  type="text/javascript"></script>
 

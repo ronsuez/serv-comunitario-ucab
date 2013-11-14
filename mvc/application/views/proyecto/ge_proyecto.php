@@ -8,10 +8,8 @@ $(document).ready(function() {
        beforeSend: function(){
                // Handle the beforeSend event
                   $('#inscribir').html('<div id="loading"><img src="./loading.gif"></div>');
-    
+                    
              },
-
-        
          
         type: "GET",
         url: $('a[href$="#inscribir"]').attr("data-url"),
@@ -34,6 +32,11 @@ $(document).ready(function() {
     var url = $(this).attr("data-url");
     var href = this.hash;
     var pane = $(this);
+
+    //escondo todas los popover que tenia abiertos
+
+     $('button[data-toggle="popover"]').popover('hide');
+
 
     // add loading image to div
     $(href).html('<div id="loading"><img src="./loading.gif"></div>');

@@ -7,6 +7,8 @@
     		}else {
         			 $user =$this->session->userdata("name")." ".$this->session->userdata("last_name");
 
+        			 $escuela = "Escuela de ".$this->session->userdata("escuela");
+	
    			 }
 
  ?>
@@ -39,7 +41,7 @@
 
       	$(this).parent().addClass("active");
 
-      	$("#main-title").text($(this).text());
+      	$("#tab-title").text($(this).text());
 
 
 	        	// add loading image to div
@@ -267,7 +269,7 @@ body {
 						<li class=""><a href="gest-proyecto">Proyectos</a></li>
 						<li class=""><a href="gest-prestador">Prestadores</a></li>
 						<li class=""><a href="gest-localidad">Localidades</a></li>
-
+						
 					</ul>
 
 				</div><!--/.nav-collapse -->
@@ -284,7 +286,8 @@ body {
 
 			<div class="panel panel-success">
 				<div class="panel-heading">
-					<h3 id="main-title" class="panel-title">Administracion</h3>
+					<h3 id="main-title" class="panel-title"><span id="tab-title">Administracion</span> <span class="pull-right"><?php echo $escuela; ?></span></h3>
+
 				</div>
 
 				<div id="main-panel-body" class="panel-body">

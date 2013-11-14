@@ -1,3 +1,6 @@
+
+<?php echo $date = date("Y-m-d");?>
+
 <script type="text/javascript">
 
 $(document).ready(function() {
@@ -8,40 +11,67 @@ $(document).ready(function() {
           // Replace the <textarea id="editor"> with an CKEditor
           // instance, using default configurations.
 
+     //escondo los popovers que estan abiertos  y muestro el que seleccione
+      $(document).on("show.bs.popover",function(){
 
-    //Inicializdor para los editores de texto enriquecido para cada text-area
+           console.log("popver in");
+
+            $('button[data-toggle="popover"]').popover('hide');
+
+      });
 
 
-    var editor1 = CKEDITOR.inline( 'text-diagnostico' );
 
-    var editor2 = CKEDITOR.inline( 'text-justificacion' );
+ //Inicializdor para los editores de texto enriquecido para cada text-area
 
-    var editor3 = CKEDITOR.inline( 'text-impacto' );
+     var editor1 = CKEDITOR.inline( 'text-diagnostico' );
 
+     var editor2 = CKEDITOR.inline( 'text-justificacion' );
 
-    var editor4 = CKEDITOR.inline( 'text-objetivos-g' );
+     var editor3 = CKEDITOR.inline( 'text-impacto' );
 
-    var editor5 = CKEDITOR.inline( 'text-objetivos-e' );
+     var editor4 = CKEDITOR.inline( 'text-objetivos-g' );
 
-    var editor6 = CKEDITOR.inline( 'text-metas' );
-    var editor7 = CKEDITOR.inline( 'text-producto' );
+     var editor5 = CKEDITOR.inline( 'text-objetivos-e' );
+
+     var editor6 = CKEDITOR.inline( 'text-metas' );
+     var editor7 = CKEDITOR.inline( 'text-producto' );
 
       // "Text-area para la descripcion del proyecto.
       
-      var editor8 = CKEDITOR.inline( 'text-plan-trabajo' );
+     var editor8 = CKEDITOR.inline( 'text-plan-trabajo' );
       
-      var editor9 = CKEDITOR.inline( 'text-recursos' );
+     var editor9 = CKEDITOR.inline( 'text-recursos' );
 
-      var editor10 = CKEDITOR.inline( 'text-cronograma' );
+     var editor10 = CKEDITOR.inline( 'text-cronograma' );
       
+
+//popovers para la pagina INSERTAR_PROYECTO
+
+     $("#ayuda_diagnostico").popover();
+     $("#ayuda_justificacion").popover();
+     $("#ayuda_impacto").popover();
+     $("#ayuda_objetivos-g").popover();
+     $("#ayuda_objetivos-e").popover();
+     $("#ayuda_metas").popover();
+     $("#ayuda_producto").popover();
+     $("#ayuda_plan-trabajo").popover();
+     $("#ayuda_recursos").popover();
+     $("#ayuda_cronograma").popover();
+
+  
+
 
     //Inicializdor y handler para el validador del form insertar-proyecto
 
     $("#addform-proyecto").validate({
 
         rules:{
-          titulo_proyecto:"required"
-      },
+          titulo_proyecto:"required",
+          suscribe:"required",
+          ejecuta:"required",
+          estado:"required"
+        },
       messages: {
           titulo_proyecto: {
             required: 'El campo es requerido'
@@ -51,16 +81,37 @@ $(document).ready(function() {
         },
         ejecuta: {
             required: 'El campo es requerido'
+        },
+        estado: {
+            required: 'El campo es requerido'
         }
     }
 });
 
+
+    });
+
+
+
      //carga via ajax el listado de localidades 
      $.get("listar_loc", function (data) {
 
-                  // update the section with the {categorie's list}
+                  
+                  var salida = JSON.parse(data);// update the section with the {categorie's list}
 
-                  $("#ejecuta,#suscribe").html(data);
+                  var localidades= '<option value ="">Seleccione</option>';
+
+                  $.each(salida,function(index){
+
+                      console.log(salida[index]);
+
+                      localidades = localidades +'<option value ="'+salida[index].id_localidad+'">'+salida[index].nombre_localidad+'</option>'; 
+
+                  });
+
+                  $("#ejecuta,#suscribe").html(localidades);
+              
+                
               });
 
 
@@ -92,27 +143,22 @@ $(document).ready(function() {
         var titulo = JSON.stringify($(this).serializeArray());
 
 
+          //handler para enviar los datos del proyecto y registrarlo
 
         $.post("registrar_proyecto",{texto:dinamic_text,datos:titulo},function (data){
-           $("#inscribir").html(data);
+           
+
+              $("#inscribir").html(data);
+
+              
        });
 
     }
 
 });
 
-     $("#ayuda_diagnostico").popover();
-     $("#ayuda_justificacion").popover();
-     $("#ayuda_impacto").popover();
-     $("#ayuda_objetivos-g").popover();
-     $("#ayuda_objetivos-e").popover();
-     $("#ayuda_metas").popover();
-     $("#ayuda_producto").popover();
-     $("#ayuda_plan-trabajo").popover();
-     $("#ayuda_recursos").popover();
-     $("#ayuda_cronograma").popover();
 
- });
+
 
 </script>
 
@@ -152,23 +198,18 @@ $(document).ready(function() {
              </select>
          </div>
 
+         <div class="form-group">
+             <label for="ejecuta">Estado del proyecto</label>
+             <select class="form-control" name="estado" id="estado">
+                 <option value="">Seleccione</option>
+                 <option value="activo">Activo</option>
+                 <option value="financiado">Financiado</option> 
+             </select>
+         </div>
+
      </div>
 
  </div>
-
-</br>
-<center>
-    <button type="button" class="btn btn-info" data-toggle="modal" href="#myModal">Reportar Horas</button>
-
-    <!-- Indicates a successful or positive action -->
-    <button type="button" id="consultar_proyecto" class="btn btn-info" >Consultar Proyecto</a></button>
-
-    <!-- Contextual button for informational alert messages -->
-    <button type="button" class="btn btn-info">Inscribir Proyecto</button>
-
-    <!-- Indicates caution should be taken with this action -->
-    <button type="button" class="btn btn-info">Carta Culminación</button>
-</center>
 
 </br>
 <div class="panel panel-default">
@@ -179,7 +220,7 @@ $(document).ready(function() {
       <div  class="form-group">
           <label for="text-descripcion">Diagnóstico</label>
           <button id="ayuda_diagnostico" type="button" class="btn btn-default pull-right" data-container="body" data-toggle="popover" data-placement="left" data-content="Caracterización de la situación que enmarca al problema, es decir las condiciones en las cuales se encuentra  la localidad u organización en la que se ejecutará el proyecto." data-original-title="" title="">
-            Ayuda
+            <span class="glyphicon glyphicon-info-sign"></span>
         </button>
         <div   id="text-diagnostico"  contenteditable="true" name="diagnostico" class="text-area form-control">
         </div>
