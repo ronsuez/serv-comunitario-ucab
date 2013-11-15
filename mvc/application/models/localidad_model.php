@@ -15,7 +15,8 @@
 
 public function listar(){
 
-            $query = $this->db->query('SELECT id_localidad,nombre_localidad  FROM localidad ORDER BY coordenadas ASC' );
+            $query = $this->db->query('SELECT id_localidad,nombre_localidad  
+				            FROM localidad ORDER BY id_localidad ASC' );
 
 
             $data ="";
