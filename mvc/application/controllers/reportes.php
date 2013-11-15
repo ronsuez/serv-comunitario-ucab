@@ -24,12 +24,12 @@ class Reportes extends CI_Controller {
 
     $pdf->WriteHTML($html,2); // write the HTML into the PDF
     $pdf->Output($pdfFilePath, 'F'); // save to file because we can
-   // }else{
+   ////}else{
 
 
         echo "/projects/serv-comunitario-ucab/mvc/application/reports/".$filename.".pdf";
        
-    //}
+    //}  
  
 
     }
