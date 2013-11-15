@@ -66,7 +66,8 @@ $route['insertar_datos_prestador']="prestador/insertar_datos_prestador";
 $route['Localidades']="localidad/index";
 $route['listar_loc']="localidad/listar";
 $route['insertar_localidad']="localidad/insertar";
-$route['404_override'] = '';
+
+$route['ver_reporte'] = 'reportes/index';
 
 
 /* End of file routes.php */
