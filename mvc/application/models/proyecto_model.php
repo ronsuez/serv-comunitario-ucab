@@ -48,21 +48,18 @@
     }
 
 
-    public function listar(){
+    public function listar_proyectos($id_proyecto){
 
-            $query = $this->db->query('SELECT id_fab,fabricante  FROM fabricante ORDER BY fabricante ASC' );
+            $query = $this->db->query("SELECT  *  FROM proyecto WHERE id_proyecto='$id_proyecto' " );
 
 
             $data ="";
 
                 if ($query->num_rows() > 0)
                 {
-                                foreach ($query->result_array() as $row)
-                                {
-                                    $data.= "<option value='$row[id_fab]'>$row[fabricante]</option>";
-                                }
+                            
 
-                    return $data;
+                    return $query->result_array();
             
                 }else{
 
@@ -77,7 +74,16 @@
             foreach($dato as $item){
                 if ($item->name == "titulo_proyecto")
                     $nombre_proyecto = $item->value;
-            }
+             if ($item->name == "suscribe")
+                    $suscribe = $item->value;
+            if ($item->name == "ejecuta")
+                    $ejecuta = $item->value;        
+            
+            if ($item->name == "estado")
+                    $estado = $item->value;        
+                      
+
+                }
 
             foreach($info as $item2){
                 if ($item2->name == "text-diagnostico")
@@ -102,8 +108,11 @@
                     $cronograma_proyecto=$item2->value;
             }
 
-            $query = $this->db->query("INSERT INTO proyecto(nombre_proyecto,ci_coord,ci_asesor,diagnostico_proyecto,justificacion_proyecto,impacto_proyecto,obj_generales_proyecto,obj_especificos_proyecto,metas_proyecto,producto_proyecto,plan_trabajo_proyecto,recursos_requeridos_proyecto,cronograma_proyecto) 
-                                       VALUES ('$nombre_proyecto',13,12,'$diagnostico_proyecto','$justificacion_proyecto','$impacto_proyecto','$obj_generales_proyecto','$obj_especificos_proyecto','$metas_proyecto','$producto_proyecto','$plan_trabajo_proyecto','$recursos_proyecto','$cronograma_proyecto')");
+            $date = date("Y-m-d");
+
+
+            $query = $this->db->query("INSERT INTO proyecto(fecha_ini,nombre_proyecto,ci_coord,ci_asesor,diagnostico_proyecto,justificacion_proyecto,impacto_proyecto,obj_generales_proyecto,obj_especificos_proyecto,metas_proyecto,producto_proyecto,plan_trabajo_proyecto,recursos_requeridos_proyecto,cronograma_proyecto,estado_proyecto) 
+                                       VALUES ('$date','$nombre_proyecto',$suscribe,$ejecuta,'$diagnostico_proyecto','$justificacion_proyecto','$impacto_proyecto','$obj_generales_proyecto','$obj_especificos_proyecto','$metas_proyecto','$producto_proyecto','$plan_trabajo_proyecto','$recursos_proyecto','$cronograma_proyecto','$estado')");
 
             if ($query)
                 return "bien";
