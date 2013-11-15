@@ -27,7 +27,7 @@ class Reportes extends CI_Controller {
    ////}else{
 
 
-        echo "/projects/serv-comunitario-ucab/mvc/application/reports/".$filename.".pdf";
+        echo base_url()."application/reports/".$filename.".pdf";
        
     //}  
  
