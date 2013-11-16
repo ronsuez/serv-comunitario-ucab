@@ -1,8 +1,8 @@
-# Sistema para el  Servicio comunitario UCAB Guayana
+## Sistema para el  Servicio comunitario UCAB Guayana
 
 Desarrollado por la clase de Desarrollo de software dictada por el Prof. Julio Canelon.
 
-# Desarrolladores :
+### Desarrolladores :
  Oscar Bastardo
  Juan Pareles
  Nicolas Quijada 
@@ -15,19 +15,19 @@ Desarrollado por la clase de Desarrollo de software dictada por el Prof. Julio C
 
 
 
-# Frameworks utilizados
+### Frameworks utilizados
 
 - Codeigniter => <a href="http://ellislab.com/codeigniter" target="_blank">Pagina oficial</a>
 
 - Bootstrap 3 => <a href="http://getbootstrap.com" target="_blank">Pagina oficial</a>
 
 
-# Librerias utilizadas
+### Librerias utilizadas
 
 - Jquery. => <a href="http://jquery.com/" target="_blank">Pagina oficial</a>
 
 
-# Plugins utilizados
+### Plugins utilizados
 
 - Ckeditor(Para el texto enriquecido) 
 	=> <a href="http://jqueryvalidation.org/" target="_blank">Pagina oficial</a>
