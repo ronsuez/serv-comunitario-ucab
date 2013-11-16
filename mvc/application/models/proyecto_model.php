@@ -47,39 +47,39 @@
 
             foreach($dato as $item){
                 if ($item->name == "titulo_proyecto")
-                    $nombre_proyecto = $this->db->escape($item->value);
+                    $nombre_proyecto = $item->value;
              if ($item->name == "suscribe")
-                    $suscribe = $this->db->escape($item->value);
+                    $suscribe = $item->value;
             if ($item->name == "ejecuta")
-                    $ejecuta = $this->db->escape($item->value);        
+                    $ejecuta = $item->value;        
             
             if ($item->name == "estado")
-                    $estado = $this->db->escape($item->value);        
+                    $estado = $item->value;        
                       
 
                 }
 
             foreach($info as $item2){
                 if ($item2->name == "text-diagnostico")
-                    $diagnostico_proyecto=$this->db->escape($item2->value);
+                    $diagnostico_proyecto=$item2->value;
                 if ($item2->name == "text-justificacion")
-                    $justificacion_proyecto=$this->db->escape($item2->value);
+                    $justificacion_proyecto=$item2->value;
                 if ($item2->name == "text-impacto")
-                    $impacto_proyecto=$this->db->escape($item2->value);
+                    $impacto_proyecto=$item2->value;
                 if ($item2->name == "text-objetivos-g")
-                    $obj_generales_proyecto=$this->db->escape($item2->value);
+                    $obj_generales_proyecto=$item2->value;
                 if ($item2->name == "text-objetivos-e")
-                    $obj_especificos_proyecto=$this->db->escape($item2->value);
+                    $obj_especificos_proyecto=$item2->value;
                 if ($item2->name == "text-metas")
-                    $metas_proyecto=$this->db->escape($item2->value);
+                    $metas_proyecto=$item2->value;
                 if ($item2->name == "text-producto")
-                    $producto_proyecto=$this->db->escape($item2->value);
+                    $producto_proyecto=$item2->value;
                 if ($item2->name == "text-plan-trabajo")
-                    $plan_trabajo_proyecto=$this->db->escape($item2->value);
+                    $plan_trabajo_proyecto=$item2->value;
                 if ($item2->name == "text-recursos")
-                    $recursos_proyecto=$this->db->escape($item2->value);
+                    $recursos_proyecto=$item2->value;
                 if ($item2->name == "text-cronograma")
-                    $cronograma_proyecto=$this->db->escape($item2->value);
+                    $cronograma_proyecto=$item2->value;
             }
 
             $date = date("Y-m-d");
