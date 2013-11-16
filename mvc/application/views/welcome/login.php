@@ -38,6 +38,11 @@ h2, h4 {
 
 }
 
+#help-box{
+
+	font-size: 12px;
+}
+
 
 </style>
 
@@ -49,7 +54,7 @@ h2, h4 {
 	<div id= "main-content" class="row jumbotron">
 	<!-- 	<div class="col-xs-12 col-md-1">
 		</div> -->
-		<div class="col-md-6 col-sm-12 col-lg-12">
+		<div id ="help-box" class="col-md-7 col-sm-7 col-lg-7">
 			<br>
 			<div class="logo"><a href="https://schooltraq.com/">Servcom-UCAB</a></div>
 			<h3 class="login-heading">Que bueno tenerte de vuelta :)</h3>
@@ -60,7 +65,7 @@ h2, h4 {
 				</p>
 			</div>
 		</div>
-		<div id="login-box" class="col-xs-12 col-md-4">
+		<div id="login-box" class="col-sm-5 col-md-5 col-lg-5">
 
 			<form id="login" method="POST"  action="login" class="form-signin">
 				<h2 class="form-signin-heading">Inicia Sesi&#243;n</h2>
