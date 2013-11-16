@@ -4,14 +4,8 @@
 <script type="text/javascript">
 
 $(document).ready(function() {
-          // This call can be placed at any point after the
-          // <textarea>, or inside a <head><script> in a
-          // window.onload event handler.
 
-          // Replace the <textarea id="editor"> with an CKEditor
-          // instance, using default configurations.
-
-     //escondo los popovers que estan abiertos  y muestro el que seleccione
+     //Cierra los popovers que estan abiertos  y muestra el que seleccione
       $(document).on("show.bs.popover",function(){
 
            console.log("popver in");
