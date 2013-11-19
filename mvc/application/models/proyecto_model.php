@@ -11,23 +11,29 @@
     }
 
 
-   public function get_new_id(){
-
-
-        $id_query = $this->db->query("SELECT nextval('id_producto_seq') AS id ");
-
-        $id= $id_query->row();
-
-        return $id;
-    }
-
-
     public function listar_proyectos($id_proyecto){
 
             $query = $this->db->query("SELECT  *  FROM proyecto WHERE id_proyecto='$id_proyecto' " );
 
+                if ($query->num_rows() > 0)
+                {
+                            
 
-            $data ="";
+                    return $query->result_array();
+            
+                }else{
+
+                    return -1;
+                }
+                    
+      
+    }
+
+
+     public function buscar_proyectos($query){
+
+            $query = $this->db->query("SELECT  id_proyecto,nombre_proyecto  FROM proyecto 
+                                WHERE nombre_proyecto LIKE  '%". $query."%' ");
 
                 if ($query->num_rows() > 0)
                 {
