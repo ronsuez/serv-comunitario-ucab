@@ -71,7 +71,7 @@ class Proyecto extends CI_Controller {
 	{
 	 				$id=$this->input->post('id_proyecto');
 
-			 		$salida=$this->proyecto_model->listar_proyectos($id);
+			 		$salida=$this->proyecto_model->listar_proyectos($id,"consultar");
 	
 			
 			 echo json_encode($salida);
@@ -92,25 +92,53 @@ class Proyecto extends CI_Controller {
 			 
 	}
 
+	public function preparar_datos_reporte($data){
+
+				$array = array("datos"=>$data);
+
+
+			 echo $this->load->view($this->controller."ver_proyecto",$array,TRUE);
+
+	}
+
+
+
+	public function generar_reporte($id = false ){
+
+
+				if($this->input->post('id_proyecto')){
+
+					$id = $this->input->post('id_proyecto');
+				}
+
+
+			 $salida=$this->proyecto_model->listar_proyectos($id);
+	
+		
+			 $this->preparar_datos_reporte($salida);
+		 		
+
+	}
 
 
 
 	 public function registrar(){
 
-		    $informacion = json_decode($this->input->post('texto'));
+		    $informacion = json_decode($this->input->post('texto'),true);
 
-		    $datos = json_decode($this->input->post('datos'));
-
-		    $registro = $this->proyecto_model->registrar_proyecto($informacion,$datos);
-
-		    // $registro;
-
-		    	$data= array('datos' =>$datos ,'informacion' =>$informacion , "estado"=> $registro);
-
-		    echo $this->load->view($this->controller."ver_proyecto",$data,TRUE);
+		    $datos = json_decode($this->input->post('datos'),true);
 
 
-		    }
+		     $array = array_merge($datos, $informacion);
+
+		    $id = $this->proyecto_model->registrar_proyecto($array);
+
+		   // echo $id;
+
+		  	$this->generar_reporte($id);
+
+
+		   }
 
 
 

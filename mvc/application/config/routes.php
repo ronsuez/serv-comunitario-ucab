@@ -54,6 +54,8 @@ $route['consultar_proyecto']="proyecto/modificar";
 $route['registrar_proyecto']="proyecto/registrar";
 $route['buscar_proyecto']="proyecto/buscar";
 $route['listar_datos_proyecto']="proyecto/ver_proyectos";
+$route['generar_reporte_proyecto']="proyecto/generar_reporte";
+
 /* routing for prestadores controller */
 $route['Prestadores']="prestador/index";
 $route['insertar_prestador']="prestador/insertar";
