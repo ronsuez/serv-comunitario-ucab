@@ -20,7 +20,7 @@
 
 	
 
-	height: 100px;
+	height: auto;
 
 }
 
@@ -29,10 +29,17 @@
 	margin-top: 10px;
 
 }
+.result-search{
+
+	height: auto;
+}
 </style>
 
 
 <script>
+
+
+$( document ).ready(function() {
 
 
 
@@ -41,7 +48,7 @@
 			e.preventDefault();
 
 			$("#results").css("display","block");
-			$("#results").css("height","100px");
+	
 
 
 			$.post("buscar_proyecto",{query:$("#query").val()},function(data){
@@ -50,6 +57,8 @@
 
 						console.log(data);
 
+
+						$("div#search_results ul.list-group li a").unbind("click");
 						$("div#search_results ul.list-group li").remove();
 
 						if(data==="-1"){
@@ -75,10 +84,16 @@
 
 
 
-			jQuery(document).unbind().on('click', 'div#search_results ul li a', function (ev) {
+			jQuery(document).on('click', '#search_results ul li a', function (ev) {
     		
     			ev.preventDefault();
-  				
+
+
+
+    			$("#results").css("display","none");
+
+    					//$("div#search_results ul.list-group li a").unbind("click");
+						
 				$.post("listar_datos_proyecto",{id_proyecto:$(this).attr("href")},function(data){
 
 						var listado = JSON.parse(data);
@@ -110,31 +125,24 @@
 
 							
 					});
+			
 
-				ev.stopPropagation();
-							
 			});
 	
 
 
 	});
-</script>
 
-<script type="text/javascript">
-	
 	$("#gen_reporte_proy").on("click",function(){
 
 
 			var id_proy = $("#id_proyecto").text();
-
-			var html = "";
+			
+			var button = $(this);
 
 
 			$.post("generar_reporte_proyecto",{state:1,id_proyecto:id_proy},function(data){
 
-
-				
-			var button = $(this);
 
 				$(button).button('loading');
 
@@ -152,14 +160,16 @@
 
 
 	});
-		
+
+});
 </script>
+
 
 <div class="container">
 
 	<div class="panel panel-default">
 		<div class="panel-heading">Formulario de Búsqueda </div>
-		<div class="panel-body">
+		<div class="result-search panel-body">
 		
 			<div class="input-group input-group-sm">
                 <input id="query" type="text" class="form-control" placeholder="Nombre del proyecto"></input>
@@ -291,7 +301,7 @@
 				</div>
 			</div>
 						<!-- boton para generar reporte -->
-			<button id="gen_reporte_proy" type="button" class="button-generar pull-right btn btn-success">Generar reporte PDF</button>
+			<button id="gen_reporte_proy" type="button" data-loading-text="Generando reporte" class="button-generar pull-right btn btn-success">Generar reporte PDF</button>
 
 		</div>
 
