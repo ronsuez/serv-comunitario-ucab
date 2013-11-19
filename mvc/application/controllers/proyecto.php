@@ -80,6 +80,19 @@ class Proyecto extends CI_Controller {
 	}
 
 
+		public function buscar()
+	{
+	 				$id=$this->input->post('query');
+
+			 		$salida=$this->proyecto_model->buscar_proyectos($id);
+	
+			
+			 echo json_encode($salida);
+		 		
+			 
+	}
+
+
 
 
 	 public function registrar(){

@@ -10,6 +10,12 @@
 	display: none;
 }
 
+#results label {
+
+	margin-top:10px;
+	margin-bottom:10px;
+}
+
 .search{
 
 	
@@ -21,7 +27,10 @@
 
 
 <script>
-	$("#buscar_proyecto").on("submit",function(e){
+
+
+
+	$("#buscar_proyecto").on("click",function(e){
 
 			e.preventDefault();
 
@@ -29,7 +38,90 @@
 			$("#results").css("height","100px");
 
 
-			$("#search_results").html($(this).serialize());
+			$.post("buscar_proyecto",{query:$("#query").val()},function(data){
+
+						var listado = JSON.parse(data);
+
+						console.log(data);
+
+						$("div#search_results ul.list-group").empty();
+
+						if(data==="-1"){
+
+
+							$("div#search_results ul.list-group").html('<li class="list-group-item"> No se econtraron resultados </li>');
+
+						}else{
+
+
+							$.each(listado, function(){
+
+							
+								$("div#search_results ul.list-group").append('<li class="list-group-item"> <a href="' + this.id_proyecto + '">' + this.nombre_proyecto + "</a> </li>");
+								
+
+							});
+
+						}
+
+
+
+
+
+
+			});
+
+
+
+			jQuery(document).on('click', 'div#search_results a', function (ev) {
+    		
+    			ev.preventDefault();
+  				
+
+    				//traeme mas informacion sobre el proyecto
+				//console.log($(this).text());
+
+		
+
+				$.post("listar_datos_proyecto",{id_proyecto:$(this).attr("href")},function(data){
+
+						var listado = JSON.parse(data);
+
+						console.log();
+
+
+						var elementos = ["nombre_proyecto",
+										 "fecha_ini",
+										 "estado_proyecto",
+										 "id_proyecto",
+										 "diagnostico_proyecto",
+										 "justificacion_proyecto",
+										 "impacto_proyecto",
+										 "obj_generales_proyecto",
+										 "obj_especificos_proyecto",
+										 "metas_proyecto",
+										 "producto_proyecto",
+										 "plan_trabajo_proyecto",
+										 "recursos_requeridos_proyecto",
+										 "cronograma_proyecto"];
+									
+						
+
+							$.each(elementos, function(i){
+
+									$("#"+elementos[i]).html(listado[0][elementos[i]]);
+
+
+							});
+
+
+							
+			});
+
+							
+			});
+	
+
 
 	});
 </script>
@@ -39,27 +131,22 @@
 	<div class="panel panel-default">
 		<div class="panel-heading">Formulario de Búsqueda </div>
 		<div class="panel-body">
-			<form id="buscar_proyecto" class="form-inline" role="form">
-				<div class="form-group">
-					<label class="sr-only" for="exampleInputEmail2">Título del proyecto</label>
-					<input type="text" class="form-control" id="titulo" name="titulo" placeholder="Nombre del proyecto..">
-				</div>
-				<div class="form-group">
-					<select id="tipo" name="tipo" class="form-control">
-						<option value="">Seleccione</option>
-						<option value="todos">Todos</option>
-						<option value="activos">Activos</option>
-						<option value="financiados">Financiados</option>
-
-					</select>
-				</div>
-
-				<button  type="submit" class="btn btn-success">Buscar</button>
-			</form>
+		
+			<div class="input-group input-group-sm">
+                <input id="query" type="text" class="form-control" placeholder="Nombre del proyecto"></input>
+                <span class="input-group-btn">
+                  <button id="buscar_proyecto" class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+                </span>
+              </div><!-- /input-group -->
+		
 
 			<div id="results">
 				<label>Resultados</label>
 				<div id="search_results">
+					<ul class="list-group">
+					
+
+					</ul>
 
 				</div>
 			</div>
@@ -71,17 +158,22 @@
 		<div class="panel-body">
 
 
-			<!--Estado/ID proyecto -->
+			<!--Fecha de inicio, Estado , ID proyecto -->
+
+			<label for="proyecto">Nombre del proyecto</label>
+			<h5 id="nombre_proyecto">xxxxxxxx</h5>
+
+			<label for="proyecto">Fecha de creacion del proyecto</label>
+			<h5 id="fecha_ini">xxxxxxxx</h5>
 
 			<label for="proyecto">Estado del proyecto</label>
-			<h5>xxxxxxxx</h5>	
+			<h5 id="estado_proyecto">xxxxxxxx</h5>	
+			
 			<label for="proyecto">Codigo del proyecto</label>
-			<h5>xxxxxxxx</h5>	
+			<h5 id="id_proyecto">xxxxxxxx</h5>	
 
 			<!--Descripcion /textarea -->	
 			<h3>General</h3>
-
-			<textarea class="form-control" rows="3"></textarea>	
 
 			<!--Acorddion-->	
 			<div class="panel-group" id="accordion">
@@ -95,6 +187,20 @@
 					</div>
 					<div id="collapseOne" class="panel-collapse collapse in">
 						<div class="panel-body">
+
+							<label class="content-label"> Diagnostico</label>
+							<div id="diagnostico_proyecto">
+
+							</div>
+
+
+							<label class="content-label">Justificacion</label>
+							<div id="justificacion_proyecto">
+							</div>
+                           
+                           <label class="content-label">Impacto</label>
+							<div id="impacto_proyecto">
+							</div>
 
 						</div>
 					</div>
@@ -110,6 +216,22 @@
 					<div id="collapseTwo" class="panel-collapse collapse">
 						<div class="panel-body">
 
+							<label class="content-label">Objetivo General</label>
+							<div id="obj_generales_proyecto">
+							</div>
+
+							<label class="content-label">Objetivos especificos</label>
+							<div id="obj_especificos_proyecto">
+							</div>
+
+							<label class="content-label">Metas</label>
+							<div id="metas_proyecto">
+							</div>
+
+							<label class="content-label">Producto</label>
+							<div id="producto_proyecto">
+							</div>
+
 						</div>
 					</div>
 				</div>
@@ -124,6 +246,17 @@
 					<div id="collapseThree" class="panel-collapse collapse">
 						<div class="panel-body">
 
+							<label class="content-label">Plan de trabajo</label>
+							<div id="plan_trabajo_proyecto">
+							</div>
+
+							<label class="content-label">Recursos requeridos</label>
+							<div id="recursos_requeridos_proyecto">
+							</div>
+
+							<label class="content-label">Cronograma</label>
+							<div id="cronograma_proyecto">
+							</div>
 						</div>
 					</div>
 				</div>
