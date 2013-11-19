@@ -1,10 +1,10 @@
-<? echo  $header; 
+<?php echo  $header; 
 	
 	 if( $this->session->userdata('isLoggedIn') ) {
         		
         
-        		redirect('/dashboard'); //redirige al dashboard
-   			 }
+       		redirect('/dashboard'); //redirige al dashboard
+ 	 }
 
 ?>
 <style>
