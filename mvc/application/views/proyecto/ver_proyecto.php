@@ -1,9 +1,15 @@
 
 <?php 
 
-echo $estado ;				
+ if (isset($estado)){
+
+ 	echo $estado;
+
+} 			
 
 		$escuela="Escuela de ".$this->session->userdata("escuela");
+
+
 ?>
  <link href="<?php echo base_url() ; ?>application/views/css/reporte.css" rel="stylesheet">
     
@@ -13,13 +19,19 @@ echo $estado ;
 
 			var html = $("#reporte").html();
 
+			var button = $(this);
+
 				console.log(html);
 
+				$(button).button('loading');
+
 				 $.post("ver_reporte",{state:1,reporte:html},function (data){
-           
-             					window.open(data, '_blank', 'fullscreen=yes');
-			              
-     					  });
+				           
+             				window.open(data, '_blank', 'fullscreen=yes');
+			        		
+
+							$(button).button('reset');      
+     		 });
 
 	});
 		
@@ -34,25 +46,25 @@ echo $estado ;
 	<tbody>	
 		<tr>
 			<td><span class="about-info">Titulo del proyecto</span></td>
-			<td><?=$datos[0]->value?></td>	
+			<td><?=$datos[0]["nombre_proyecto"]?></td>	
 		</tr>
 		<tr>
 			<td>
 				<span class="about-info">Organización o comunidad que suscribe el 
 					Convenio</span>
 				</td>
-			<td><?=$datos[1]->value?></td>	
+			<td><?=$datos[0]["ci_coord"]?></td>	
 		</tr>
 		<tr>
 			<td><span class="about-info">Estado</span></td>
-			<td><?=$datos[2]->value?></td>	
+			<td><?=$datos[0]["estado_proyecto"]?></td>	
 		</tr>
 			
 		<tr>
 			<td><span class="about-info">Persona responsable en la organización o 
 			    comunidad que suscribe el Convenio</span>
 			</td>
-			<td><?=$datos[2]->value?></td>	
+			<td><?=$datos[0]["ci_asesor"]?></td>	
 		</tr>	
 		<tr>
 			<td><span class="about-info">Dirección, teléfonos y correo electrónico de la
@@ -82,43 +94,43 @@ echo $estado ;
 		<!--data grosso del proyecto-->
 		<tr>
 			<td><span class="about-info">Diagnostico</span></td>
-			<td><?=$informacion[0]->value?></td>	
+			<td><?=$datos[0]["diagnostico_proyecto"]?></td>	
 		</tr>
 		<tr>
 			<td><span class="about-info">Justificacion</span></td>
-			<td><?=$informacion[1]->value?></td>	
+			<td><?=$datos[0]["justificacion_proyecto"]?></td>	
 		</tr>
 		<tr>
 			<td><span class="about-info">Impacto</span></td>
-			<td><?=$informacion[2]->value?></td>	
+			<td><?=$datos[0]["impacto_proyecto"]?></td>	
 		</tr>
 		<tr>
 			<td><span class="about-info">Objetivo General</span></td>
-			<td><?=$informacion[3]->value?></td>	
+			<td><?=$datos[0]["obj_generales_proyecto"]?></td>	
 		</tr>
 		<tr>
 			<td><span class="about-info">Objetivos Especificos</span></td>
-			<td><?=$informacion[4]->value?></td>	
+			<td><?=$datos[0]["obj_especificos_proyecto"]?></td>	
 		</tr>
 		<tr>
 			<td><span class="about-info">Metas</span></td>
-			<td><?=$informacion[5]->value?></td>	
+			<td><?=$datos[0]["metas_proyecto"]?></td>	
 		</tr>
 		<tr>
 			<td><span class="about-info">Producto</span></td>
-			<td><?=$informacion[6]->value?></td>	
+			<td><?=$datos[0]["producto_proyecto"]?></td>	
 		</tr>
 			<tr>
 			<td><span class="about-info">Plan de trabajo</span></td>
-			<td><?=$informacion[7]->value?></td>	
+			<td><?=$datos[0]["plan_trabajo_proyecto"]?></td>	
 		</tr>
 		<tr>
 			<td><span class="about-info">Recursos</span></td>
-			<td><?=$informacion[8]->value?></td>	
+			<td><?=$datos[0]["recursos_requeridos_proyecto"]?></td>	
 		</tr>
 		<tr>
 			<td><span class="about-info">Cronograma</span></td>
-			<td><?=$informacion[9]->value?></td>	
+			<td><?=$datos[0]["cronograma_proyecto"]?></td>	
 		</tr>
 			
 			
@@ -127,5 +139,9 @@ echo $estado ;
 
 </div>
 
-<br><button id="enviar" class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button><br><br> 
+<br>
+
+
+			<!-- boton para generar reporte -->
+<button id="enviar" type="button" data-loading-text="Generando reporte" class="button-generar  btn btn-success">Generar reporte PDF</button>
 

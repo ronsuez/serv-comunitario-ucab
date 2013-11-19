@@ -23,6 +23,12 @@
 	height: 100px;
 
 }
+
+.button-generar{
+
+	margin-top: 10px;
+
+}
 </style>
 
 
@@ -44,7 +50,7 @@
 
 						console.log(data);
 
-						$("div#search_results ul.list-group").empty();
+						$("div#search_results ul.list-group li").remove();
 
 						if(data==="-1"){
 
@@ -65,30 +71,17 @@
 						}
 
 
-
-
-
-
 			});
 
 
 
-			jQuery(document).on('click', 'div#search_results a', function (ev) {
+			jQuery(document).unbind().on('click', 'div#search_results ul li a', function (ev) {
     		
     			ev.preventDefault();
   				
-
-    				//traeme mas informacion sobre el proyecto
-				//console.log($(this).text());
-
-		
-
 				$.post("listar_datos_proyecto",{id_proyecto:$(this).attr("href")},function(data){
 
 						var listado = JSON.parse(data);
-
-						console.log();
-
 
 						var elementos = ["nombre_proyecto",
 										 "fecha_ini",
@@ -116,14 +109,50 @@
 
 
 							
-			});
+					});
 
+				ev.stopPropagation();
 							
 			});
 	
 
 
 	});
+</script>
+
+<script type="text/javascript">
+	
+	$("#gen_reporte_proy").on("click",function(){
+
+
+			var id_proy = $("#id_proyecto").text();
+
+			var html = "";
+
+
+			$.post("generar_reporte_proyecto",{state:1,id_proyecto:id_proy},function(data){
+
+
+				
+			var button = $(this);
+
+				$(button).button('loading');
+
+				 $.post("ver_reporte",{state:1,reporte:data},function (data){
+				           
+             				window.open(data, '_blank', 'fullscreen=yes');
+			        		
+
+							$(button).button('reset');      
+     		 	});
+
+			});
+
+
+
+
+	});
+		
 </script>
 
 <div class="container">
@@ -261,7 +290,11 @@
 					</div>
 				</div>
 			</div>
+						<!-- boton para generar reporte -->
+			<button id="gen_reporte_proy" type="button" class="button-generar pull-right btn btn-success">Generar reporte PDF</button>
+
 		</div>
+
 	</div>
 
 
@@ -313,31 +346,3 @@
 
 
 </div>	<!--/container-->
-
-<script type="text/javascript">
-/*$(document).ready(function(){
-
-	$("#consultar_modificar").hide();
-	$("#finalizar").hide();
-	$("#tabs a").click(function(){
-		$("#tabs>li.active").removeClass("active");
-		$(this).parent().addClass("active");
-		if ($(this).attr("id")==="b_crear"){
-			$("#consultar_modificar").hide();
-			$("#finalizar").hide();
-			$("#crear").show();
-		} else
-		if ($(this).attr("id")==="b_consultar_modificar"){
-			$("#crear").hide();
-			$("#finalizar").hide();
-			$("#consultar_modificar").show();
-		} else
-		if ($(this).attr("id")==="b_finalizar"){
-			$("#crear").hide();
-			$("#consultar_modificar").hide();
-			$("#finalizar").show();
-		}
-	});
-
-});*/
-</script>
