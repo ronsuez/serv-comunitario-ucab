@@ -269,12 +269,8 @@
 				</div>
 			</div>
 						<!-- boton para generar reporte -->
-<<<<<<< HEAD
-			<button id="gen_reporte_proy" type="button" data-loading-text="Generando reporte" class="button-generar pull-right btn btn-success">Generar reporte PDF</button>
-=======
-			<button id="gen_reporte_proy" type="button" class="button-generar pull-right btn btn-success" data-loading-text="Generando reporte" >Generar reporte PDF</button>
->>>>>>> busquedas_ajax
 
+			<button id="gen_reporte_proy" type="button" class="button-generar pull-right btn btn-success" data-loading-text="Generando reporte" >Generar reporte PDF</button>
 		</div>
 
 	</div>
