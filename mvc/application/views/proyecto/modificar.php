@@ -34,70 +34,52 @@
 
 <script>
 
+ $(document).ready(function () {
 
+	var elementos = ["nombre_proyecto",
+					 "fecha_ini",
+					 "estado_proyecto",
+					 "id_proyecto",
+					 "diagnostico_proyecto",
+					 "justificacion_proyecto",
+					 "impacto_proyecto",
+					 "obj_generales_proyecto",
+					 "obj_especificos_proyecto",
+					 "metas_proyecto",
+					 "producto_proyecto",
+					 "plan_trabajo_proyecto",
+					 "recursos_requeridos_proyecto",
+					 "cronograma_proyecto"];
+									
 
 	$("#buscar_proyecto").on("click",function(e){
 
 			e.preventDefault();
 
 			$("#results").css("display","block");
-			$("#results").css("height","100px");
+			$("#results").css("height","auto");
 
 
-			$.post("buscar_proyecto",{query:$("#query").val()},function(data){
+			var query = $(".query").val();
 
-						var listado = JSON.parse(data);
+				//Realiza la busqueda
 
-						console.log(data);
+						busqueda("buscar_proyecto",query);
+	
 
-						$("div#search_results ul.list-group li").remove();
+	});
 
-						if(data==="-1"){
-
-
-							$("div#search_results ul.list-group").html('<li class="list-group-item"> No se econtraron resultados </li>');
-
-						}else{
-
-
-							$.each(listado, function(){
-
-							
-								$("div#search_results ul.list-group").append('<li class="list-group-item"> <a href="' + this.id_proyecto + '">' + this.nombre_proyecto + "</a> </li>");
-								
-
-							});
-
-						}
-
-
-			});
-
-
-
-			jQuery(document).unbind().on('click', 'div#search_results ul li a', function (ev) {
+		$('body').on('click','a.key_proyecto', function (ev) {
     		
     			ev.preventDefault();
+
+    			$("#results").css("display","none");
+    			$("div#search_results ").empty();
   				
 				$.post("listar_datos_proyecto",{id_proyecto:$(this).attr("href")},function(data){
 
 						var listado = JSON.parse(data);
 
-						var elementos = ["nombre_proyecto",
-										 "fecha_ini",
-										 "estado_proyecto",
-										 "id_proyecto",
-										 "diagnostico_proyecto",
-										 "justificacion_proyecto",
-										 "impacto_proyecto",
-										 "obj_generales_proyecto",
-										 "obj_especificos_proyecto",
-										 "metas_proyecto",
-										 "producto_proyecto",
-										 "plan_trabajo_proyecto",
-										 "recursos_requeridos_proyecto",
-										 "cronograma_proyecto"];
-									
 						
 
 							$.each(elementos, function(i){
@@ -115,9 +97,9 @@
 							
 			});
 	
+});
+	
 
-
-	});
 </script>
 
 <script type="text/javascript">
@@ -127,18 +109,15 @@
 
 			var id_proy = $("#id_proyecto").text();
 
-			var html = "";
-
-
-			$.post("generar_reporte_proyecto",{state:1,id_proyecto:id_proy},function(data){
+			$.post("generar_reporte_proyecto",{state:0,id_proyecto:id_proy},function(data){
 
 
 				
-			var button = $(this);
+			var button = $("#gen_reporte_proy");
 
 				$(button).button('loading');
 
-				 $.post("ver_reporte",{state:1,reporte:data},function (data){
+				 $.post("ver_reporte",{reporte:data},function (data){
 				           
              				window.open(data, '_blank', 'fullscreen=yes');
 			        		
@@ -162,7 +141,7 @@
 		<div class="panel-body">
 		
 			<div class="input-group input-group-sm">
-                <input id="query" type="text" class="form-control" placeholder="Nombre del proyecto"></input>
+                <input id="query_proyecto" type="text" class="query form-control" placeholder="Nombre del proyecto"></input>
                 <span class="input-group-btn">
                   <button id="buscar_proyecto" class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
                 </span>
@@ -172,10 +151,7 @@
 			<div id="results">
 				<label>Resultados</label>
 				<div id="search_results">
-					<ul class="list-group">
-					
-
-					</ul>
+				
 
 				</div>
 			</div>
@@ -214,7 +190,7 @@
 							</a>
 						</h4>
 					</div>
-					<div id="collapseOne" class="panel-collapse collapse in">
+					<div id="collapseOne" class="panel-collapse collapse ">
 						<div class="panel-body">
 
 							<label class="content-label"> Diagnostico</label>
@@ -291,7 +267,7 @@
 				</div>
 			</div>
 						<!-- boton para generar reporte -->
-			<button id="gen_reporte_proy" type="button" class="button-generar pull-right btn btn-success">Generar reporte PDF</button>
+			<button id="gen_reporte_proy" type="button" class="button-generar pull-right btn btn-success" data-loading-text="Generando reporte" >Generar reporte PDF</button>
 
 		</div>
 

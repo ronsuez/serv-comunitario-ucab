@@ -13,66 +13,6 @@
 
  ?>
 
-<script> 
-    //using JQUERY's ready method to know when all dom elements are rendered
-    $( document ).ready(function () {
-      // set an on click on the button
-
-
-      $( document ).ajaxStart(function() {
-      	console.log( "Triggered ajaxStart handler." );
-
-
-
-      })
-
-
-      $( document ).ajaxComplete(function() {
-      	console.log( "Triggered ajaxComplete handler." );
-
-      })
-
-
-      $("#main-panel a").click(function (e) {
-
-      	e.preventDefault();
-
-      	$("#main-panel>li.active").removeClass("active");
-
-      	$(this).parent().addClass("active");
-
-      	$("#tab-title").text($(this).text());
-
-
-	        	// add loading image to div
-
-			    // run ajax request
-			    $.ajax({
-			    	beforeSend: function(){
-					     // Handle the beforeSend event
-					     $('#main-panel-body').html('<div id="loading"><img src="./cargando.gif"></div>');
-
-					 },
-					 type: "GET",
-					 url: $(this).text(),
-					 success: function (data) {
-					            // replace div's content with returned data
-
-					            setTimeout(function() {
-					            	$('#main-panel-body').html(data);
-					            },2000);
-					        }
-
-					    });
-
-
-			});
-
-
-  });
-
-</script>
-
 <style type="text/css">
 
 *{margin: 0px; padding: 0px;}

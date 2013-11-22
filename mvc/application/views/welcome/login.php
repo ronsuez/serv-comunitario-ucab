@@ -56,7 +56,7 @@ h2, h4 {
 		</div> -->
 		<div id ="help-box" class="col-md-7 col-sm-7 col-lg-7">
 			<br>
-			<div class="logo"><a href="https://schooltraq.com/">Servcom-UCAB</a></div>
+			<div class="logo"><a href="#">Servcom-UCAB</a></div>
 			<h3 class="login-heading">Que bueno tenerte de vuelta :)</h3>
 			<div class="login-links">
 				<p>
