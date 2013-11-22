@@ -38,16 +38,29 @@
 
 <script>
 
+ $(document).ready(function () {
 
-$( document ).ready(function() {
-
-
+	var elementos = ["nombre_proyecto",
+					 "fecha_ini",
+					 "estado_proyecto",
+					 "id_proyecto",
+					 "diagnostico_proyecto",
+					 "justificacion_proyecto",
+					 "impacto_proyecto",
+					 "obj_generales_proyecto",
+					 "obj_especificos_proyecto",
+					 "metas_proyecto",
+					 "producto_proyecto",
+					 "plan_trabajo_proyecto",
+					 "recursos_requeridos_proyecto",
+					 "cronograma_proyecto"];
 
 	$("#buscar_proyecto").on("click",function(e){
 
 			e.preventDefault();
 
 			$("#results").css("display","block");
+
 	
 
 
@@ -77,42 +90,34 @@ $( document ).ready(function() {
 
 							});
 
-						}
+			$("#results").css("height","auto");
 
 
-			});
+			var query = $(".query").val();
+
+				//Realiza la busqueda
+
+						busqueda("buscar_proyecto",query);
+	
+
+				}
+
+});
 
 
+});
 
-			jQuery(document).on('click', '#search_results ul li a', function (ev) {
+		$('body').on('click','a.key_proyecto', function (ev) {
     		
     			ev.preventDefault();
 
-
-
     			$("#results").css("display","none");
+    			$("div#search_results ").empty();
 
-    					//$("div#search_results ul.list-group li a").unbind("click");
-						
 				$.post("listar_datos_proyecto",{id_proyecto:$(this).attr("href")},function(data){
 
 						var listado = JSON.parse(data);
 
-						var elementos = ["nombre_proyecto",
-										 "fecha_ini",
-										 "estado_proyecto",
-										 "id_proyecto",
-										 "diagnostico_proyecto",
-										 "justificacion_proyecto",
-										 "impacto_proyecto",
-										 "obj_generales_proyecto",
-										 "obj_especificos_proyecto",
-										 "metas_proyecto",
-										 "producto_proyecto",
-										 "plan_trabajo_proyecto",
-										 "recursos_requeridos_proyecto",
-										 "cronograma_proyecto"];
-									
 						
 
 							$.each(elementos, function(i){
@@ -129,24 +134,23 @@ $( document ).ready(function() {
 
 			});
 	
-
-
-	});
+	
 
 	$("#gen_reporte_proy").on("click",function(){
 
 
 			var id_proy = $("#id_proyecto").text();
-			
-			var button = $(this);
 
 
-			$.post("generar_reporte_proyecto",{state:1,id_proyecto:id_proy},function(data){
+			$.post("generar_reporte_proyecto",{state:0,id_proyecto:id_proy},function(data){
 
+
+				
+			var button = $("#gen_reporte_proy");
 
 				$(button).button('loading');
 
-				 $.post("ver_reporte",{state:1,reporte:data},function (data){
+				 $.post("ver_reporte",{reporte:data},function (data){
 				           
              				window.open(data, '_blank', 'fullscreen=yes');
 			        		
@@ -172,7 +176,7 @@ $( document ).ready(function() {
 		<div class="result-search panel-body">
 		
 			<div class="input-group input-group-sm">
-                <input id="query" type="text" class="form-control" placeholder="Nombre del proyecto"></input>
+                <input id="query_proyecto" type="text" class="query form-control" placeholder="Nombre del proyecto"></input>
                 <span class="input-group-btn">
                   <button id="buscar_proyecto" class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
                 </span>
@@ -182,10 +186,7 @@ $( document ).ready(function() {
 			<div id="results">
 				<label>Resultados</label>
 				<div id="search_results">
-					<ul class="list-group">
-					
-
-					</ul>
+				
 
 				</div>
 			</div>
@@ -224,7 +225,7 @@ $( document ).ready(function() {
 							</a>
 						</h4>
 					</div>
-					<div id="collapseOne" class="panel-collapse collapse in">
+					<div id="collapseOne" class="panel-collapse collapse ">
 						<div class="panel-body">
 
 							<label class="content-label"> Diagnostico</label>
@@ -301,7 +302,11 @@ $( document ).ready(function() {
 				</div>
 			</div>
 						<!-- boton para generar reporte -->
+<<<<<<< HEAD
 			<button id="gen_reporte_proy" type="button" data-loading-text="Generando reporte" class="button-generar pull-right btn btn-success">Generar reporte PDF</button>
+=======
+			<button id="gen_reporte_proy" type="button" class="button-generar pull-right btn btn-success" data-loading-text="Generando reporte" >Generar reporte PDF</button>
+>>>>>>> busquedas_ajax
 
 		</div>
 

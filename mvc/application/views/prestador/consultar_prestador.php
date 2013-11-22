@@ -5,20 +5,6 @@ $(document).ready(function(){
 
 //configuracion de las ventanas de alerta
 
-toastr.options = {
-  "closeButton": true,
-  "debug": false,
-  "positionClass": "toast-top-right",
-  "onclick": null,
-  "showDuration": "300",
-  "hideDuration": "1000",
-  "timeOut": "5000",
-  "extendedTimeOut": "1000",
-  "showEasing": "swing",
-  "hideEasing": "linear",
-  "showMethod": "fadeIn",
-  "hideMethod": "fadeOut"
-}
 
 
   $(".collapse").collapse();
@@ -46,7 +32,7 @@ $("#btn_consultar_proyecto").click(function(){
 
                   if(!cedula){
 
-                          toastr.warning("No envies campos vacios");
+                          toastr.warning(mensajes.error.campo_vacio);
                   }else{
 
                       $.post("consultar_datos_prestador",{id:cedula},function(data){
@@ -58,12 +44,12 @@ $("#btn_consultar_proyecto").click(function(){
                              
                               if(estado === "-1"){
 
-                                  toastr.error("prestador no encontrado");
+                                  toastr.error(mensajes.error.prestador_nf);
 
 
                               }else{
 
-                                 toastr.success("Prestador encontrado");
+                                 toastr.success(mensajes.success.prestador_f);
 
 
 

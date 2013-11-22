@@ -29,11 +29,15 @@
     ================================================== -->
     <!-- Libreria de jquery.js -->
   
-    <script src=<?php echo  base_url()."application/views/bootstrap/js/jquery.js"; ?> type="text/javascript"></script>
+    <script src=<?php echo  base_url()."application/views/js/jquery-2.0.3.js"; ?> type="text/javascript"></script>
   	
       <!-- libreria de bootstrap.js -->
     <script src=<?php echo  base_url()."application/views/bootstrap/js/bootstrap.js"; ?> type="text/javascript"></script>
+     
+        <!-- Libreria de servcom-core.js -->
+    <script src=<?php echo  base_url()."application/views/js/main.js"; ?> type="text/javascript"></script>
     
+
   
 <!-- Libreria para el uso de la API de google maps 
  <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAplQ1u5cTjjFvQ7WKBajuP1LmnK-6pDkI&sensor=false">
@@ -56,8 +60,6 @@
     <!-- librerias para jquery.validate.js --> 
 
 <script src=<?php echo  base_url()."application/views/js/jquery.validator/jquery.validate.js" ; ?>  type="text/javascript"></script>
-
-<script src=<?php echo  base_url()."application/libraries/messages.js" ; ?>  type="text/javascript"></script>
 
 <script src=<?php echo  base_url()."application/views/js/toastr.js" ; ?>  type="text/javascript"></script>
 

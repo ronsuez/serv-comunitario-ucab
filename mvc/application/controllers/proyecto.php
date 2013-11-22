@@ -82,7 +82,10 @@ class Proyecto extends CI_Controller {
 
 		public function buscar()
 	{
-	 				$id=$this->input->post('query');
+	 				if($this->input->post('query'))
+	 					$id=$this->input->post('query');
+	 				else
+	 					redirect("/dashboard");
 
 			 		$salida=$this->proyecto_model->buscar_proyectos($id);
 	
@@ -92,9 +95,9 @@ class Proyecto extends CI_Controller {
 			 
 	}
 
-	public function preparar_datos_reporte($data){
+	public function preparar_datos_reporte($data,$estado){
 
-				$array = array("datos"=>$data);
+				$array = array("datos"=>$data, "estado"=>$estado);
 
 
 			 echo $this->load->view($this->controller."ver_proyecto",$array,TRUE);
@@ -103,7 +106,7 @@ class Proyecto extends CI_Controller {
 
 
 
-	public function generar_reporte($id = false ){
+	public function generar_reporte($id = false , $estado = false){
 
 
 				if($this->input->post('id_proyecto')){
@@ -115,7 +118,7 @@ class Proyecto extends CI_Controller {
 			 $salida=$this->proyecto_model->listar_proyectos($id);
 	
 		
-			 $this->preparar_datos_reporte($salida);
+			 $this->preparar_datos_reporte($salida,$estado);
 		 		
 
 	}
@@ -128,6 +131,8 @@ class Proyecto extends CI_Controller {
 
 		    $datos = json_decode($this->input->post('datos'),true);
 
+		    $estado = $this->input->post('estado');
+
 
 		     $array = array_merge($datos, $informacion);
 
@@ -135,7 +140,7 @@ class Proyecto extends CI_Controller {
 
 		   // echo $id;
 
-		  	$this->generar_reporte($id);
+		  	$this->generar_reporte($id,$estado);
 
 
 		   }

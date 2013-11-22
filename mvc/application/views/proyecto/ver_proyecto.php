@@ -1,11 +1,6 @@
 
 <?php 
-
- if (isset($estado)){
-
- 	echo $estado;
-
-} 			
+		
 
 		$escuela="Escuela de ".$this->session->userdata("escuela");
 
@@ -39,9 +34,34 @@
 
 <div id="reporte">
 
-<h1>Datos del Proyecto </h1>
+	<div id="reporte-header">
 
-<h2><?php echo $escuela; ?></h2>
+			<ul id="header-info">
+				<li><img src="smiley.gif" alt="Smiley face" height="42" width="42"></li>
+				<li class="center">
+					<p>
+						Universidad Catolica Andres Bello
+						Prologancion Av. Atlantico - Puerto Ordaz
+						Teléfonos: 0286­9230230, 9232358
+						<?php echo $escuela; ?>
+					</p>
+				</li>
+				<li class="center">
+					<p>
+						Coordinación de Proyección a la Comunidad 
+						Servicio Comunitario Universitario
+						Período Académico 2009 – 2010
+					</p>
+				</li>
+				<li>
+					<img src="smiley.gif" alt="Smiley face" height="42" width="42">
+				</li>
+			
+			</ul>
+
+	</div>	
+
+
 <table  border="1" >
 	<tbody>	
 		<tr>
@@ -142,6 +162,14 @@
 <br>
 
 
+<?php
+
+ if (isset($estado) && $estado =="1"){
+
+ 	echo '
 			<!-- boton para generar reporte -->
-<button id="enviar" type="button" data-loading-text="Generando reporte" class="button-generar  btn btn-success">Generar reporte PDF</button>
+			<button id="enviar" type="button" data-loading-text="Generando reporte" class="button-generar  btn btn-success">Generar reporte PDF</button>
+		';
+
+} 	
 
