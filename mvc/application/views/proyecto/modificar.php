@@ -73,7 +73,6 @@
 			});
 
 
-});
 
 		$('body').on('click','a.key_proyecto', function (ev) {
     		
