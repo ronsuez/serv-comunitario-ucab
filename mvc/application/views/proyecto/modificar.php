@@ -61,35 +61,6 @@
 
 			$("#results").css("display","block");
 
-	
-
-
-			$.post("buscar_proyecto",{query:$("#query").val()},function(data){
-
-						var listado = JSON.parse(data);
-
-						console.log(data);
-
-
-						$("div#search_results ul.list-group li a").unbind("click");
-						$("div#search_results ul.list-group li").remove();
-
-						if(data==="-1"){
-
-
-							$("div#search_results ul.list-group").html('<li class="list-group-item"> No se econtraron resultados </li>');
-
-						}else{
-
-
-							$.each(listado, function(){
-
-							
-								$("div#search_results ul.list-group").append('<li class="list-group-item"> <a href="' + this.id_proyecto + '">' + this.nombre_proyecto + "</a> </li>");
-								
-
-							});
-
 			$("#results").css("height","auto");
 
 
@@ -98,11 +69,8 @@
 				//Realiza la busqueda
 
 						busqueda("buscar_proyecto",query);
-	
 
-				}
-
-});
+			});
 
 
 });
