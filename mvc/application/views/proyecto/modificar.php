@@ -265,7 +265,7 @@
 
 
 
-		$('body').on('click','a.key_proyecto', function (ev) {
+$('body').on('click','a.key_proyecto', function (ev) {
     		
     			ev.preventDefault();
 
@@ -292,7 +292,8 @@
 					});
 				//listar prestadores asociados al pryecto
  				listar_prestadores_x_proy(key_proyecto);
-			
+			 
+			 ev.stopPropagation();
 
 			});
 	

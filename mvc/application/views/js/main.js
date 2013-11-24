@@ -215,8 +215,6 @@ function nav_pestanas_principal(id_pestana,url,texto,tab){
 			if(url ==="gest-proyecto"){
 				pestana = "inscribir_proyecto";
 
-
-
 			}else if (url ==="gest-prestador"){
 
 				pestana = "inscribir_prestador";
