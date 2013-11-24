@@ -14,11 +14,8 @@
 | path to your installation.
 |
 */
-<<<<<<< HEAD
-$config['base_url']        = 'http://localhost/serv-comunitario-ucab/mvc/';
-=======
+
 $config['base_url']        = "http://".$_SERVER['HTTP_HOST']."/sc/mvc/";
->>>>>>> 2d6419be3502ba156b09ba6b324ce23478e43dff
 
 /*
 |--------------------------------------------------------------------------
