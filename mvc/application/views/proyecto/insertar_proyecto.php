@@ -190,6 +190,8 @@ $(document).ready(function() {
 
  //Inicializdor para los editores de texto enriquecido para cada text-area
 
+
+
      var editor1 = CKEDITOR.inline( 'text-diagnostico' );
 
      var editor2 = CKEDITOR.inline( 'text-justificacion' );

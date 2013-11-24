@@ -45,6 +45,10 @@ $route['404_override'] = '';
 $route['login'] = 'usuario/login_attempt';
 $route['logout'] = 'usuario/log_out';
 $route['dashboard'] = 'welcome/dashboard';
+$route['registro_form'] = 'welcome/registro';
+$route['registro_user'] = 'usuario/insertar_usuario';
+$route['completar_datos'] = 'usuario/completar_datos';
+$route['completar_datos_usuario'] = 'usuario/completar_datos_usuario';
 
 /* routing for proyecto controller__*/
 $route['gest-proyecto']="proyecto/index";

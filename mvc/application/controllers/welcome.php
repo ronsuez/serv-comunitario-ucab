@@ -40,6 +40,14 @@ class Welcome extends CI_Controller {
 		$this->load->view($this->controller.'login',$page_struct);
 	}
 
+	public function registro(){
+
+		
+		$page_struct= array('header'=>$this->load->view('header','',TRUE) , 'footer'=>$this->load->view('footer','',TRUE));
+
+		$this->load->view($this->controller.'registro_form',$page_struct);
+	}
+
 
 	public function dashboard()
 	{
