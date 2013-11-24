@@ -1,5 +1,3 @@
-
-
 <!--Consultar / modificar prestador-->
 
 <script>
@@ -7,20 +5,6 @@ $(document).ready(function(){
 
 //configuracion de las ventanas de alerta
 
-toastr.options = {
-  "closeButton": true,
-  "debug": false,
-  "positionClass": "toast-top-right",
-  "onclick": null,
-  "showDuration": "300",
-  "hideDuration": "1000",
-  "timeOut": "5000",
-  "extendedTimeOut": "1000",
-  "showEasing": "swing",
-  "hideEasing": "linear",
-  "showMethod": "fadeIn",
-  "hideMethod": "fadeOut"
-}
 
 
   $(".collapse").collapse();
@@ -28,17 +12,27 @@ toastr.options = {
 
   $('#myModal').modal("hide");
 
+  $("#consultar_proyecto").css("display", "none");
+  $("#tabla_consulta").css("display", "none");
 
-    $("#consultar_prestador").click(function(){
+$("#btn_consultar_proyecto").click(function(){
+  $("#consultar_proyecto").fadeToggle(2000);
+  $("#tabla_consulta").fadeToggle(2000);
+
+});
+
+
+
+    $("#c_datos_prestador").click(function(){
 
 
        // alert($("#id_cedula").val());
           
-          var cedula=$("#id_cedula").val();
+          var cedula=$("#id_prestador_cedula").val();
 
                   if(!cedula){
 
-                          toastr.warning("No envies campos vacios");
+                          toastr.warning(mensajes.error.campo_vacio);
                   }else{
 
                       $.post("consultar_datos_prestador",{id:cedula},function(data){
@@ -50,12 +44,12 @@ toastr.options = {
                              
                               if(estado === "-1"){
 
-                                  toastr.error("prestador no encontrado");
+                                  toastr.error(mensajes.error.prestador_nf);
 
 
                               }else{
 
-                                 toastr.success("Prestador encontrado");
+                                 toastr.success(mensajes.success.prestador_f);
 
 
 
@@ -65,40 +59,40 @@ toastr.options = {
                               
                       
 
-                            $("#nombre").val(datos_personales.nombre);
+                            $("#nombre_prestador").val(datos_personales.nombre_prestador);
 
 
-                            $("#apellido").val(datos_personales.apellido);
+                            $("#apellido_prestador").val(datos_personales.Apellido_prestador);
 
 
-                            $("#celular").text(datos_personales.celular);
+                            $("#celular_prestador").text(datos_personales.celular_prestador);
 
 
-                            $("#telefono").text(datos_personales.telefono);
+                            $("#telefono_prestador").text(datos_personales.telefono_prestador);
 
 
-                            $("#email").text(datos_personales.email);
+                            $("#email_prestador").text(datos_personales.email_prestador);
 
 
-                            $("#cedula").text(datos_personales.ci);
+                            $("#cedula_prestador").text(datos_personales.ci_prestador);
 
 
-                            $("#direccion").text(datos_personales.direccion);
+                            $("#direccion_prestador").text(datos_personales.direccion_prestador);
 
 
                               //datos academicos
 
 
-                            $("#nro_exp").text(datos_academicos.no_exp);
+                            $("#nro_exp_prestador").text(datos_academicos.no_exp_prestador);
 
 
-                            $("#escuela").text(datos_academicos.escuela);
+                            $("#escuela_prestador").text(datos_academicos.escuela_prestador);
 
 
-                            $("#mencion").text(datos_academicos.mencion);
+                            $("#mencion_prestador").text(datos_academicos.mencion_prestador);
 
 
-                            $("#semestre").text(datos_academicos.semestre);
+                            $("#semestre_prestador").text(datos_academicos.semestre_prestador);
 
                          
                         }
@@ -191,9 +185,9 @@ button a:hover{
             <div class="panel-body">
               
               <div class="input-group input-group-sm">
-                <input id="id_cedula" type="text" class="form-control" placeholder="Introduzca c&eacute;dula del prestador"></input>
+                <input id="id_prestador_cedula" type="text" class="form-control" placeholder="Introduzca nombre o c&eacute;dula del prestador"></input>
                 <span class="input-group-btn">
-                  <button id="consultar_prestador" class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+                  <button id="c_datos_prestador" class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
                 </span>
               </div><!-- /input-group -->
 
@@ -214,9 +208,9 @@ button a:hover{
           <fieldset disabled>
             <div class="form-group">
               <label>Nombre</label>
-              <input type="text" id="nombre" class="form-control" placeholder="Nombre del Alumno">
+              <input type="text" id="nombre_prestador" class="form-control" placeholder="Nombre del Alumno">
               <label>Apellido</label>
-              <input type="text" id="apellido" class="form-control" placeholder="Apellido del Alumno">
+              <input type="text" id="apellido_prestador" class="form-control" placeholder="Apellido del Alumno">
             </div>
           </fieldset>
         </form>
@@ -244,12 +238,12 @@ button a:hover{
       <div class="panel-body">
         
 
-         <ul>
-                <li>Cedula : <span id="cedula"></span></li>
-                <li>Telefono :<span id="telefono"></span></li>
-                <li>Email :<span id="email"></span></li>
-                <li>Celular :<span id="celular"></span></li>
-                <li>Direccion :<span id="direccion"></span></li>
+            <ul>
+                <li>Cedula : <span id="cedula_prestador"></span></li>
+                <li>Telefono :<span id="telefono_prestador"></span></li>
+                <li>Email :<span id="email_prestador"></span></li>
+                <li>Celular :<span id="celular_prestador"></span></li>
+                <li>Direccion :<span id="direccion_prestador"></span></li>
             </ul>
 
       </div>
@@ -269,10 +263,10 @@ button a:hover{
        
             
          <ul>
-                <li>Nro. Expendiente : <span id="nro_exp"></span></li>
-                <li>Escuela :<span id="escuela"></span></li>
-                <li>Mencion :<span id="mencion"></span></li>
-                <li>Semestre :<span id="semestre"></span></li>
+                <li>Nro. Expendiente : <span id="nro_exp_prestador"></span></li>
+                <li>Escuela :<span id="escuela_prestador"></span></li>
+                <li>Mencion :<span id="mencion_prestador"></span></li>
+                <li>Semestre :<span id="semestre_prestador"></span></li>
             </ul>
 
 
@@ -340,23 +334,91 @@ button a:hover{
 
 <br><br>
 <center>
-<button type="button" class="btn btn-info" data-toggle="modal" href="#myModal">Reportar Horas</button>
+<button type="button" class="btn btn-success" data-toggle="modal" href="#myModal">Reportar Horas</button>
 
 <!-- Indicates a successful or positive action -->
-<button type="button" id="consultar_proyecto" class="btn btn-info" >Consultar Proyecto</a></button>
+<button type="button" id="btn_consultar_proyecto" class="btn btn-success" >Consultar Proyecto</a></button>
 
 <!-- Contextual button for informational alert messages -->
-<button type="button" class="btn btn-info">Inscribir Proyeto</button>
+<button type="button" class="btn btn-success">Inscribir Proyeto</button>
 
 <!-- Indicates caution should be taken with this action -->
-<button type="button" class="btn btn-info">Carta Culminacion</button>
+<button type="button" class="btn btn-success">Carta Culminacion</button>
 </center>
 
 <br><br><br><br>
 
+<div id="consultar_proyecto">
+<ol class="breadcrumb">
+  <h5> Nombre del Proyecto </h5>
+
+ <select class="form-control">
+  <option>Seleccione proyecto</option>
+  <option>CompuBus 1 </option>
+  <option>CompuBus 2</option>
+  <option>3</option>
+  <option>4</option>
+  <option>5</option>
+</select>
+<center><button type="button" class="btn btn-link" data-toggle="modal" href="#myModal">Ver detalle</button></center>
+
+
+<h5>Inicio prestacion del servicio:</h5>
+
+<div class="row">
+  <div class="col-lg-2">
+  <h5>Periodo:</h5>
+    <select class="form-control">
+      <option>1</option>
+    </select>
+    
+ </div>
+  <center>
+  <div class="col-lg-3">
+    <h5>Fecha:</h5> 
+   </center>
+   </div>
+ </div>
+
+</ol>
+
+
+  <table id="tabla_consulta" class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Domingo</th>
+        <th>Lunes</th>
+        <th>Martes</th>
+        <th>Miercoles</th>
+        <th>Jueves</th>
+        <th>Viernes</th>
+        <th>Sabado</th>
+      </tr>
+    </thead>
+  <tbody>
+    <tr>
+      <td>7:00 - 8:00</td>
+    </tr>
+    <tr>
+      <td>8:00 - 9:00</td>
+    </tr>
+    <tr>
+      <td>9:00 - 10:00</td>
+    </tr>
+    <tr>
+      <td>10:00 - 11:00</td>
+    </tr>
+    <tr>
+      <td>11:00 - 12:00</td>
+    </tr>
+
+    </tbody>
+</table>
+</div>
+
 <center><p>
-  <button type="button" class="btn btn-success btn-lg">Finalizar Prestación en este Proyecto </button>
-  <button type="button" class="btn btn-warning btn-lg">Imprimir Notificación de Culminación</button>
+  <button type="button" class="btn btn-info">Finalizar Prestacion en este Proyecto </button>
+  <button type="button" class="btn btn-info">Imprimir Notificacion Culminacion</button>
 </p></center>
 
 <!-- Modal -->
@@ -407,5 +469,4 @@ button a:hover{
   </div><!-- /.modal -->
 
 </div> <!-- /container-->
-
 

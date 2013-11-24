@@ -15,19 +15,15 @@
 
 public function listar(){
 
-            $query = $this->db->query('SELECT coordenadas,nombre  FROM localidad ORDER BY coordenadas ASC' );
+            $query = $this->db->query('SELECT id_localidad,nombre_localidad FROM localidad ORDER BY id_localidad ASC' );
 
 
             $data ="";
 
                 if ($query->num_rows() > 0)
                 {
-                                foreach ($query->result_array() as $row)
-                                {
-                                    $data.= "<option value='$row[coordenadas]'>$row[nombre]</option>";
-                                }
-
-                    return $data;
+                             
+                    return $query->result_array();
             
                 }else{
 

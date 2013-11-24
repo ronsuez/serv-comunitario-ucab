@@ -49,7 +49,7 @@ class Localidad extends CI_Controller {
 	public function listar()
 	{
 		
-			echo $this->localidad_model->listar();
+			echo json_encode($this->localidad_model->listar());
 	}
 
 }

@@ -1,0 +1,44 @@
+table{
+
+		border-collapse:collapse; 
+
+		table-layout:fixed;
+	}
+table tbody td {
+    	width: 330px;
+		}
+
+.about-info{
+
+			height: auto;
+			width: 100px;
+			font-style: bold;
+	}
+
+#reporte-header{
+
+	width: auto;
+
+	height: 100px;
+}
+
+#reporte-header ul  {
+
+	list-style: none;
+}
+
+
+#reporte-header ul li {
+
+	display: inline;
+
+	width: 10px;
+}
+
+#reporte-header .center{
+
+	text-align: center;
+
+	margin-right: 10px;
+
+}

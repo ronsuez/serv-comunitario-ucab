@@ -52,6 +52,9 @@ $route['insertar_proyecto']="proyecto/inscribir";
 $route['consultar_proyecto']="proyecto/modificar";
 
 $route['registrar_proyecto']="proyecto/registrar";
+$route['buscar_proyecto']="proyecto/buscar";
+$route['listar_datos_proyecto']="proyecto/ver_proyectos";
+$route['generar_reporte_proyecto']="proyecto/generar_reporte";
 
 /* routing for prestadores controller */
 $route['Prestadores']="prestador/index";
@@ -66,7 +69,8 @@ $route['insertar_datos_prestador']="prestador/insertar_datos_prestador";
 $route['Localidades']="localidad/index";
 $route['listar_loc']="localidad/listar";
 $route['insertar_localidad']="localidad/insertar";
-$route['404_override'] = '';
+
+$route['ver_reporte'] = 'reportes/index';
 
 
 /* End of file routes.php */

@@ -14,7 +14,11 @@
 | path to your installation.
 |
 */
+<<<<<<< HEAD
 $config['base_url']        = 'http://localhost/serv-comunitario-ucab/mvc/';
+=======
+$config['base_url']        = "http://".$_SERVER['HTTP_HOST']."/sc/mvc/";
+>>>>>>> 2d6419be3502ba156b09ba6b324ce23478e43dff
 
 /*
 |--------------------------------------------------------------------------
@@ -224,7 +228,7 @@ $config['cache_path'] = '';
 | MUST set an encryption key. See the user guide for info.
 |
 */
-$config['encryption_key'] = '';
+$config['encryption_key'] = '3536BUG9M7E3E';
 
 /*
 |--------------------------------------------------------------------------

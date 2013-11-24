@@ -24,21 +24,32 @@
     
   <link href="<?php echo base_url() ; ?>application/views/css/toastr.css" rel="stylesheet">
     
+    
     <!-- Le javascript
     ================================================== -->
     <!-- Libreria de jquery.js -->
   
-    <script src=<?php echo  base_url()."application/views/bootstrap/js/jquery.js"; ?> type="text/javascript"></script>
+    <script src=<?php echo  base_url()."application/views/js/jquery-2.0.3.js"; ?> type="text/javascript"></script>
   	
       <!-- libreria de bootstrap.js -->
     <script src=<?php echo  base_url()."application/views/bootstrap/js/bootstrap.js"; ?> type="text/javascript"></script>
-    
+     
+        <!-- Libreria de servcom-core.js -->
+    <script src=<?php echo  base_url()."application/views/js/main.js"; ?> type="text/javascript"></script>
     
 
+<<<<<<< HEAD
 <!-- Libreria para el uso de la API de google maps
  <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAplQ1u5cTjjFvQ7WKBajuP1LmnK-6pDkI&sensor=false">
                           </script>
  -->
+=======
+  
+<!-- Libreria para el uso de la API de google maps 
+ <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAplQ1u5cTjjFvQ7WKBajuP1LmnK-6pDkI&sensor=false">
+                          </script>-->
+
+>>>>>>> 2d6419be3502ba156b09ba6b324ce23478e43dff
 
 <!-- Librerias para el editor de texto enriquecido (ckeditor.js)-->
   <script src=<?php echo  base_url()."application/views/js/ckeditor/ckeditor.js" ; ?>  type="text/javascript" ></script>
@@ -56,8 +67,6 @@
     <!-- librerias para jquery.validate.js --> 
 
 <script src=<?php echo  base_url()."application/views/js/jquery.validator/jquery.validate.js" ; ?>  type="text/javascript"></script>
-
-<script src=<?php echo  base_url()."application/libraries/jquery.json-2.4.js" ; ?>  type="text/javascript"></script>
 
 <script src=<?php echo  base_url()."application/views/js/toastr.js" ; ?>  type="text/javascript"></script>
 

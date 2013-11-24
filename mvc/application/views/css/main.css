@@ -1,0 +1,25 @@
+
+
+
+
+
+/* Css para el modulo de busqueda */
+
+#result-box{
+	
+	display: none;
+}
+
+#no-results{
+
+	display: none;
+}
+#ayuda_buscar{
+
+	margin-left: 450px;
+}
+
+#tipo{
+
+	font-style: italic;
+}

@@ -1,4 +1,16 @@
+<<<<<<< HEAD
 <?= $header; ?>
+=======
+<?php echo  $header; 
+	
+	 if( $this->session->userdata('isLoggedIn') ) {
+        		
+        
+       		redirect('/dashboard'); //redirige al dashboard
+ 	 }
+
+?>
+>>>>>>> 2d6419be3502ba156b09ba6b324ce23478e43dff
 <style>
 
 
@@ -7,7 +19,10 @@
 	border: 1px solid #D6D6D6;
 	padding: 30px;
 	background-color: white; 
+<<<<<<< HEAD
        //login'box
+=======
+>>>>>>> 2d6419be3502ba156b09ba6b324ce23478e43dff
 }
 
 #login-box label{
@@ -31,6 +46,14 @@ h2, h4 {
 
 }
 
+<<<<<<< HEAD
+=======
+#help-box{
+
+	font-size: 12px;
+}
+
+>>>>>>> 2d6419be3502ba156b09ba6b324ce23478e43dff
 
 </style>
 
@@ -42,9 +65,15 @@ h2, h4 {
 	<div id= "main-content" class="row jumbotron">
 	<!-- 	<div class="col-xs-12 col-md-1">
 		</div> -->
+<<<<<<< HEAD
 		<div class="col-xs-12 col-md-7">
 			<br>
 			<div class="logo"><a href="https://schooltraq.com/">Servcom-UCAB</a></div>
+=======
+		<div id ="help-box" class="col-md-7 col-sm-7 col-lg-7">
+			<br>
+			<div class="logo"><a href="#">Servcom-UCAB</a></div>
+>>>>>>> 2d6419be3502ba156b09ba6b324ce23478e43dff
 			<h3 class="login-heading">Que bueno tenerte de vuelta :)</h3>
 			<div class="login-links">
 				<p>
@@ -53,6 +82,7 @@ h2, h4 {
 				</p>
 			</div>
 		</div>
+<<<<<<< HEAD
 		<div id="login-box" class="col-xs-12 col-md-4">
 
 
@@ -66,6 +96,10 @@ h2, h4 {
 				?>
 
 			</span>
+=======
+		<div id="login-box" class="col-sm-5 col-md-5 col-lg-5">
+
+>>>>>>> 2d6419be3502ba156b09ba6b324ce23478e43dff
 			<form id="login" method="POST"  action="login" class="form-signin">
 				<h2 class="form-signin-heading">Inicia Sesi&#243;n</h2>
 				<h4 class="form-signin-heading">Para acceder a los servicios del sistema</h4>
@@ -77,6 +111,7 @@ h2, h4 {
 							    <label for="pass">Clave de acceso</label>
 							    <input type="password" name="pass" id="pass" class="form-control" placeholder="Contrase&#241;a" required>
 					</div>
+<<<<<<< HEAD
 				
 					  <div class="form-group">
 							    <label for "tipo" class="control-label">Tipo de usuario</label>
@@ -89,6 +124,20 @@ h2, h4 {
 					</select>
 					</div>
 			
+=======
+					
+
+			<span id="error-message">
+				<?php if($this->input->get("login")=="-1"){
+						 echo "Ups. Parece que hubo un problema con tus datos.";
+						}else{
+							echo "";
+						}
+
+				?>
+
+			</span>
+>>>>>>> 2d6419be3502ba156b09ba6b324ce23478e43dff
 				
 					<br>
 				<button class="btn btn-lg btn-primary btn-block" type="submit">Iniciar Sesi&#243;n</button>
