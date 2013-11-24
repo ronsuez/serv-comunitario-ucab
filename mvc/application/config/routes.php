@@ -47,7 +47,7 @@ $route['logout'] = 'usuario/log_out';
 $route['dashboard'] = 'welcome/dashboard';
 
 /* routing for proyecto controller__*/
-$route['Proyectos']="proyecto/index";
+$route['gest-proyecto']="proyecto/index";
 $route['insertar_proyecto']="proyecto/inscribir";
 $route['consultar_proyecto']="proyecto/modificar";
 
@@ -57,16 +57,16 @@ $route['listar_datos_proyecto']="proyecto/ver_proyectos";
 $route['generar_reporte_proyecto']="proyecto/generar_reporte";
 
 /* routing for prestadores controller */
-$route['Prestadores']="prestador/index";
+$route['gest-prestador']="prestador/index";
 $route['insertar_prestador']="prestador/insertar";
 $route['consultar_prestador']="prestador/consultar";
 $route['asignar_proyecto']="prestador/asignar_pro";
 $route['hola']="prestador/hola";
 $route['consultar_datos_prestador']="prestador/ver_datos_personales";
 $route['insertar_datos_prestador']="prestador/insertar_datos_prestador";
-
+$route['listar_p_x_proy']="prestador/listar_x_proyecto";
 /* routing for localidades controller */
-$route['Localidades']="localidad/index";
+$route['gest-localidad']="localidad/index";
 $route['listar_loc']="localidad/listar";
 $route['insertar_localidad']="localidad/insertar";
 

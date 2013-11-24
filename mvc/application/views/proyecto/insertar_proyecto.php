@@ -1,124 +1,6 @@
 
 <?php echo $date = date("Y-m-d");?>
 
-<script type="text/javascript">
-
-$(document).ready(function() {
-
-  
-
-
- //Inicializador para los  popovers de ayuda
-    $(".ayuda-pop").popover();
-
- //Inicializdor para los editores de texto enriquecido para cada text-area
-
-     var editor1 = CKEDITOR.inline( 'text-diagnostico' );
-
-     var editor2 = CKEDITOR.inline( 'text-justificacion' );
-
-     var editor3 = CKEDITOR.inline( 'text-impacto' );
-
-     var editor4 = CKEDITOR.inline( 'text-objetivos-g' );
-
-     var editor5 = CKEDITOR.inline( 'text-objetivos-e' );
-
-     var editor6 = CKEDITOR.inline( 'text-metas' );
-     var editor7 = CKEDITOR.inline( 'text-producto' );
-
-      // "Text-area para la descripcion del proyecto.
-      
-     var editor8 = CKEDITOR.inline( 'text-plan-trabajo' );
-      
-     var editor9 = CKEDITOR.inline( 'text-recursos' );
-
-     var editor10 = CKEDITOR.inline( 'text-cronograma' );
-      
-
-//popovers para la pagina INSERTAR_PROYECTO
-
-
-console.log(mensajes["requerido"]);
-
-    //Inicializdor y handler para el validador del form insertar-proyecto
-
-    $("#addform-proyecto").validate({
-
-        rules:{
-          titulo_proyecto:"required",
-          suscribe:"required",
-          ejecuta:"required",
-          estado:"required"
-        },
-      messages: {
-          titulo_proyecto: {
-            required: mensajes.reglas.requerido
-        },
-        suscribe: {
-            required: mensajes.reglas.requerido
-        },
-        ejecuta: {
-            required: mensajes.reglas.requerido
-        },
-        estado: {
-            required: mensajes.reglas.requerido
-        }
-    }
-    });
-
-
-//llamamos la funcion para listar las localidades
-
-listar_localidades();
-
-
-     $("#addform-proyecto").bind("submit",function (e){
-
-
-      e.preventDefault();
-
-
-      if ($(this).valid()){
-
-        var dinamic_text = "[";
-
-        $('div [class~=text-area]').each(function (){
-
-            if($(this).attr("id") === "text-cronograma"){
-
-              dinamic_text = dinamic_text +'{"name":"'+$(this).attr("id")+'","value":"'+$(this).html()+'"}]';
-
-          }else{
-
-            dinamic_text = dinamic_text +'{"name":"'+$(this).attr("id")+'","value":"'+$(this).html()+'"},';
-
-        }
-
-
-    });
-
-        var titulo = JSON.stringify($(this).serializeArray());
-
-
-          //handler para enviar los datos del proyecto y registrarlo
-
-        $.post("registrar_proyecto",{estado:1,texto:dinamic_text,datos:titulo},function (data){
-           
-
-              $("#inscribir").html(data);
-
-              
-       });
-
-    }
-
-});
-
-});
-
-
-
-</script>
 
 <style>
 .text-area{
@@ -296,3 +178,119 @@ listar_localidades();
 </form>
 
     </div> <!--/container-->
+<script type="text/javascript">
+
+$(document).ready(function() {
+
+  
+
+
+ //Inicializador para los  popovers de ayuda
+    $(".ayuda-pop").popover();
+
+ //Inicializdor para los editores de texto enriquecido para cada text-area
+
+     var editor1 = CKEDITOR.inline( 'text-diagnostico' );
+
+     var editor2 = CKEDITOR.inline( 'text-justificacion' );
+
+     var editor3 = CKEDITOR.inline( 'text-impacto' );
+
+     var editor4 = CKEDITOR.inline( 'text-objetivos-g' );
+
+     var editor5 = CKEDITOR.inline( 'text-objetivos-e' );
+
+     var editor6 = CKEDITOR.inline( 'text-metas' );
+     var editor7 = CKEDITOR.inline( 'text-producto' );
+
+      // "Text-area para la descripcion del proyecto.
+      
+     var editor8 = CKEDITOR.inline( 'text-plan-trabajo' );
+      
+     var editor9 = CKEDITOR.inline( 'text-recursos' );
+
+     var editor10 = CKEDITOR.inline( 'text-cronograma' );
+      
+
+//popovers para la pagina INSERTAR_PROYECTO
+
+
+    //Inicializdor y handler para el validador del form insertar-proyecto
+
+    $("#addform-proyecto").validate({
+
+        rules:{
+          titulo_proyecto:"required",
+          suscribe:"required",
+          ejecuta:"required",
+          estado:"required"
+        },
+      messages: {
+          titulo_proyecto: {
+            required: mensajes.reglas.requerido
+        },
+        suscribe: {
+            required: mensajes.reglas.requerido
+        },
+        ejecuta: {
+            required: mensajes.reglas.requerido
+        },
+        estado: {
+            required: mensajes.reglas.requerido
+        }
+    }
+    });
+
+
+//llamamos la funcion para listar las localidades
+
+listar_localidades();
+
+
+     $("#addform-proyecto").bind("submit",function (e){
+
+
+      e.preventDefault();
+
+
+      if ($(this).valid()){
+
+        var dinamic_text = "[";
+
+        $('div [class~=text-area]').each(function (){
+
+            if($(this).attr("id") === "text-cronograma"){
+
+              dinamic_text = dinamic_text +'{"name":"'+$(this).attr("id")+'","value":"'+$(this).html()+'"}]';
+
+          }else{
+
+            dinamic_text = dinamic_text +'{"name":"'+$(this).attr("id")+'","value":"'+$(this).html()+'"},';
+
+        }
+
+
+    });
+
+        var titulo = JSON.stringify($(this).serializeArray());
+
+
+          //handler para enviar los datos del proyecto y registrarlo
+
+        $.post("registrar_proyecto",{estado:1,texto:dinamic_text,datos:titulo},function (data){
+           
+
+              $("#inscribir").html(data);
+
+              
+       });
+
+    }
+
+});
+
+});
+
+
+
+</script>
