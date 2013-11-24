@@ -36,7 +36,7 @@ form label.error{
     <br>
 
 
-    <form name="form-prestador" id="form-prestador" action="#" method="POST" >
+    <form name="form-prestador" id="form-prestador" action="#" method="POST">
 
       <!-- Datos personales -->
       <div class="panel panel-default">
@@ -164,7 +164,7 @@ jQuery.validator.addMethod("alpha", function(value, element) {
   return this.optional(element) || value == value.match(/^[a-zA-Z ]+$/);
 },"Solo caracteres (Aa-Zz).");
 
-$("#form-prestador").validate({
+$("#form-prepppstador").validate({
 
  
   rules: {
@@ -204,23 +204,23 @@ $("#form-prestador").validate({
 
   messages:{
     nombre : {
-      required:"*Este campo es requerido",
+      required: mensajes.reglas.requerido,
 
     },apellido :{
-      required:"*Este campo es requerido"
+      required: mensajes.reglas.requerido
 
     },email : {
-      required:"*Este campo es requerido",
+      required: mensajes.reglas.requerido,
       email:"*Introduzca una dirección de correo válida"
 
     },telefono_hab :{
-      required :"*Este campo es requerido",
+      required : mensajes.reglas.requerido,
       number :"*Debe contener solo dígitos (0-9)",
       minlength:"*Debe tener 11 dígitos(e.g 0416585684)",
       maxlength:"*Debe tener máximo 11 dígitos (e.g 0416585684)"
 
     },telefono_cel :{
-      required :"*Este campo es requerido",
+      required : mensajes.reglas.requerido,
       number :"*Debe contener solo dígitos (0-9)",
       minlength:"*Debe tener 11 dígitos(e.g 0416585684)",
       maxlength:"*Debe tener máximo 11 dígitos (e.g 0416585684)"
@@ -229,17 +229,17 @@ $("#form-prestador").validate({
       required:"*Debe especificar la dirección de la localidad"
 
     },expediente: {
-      required: "*Este campo es requerido",
+      required:  mensajes.reglas.requerido,
       number: "*Debe contener solo dígitos (0-9)"
 
     },semestre: {
-      required: "*Este campo es requerido"
+      required:  mensajes.reglas.requerido
 
     },cedula: {
-      required: "*Este campo es requerido",
+      required:  mensajes.reglas.requerido,
       number: "*Debe contener solo dígitos (0-9)"
     },carrera: {
-      required: "*Este campo es requerido"
+      required:  mensajes.reglas.requerido
     }
   }
 
@@ -251,31 +251,9 @@ $("#form-prestador").submit(function (e) {
 
   if ($(this).valid()) {
     alert("valid");
-    var nombre = $("#nombre").val();
-    var apellido = $("#apellido").val();
-    var email = $("#email").val();
-    var celular = $("#telefono_cel").val();
-    var telefono = $("#telefono_hab").val();
-    var direccion = $("#direccion").val();
-    var expediente = $("#expediente").val();
-    var escuela = $("#escuela").val();
-    var mencion = $("#mencion").val();
-    var cedula = $("#cedula").val();
-    var semestre = $("#semestre").val();
+    var datos = $(this).serialize();
 
-    $.post("insertar_datos_prestador",{
-      cedula_pre:cedula,
-      nombre_pre:nombre,
-      apellido_pre:apellido,
-      email_pre:email,
-      celular_pre:celular,
-      telefono_pre:telefono,
-      direccion_pre:direccion,
-      expediente_pre:expediente,
-      escuela_pre:escuela,
-      mencion_pre:mencion,
-      semestre_pre:semestre
-      },
+    $.post("insertar_datos_prestador",datos,
       
       function(data){
         alert(data);
