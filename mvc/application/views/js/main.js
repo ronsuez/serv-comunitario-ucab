@@ -21,8 +21,9 @@
 
 			reglas:{
 
-				requerido: '*Este es campo es requerido',
-            	matches: 'The %s field does not match the %s field.',	
+			  requerido: '*Este es campo es requerido',
+        matches: 'The %s field does not match the %s field.',
+        equalTo: "Las contrase&ntilde;as tienen que ser iguales"	
 			},
 			error:{
 				campo_vacio: "No envies campos vacios !",

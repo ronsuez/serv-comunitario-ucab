@@ -78,17 +78,21 @@ class Prestador extends CI_Controller {
 
 	public function insertar_datos_prestador()
 	{			
-		$nombre = $this->input->post('nombre_pre');
-		$apellido = $this->input->post('apellido_pre');
-		$email = $this->input->post('email_pre');
-		$celular = $this->input->post('celular_pre');
-		$telefono = $this->input->post('telefono_pre');
-		$direccion = $this->input->post('direccion_pre');
-		$expediente = $this->input->post('expediente_pre');
-		$escuela = $this->input->post('escuela_pre');
-		$mencion = $this->input->post('mencion_pre');
 
-		$salida=$this->prestador_model->insertar_datos($nombre, $apellido, $celular, $email, $telefono, $direccion, $expediente, $escuela, $mencion);
+		$datos = array("cedula" => $this->input->post('cedula'),
+					   "nombre" => $this->input->post('nombre'),
+					   "apellido" => $this->input->post('apellido'),
+					   "email" => $this->input->post('email'),
+					   "celular" => $this->input->post('telefono_cel'),
+					   "telefono" => $this->input->post('telefono_hab'),
+					   "direccion" => $this->input->post('direccion'),
+					   "expediente" => $this->input->post('expediente'),
+					   "escuela" => $this->input->post('escuela'),
+					   "mencion" => $this->input->post('mencion'),
+					   "semestre" => $this->input->post('semestre'));
+		
+
+		echo $salida = $this->prestador_model->insertar_datos_prestador($datos);
 	}
 
 

@@ -2,11 +2,11 @@
 	
 	 if( $this->session->userdata('isLoggedIn') ) {
         		
-        
        		redirect('/dashboard'); //redirige al dashboard
  	 }
-
 ?>
+
+
 <style>
 
 
@@ -60,7 +60,7 @@ h2, h4 {
 			<h3 class="login-heading">Que bueno tenerte de vuelta :)</h3>
 			<div class="login-links">
 				<p>
-					Necesitas un cuenta?<a href="#">Registrate en dos segundos &rarr;</a><br />
+					Necesitas un cuenta?<a href="registro_form">Registrate en dos segundos &rarr;</a><br />
 					<span class="forgot-pass">Olvidaste tu clave? <a href="#">Presiona aqui &rarr;</a></span>
 				</p>
 			</div>
@@ -72,11 +72,11 @@ h2, h4 {
 				<h4 class="form-signin-heading">Para acceder a los servicios del sistema</h4>
 					  <div class="form-group">
 							    <label for="user">Usuario</label>
-							    <input type="text" name="user" id="user" class="form-control" placeholder="C&#233;dula" required autofocus>
+							    <input type="text" name="user" id="user" class="form-control" placeholder="Nombre de ususario" required autofocus>
 					</div>
 					  <div class="form-group">
-							    <label for="pass">Clave de acceso</label>
-							    <input type="password" name="pass" id="pass" class="form-control" placeholder="Contrase&#241;a" required>
+							    <label for="pass">Contrase&#241;a</label>
+							    <input type="password" name="pass" id="pass" class="form-control" placeholder="Clave de acceso" required>
 					</div>
 					
 
@@ -98,5 +98,13 @@ h2, h4 {
 		</div>
 	</div>
 </div>
+
+<?php
+ 	 if (isset($_GET["user"]) && $_GET["user"]) {?>
+ 	 	<script type="text/javascript">
+ 	 		$("#user").val(<?php echo '"'.$_GET["user"].'"' ?>);
+ 	 	</script>
+ 	 <?php }?>
+
 
 <?= $footer; ?>
