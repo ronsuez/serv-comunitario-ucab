@@ -1,111 +1,5 @@
 <!--Consultar / modificar prestador-->
 
-<script>
-$(document).ready(function(){
-
-//configuracion de las ventanas de alerta
-
-
-
-  $(".collapse").collapse();
-
-
-  $('#myModal').modal("hide");
-
-  $("#consultar_proyecto").css("display", "none");
-  $("#tabla_consulta").css("display", "none");
-
-$("#btn_consultar_proyecto").click(function(){
-  $("#consultar_proyecto").fadeToggle(2000);
-  $("#tabla_consulta").fadeToggle(2000);
-
-});
-
-
-
-    $("#c_datos_prestador").click(function(){
-
-
-       // alert($("#id_cedula").val());
-          
-          var cedula=$("#id_prestador_cedula").val();
-
-                  if(!cedula){
-
-                          toastr.warning(mensajes.error.campo_vacio);
-                  }else{
-
-                      $.post("consultar_datos_prestador",{id:cedula},function(data){
-
-                            var estado =JSON.parse(data)["estado"]; 
-
-                                   console.log(JSON.parse(data));
-
-                             
-                              if(estado === "-1"){
-
-                                  toastr.error(mensajes.error.prestador_nf);
-
-
-                              }else{
-
-                                 toastr.success(mensajes.success.prestador_f);
-
-
-
-                              var datos_personales =JSON.parse(data)["datos_personales"][0];
-                            
-                              var datos_academicos =JSON.parse(data)["datos_academicos"][0];
-                              
-                      
-
-                            $("#nombre_prestador").val(datos_personales.nombre_prestador);
-
-
-                            $("#apellido_prestador").val(datos_personales.Apellido_prestador);
-
-
-                            $("#celular_prestador").text(datos_personales.celular_prestador);
-
-
-                            $("#telefono_prestador").text(datos_personales.telefono_prestador);
-
-
-                            $("#email_prestador").text(datos_personales.email_prestador);
-
-
-                            $("#cedula_prestador").text(datos_personales.ci_prestador);
-
-
-                            $("#direccion_prestador").text(datos_personales.direccion_prestador);
-
-
-                              //datos academicos
-
-
-                            $("#nro_exp_prestador").text(datos_academicos.no_exp_prestador);
-
-
-                            $("#escuela_prestador").text(datos_academicos.escuela_prestador);
-
-
-                            $("#mencion_prestador").text(datos_academicos.mencion_prestador);
-
-
-                            $("#semestre_prestador").text(datos_academicos.semestre_prestador);
-
-                         
-                        }
-                         });
-                    
-                        }  
-    });
-
-
-  });
-
- 
-</script>
 
 
 <style>
@@ -470,3 +364,110 @@ button a:hover{
 
 </div> <!-- /container-->
 
+
+<script>
+$(document).ready(function(){
+
+//configuracion de las ventanas de alerta
+
+
+
+  $(".collapse").collapse();
+
+
+  $('#myModal').modal("hide");
+
+  $("#consultar_proyecto").css("display", "none");
+  $("#tabla_consulta").css("display", "none");
+
+$("#btn_consultar_proyecto").click(function(){
+  $("#consultar_proyecto").fadeToggle(2000);
+  $("#tabla_consulta").fadeToggle(2000);
+
+});
+
+
+
+    $("#c_datos_prestador").click(function(){
+
+
+       // alert($("#id_cedula").val());
+          
+          var cedula=$("#id_prestador_cedula").val();
+
+                  if(!cedula){
+
+                          toastr.warning(mensajes.error.campo_vacio);
+                  }else{
+
+                      $.post("consultar_datos_prestador",{id:cedula},function(data){
+
+                            var estado =JSON.parse(data)["estado"]; 
+
+                                   console.log(JSON.parse(data));
+
+                             
+                              if(estado === "-1"){
+
+                                  toastr.error(mensajes.error.prestador_nf);
+
+
+                              }else{
+
+                                 toastr.success(mensajes.success.prestador_f);
+
+
+
+                              var datos_personales =JSON.parse(data)["datos_personales"][0];
+                            
+                              var datos_academicos =JSON.parse(data)["datos_academicos"][0];
+                              
+                      
+
+                            $("#nombre_prestador").val(datos_personales.nombre_prestador);
+
+
+                            $("#apellido_prestador").val(datos_personales.Apellido_prestador);
+
+
+                            $("#celular_prestador").text(datos_personales.celular_prestador);
+
+
+                            $("#telefono_prestador").text(datos_personales.telefono_prestador);
+
+
+                            $("#email_prestador").text(datos_personales.email_prestador);
+
+
+                            $("#cedula_prestador").text(datos_personales.ci_prestador);
+
+
+                            $("#direccion_prestador").text(datos_personales.direccion_prestador);
+
+
+                              //datos academicos
+
+
+                            $("#nro_exp_prestador").text(datos_academicos.no_exp_prestador);
+
+
+                            $("#escuela_prestador").text(datos_academicos.escuela_prestador);
+
+
+                            $("#mencion_prestador").text(datos_academicos.mencion_prestador);
+
+
+                            $("#semestre_prestador").text(datos_academicos.semestre_prestador);
+
+                         
+                        }
+                         });
+                    
+                        }  
+    });
+
+
+  });
+
+ 
+</script>

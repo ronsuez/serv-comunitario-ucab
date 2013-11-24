@@ -96,6 +96,17 @@ class Prestador extends CI_Controller {
 	}
 
 
+	public function listar_x_proyecto(){
+
+		$id_proyecto= $this->input->post('id_proyecto');
+
+		$salida = $this->prestador_model->listar_x_pro($id_proyecto);
+
+		echo json_encode($salida);
+
+	}
+
+
 }
 
 /* End of file welcome.php */

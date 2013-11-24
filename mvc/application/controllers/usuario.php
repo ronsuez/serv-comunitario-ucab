@@ -66,21 +66,21 @@ class Usuario extends CI_Controller {
 			$this->session->set_userdata('name', "admin");
 			$this->session->set_userdata('last_name', "admin");
 
+
 			$this->session->set_userdata('escuela',"admin");
 
 		}
 		else{
+
 			$this->session->set_userdata('name', $user_name[0]["nombre_coord"]);
 			$this->session->set_userdata('last_name', $user_name[0]["apellido_coord"]);
-
 			$this->session->set_userdata('escuela', $user_name[0]["escuela_coord"]);
-
 		}
 				// var_dump($user_name);
 
 
 		redirect("/dashboard");
-
+			
 			//echo json_encode(array('status' =>"0"));
 
 	}
@@ -175,4 +175,5 @@ class Usuario extends CI_Controller {
 }
 
 /* End of file welcome.php */
+
 /* Location: ./application/controllers/welcome.php */

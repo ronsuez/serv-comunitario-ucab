@@ -187,7 +187,6 @@ body {
 	</div>
 </div>
 
-
 <div class="container">
 
 
@@ -206,10 +205,10 @@ body {
 				</div>
 				<div class="navbar-collapse collapse">
 					<ul id="main-panel" class="nav navbar-nav">
-						<li class=""><a href="gest-proyecto">Proyectos</a></li>
-						<li class=""><a href="gest-prestador">Prestadores</a></li>
-						<li class=""><a href="gest-localidad">Localidades</a></li>
-						
+						<li class=""><a id="pestana-proyectos" href="gest-proyecto">Proyectos</a></li>
+						<li class=""><a id="pestana-prestadores" href="gest-prestador">Prestadores</a></li>
+						<li class=""><a id="pestana-localidades" href="gest-localidad">Localidades</a></li>
+
 					</ul>
 
 				</div><!--/.nav-collapse -->
@@ -218,9 +217,9 @@ body {
 
 		</div>
 
-	</div>
+</div>
 
-	<div class="row">
+	<div class="sys-main-content row">
 
 		<div class="col-md-12 col-sm-12 col-lg-12">
 
@@ -264,7 +263,9 @@ body {
 								</p>
 							</div>
 
+								<button id="consultar_p" type="button" class="button-consultar pull-right btn btn-success" data-loading-text="Generando reporte" >Ir a consultar prestador</button>
 
+								<button id="ver_pre" type="button" class="button-consultar pull-right btn btn-success" data-loading-text="Generando reporte" >Ir a consultar prestador</button>
 				
 					</div>
 
@@ -272,15 +273,14 @@ body {
 				</div>
 
 						<p class="footer">Page rendered in <strong>0.0236</strong> seconds</p>
-						
 
-
+			
 			</div>
 
-		</div> 
 
 	</div><!-- /Row / Option's panel -->
 
+	</div>
 
 
 </div><!-- /Container -->

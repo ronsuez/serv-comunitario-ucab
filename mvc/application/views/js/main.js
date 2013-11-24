@@ -28,11 +28,13 @@
 			error:{
 				campo_vacio: "No envies campos vacios !",
 				proyecto_nf:"No existen proyectos que coincidan con la busqueda !",
-				prestador_nf:"Prestador no encontrado !"
+				prestador_nf:"Prestador no encontrado !",
+				prestador_pnf:"No existen proyectos inscritos en el proyecto!"
 
 			},
 			success:{
 				prestador_f:"Prestador encontrado !",
+				prestadores_f:"Prestadores  encontrados !",
 				proyecto_f:"Proyecto encontrado !",
 				proyectos_f:"Proyectos encontrados !"
 			},
@@ -118,40 +120,11 @@ toastr.options = {
 
 $("#main-panel a").on("click",function (e) {
 
-      		e.preventDefault();
- 
-        	$("#main-panel>li.active").removeClass("active");
-        	
-        	$(this).parent().addClass("active");
-
-        	$("#tab-title").text($(this).text());
-
-        
-			    // run ajax request
-			    $.ajax({
-			    		  beforeSend: function(){
-					     // Handle the beforeSend event
-					      	$('#main-panel-body').html('<div id="loading"><img src="./jar-loading.gif"></div>');
-    
-					   },
-					        type: "GET",
-					        url: $(this).text(),
-					        success: function (data) {
-					            // replace div's content with returned data
-					         
-									setTimeout(function() {
-								    $('#main-panel-body').html(data);
-								},1000);
-					        }
-			   		
-			   		});
-
-			    	//se carga la primera pestana activa 
-
-			     $('.pestanas li[class$="active"] a').click();
-					
+				e.preventDefault();
+      
+				nav_pestanas_principal($(this).attr("id"),$(this).attr("href"),$(this).text(),null);	
 						
-			      });
+ });
 
     
 
@@ -175,38 +148,36 @@ $("#main-panel a").on("click",function (e) {
   $(document).on("click",".pestanas li a",function (e) {
 
 
-    e.preventDefault();
+    		e.preventDefault();
 
-    var url = $(this).attr("data-url");
-    var href = this.hash;
-    var pane = $(this);
+    		nav_tabs($(this));
 
-    //escondo todas los popover que tenia abiertos
-
-     $('button[data-toggle="popover"]').popover('hide');
-
-
-    // add loading image to div
-    $(href).html('<div id="loading"><img src="./loading.gif"></div>');
-
-    pane.tab('show');
-    
-    // run ajax request
-    $.ajax({
-    type: "GET",
-     url: url,
-            success: function (data) {
-                  // replace div's content with returned data
-
-                  setTimeout(function() {
-                    $(href).html(data);
-                  },1000);
-                }
-
-              });
 
       });
 
+
+  $(document).on("click","#consultar_p",function (e) {
+
+
+    		e.preventDefault();
+
+    		nav_pestanas_principal("pestana-proyectos","gest-proyecto","Proyectos","consultar_proyecto");	
+						
+
+
+      });
+
+
+  $(document).on("click","#ver_pre",function (e) {
+
+
+    		e.preventDefault();
+
+    		nav_pestanas_principal("pestana-prestadores","gest-prestador","Prestadores","consultar_pre");	
+						
+
+
+      });
 //================================================================//
 //================================================================//
 //================= SERVCOM bootstrap events     =================//
@@ -236,6 +207,116 @@ $("#main-panel a").on("click",function (e) {
 //================================================================//
 //================================================================//
 
+
+
+function nav_pestanas_principal(id_pestana,url,texto,tab){
+
+
+				var pestana;
+			if(url ==="gest-proyecto"){
+				pestana = "inscribir_proyecto";
+
+			}else if (url ==="gest-prestador"){
+
+				pestana = "inscribir_prestador";
+
+			}else if(url ==="gest-localidad"){
+
+				pestana = "inscribir_localidad";
+
+			}
+
+			console.log(pestana);
+ 
+        	$("#main-panel>li.active").removeClass("active");
+        	
+        	$("#"+id_pestana).parent().addClass("active");
+
+        	$("#tab-title").text(texto);
+
+        
+			    // run ajax request
+			    $.ajax({
+			    		  beforeSend: function(){
+					     // Handle the beforeSend event
+					      	$('#main-panel-body').html('<div id="loading"><img src="./jar-loading.gif"></div>');
+    
+					   },
+					        type: "GET",
+					        url: url,
+					        success: function (data) {
+					            // replace div's content with returned data
+					         
+									setTimeout(function() {
+								    $('#main-panel-body').html(data);
+
+										    if(!tab){
+												$('.pestanas li  a[href="#'+pestana+'"]').parent().addClass("active");
+
+
+  											  
+												$('body .pestanas-content div[id="'+pestana+'"]').addClass("active");
+
+												  $('body .pestanas li[class$="active"] a').click();
+
+											}else{
+
+												$('.pestanas li  a[href="#' + tab + '"]').parent().addClass("active");
+
+
+												$('.pestanas-content div[id="' + tab + '"]').addClass("active");
+
+												$('body .pestanas li[class$="active"] a').click();
+
+												console.log(tab);
+
+
+											}
+
+								    	
+								},1000);
+					        }
+			   		
+			   		});
+
+}
+
+function nav_tabs(tab){
+
+
+ 
+
+    var url = tab.attr("data-url");
+    var href = tab.attr("href");
+    var pane = tab;
+
+    //escondo todas los popover que tenia abiertos
+
+     $('button[data-toggle="popover"]').popover('hide');
+
+
+    // add loading image to div
+    $(href).html('<div id="loading"><img src="./loading.gif"></div>');
+
+    pane.tab('show');
+    
+    // run ajax request
+    $.ajax({
+    type: "GET",
+     url: url,
+            success: function (data) {
+                  // replace div's content with returned data
+
+                  setTimeout(function() {
+                    $(href).html(data);
+                  },1000);
+                }
+
+              });
+
+
+
+}
 /*
 * Esta funcion se utiliza para listar localidades
 * 
@@ -267,6 +348,66 @@ function listar_localidades(){
                 
               });
 
+
+}
+
+/*
+* Esta funcion se utiliza para listar los prestadores
+* asignados a un proyecto
+*  params : id   => id del proyecto asociado
+*            
+*/
+
+function listar_prestadores_x_proy(id){
+
+
+     //carga via ajax el listado de localidades 
+   		
+   		$.post("listar_p_x_proy",{id_proyecto:id},function(data){
+
+						var listado = JSON.parse(data);
+
+
+						var results = [];
+
+						var content= "div.listado_prestadores";
+
+						$(content).empty();
+
+						if(listado==="-1"){
+
+							    toastr.error(mensajes.error.prestador_pnf);
+
+							$(content).html('<span class="no-results">No se encontraron resultados</span>');
+
+						}else{
+
+
+							$(content+" .no-results").remove();
+
+							$.each(listado, function(){
+
+								results.push('<li class="list-group-item"> <a  class="key_prestador" href="' + this.ci_prestador + '">' + this.nombre_prestador+" "+this.apellido_prestador + "</a> </li>");
+
+
+							});
+
+								if(results.length>1)
+									toastr.success(results.length+" "+mensajes.success.prestadores_f);
+									else
+									toastr.success(results.length+" "+mensajes.success.prestador_f);	
+
+							   $( "<ul/>", {
+						    		"class": "list-group",
+						    		html: results
+						  		}).appendTo(content);
+
+
+						}
+
+
+
+			});
 
 }
 /*
@@ -337,6 +478,29 @@ function busqueda(url,value){
 				$("div#search_results").html('<span class="no-results">No envies campos vacios</span>');
 
 			}
+
+}
+
+function generar_reporte(url,estado,key){
+
+
+			$.post(url,{state:estado,id_proyecto:key},function(data){
+
+
+				
+			var button = $(".button-generar");
+
+				$(button).button('loading');
+
+				 $.post("ver_reporte",{reporte:data},function (data){
+				           
+             				window.open(data, '_blank', 'fullscreen=yes');
+			        		
+
+							$(button).button('reset');      
+     		 	});
+
+			});
 
 }
 

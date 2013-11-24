@@ -1,3 +1,6 @@
+
+<?= $header; ?>
+
 <?php echo  $header; 
 	
 	 if( $this->session->userdata('isLoggedIn') ) {
@@ -15,6 +18,7 @@
 	border: 1px solid #D6D6D6;
 	padding: 30px;
 	background-color: white; 
+
 }
 
 #login-box label{
@@ -44,6 +48,7 @@ h2, h4 {
 }
 
 
+
 </style>
 
 <script type="text/javascript">
@@ -54,9 +59,15 @@ h2, h4 {
 	<div id= "main-content" class="row jumbotron">
 	<!-- 	<div class="col-xs-12 col-md-1">
 		</div> -->
+
+		<div class="col-xs-12 col-md-7">
+			<br>
+			<div class="logo"><a href="https://schooltraq.com/">Servcom-UCAB</a></div>
+
 		<div id ="help-box" class="col-md-7 col-sm-7 col-lg-7">
 			<br>
 			<div class="logo"><a href="#">Servcom-UCAB</a></div>
+
 			<h3 class="login-heading">Que bueno tenerte de vuelta :)</h3>
 			<div class="login-links">
 				<p>
@@ -65,6 +76,7 @@ h2, h4 {
 				</p>
 			</div>
 		</div>
+
 		<div id="login-box" class="col-sm-5 col-md-5 col-lg-5">
 
 			<form id="login" method="POST"  action="login" class="form-signin">
@@ -78,6 +90,8 @@ h2, h4 {
 							    <label for="pass">Contrase&#241;a</label>
 							    <input type="password" name="pass" id="pass" class="form-control" placeholder="Clave de acceso" required>
 					</div>
+			
+
 					
 
 			<span id="error-message">
@@ -90,6 +104,7 @@ h2, h4 {
 				?>
 
 			</span>
+
 				
 					<br>
 				<button class="btn btn-lg btn-primary btn-block" type="submit">Iniciar Sesi&#243;n</button>
