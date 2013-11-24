@@ -83,17 +83,17 @@ public function get_id(){
             $nombre_proyecto = $info[0]["value"];
             $suscribe = $info[1]["value"];
             $ejecuta = $info[2]["value"];
-            $estado = $info[3]["value"];
-            $diagnostico_proyecto = $info[4]["value"];
-            $justificacion_proyecto = $info[5]["value"];
-            $impacto_proyecto = $info[6]["value"];
-            $obj_generales_proyecto = $info[7]["value"];
-            $obj_especificos_proyecto = $info[8]["value"];
-            $metas_proyecto = $info[9]["value"];
-            $producto_proyecto = $info[10]["value"];
-            $plan_trabajo_proyecto = $info[11]["value"];
-            $recursos_proyecto = $info[12]["value"];
-            $cronograma_proyecto = $info[13]["value"];
+            $estado = "activo";
+            $diagnostico_proyecto = $info[3]["value"];
+            $justificacion_proyecto = $info[4]["value"];
+            $impacto_proyecto = $info[5]["value"];
+            $obj_generales_proyecto = $info[6]["value"];
+            $obj_especificos_proyecto = $info[7]["value"];
+            $metas_proyecto = $info[8]["value"];
+            $producto_proyecto = $info[9]["value"];
+            $plan_trabajo_proyecto = $info[10]["value"];
+            $recursos_proyecto = $info[11]["value"];
+            $cronograma_proyecto = $info[12]["value"];
 
 
 

@@ -34,33 +34,27 @@
 
 <div id="reporte">
 
-	<div id="reporte-header">
-
-			<ul id="header-info">
-				<li><img src="smiley.gif" alt="Smiley face" height="42" width="42"></li>
-				<li class="center">
-					<p>
-						Universidad Catolica Andres Bello
-						Prologancion Av. Atlantico - Puerto Ordaz
-						Teléfonos: 0286­9230230, 9232358
-						<?php echo $escuela; ?>
-					</p>
-				</li>
-				<li class="center">
-					<p>
-						Coordinación de Proyección a la Comunidad 
-						Servicio Comunitario Universitario
-						Período Académico 2009 – 2010
-					</p>
-				</li>
-				<li>
-					<img src="smiley.gif" alt="Smiley face" height="42" width="42">
-				</li>
-			
-			</ul>
-
-	</div>	
-
+	<table id="tabla-header">
+	  <tr>
+	  	<td>
+			<div style="float: left;"><img src=<?php echo base_url()."application/views/proyecto/images/ucab.jpg";?> alt="ucab" height="90" width="90"></div>
+	  	</td>
+	   	<td>
+	   		<p>Universidad Catolica Andres Bello</p>
+			<p>Prologancion Av. Atlantico - Puerto Ordaz</p>
+			<p>Teléfonos: 0286-­9230230, 0286-9232358</p>
+			<p><?php echo $escuela;?></p>
+		</td>
+	  	<td>
+	  		<p>Coordinación de Proyección a la Comunidad</p>
+			<p>Servicio Comunitario Universitario</p>
+			<p>Período Académico 2009 – 2010<p>
+	  	</td>
+	 	<td>
+	 		<div><img src=<?php echo base_url()."application/views/proyecto/images/proyeccion.png";?>  alt="proyeccion" height="90" width="90"></div>
+	 	</td>
+	 </tr>
+	</table>
 
 <table  border="1" >
 	<tbody>	

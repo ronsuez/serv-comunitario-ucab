@@ -280,7 +280,7 @@ listar_localidades();
         $.post("registrar_proyecto",{estado:1,texto:dinamic_text,datos:titulo},function (data){
            
 
-              $("#inscribir").html(data);
+              $("#inscribir_proyecto").html(data);
 
               
        });
