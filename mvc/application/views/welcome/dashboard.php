@@ -279,6 +279,7 @@ body {
 						<li class=""><a id="pestana-prestadores" href="gest-prestador">Prestadores</a></li>
 						<li class=""><a id="pestana-localidades" href="gest-localidad">Localidades</a></li>
 						
+<<<<<<< HEAD
 					</ul>
 
 				</div><!--/.nav-collapse -->
@@ -490,6 +491,8 @@ body {
 						<li class=""><a href="gest-prestador">Prestadores</a></li>
 						<li class=""><a href="gest-localidad">Localidades</a></li>
 
+=======
+>>>>>>> a5863324b9af00ea7e740fc3439bdc1523fc0cac
 					</ul>
 
 				</div><!--/.nav-collapse -->
@@ -501,6 +504,7 @@ body {
 	</div>
 
 	<div class="sys-main-contentrow">
+<<<<<<< HEAD
 
 		<div class="col-md-6 col-sm-12 col-lg-12">
 
@@ -547,6 +551,8 @@ body {
 	</div>
 
 	<div class="row">
+=======
+>>>>>>> a5863324b9af00ea7e740fc3439bdc1523fc0cac
 
 		<div class="col-md-12 col-sm-12 col-lg-12">
 
@@ -593,6 +599,7 @@ body {
 								<button id="consultar_p" type="button" class="button-consultar pull-right btn btn-success" data-loading-text="Generando reporte" >Ir a consultar prestador</button>
 
 								<button id="ver_pre" type="button" class="button-consultar pull-right btn btn-success" data-loading-text="Generando reporte" >Ir a consultar prestador</button>
+<<<<<<< HEAD
 
 				
 					</div>
@@ -603,6 +610,8 @@ body {
 						<p class="footer">Page rendered in <strong>0.0236</strong> seconds</p>
 						
 >>>>>>> 2d6419be3502ba156b09ba6b324ce23478e43dff
+=======
+>>>>>>> a5863324b9af00ea7e740fc3439bdc1523fc0cac
 
 				
 					</div>
