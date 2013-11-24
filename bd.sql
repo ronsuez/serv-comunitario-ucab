@@ -156,3 +156,4 @@ ALTER TABLE participa ADD CONSTRAINT Relationship7 FOREIGN KEY (ci_prestador) RE
 ALTER TABLE participa ADD CONSTRAINT Relationship8 FOREIGN KEY (id_proyecto, ci_coord, ci_asesor) REFERENCES Proyecto (id_proyecto, ci_coord, ci_asesor) ON DELETE NO ACTION ON UPDATE NO ACTION
 ;
 
+

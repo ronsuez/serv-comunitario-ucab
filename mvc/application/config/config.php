@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']        = 'http://servcom-ucab.rsuezdev.com/sc/mvc/';
+$config['base_url']        = 'http://localhost/serv-comunitario-ucab/mvc/';
 
 /*
 |--------------------------------------------------------------------------

@@ -41,12 +41,16 @@
 $route['default_controller'] = "welcome";
 $route['404_override'] = '';
 
+/*gestion de usuarios*/
+$route['login'] = 'usuario/login_attempt';
+$route['logout'] = 'usuario/log_out';
+$route['dashboard'] = 'welcome/dashboard';
 
 /* routing for proyecto controller__*/
 $route['Proyectos']="proyecto/index";
 $route['insertar_proyecto']="proyecto/inscribir";
 $route['consultar_proyecto']="proyecto/modificar";
-$route['consultar_datos_coordinador']="proyecto/ver_datos_coordinador";
+
 $route['registrar_proyecto']="proyecto/registrar";
 
 /* routing for prestadores controller */

@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class Nuevo extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -26,7 +26,9 @@ class Welcome extends CI_Controller {
 
 			//$this->load->helper('author_helper');
 
-			$this->controller="welcome/";
+			$this->controller="nuevo/";
+
+			//$this->load->model('localidad_model');
 
 		}
 
@@ -34,28 +36,7 @@ class Welcome extends CI_Controller {
 	public function index()
 	{
 	
-
-		$page_struct= array('header'=>$this->load->view('header','',TRUE) , 'footer'=>$this->load->view('footer','',TRUE));
-
-		$this->load->view($this->controller.'login',$page_struct);
-	}
-
-
-	public function dashboard()
-	{
-
-		  if( !$this->session->userdata('isLoggedIn') ) {
-        		
-        		redirect('/'); //redirige a la pagina de inicio de sesion
-    	
-    		}else {
-        
-				$page_struct= array('header'=>$this->load->view('header','',TRUE) , 'footer'=>$this->load->view('footer','',TRUE));
-
-				$this->load->view($this->controller.'dashboard',$page_struct);
-
-   			 }
-		
+		$this->load->view($this->controller.'panel');
 	}
 
 
