@@ -48,19 +48,13 @@ class Usuario extends CI_Controller {
 
 			$user_name = $this->usuario_model->get_info_user($info_user[0]["cedula"],$info_user[0]["tipo"]);
 
-<<<<<<< HEAD
-			$this->session->set_userdata('name', $user_name[0]["nombre"]);
-			$this->session->set_userdata('last_name', $user_name[0]["apellido"]);
-
-=======
-				var_dump($user_name);
-
+	
 			$this->session->set_userdata('name', $user_name[0]["nombre_coord"]);
 			$this->session->set_userdata('last_name', $user_name[0]["apellido_coord"]);
 
 			$this->session->set_userdata('escuela', $user_name[0]["escuela_coord"]);
 			
->>>>>>> 2d6419be3502ba156b09ba6b324ce23478e43dff
+
 			redirect("/dashboard");
 
 			//echo json_encode(array('status' =>"0"));
@@ -105,11 +99,8 @@ class Usuario extends CI_Controller {
 
 			$this->session->set_userdata('isLoggedIn', "0");
 			$this->session->set_userdata('user_name', "");
-<<<<<<< HEAD
-=======
 			$this->session->set_userdata('escuela', "");
->>>>>>> 2d6419be3502ba156b09ba6b324ce23478e43dff
-			$this->session->sess_destroy();
+
 
 			redirect("/");
 
@@ -120,8 +111,5 @@ class Usuario extends CI_Controller {
 }
 
 /* End of file welcome.php */
-<<<<<<< HEAD
+
 /* Location: ./application/controllers/welcome.php */
-=======
-/* Location: ./application/controllers/welcome.php */
->>>>>>> 2d6419be3502ba156b09ba6b324ce23478e43dff

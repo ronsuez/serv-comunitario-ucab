@@ -15,12 +15,8 @@
 
 public function check_user($user,$pass){
 
-    
-<<<<<<< HEAD
-    $query = $this->db->query("SELECT cedula,tipo FROM  usuario WHERE cedula = '$user' AND contrasena = '$pass' ");
-=======
+
     $query = $this->db->query("SELECT cedula,tipo FROM  usuario WHERE user = '$user' AND contrasena = '$pass' ");
->>>>>>> 2d6419be3502ba156b09ba6b324ce23478e43dff
 
       $salida = $query->result_array();
 
@@ -42,11 +38,8 @@ public function check_user($user,$pass){
 
                 if($tipo == "CO"){
 
-<<<<<<< HEAD
-                 $query=$this->db->query("SELECT * FROM coordinador WHERE ci='$id'");
-=======
                  $query=$this->db->query("SELECT * FROM coordinador WHERE ci_coord='$id'");
->>>>>>> 2d6419be3502ba156b09ba6b324ce23478e43dff
+
                 
                 }
 
@@ -56,8 +49,4 @@ public function check_user($user,$pass){
 
     
 
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 2d6419be3502ba156b09ba6b324ce23478e43dff
