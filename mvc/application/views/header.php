@@ -20,7 +20,7 @@
         clear: both;
       }
     </style>
-    <link href="<?php echo base_url() ; ?>application/views/bootstrap/css/bootstrap.css" rel="stylesheet">
+  <link href="<?php echo base_url() ; ?>application/views/bootstrap/css/bootstrap.css" rel="stylesheet">
     
   <link href="<?php echo base_url() ; ?>application/views/css/toastr.css" rel="stylesheet">
     

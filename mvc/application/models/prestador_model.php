@@ -44,6 +44,37 @@ public function listar_datos_prestador($cedula){
         
         }
 
+
+
+public function listar_x_pro($id_proyecto){
+
+
+        $sql = "SELECT participa.ci_prestador, nombre_prestador, apellido_prestador
+                  FROM prestador,participa 
+                  WHERE participa.id_proyecto = ? AND
+                        prestador.ci_prestador = participa.ci_prestador";
+
+
+
+            $query=$this->db->query($sql,$id_proyecto);
+
+
+             if ($query->num_rows() > 0)
+                {
+
+                    return $query->result_array();
+            
+                }else{
+
+                    $salida =  "-1";    
+                    
+                    return $salida;
+                }
+                  
+
+
+}        
+
     
 
 }
