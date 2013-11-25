@@ -97,7 +97,20 @@ form label.error{
               <option value="educacion">Educaci&oacute;n</option>
               <option value="derecho">Derecho</option>
           </select>
+          </div> 
+          
+
+          <div class="form-group" id='mencion'>
+            <label for="">Menci&oacute;n</label>
+            <select id="mencion-select" name="mencion" class="form-control">
+              <option value="">Seleccione</option>
+              <option value="artes audiovisuales">Artes Audiovisuales</option>
+              <option value="comunicaciones publicitarias">Comunicaciones Publicitarias</option>
+              <option value="periodismo">Periodismo</option>
+            </select>
           </div>
+          
+
           <div class="form-group">
             <label for="">Semestre</label>
             <select id="semestre" name="semestre" class="form-control">
@@ -158,13 +171,15 @@ form label.error{
 
   <script>
 
+$(document).ready(function(){
+
 
 //funcionalidad para la regla alfebetica
 jQuery.validator.addMethod("alpha", function(value, element) {
   return this.optional(element) || value == value.match(/^[a-zA-Z ]+$/);
 },"Solo caracteres (Aa-Zz).");
 
-$("#form-prepppstador").validate({
+$("#form-prestador").validate({
 
  
   rules: {
@@ -198,6 +213,8 @@ $("#form-prepppstador").validate({
       required: true,
       number: true
     },carrera: {
+      required: true
+    },mencion: {
       required: true
     }
   },
@@ -240,6 +257,8 @@ $("#form-prepppstador").validate({
       number: "*Debe contener solo dígitos (0-9)"
     },carrera: {
       required:  mensajes.reglas.requerido
+    },mencion: {
+      required: mensajes.reglas.requerido
     }
   }
 
@@ -265,5 +284,24 @@ $("#form-prestador").submit(function (e) {
   }
 
 });
+
+  $('#mencion').css("display","none");
+
+    $("#carrera").on("change",function(){
+
+          console.log($(this).val());
+
+          if($(this).val()==="comunicacion social"){
+
+            console.log("hola ");
+
+          $("#mencion").fadeIn(1000);
+          }else{
+
+            $("#mencion").fadeOut(1000);
+          }
+    });
+
+  });
 
 </script>
