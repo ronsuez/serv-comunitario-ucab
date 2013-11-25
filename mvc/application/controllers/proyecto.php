@@ -113,7 +113,7 @@ class Proyecto extends CI_Controller {
 
 					$id = $this->input->post('id_proyecto');
 				}
-
+  
 
 			 $salida=$this->proyecto_model->listar_proyectos($id);
 	

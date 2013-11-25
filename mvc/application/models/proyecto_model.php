@@ -76,7 +76,7 @@ public function get_id(){
 
     public function registrar_proyecto($info){
 
-            
+                
 
                       
 
