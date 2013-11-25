@@ -11,14 +11,20 @@
 
 
     }
-public function insertar_datos_localidad($nombre,$responsable,$email,$telefono,$parroquia,$direccion){
+public function insertar_datos_localidad($nombre,$responsable,$email,$telefono,$parroquia,$direccion,$latitud,$longitud){
 
 	
 
-	$query = $this->db->query("INSERT INTO localidad(nombre_localidad,representante_localidad,email_representante_localidad,telefono_representante_localidad,parroquia_localidad,direccion_localidad) 
-                                       VALUES ('$nombre','$responsable','$email','$telefono','$parroquia','$direccion')");
+	$query = $this->db->query("INSERT INTO localidad(nombre_localidad,representante_localidad,email_representante_localidad,telefono_representante_localidad,parroquia_localidad,direccion_localidad,latitud_localidad,longitud_localidad) 
+                                       VALUES ('$nombre','$responsable','$email','$telefono','$parroquia','$direccion','$latitud','$longitud')");
 
-									   
+		if($query){
+
+            return "0";
+        }else{
+
+            return "-1";
+        }							   
 }
 
 public function listar_datos_localidad($nombre){
@@ -29,7 +35,7 @@ public function listar_datos_localidad($nombre){
 										WHERE nombre_localidad = '$nombre'");
 
             /* Query Datos Academicos */
-            $query2 = $this->db->query("SELECT parroquia_localidad
+            $query2 = $this->db->query("SELECT parroquia_localidad,latitud_localidad,longitud_localidad
 										FROM localidad
 										WHERE nombre_localidad = '$nombre'");
 

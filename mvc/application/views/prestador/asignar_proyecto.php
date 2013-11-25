@@ -1,185 +1,3 @@
-	<script>
-$(document).ready(function(){
-
-//configuracion de las ventanas de alerta
-
-toastr.options = {
-  "closeButton": true,
-  "debug": false,
-  "positionClass": "toast-top-right",
-  "onclick": null,
-  "showDuration": "300",
-  "hideDuration": "1000",
-  "timeOut": "5000",
-  "extendedTimeOut": "1000",
-  "showEasing": "swing",
-  "hideEasing": "linear",
-  "showMethod": "fadeIn",
-  "hideMethod": "fadeOut"
-}
-
-
-  $(".collapse").collapse();
-
-
-  $('#myModal').modal("hide");
-
-
-    $("#consultar_prestador").click(function(){
-
-
-       // alert($("#id_cedula").val());
-          
-          var cedula=$("#id_cedula").val();
-
-                  if(!cedula){
-
-                          toastr.warning("No envies campos vacios");
-                  }else{
-
-                      $.post("consultar_datos_prestador",{id:cedula},function(data){
-
-                            var estado =JSON.parse(data)["estado"]; 
-
-                                   console.log(JSON.parse(data));
-
-                             
-                              if(estado === "-1"){
-
-                                  toastr.error("prestador no encontrado");
-
-
-                              }else{
-
-                                 toastr.success("Prestador encontrado");
-
-
-
-                              var datos_personales =JSON.parse(data)["datos_personales"][0];
-                            
-                              var datos_academicos =JSON.parse(data)["datos_academicos"][0];
-                              
-                      
-
-                            $("#nombre").val(datos_personales.nombre_prestador);
-
-
-                            $("#apellido").val(datos_personales.apellido_prestador);
-
-
-                            $("#celular").text(datos_personales.celular_prestador);
-
-
-                            $("#telefono").text(datos_personales.telefono_prestador);
-
-
-                            $("#email").text(datos_personales.email_prestador);
-
-
-                            $("#cedula").text(datos_personales.ci_prestador);
-
-
-                            $("#direccion").text(datos_personales.direccion_prestador);
-
-
-                              //datos academicos
-
-
-                            $("#nro_exp").text(datos_academicos.no_exp_prestador);
-
-
-                            $("#escuela").text(datos_academicos.escuela_prestador);
-
-
-                            $("#mencion").text(datos_academicos.mencion_prestador);
-
-
-                            $("#semestre").text(datos_academicos.semestre_prestador);
-
-                         
-                        }
-                         });
-                    
-                        }  
-    });
-
-
-  
-  //fin de consulta prestador-------------------------------------------------------
-$("#consultar_coordinador").click(function(){ 
-
-
-       // alert($("#id_cedula").val());
-          
-          var cedulac=$("#id_cedula_coord").val();
-
-                  if(!cedulac){
-
-                          toastr.warning("No envies campos vacios");
-                  }else{
-						
-
-                      
-                      	$.post("consultar_datos_coordinador",{id2:cedulac},function(data){
-
-                            var estado =JSON.parse(data)["estado"]; 
-
-                                   console.log(JSON.parse(data));
-
-                             
-                              if(estado === "-1"){
-
-                                  toastr.error("Coordinador no encontrado");
-
-
-                              }else{
-
-                                 toastr.success("Coordinador encontrado");
-
-
-
-                              var datos_coordinador =JSON.parse(data)["datos_coordinador"][0];
-                            
-                             console.log(datos_coordinador);
-
-                              
-                      
-
-                            $("#nombre_coord").val(datos_coordinador.nombre_coord);
-
-
-                            $("#apellido_coord").val(datos_coordinador.apellido_coord);
-
-
-                            $("#celular_coord").text(datos_coordinador.celular_coord);
-
-
-                            $("#telefono_coord").text(datos_coordinador.telefono_coord);
-
-
-                            $("#email_coord").text(datos_coordinador.email_coord);
-
-
-                            $("#cedula_coord").text(datos_coordinador.ci_coord);
-
-
-                            $("#escuela_coord").text(datos_coordinador.escuela_coord);
-
-
-                              
-
-                         
-                        }
-                         });
-                    
-                        }  
-    });
-	});
-</script>
-
-
-
-
 <style>
 
 
@@ -245,132 +63,121 @@ button a:hover{
 }
 </style>
 
-  </head>
 
-  <body>
+
+<div class="container">
+
+    <div class="panel panel-default">
+
+            <div class="panel-heading">
+              <h3 class="panel-title">Buscar prestador</h3>
+            </div>
+            <div class="panel-body">
+              
+              <div class="input-group input-group-sm">
+                <input id="id_p_cedula" type="text" class="form-control" placeholder="Introduzca nombre o c&eacute;dula del prestador"></input>
+                <span class="input-group-btn">
+                  <button id="c_d_prestador" class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+                </span>
+              </div><!-- /input-group -->
+
+
+            </div>
+
+
+          </div>
+      <div id="cont">
+      
+      <div id="foto">
+        <img  style="width: 140px; height: 140px;" src="http://1120.gogiro.com/wp-content/uploads/2012/04/facebook-profile-picture-no-pic-avatar.jpg" alt="Avatar" class="img-thumbnail">
+
+      </div>
+
+      <div id="info">
+        <form class="form-inline" role="form">
+          <fieldset disabled>
+            <div class="form-group">
+              <label>Nombre</label>
+              <input type="text" id="nombre_prestador" class="form-control" placeholder="Nombre del Alumno">
+              <label>Apellido</label>
+              <input type="text" id="apellido_prestador" class="form-control" placeholder="Apellido del Alumno">
+            </div>
+          </fieldset>
+        </form>
+      </div>
+
+      
+
+
+    </div>
+
+      <br><br>
+
+   <div id="cont1">       
   
-		<div class="container theme-showcase"> <!-- inicio container-->
-			<div class="row" >
-				<div class="col-sm-12">
-					<div class="panel panel-default">  <!-- panel total inicio-->
-						<div class="panel-heading">
-							<h3 class="panel-title">Inscripción de Proyectos</h3>
-						</div>
-						<div class="panel-body">
-						
-						<div class="panel panel-default">
-
-											<div class="panel-heading">
-											  <h3 class="panel-title">Buscar Prestador</h3>
-											</div>
-											<div class="panel-body">
-											  
-											  <div class="input-group input-group-sm">
-												<input id="id_cedula" type="text" class="form-control" placeholder="Introduzca c&eacute;dula del Prestador"></input>
-												<span class="input-group-btn">
-												  <button id="consultar_prestador" class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
-												</span>
-											  </div><!-- /input-group -->
-
-
-											</div>
-
-
-									</div>
-									 <div id="cont">
-									  
-									  <div id="foto">
-										<img  style="width: 140px; height: 140px;" src="http://1120.gogiro.com/wp-content/uploads/2012/04/facebook-profile-picture-no-pic-avatar.jpg" alt="Avatar" class="img-thumbnail">
-
-									  </div>
-
-									  <div id="info">
-										<form class="form-inline" role="form">
-										  <fieldset disabled>
-											<div class="form-group">
-											  <label>Nombre</label>
-											  <input type="text" id="nombre" class="form-control" placeholder="Nombre del Prestador">
-											  <label>Apellido</label>
-											  <input type="text" id="apellido" class="form-control" placeholder="Apellido del Prestador">
-											</div>
-										  </fieldset>
-										</form>
-									  </div>
-									</div>
-									
-									</br></br>
-									
-									<!-- dattos perosnales y academicos-->
-									
-									 <div id="cont1">       
-  
-									<div class="panel-group" id="accordion">
-									<div class="panel panel-default">
-									<div class="panel-heading">
-										<h4 class="panel-title">
-											<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-												Datos Personales
-											</a>
-										</h4>
-									</div>
-									<div id="collapseOne" class="panel-collapse collapse in">
-										<div class="panel-body">
+    <div class="panel-group" id="accordion">
+    <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+           Datos Personales
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in">
+      <div class="panel-body">
         
 
-											<ul>
-													<li>Cedula : <span id="cedula"></span></li>
-													<li>Telefono :<span id="telefono"></span></li>
-													<li>Email :<span id="email"></span></li>
-													<li>Celular :<span id="celular"></span></li>
-													<li>Direccion :<span id="direccion"></span></li>
-											</ul>
+            <ul>
+                <li>Cedula : <span id="cedula_prestador"></span></li>
+                <li>Telefono :<span id="telefono_prestador"></span></li>
+                <li>Email :<span id="email_prestador"></span></li>
+                <li>Celular :<span id="celular_prestador"></span></li>
+                <li>Direccion :<span id="direccion_prestador"></span></li>
+            </ul>
 
-										</div>
-									</div>
-								</div>
+      </div>
+    </div>
+  </div>
 
-								<div class="panel panel-default">
-									<div class="panel-heading">
-										<h4 class="panel-title">
-											<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-												Datos Académicos
-											</a>
-										</h4>
-									</div>
-									<div id="collapseTwo" class="panel-collapse collapse in">
-										<div class="panel-body">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+          Datos Academicos
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse in">
+      <div class="panel-body">
        
             
-											<ul>
-													<li>Nro. Expendiente : <span id="nro_exp"></span></li>
-													<li>Escuela :<span id="escuela"></span></li>
-													<li>Mencion :<span id="mencion"></span></li>
-													<li>Semestre :<span id="semestre"></span></li>
-											</ul>
+         <ul>
+                <li>Nro. Expendiente : <span id="nro_exp_prestador"></span></li>
+                <li>Escuela :<span id="escuela_prestador"></span></li>
+                <li>Mencion :<span id="mencion_prestador"></span></li>
+                <li>Semestre :<span id="semestre_prestador"></span></li>
+            </ul>
 
 
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-									
-									<!-- fin datos -->
-									
-									<!---------------fin busqueda prestador ---------------------------------------------------------------------------------------------------------->
-							</br></br>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</br></br>
 						
 									<div class="panel panel-default">
 
 											<div class="panel-heading">
-											  <h3 class="panel-title">Buscar Coordinador o Asesor</h3>
+											  <h3 class="panel-title">Buscar Asesor</h3>
 											</div>
 											<div class="panel-body">
 											  
 											  <div class="input-group input-group-sm">
-												<input id="id_cedula_coord" type="text" class="form-control" placeholder="Introduzca cédula del Coordinador o Asesor"></input>
+												<input id="cedula_asesor" type="text" class="form-control" placeholder="Introduzca cédula del Asesor"></input>
 												<span class="input-group-btn">
-												  <button id="consultar_coordinador" class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+												  <button id="consultar_asesor" class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
 												</span>
 											  </div><!-- /input-group -->
 
@@ -391,14 +198,14 @@ button a:hover{
 												  
 													<div class="form-group">
 													  <label>Nombre</label>
-													  <input id="nombre_coord" type="text" class="form-control" placeholder="Nombre del Coordinador/Asesor">
+													  <input id="nombre_asesor_res" type="text" class="form-control" placeholder="Nombre del Asesor">
 													  <label>Apellido</label>
-													  <input type="text" id="apellido_coord" class="form-control" placeholder="Apellido del Coordinador/Asesor">
+													  <input type="text" id="apellido_asesor_res" class="form-control" placeholder="Apellido del Asesor">
 													</div>
 												 
 												</form>
 												</br>
-												<button id="consultar_coordinador" type="button" class="btn btn-success"> Inscribir Coordinador </button>
+												<button class="btn btn-default" data-toggle="modal" data-target="#form-asesor">  Inscribir Asesor</button>
 										</div>
 									</div>
 									
@@ -409,12 +216,12 @@ button a:hover{
 												
 												<div class="panel panel-default">
 												<div class="panel-heading">
-												   <h3 class="panel-title">Coordinador(es)/Asesor(es) participante(s) en el Proyecto</h3>
+												   <h3 class="panel-title">Asesor(es) participante(s) en el Proyecto</h3>
 												</div>
 												<div id="collapseOne" class="panel-collapse collapse in">
 												  <div class="panel-body">
 															
-															Lista de Coordinadores y Asesores que participan el proyecto seleccionado anteriormente!!!!</br>
+															Lista de Asesores que participan el proyecto seleccionado anteriormente!!!!</br>
 															-</br>
 															-</br>
 															-</br>
@@ -431,27 +238,29 @@ button a:hover{
 											  
 											
 									</div>
-									
-									
+											
 									 
-										</br></br>
-									<div class="panel panel-default">
-							<div class="panel-heading">
-							  <h3 class="panel-title">Inscribir Proyecto</h3>
-							</div>
-							<div class="panel-body">
-							
-								<div class="form-group">
-                     <label for="parroquia">Seleccione proyecto</label>
-                     <select name="parroquia" class="form-control" id="parroquia">
-                         <option value="">Seleccione</option>
+<!-- modal ventana emergente) inscribir proyecto ------------------------------------------------------------------------------------------------------------------->
+						 
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Inscripcion de Proyecto</h4>
+        </div>
+        <div class="modal-body">
+			<div class="form-group">
+                 <label for="parroquia">Seleccione proyecto</label>
+                  <select name="parroquia" class="form-control" id="parroquia">
+                   <option value="">Seleccione</option>
                          
                        
                     </select>
                </div>
 			   
 			   <div class="form-group">
-                     <label for="parroquia">Periodo Académico</label>
+                     <label for="parroquia">Periodo Academico</label>
                      <select name="parroquia" class="form-control" id="parroquia">
 						<option value="">Seleccione</option>
                          <option value="">2013-21</option>
@@ -466,7 +275,7 @@ button a:hover{
 							
 							  <td>Fecha Inicio de Proyecto <input type="text"  class="panel panel-default"  placeholder="dd/mm/aa"></td>
 							  
-							  <td>Horas Semanales de Servicio: <input for="proyecto" type="text"  class="panel panel-default">
+							  <td>Horas Semanales de servicio: <input for="proyecto" type="text"  class="panel panel-default">
 															 
 									<table class="table">
 												
@@ -483,18 +292,288 @@ button a:hover{
 												
 											  </table>
 							  </form>
-									<button type="button" class="btn btn-success"> Inscribir Proyecto </button>
-									<button type="button" class="btn btn-warning"> Generar Reporte </button>
+									<button type="button" class="btn btn-default"> Inscribir Proyecto </button>
+									<button type="button" class="btn btn-default"> Generar Reporte </button>
 							</div>
-						 </div>			
+						 </div>
+</div>
+</div>
+						 
+ <!-- fin model ------------------------------------------------------------------------------------------------------------------------------------------------>
+										
+										
+<!-- modal ventana emergente) inscribir asesor ------------------------------------------------------------------------------------------------------------------->
+						 
+<div class="modal fade" id="form-asesor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button id="inscribir_asesor" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Inscripcion de Asesor</h4>
+        </div>
+        <div class="modal-body">
+			
+			<form name="form-inscribir-asesor" id="form-inscribir-asesor" action="#" method="POST"> 
+			
+			
+			 <div class="form-group">
+				<label>Nombre</label>
+				<input id="nombre_asesor" type="text" class="form-control" placeholder="Introduzca Nombre del Asesor">
+				<label>Apellido</label>
+				<input type="text" id="apellido_asesor" class="form-control" placeholder="Introduzca Apellido del Asesor">
+				<label>Cedula</label>
+				<input type="text" id="cedula_asesor" class="form-control" placeholder="Introduzca Cedula del Asesor">
+				<label>Direccion</label>
+				<input type="text" id="direccion_asesor" class="form-control" placeholder="Introduzca Direccion de habitacion del Asesor">
+				<label>Celular</label>
+				<input type="text" id="celular_asesor" class="form-control" placeholder="Introduzca Celular del asesor">
+				<label>Telefono</label>
+				<input type="text" id="telefono_asesor" class="form-control" placeholder="Introduzca Telefono del Asesor">
+				<label>Email</label>
+				<input type="text" id="email_asesor" class="form-control" placeholder="Introduzca Emal del Asesor">
+			</div>  
+					  
+			<button type="submit" class="btn btn-default"> Inscribir Asesor </button>
+			</form>
+		</div>
+</div>
+</div>
+</div>
+						 
+ <!-- fin model ------------------------------------------------------------------------------------------------------------------------------------------------>
 										
 
-						 </div>
+		
 						 
 						
 					</div> <!-- panel total fin-->
 				</div>	
+				
 			</div>
+			
+			<div class="panel panel-default">
+		<div class="panel-heading">Buscar Proyecto </div>
+		<div class="result-search panel-body">
+		
+			<div class="input-group input-group-sm">
+                <input id="nombre_proyecto" type="text" class="form-control" placeholder="Nombre del proyecto"></input>
+                <span class="input-group-btn">
+                  <button id="buscar_proyecto" class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+                </span>
+              </div><!-- /input-group -->
+		</br>
+
+			
+				
+					
+				
+			
+		</div>
+		
+	</div>
+		<button class="btn btn-default" id="asociar_proyecto" type="submit">  Asociar proyecto a prestador</button>	
 		</div>	<!-- fin container -->
-  </body>
-</html>
+<!--Consultar / modificar prestador-->
+
+<script>
+$(document).ready(function(){
+
+//configuracion de las ventanas de alerta
+
+  $(".collapse").collapse();
+
+
+
+ $("#c_d_prestador").on('click',function(){
+
+          
+          var cedula=$("#id_p_cedula").val();
+
+                  if(!cedula){
+
+                          toastr.warning("No envies campos vacios");
+                  }else{
+
+                      $.post("consultar_datos_prestador",{id:cedula},function(data){
+
+                            var estado =JSON.parse(data)["estado"]; 
+
+                                   console.log(JSON.parse(data));
+
+                             
+                              if(estado === "-1"){
+
+                                  toastr.error("prestador no encontrado");
+
+
+                              }else{
+
+                                 toastr.success("Prestador encontrado");
+
+
+
+                              var datos_personales =JSON.parse(data)["datos_personales"][0];
+                            
+                              var datos_academicos =JSON.parse(data)["datos_academicos"][0];
+                              
+                      
+
+                            $("#nombre_prestador").val(datos_personales.nombre_prestador);
+
+
+                            $("#apellido_prestador").val(datos_personales.Apellido_prestador);
+
+
+                            $("#celular_prestador").text(datos_personales.celular_prestador);
+
+
+                            $("#telefono_prestador").text(datos_personales.telefono_prestador);
+
+
+                            $("#email_prestador").text(datos_personales.email_prestador);
+
+
+                            $("#cedula_prestador").text(datos_personales.ci_prestador);
+
+
+                            $("#direccion_prestador").text(datos_personales.direccion_prestador);
+
+
+                              //datos academicos
+
+
+                            $("#nro_exp_prestador").text(datos_academicos.no_exp_prestador);
+
+
+                            $("#escuela_prestador").text(datos_academicos.escuela_prestador);
+
+
+                            $("#mencion_prestador").text(datos_academicos.mencion_prestador);
+
+
+                            $("#semestre_prestador").text(datos_academicos.semestre_prestador);
+
+                         
+                        }
+                         });
+                    
+                        }  
+    });
+	<!--fin de la consulta de los datos de prestador-->
+
+	$("#consultar_asesor").on('click',function(){
+	
+  	var cedula=$("#cedula_asesor").val();
+		if(!cedula){
+			toastr.warning("No envie campos vacios")
+		}else{
+			$.post("consultar_datos_asesor",{cedula_asesor:cedula},function(data){
+				var estado =JSON.parse(data)["estado"]; 
+				console.log(JSON.parse(data));
+				if(estado == -1){
+					toastr.error("Asesor no encontrado");
+				}else{
+					toastr.success("Asesor encontrado");
+					var datos_personales =JSON.parse(data)["datos_personales"][0];
+					$("#nombre_asesor_res").val(datos_personales.nombre_asesor);
+					$("#apellido_asesor_res").val(datos_personales.apellido_asesor);
+				}
+			});
+		}		
+	
+	});
+
+
+  
+//fin del script de busqueda de asesor
+
+
+
+//hay que revisar este puto script
+
+	$("#buscar_proyecto").on("click",function(){
+		var nombre=$("#nombre_proyecto").val();
+		var cedula=$("#cedula_asesor").val();
+		var cedula_prestador=$("#id_p_cedula").val();
+		if(!cedula){
+			toastr.warning("Busque el asesor del proyecto");
+		}
+		if(!cedula_prestador){
+			toastr.warning("Busque el prestador que se asignara al proyecto");
+		}
+		if(!nombre){
+			toastr.warning("No envie campos vacios");
+		}else{
+			$.post("consultar_datos_proyecto",{id:nombre,ci:cedula},function(data){
+				var estado =JSON.parse(data); 
+				console.log(data);
+				if(estado == "-1"){
+					toastr.error("Proyecto inactivo o no encontrado");
+					
+					 $("#asociar_proyecto").prop('disabled', true);
+				}else{
+						toastr.success("Proyecto encontrado");
+						
+						$("#asociar_proyecto").prop('disabled', false);
+					}
+				
+			});
+		}
+
+	});
+	
+	
+ //fin del script que no funciona
+ 
+//comienzod del script de insertar asesor
+$("#form-inscribir-asesor").on("submit",function(e){
+	e.preventDefault();
+	var nombre=$("#nombre_asesor").val();
+	if($(this).valid()){
+		alert("valid");
+		var nombre = $("#nombre_asesor").val();
+		var apellido = $("#apellido_asesor").val();
+		var email = $("#email_asesor").val();
+		var cedula = $("#cedula_asesor").val();
+		var telefono = $("#telefono_asesor").val();
+		var direccion = $("#direccion_asesor").val();
+		var celular = $("#celular_asesor").val();
+		//----------------------------------------
+		$.post("insertar_asesor",{
+		cedula_ase:cedula,
+		nombre_ase:nombre,
+		apellido_ase:apellido,
+		email_ase:email,
+		telefono_ase:telefono,
+		direccion_ase:direccion,
+		celular_ase:celular,
+		},
+		function(data){
+			console.log(data);
+			console.log("datos insertar_asesor");
+		});
+	}else{  
+		alert("non valid");
+	}
+});
+
+
+//final de la funcion que busca prestador
+$("#asociar_proyecto").on("click",function(){
+
+
+	var asesor=$("#cedula_asesor").val();
+	var proyecto=$("#nombre_proyecto").val();
+	var prestador=$("#cedula_prestador").text();
+	$.post("asociar",{
+	cedula_ase:asesor,
+	nombre_proy:proyecto,
+	cedula_pres:prestador,
+	},
+	function(data){
+		console.log(data);
+		console.log("datos asociar");
+	});
+});
+});
+</script>

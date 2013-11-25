@@ -1,6 +1,4 @@
 
-<?= $header; ?>
-
 <?php echo  $header; 
 	
 	 if( $this->session->userdata('isLoggedIn') ) {
@@ -60,7 +58,7 @@ h2, h4 {
 	<!-- 	<div class="col-xs-12 col-md-1">
 		</div> -->
 
-		<div class="col-xs-12 col-md-7">
+		<div class="col-xs-12 col-md-12">
 			<br>
 			<div class="logo"><a href="https://schooltraq.com/">Servcom-UCAB</a></div>
 
@@ -121,4 +119,4 @@ h2, h4 {
  	 <?php }?>
 
 
-<?= $footer; ?>
+<?php echo $footer; ?>

@@ -27,21 +27,29 @@
               email : "*Introduzca una dirección de correo válida",
               numerico: "*Debe contener solo dígitos (0-9)",
               minimo_tlf: "*Debe tener 11 dígitos(e.g 0416585684)",
-              maximo_tlf: "*Debe tener máximo 11 dígitos (e.g 0416585684)."
+              maximo_tlf: "*Debe tener máximo 11 dígitos (e.g 0416585684).",
+              localidad:"*Debe especificar la dirección de la localidad"
+
 			},
 			error:{
 				campo_vacio: "No se permiten campos vacios.",
+				form_nv : "Los datos del formulario no son validos",
 				proyecto_nf:"No existen proyectos que coincidan con la busqueda.",
 				prestador_nf:"Prestador no encontrado.",
 				prestador_pnf:"No existen proyectos inscritos en el proyecto.",
-				localidad_nf: "Localidad no encontrada."
+				localidad_nf: "Localidad no encontrada.",
+				prestador_no_insertado:"No se pudo registrar el prestador",
+				localidad_no_insertada:"No se pudo registrar la localidad"
 
 			},
 			success:{
 				prestador_f:"Prestador encontrado.",
 				prestadores_f:"Prestadores  encontrados.",
 				proyecto_f:"Proyecto encontrado.",
-				proyectos_f:"Proyectos encontrados."
+				proyectos_f:"Proyectos encontrados.",
+				prestador_insertado:"El prestador fue inscrito en el Sistema",
+				localidad_f: "Localidad  encontrada.",
+				localidad_insertada:"La localidad se registro existosamente"
 			},
             requerido: '*Este es campo es requerido',
             matches: 'The %s field does not match the %s field.',
@@ -212,7 +220,13 @@ $("#main-panel a").on("click",function (e) {
 //================================================================//
 //================================================================//
 
+function resetForm($form) {
 
+    $form.find('input:text, input:password, input:file,input:email, select, textarea').val('');
+    $form.find('input:radio, input:checkbox')
+         .removeAttr('checked').removeAttr('selected');
+
+}
 
 function nav_pestanas_principal(id_pestana,url,texto,tab){
 

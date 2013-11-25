@@ -60,9 +60,13 @@ class Localidad extends CI_Controller {
 	$telefono = $this->input->post('telefono_loc');	
 	$parroquia = $this->input->post ('parroquia_loc');
 	$direccion = $this->input->post ('direccion_loc');
+	$latitud = $this->input->post ('latitud_loc');
+	$longitud= $this->input->post ('longitud_loc');
 
 	
-		echo $salida = ($this->localidad_model->insertar_datos_localidad($nombre,$responsable,$email,$telefono,$parroquia,$direccion));
+		echo $salida = ($this->localidad_model->insertar_datos_localidad($nombre,$responsable,$email,$telefono,$parroquia,$direccion,$latitud,$longitud));
+	
+
 	}
 	
 	public function ver_datos_localidad() {
@@ -73,7 +77,7 @@ class Localidad extends CI_Controller {
 
 		if($salida == -1){
 
-			echo "No se encontro";
+			echo json_encode(array('estado'=>"-1"));
 		
 		} 
 		else {

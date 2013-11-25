@@ -277,10 +277,10 @@ clear:both;
 
 <br><br><br><br>
 
-<div id="consultar_proyecto">
+<div id="consultar_detalles_proyecto">
     <ol class="breadcrumb">
         <h5> Nombre del Proyecto </h5>
-        <select class="form-control">
+        <select  id="l_proyectos" class="form-control">
           <option>Seleccione proyecto</option>
         </select>
 <center><button type="button" class="btn btn-link" data-toggle="modal" href="#myModal1">Ver detalle</button></center>
@@ -395,7 +395,6 @@ clear:both;
   </div><!-- /.modal -->
 
 
-
  <!-- Modal 1 -->
 
   <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -414,35 +413,30 @@ clear:both;
 
         <div class="modal-body">
 
-           <fieldset disabled>
+       <form id="reporte_horas" name="reporte_horas" action="" method="POST">
+          
 
-             <label>Nombre del proyecto </label> 
+       <fieldset disabled>
+      
+       <label>Nombre del proyecto </label>          
 
-       <input type="text"  class="form-control">
+       <input  id="nombre_proyecto" type="text"  class="form-control">  
 
-     
+       <label>Fecha de creacion </label> 
 
-             <label>Fecha de creacion </label> 
-
-       <input type="text"  class="form-control">
-
-       
+       <input id="fecha_creacion" type="text"  class="form-control">
 
        <label>Estado  </label> 
 
-       <input type="text"  class="form-control">
+       <input id="estado_proyecto" type="text"  class="form-control">
 
-       
 
-             <label>Codigo </label> 
+       <label>Codigo </label> 
 
-       <input type="text"  class="form-control">
+       <input  id="codigo_proyecto" type="text"  class="form-control">
 
-      </fieldset>
-
-     <label>Horas realizadas </label> 
-
-     <input type="text" id="nombre_prestador" class="form-control" placeholder="Ingrese horas realizadas">
+       </fieldset>
+     </form>
 
        </div>
 
@@ -479,7 +473,7 @@ $(document).ready(function(){
 
 
 
-  $("#consultar_proyecto").css("display", "none");
+  $("#consultar_detalles_proyecto").css("display", "none");
 
   $("#tabla_consulta").css("display", "none");
 
@@ -491,7 +485,7 @@ $(document).ready(function(){
 
 $("#btn_consultar_proyecto").click(function(){
 
-  $("#consultar_proyecto").fadeToggle(1000);
+  $("#consultar_detalles_proyecto").fadeToggle(1000);
 
   $("#tabla_consulta").fadeToggle(1000);
 
@@ -530,6 +524,8 @@ $("#modificar_datos").on("click",function(){
               $("#p-actuales").html(content);
 
 
+              $("#l_proyectos").html(content);
+
 
     });
    
@@ -557,8 +553,7 @@ $("#modificar_datos").on("click",function(){
   }
 
 
-
-$("body #id_prestador_cedula").on("keyup", function(event){
+$("body").on("keyup","#id_prestador_cedula", function(event){
 
           
 
@@ -672,6 +667,40 @@ $('body').on('click','a.key_prestador', function (ev) {
   });
 
 
+      
+$('body').on('change','#l_proyectos',function(){ 
+      
+        var option= $('#l_proyectos option:selected').val();
+      
+        console.log(option);
+      
+            if(option){
+      
+                $.post("ver_detalles_proyecto",{id:option,estado:1},function(data){
+      
+                  console.log(data);
+      
+      
+                 var datos_proyecto=JSON.parse(data); 
+      
+                  console.log(datos_proyecto);
+      
+                  console.log(datos_proyecto[0]["nombre_proyecto"]);
+      
+                  $("#myModal1 #nombre_proyecto").val(datos_proyecto[0]["nombre_proyecto"]);
+                  $("#myModal1 #fecha_creacion").val(datos_proyecto[0]["fecha_ini"]);
+                  $("#myModal1 #estado_proyecto").val(datos_proyecto[0]["estado_proyecto"]);
+                  $("#myModal1 #codigo_proyecto").val(datos_proyecto[0]["id_proyecto"]);
+                                   
+               });
+      
+            }
+      
+      
+      
+      
+      });
+    
 
  
 

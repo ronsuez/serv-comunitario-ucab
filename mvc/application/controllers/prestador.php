@@ -78,17 +78,24 @@ class Prestador extends CI_Controller {
 
 	public function insertar_datos_prestador()
 	{			
-		$nombre = $this->input->post('nombre_pre');
-		$apellido = $this->input->post('apellido_pre');
-		$email = $this->input->post('email_pre');
-		$celular = $this->input->post('celular_pre');
-		$telefono = $this->input->post('telefono_pre');
-		$direccion = $this->input->post('direccion_pre');
-		$expediente = $this->input->post('expediente_pre');
-		$escuela = $this->input->post('escuela_pre');
-		$mencion = $this->input->post('mencion_pre');
 
-		$salida=$this->prestador_model->insertar_datos($nombre, $apellido, $celular, $email, $telefono, $direccion, $expediente, $escuela, $mencion);
+		$datos = array(
+                'cedula' => $this->input->post('cedula'),
+                'nombre' => $this->input->post('nombre'),
+                'apellido' => $this->input->post('apellido'),
+                'email' => $this->input->post('email'),
+                'celular' => $this->input->post('telefono_cel'),
+                'telefono' => $this->input->post('telefono_hab'),
+                'expediente' => $this->input->post('expediente'),
+                'escuela' => $this->input->post('escuela'),
+                'semestre' => $this->input->post('mencion'),
+                'mencion' => "1",
+                'direccion' => $this->input->post('direccion'));
+
+
+		$salida=$this->prestador_model->insertar_datos($datos);
+
+		echo $salida;
 	}
 
 
@@ -137,6 +144,87 @@ class Prestador extends CI_Controller {
 		}
 
 	}
+	
+	public function verdetalles(){
+
+		$nombre= $this->input->post('id');
+
+		$salida= $this->prestador_model->datos_proyecto($nombre);
+
+
+			if($salida!="-1"){
+
+				echo json_encode($salida);
+	
+			}else{
+
+				echo "No se encontro nada";
+			}
+		//echo json_encode($salida);
+
+
+	}
+
+	public function consultar_nombre_proyecto(){
+
+			$ci_prestador = $this->input->post('ci');
+			$salida = $this->prestador_model->b_nombres_proyectos($ci_prestador);
+
+			if($salida!="-1"){
+
+				echo json_encode($salida);
+	
+			}else{
+
+				echo "No se encontro nada";
+			}
+	}
+	//-----------------------------funciones de asignar proyecto.php
+	public function ver_datos_asesor(){
+		$id=$this->input->post('cedula_asesor');
+		
+		$salida=$this->prestador_model->listar_datos_asesor($id);
+		if($salida == -1){
+			echo "No se encontro";
+		}else{
+			echo json_encode($salida);
+		}
+	}
+	
+	public function verificar_proyecto(){
+		$id=$this->input->post('id');
+		$ci=$this->input->post('ci');
+		$salida=$this->prestador_model->verificar_estado_proyecto($id,$ci);
+		echo json_encode($salida);
+	}
+	public function insertar_asesor(){
+		$nombre = $this->input->post('nombre_ase');
+		$apellido = $this->input->post('apellido_ase');
+		$email = $this->input->post('email_ase');
+		$cedula = $this->input->post('cedula_ase');
+		$telefono = $this->input->post('telefono_ase');
+		$direccion = $this->input->post('direccion_ase');
+		$celular = $this->input->post('celular_ase');
+		$salida = $this->prestador_model->insertar_asesor($nombre,$apellido,$email,$cedula,$celula,$telefono,$direccion);
+		if($salida == -1){
+			echo("Asesor no insertado");
+			
+		}else{
+			echo("Asesor ingresado con exito");
+		}
+	}
+	
+	public function asociar_proyecto(){
+		$asesor = $this->input->post('cedula_ase');
+		$proyecto = $this->input->post('nombre_proy');
+		$prestador = $this->input->post('cedula_pres');
+		$salida = $this->prestador_model->asociar_proyecto($asesor,$proyecto,$prestador);
+		
+			echo json_encode($salida);
+		
+	}
+
+
 
 }
 

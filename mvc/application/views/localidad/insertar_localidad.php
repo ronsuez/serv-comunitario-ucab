@@ -1,44 +1,66 @@
 <script>
-
-
-
-   /* function initialize() {
+    function initialize() {
+	var latLng = new google.maps.LatLng(8.297306461386862, -62.71144453436136);
         var mapOptions = {
-          center: new google.maps.LatLng(8.316815, -62.697601),
-          zoom: 12,
+          center: latLng,
+          zoom: 17,
           mapTypeId: google.maps.MapTypeId.ROADMAP
         };
 
         var map = new google.maps.Map(document.getElementById("map_canvas"),
             mapOptions);
       
-          return map;
-
-          }
-                  
-    $(document).ready(function() {
-  
-  
-          var map = initialize();
-
-          google.maps.event.addListener(map, "rightclick", function(event) {
-        
-        var lat = event.latLng.lat();
-        var lng = event.latLng.lng();
+	  
+		 
+		var marker = new google.maps.Marker({
+			  position:latLng,
+			  map: map,
+			  
+		 });
+		 
+		 
+	  	  google.maps.event.addListener(map, 'click', function(event) {
+				
+				
+				updateMarker(marker,event.latLng);
+				var lat = event.latLng.lat();
+				var lng = event.latLng.lng();
             // populate yor box/field with lat, lng
-          alert("Lat=" + lat + "; Lng=" + lng);
-
+   
             $("#X").html(lat);
             $("#Y").html(lng);
-            
-            });
+				
+		});
+         
+			
+
+}
+		  
+		 
+
+// ACTUALIZO LA POSICION DEL MARCADOR
+function updateMarker(marker,location) {
+        marker.setPosition(location);
+     
+      }
+
+                  
+  $(document).ready(function() {
+  
+	initialize();
+
+    // Permito la gesti¢n de los eventos DOM
+    google.maps.event.addDomListener(window, 'load', initialize);
 
 
-    }); */
+
+		});
 
     </script>
 
-    
+	
+
+	
   <div class="container">
       
       <form id="form-localidad" name="form-localidad" action="#" method="POST" >
@@ -113,22 +135,19 @@
         <div class="panel panel-default">
           <div class="panel-heading">Ubicación en el Mapa</div>
           <div class="panel-body">
-           			<h1>Aqui va el mapa </h1>
+           			
                   <div id="coordinates">
-                      <h1>Coordenadas</h1>
-                      <ul>
-                        <li>
-                          <span>Latitud :</span><h1 id="X"></h1>
-                        </li>
-                        <li>
-                          <span>Longitud :</span><h1 id="Y"></h1>
-                        </li>
-                      </ul>
-                  </div>
-               
+						<label for="estado">Latitud</label>
+							</br>
+                          <span id="latitud" name="latitud" type="text" class="form-control" ><h5 id="X"></h5></span>
+						</br>
+						<label for="estado">Longitud</label></br>
+                          <span id="longitud" name="longitud" type="text" class="form-control" ><h5 id="Y"></h5></span>
+				  
+                    </div>
+					</br></br>
 
-            <div id="map_canvas" style="width:500px;height:380px;"></div>
-
+					<div id="map_canvas"  style="width:500px;height:380px;"></div>
           </div>
         </div>
 
@@ -148,12 +167,14 @@
  <script>
 
 
+ 
+
 //funcionalidad para la regla alfebetica
 jQuery.validator.addMethod("alpha", function(value, element) {
   return this.optional(element) || value == value.match(/^[a-zA-Z ]+$/);
 },"Solo caracteres (Aa-Zz).");
 
-$("#form-prepppstador").validate({
+$("#form-localidad").validate({
 
  
   rules: {
@@ -185,16 +206,16 @@ $("#form-prepppstador").validate({
 
     },email : {
       required: mensajes.reglas.requerido,
-      email:"*Introduzca una dirección de correo válida"
+      email:mensajes.reglas.requerido
 
     },telefono :{
       required : mensajes.reglas.requerido,
-      number :"*Debe contener solo dígitos (0-9)",
-      minlength:"*Debe tener 11 dígitos(e.g 0416585684)",
-      maxlength:"*Debe tener máximo 11 dígitos (e.g 0416585684)"
+      number :mensajes.reglas.numerico,
+      minlength:mensajes.reglas.minimo_tlf,
+      maxlength:mensajes.reglas.maximo_tlf
 
     },direccion:{
-      required:"*Debe especificar la dirección de la localidad"
+      required:mensajes.reglas.localidad
 
     }
   }
@@ -206,7 +227,7 @@ $("#form-localidad").on("submit",function (e) {
   e.preventDefault();
 
   if ($(this).valid()) {
-    alert("valid");
+
    // var datos = $(this).serialize();
 	var nombre=$("#nombre").val();
 	var responsable=$("#responsable").val();
@@ -214,6 +235,8 @@ $("#form-localidad").on("submit",function (e) {
 	var telefono=$("#telefono").val();
 	var parroquia=$("#parroquia").val();
 	var direccion=$("#direccion").val();
+	var latitud=$("#X").text();
+	var longitud=$("#Y").text();
 	
     $.post("insertar_datos_localidad",{
 		nombre_loc:nombre,
@@ -222,17 +245,31 @@ $("#form-localidad").on("submit",function (e) {
 		telefono_loc:telefono,
 		parroquia_loc:parroquia,
 		direccion_loc:direccion,
+		latitud_loc:latitud,
+		longitud_loc:longitud,
+		
 		},
 		function(data){
-        alert(data);
-        console.log("datos insertar_datos_localidad");
+        if(data=="0"){
+
+               toastr.success(mensajes.success.localidad_insertada);
+
+               resetForm($('#form-localidad'));
+               
+          }else{
+
+              toastr.error(mensajes.error.localidad_no_insertada);
+        
+            }
       });
 
   } else{  
-    alert("non valid");
+    toastr.error(mensajes.error.form_nv);
   }
 
 });
+
+
 
 </script>
 
