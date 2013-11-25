@@ -1,6 +1,4 @@
 
-<?= $header; ?>
-
 <?php echo  $header; 
 	
 	 if( $this->session->userdata('isLoggedIn') ) {
@@ -121,4 +119,4 @@ h2, h4 {
  	 <?php }?>
 
 
-<?= $footer; ?>
+<?php echo $footer; ?>
