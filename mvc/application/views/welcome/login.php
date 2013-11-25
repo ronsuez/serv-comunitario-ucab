@@ -28,6 +28,7 @@
 
 body {
 	background-color: #e6e6e6;
+	margin-top: 0px;
 }
 
 h2, h4 {
@@ -60,11 +61,11 @@ h2, h4 {
 	<!-- 	<div class="col-xs-12 col-md-1">
 		</div> -->
 
-		<div class="col-xs-12 col-md-7">
+		<div class="col-xs-12 col-md-12">
 			<br>
-			<div class="logo"><a href="https://schooltraq.com/">Servcom-UCAB</a></div>
+		<div class="logo"><a href="#">Servcom-UCAB</a></div>
 
-		<div id ="help-box" class="col-md-7 col-sm-7 col-lg-7">
+		<div id ="help-box" class="col-md-6 col-sm-6 col-lg-6">
 			<br>
 			<div class="logo"><a href="#">Servcom-UCAB</a></div>
 

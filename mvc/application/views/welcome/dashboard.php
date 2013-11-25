@@ -7,7 +7,7 @@
     		}else {
         			 $user =$this->session->userdata("name")." ".$this->session->userdata("last_name");
 
-        			 $escuela = "Escuela de ".$this->session->userdata("escuela");
+        			 $escuela = "Departamento de ".$this->session->userdata("escuela");
 	
    			 }
 
@@ -263,10 +263,16 @@ body {
 								</p>
 							</div>
 
-								<button id="consultar_p" type="button" class="button-consultar pull-right btn btn-success" data-loading-text="Generando reporte" >Ir a consultar prestador</button>
-
-								<button id="ver_pre" type="button" class="button-consultar pull-right btn btn-success" data-loading-text="Generando reporte" >Ir a consultar prestador</button>
-				
+							<div class="row col-xs-3 col-md-3 col-lg-3 col-md-offset-2">
+								<br>
+								<button id="consultar_p" type="button" class="button-consultar btn btn-success" data-loading-text="Generando reporte" >Ir a consultar prestador</button>
+								<br>
+								<br>
+								<button id="ver_pre" type="button" class="button-consultar btn btn-success" data-loading-text="Generando reporte" >Ir a consultar prestador</button>
+								<br>
+								<br>
+								<a href="completar_datos" class="button-consultar btn btn-success" data-loading-text="Cargando formulario" >Completar datos de usuario</a>
+							</div>
 					</div>
 
 

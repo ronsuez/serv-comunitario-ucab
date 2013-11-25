@@ -33,7 +33,7 @@ form label.error{
 </style>
 
 <div class="container container-main">
-	<div id= "main-content" class="row jumbotron col-xs-6 col-md-6 col-md-offset-3">
+	<div id= "main-content" class="row jumbotron col-xs-6 col-md-6 col-lg-6 col-md-offset-3">
 
 		<form name="registro_user" id="registro_user" action="registro_user" method="POST"  action="login" class="form-signin">
 

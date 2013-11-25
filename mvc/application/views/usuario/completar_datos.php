@@ -1,12 +1,24 @@
 <?php echo $header;
 	
-$user = $this->session->userdata('user_name');
+	$user = $this->session->userdata('user_name');
 
-	echo $user;
-	echo $tipo[0]["tipo"];
+	$t = $tipo;
+
+	if ($t == "CO") {
+		$tipo_completo = "Coordinador";	
+	}
+	elseif ($t == "DI") {
+		$tipo_completo = "Director de Escuela";
+	}
+	elseif ($t == "PR") {
+		$tipo_completo = "Proyeccion a la Comunidad";
+	}
+
 	//var_dump($tipo);
 
 ?>
+
+
 
 <style type="text/css">
 
@@ -43,9 +55,9 @@ form label.error{
 <div class="container container-main">
 	<div id= "main-content" class="row jumbotron col-xs-6 col-md-6 col-md-offset-3">
 
-		<form name="registro_user" id="registro_user" action="registro_user" method="POST"  action="login" class="form-signin">
+		<form name="completar_datos_usuario" id="completar_datos_usuario" action="completar_datos_usuario" method="POST"  action="login" class="form-signin">
 
-			<h2 class="form-signin-heading">Registro de datos de ...</h2>
+			<h2 class="form-signin-heading">Registro de datos de <?php echo $tipo_completo; ?></h2>
 			<h4 class="form-signin-heading">Complete el formulario para una experiencia m&aacute;s personalizada</h4>
 			<br>
 			<div class="form-group">
@@ -69,13 +81,13 @@ form label.error{
 			</div>
 
 			<div class="form-group">
-				<label for="telefono">Telefono de habitacion</label>
-				<input type="text" name="telefono" id="telefono" class="form-control" placeholder="Telefono de habitacion">
+				<label for="telefono">Telefono de habitaci&oacute;n</label>
+				<input type="text" name="telefono" id="telefono" class="form-control" placeholder="Telefono de habitaci&oacute;n">
 			</div>
 
 			<div class="form-group">
-				<label for="escuela">Escuela</label>
-				<select id="carrera" name="carrera" class="form-control">
+				<label for="carrera" id="carrera">Escuela</label>
+				<select id="escuela" name="escuela" class="form-control">
 					<option value="">Seleccione</option>
 					<option value="ingenieria informatica">Ingenier&iacute;a Inform&aacute;tica</option>
 					<option value="ingenieria civil">Ingenier&iacute;a Civil</option>
@@ -101,12 +113,21 @@ form label.error{
 
 <script>
 
+<?php
+if ($t == "PR") {
+	echo '$("#escuela").hide();';
+	echo '$("#carrera").hide()';
+};
+?>
+	
+
+
 //funcionalidad para la regla alfebetica
 jQuery.validator.addMethod("alpha", function(value, element) {
 	return this.optional(element) || value == value.match(/^[a-zA-Z ]+$/);
 },"Solo caracteres (Aa-Zz).");
 
-$("#registro_user").validate({
+$("#completar_datos_usuario").validate({
 
 	rules: {
 		nombre:{
@@ -120,7 +141,6 @@ $("#registro_user").validate({
 		},
 		telefono:{
 			required: true,
-			equalTo: "#pass"
 		},
 		email:{
 			required:true
@@ -128,20 +148,19 @@ $("#registro_user").validate({
 	},
 
 	messages:{
-		cedula: {
+		nombre:{
 			required: mensajes.reglas.requerido
 		},
-		user:{
+		apellido:{
 			required:mensajes.reglas.requerido
 		},
-		pass: {
+		celular:{
 			required:mensajes.reglas.requerido
 		},
-		conf_pass:{
+		telefono:{
 			required: mensajes.reglas.requerido,
-			equalTo: mensajes.reglas.equalTo
 		},
-		tipo:{
+		email:{
 			required :mensajes.reglas.requerido
 		}
 	}
