@@ -42,8 +42,30 @@ public function listar_datos_prestador($cedula){
                 }
                     
         }
+           
+   
+    public function insertar_datos_prestador($datos){
+        $query = $this->db->insert('prestador', array(
+                'ci_prestador' => $datos["cedula"],
+                'nombre_prestador' => $datos["nombre"],
+                'Apellido_prestador' => $datos["apellido"],
+                'email_prestador' => $datos["email"],
+                'celular_prestador' => $datos["celular"],
+                'telefono_prestador' => $datos["telefono"],
+                'no_exp_prestador' => $datos["expediente"],
+                'escuela_prestador' => $datos["escuela"],
+                'semestre_prestador' => $datos["semestre"],
+                'mencion_prestador' => "1",
+                'direccion_prestador' => $datos["direccion"]));
 
 
+            if($query){
+                return "0";
+            }
+            else{
+                return "-1";
+            }
+    }  
 
 public function listar_x_pro($id_proyecto){
 
@@ -74,7 +96,6 @@ public function listar_x_pro($id_proyecto){
 
 }        
 
-
 }
 
 /*SELECT Nombre
@@ -85,3 +106,4 @@ SELECT Apellido
 FROM  `prestador` 
 WHERE CI_prestador =24541299
 */
+
