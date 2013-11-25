@@ -69,10 +69,14 @@ $route['hola']="prestador/hola";
 $route['consultar_datos_prestador']="prestador/ver_datos_personales";
 $route['insertar_datos_prestador']="prestador/insertar_datos_prestador";
 $route['listar_p_x_proy']="prestador/listar_x_proyecto";
+
 /* routing for localidades controller */
 $route['gest-localidad']="localidad/index";
 $route['listar_loc']="localidad/listar";
 $route['insertar_localidad']="localidad/insertar";
+$route['consultar_localidad']="localidad/consultar";
+$route['insertar_datos_localidad']="localidad/insertar_datos_localidad";
+$route['consultar_datos_localidad']="localidad/ver_datos_localidad";
 
 $route['ver_reporte'] = 'reportes/index';
 

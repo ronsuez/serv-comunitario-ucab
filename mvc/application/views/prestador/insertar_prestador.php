@@ -97,7 +97,20 @@ form label.error{
               <option value="educacion">Educaci&oacute;n</option>
               <option value="derecho">Derecho</option>
           </select>
+          </div> 
+          
+
+          <div class="form-group" id='mencion'>
+            <label for="">Menci&oacute;n</label>
+            <select id="mencion-select" name="mencion" class="form-control">
+              <option value="">Seleccione</option>
+              <option value="artes audiovisuales">Artes Audiovisuales</option>
+              <option value="comunicaciones publicitarias">Comunicaciones Publicitarias</option>
+              <option value="periodismo">Periodismo</option>
+            </select>
           </div>
+          
+
           <div class="form-group">
             <label for="">Semestre</label>
             <select id="semestre" name="semestre" class="form-control">
@@ -158,13 +171,15 @@ form label.error{
 
   <script>
 
+$(document).ready(function(){
+
 
 //funcionalidad para la regla alfebetica
 jQuery.validator.addMethod("alpha", function(value, element) {
   return this.optional(element) || value == value.match(/^[a-zA-Z ]+$/);
 },"Solo caracteres (Aa-Zz).");
 
-$("#form-prepppstador").validate({
+$("#form-prestador").validate({
 
  
   rules: {
@@ -199,6 +214,8 @@ $("#form-prepppstador").validate({
       number: true
     },carrera: {
       required: true
+    },mencion: {
+      required: true
     }
   },
 
@@ -211,35 +228,39 @@ $("#form-prepppstador").validate({
 
     },email : {
       required: mensajes.reglas.requerido,
-      email:"*Introduzca una dirección de correo válida"
+      email: mensajes.reglas.email
 
     },telefono_hab :{
       required : mensajes.reglas.requerido,
-      number :"*Debe contener solo dígitos (0-9)",
-      minlength:"*Debe tener 11 dígitos(e.g 0416585684)",
-      maxlength:"*Debe tener máximo 11 dígitos (e.g 0416585684)"
+      number : mensajes.reglas.numerico,
+      minlength: mensajes.reglas.minimo,
+      maxlength: mensajes.reglas.maximo
 
     },telefono_cel :{
       required : mensajes.reglas.requerido,
-      number :"*Debe contener solo dígitos (0-9)",
-      minlength:"*Debe tener 11 dígitos(e.g 0416585684)",
-      maxlength:"*Debe tener máximo 11 dígitos (e.g 0416585684)"
+      number : mensajes.reglas.numerico,
+      minlength: mensajes.reglas.minimo_tlf,
+      maxlength: mensajes.reglas.maximo_tlf
 
     },direccion:{
-      required:"*Debe especificar la dirección de la localidad"
+      required: mensajes.reglas.requerido
 
     },expediente: {
       required:  mensajes.reglas.requerido,
-      number: "*Debe contener solo dígitos (0-9)"
+      number: mensajes.reglas.numerico
 
     },semestre: {
       required:  mensajes.reglas.requerido
 
     },cedula: {
-      required:  mensajes.reglas.requerido,
-      number: "*Debe contener solo dígitos (0-9)"
+      required: mensajes.reglas.requerido,
+      number: mensajes.reglas.numerico
+
     },carrera: {
-      required:  mensajes.reglas.requerido
+      required: mensajes.reglas.requerido
+
+    },mencion: {
+      required: mensajes.reglas.requerido
     }
   }
 
@@ -265,5 +286,24 @@ $("#form-prestador").submit(function (e) {
   }
 
 });
+
+  $('#mencion').css("display","none");
+
+    $("#carrera").on("change",function(){
+
+          console.log($(this).val());
+
+          if($(this).val()==="comunicacion social"){
+
+            console.log("hola ");
+
+          $("#mencion").fadeIn(1000);
+          }else{
+
+            $("#mencion").fadeOut(1000);
+          }
+    });
+
+  });
 
 </script>
