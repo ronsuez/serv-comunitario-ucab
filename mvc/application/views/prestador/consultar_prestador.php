@@ -65,6 +65,21 @@ button a:hover{
   color: #FFF;
 
 }
+
+/*#id_prestador_cedula{
+  float: left;
+}
+#c_datos_prestador{
+  float: left;
+}
+#datos_busqueda{  
+clear:both;
+}*/
+
+.input-group .input-group-sm {
+
+}
+
 </style>
 
 
@@ -79,12 +94,17 @@ button a:hover{
             <div class="panel-body">
               
               <div class="input-group input-group-sm">
+               
                 <input id="id_prestador_cedula" type="text" class="form-control" placeholder="Introduzca nombre o c&eacute;dula del prestador"></input>
                 <span class="input-group-btn">
                   <button id="c_datos_prestador" class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
                 </span>
+              
               </div><!-- /input-group -->
 
+                 <div id="datos_busqueda">
+
+                </div>
 
             </div>
 
@@ -130,15 +150,24 @@ button a:hover{
     </div>
     <div id="collapseOne" class="panel-collapse collapse in">
       <div class="panel-body">
-        
 
-            <ul>
-                <li>Cedula : <span id="cedula_prestador"></span></li>
-                <li>Telefono :<span id="telefono_prestador"></span></li>
-                <li>Email :<span id="email_prestador"></span></li>
-                <li>Celular :<span id="celular_prestador"></span></li>
-                <li>Direccion :<span id="direccion_prestador"></span></li>
-            </ul>
+
+           <form class="form-inline" role="form">
+              <fieldset class="form-modificar-datos" disabled>
+                <div class="form-group">
+                  <label>Cedula</label>
+                  <input type="text" id="cedula_prestador" class="form-control" placeholder="Cedula prestador">
+                  <label>Telefono</label>
+                  <input type="text" id="telefono_prestador" class="form-control" placeholder="Telefono del Prestador">
+                  <label>Correo Electronico</label>
+                  <input type="text" id="email_prestador" class="form-control" placeholder="Correo Electronica">
+                  <label>Direccion</label>
+                  <input type="text" id="direccion_prestador" class="form-control" placeholder="Direccion">
+
+            </div>
+          </fieldset>
+        </form>         
+
 
       </div>
     </div>
@@ -154,19 +183,29 @@ button a:hover{
     </div>
     <div id="collapseTwo" class="panel-collapse collapse in">
       <div class="panel-body">
-       
-            
-         <ul>
-                <li>Nro. Expendiente : <span id="nro_exp_prestador"></span></li>
-                <li>Escuela :<span id="escuela_prestador"></span></li>
-                <li>Mencion :<span id="mencion_prestador"></span></li>
-                <li>Semestre :<span id="semestre_prestador"></span></li>
-            </ul>
-
-
+        <fieldset  class="form-modificar-datos" disabled>
+            <div class="form-group">
+                <label>Numero de  Expediente</label>
+                <input type="text" id="nro_exp_prestador" class="form-control" placeholder="No. Expediente">
+                <label>Escuela</label>
+                <input type="text" id="escuela_prestador" class="form-control" placeholder="Escuela">
+                <label>Mencion</label>
+                <input type="text" id="mencion_prestador" class="form-control" placeholder="Mencion">
+                <label>Semestre</label>
+                <input type="text" id="semestre_prestador" class="form-control" placeholder="Semestre">
+            </div>
+        </fieldset>
       </div>
     </div>
   </div>
+
+
+<!-- Indicates a successful or positive action -->
+
+<br><br>
+<br><br>
+<button type="button" id="modificar_datos" class="pull-right btn btn-success" >Modificar datos</a></button>
+
 </div>
 </div>
 
@@ -177,13 +216,9 @@ button a:hover{
 
 <ol class="breadcrumb">
   <h5> Proyecto actuales</h5>
- <select class="form-control">
-  <option>Seleccione proyecto</option>
-  <option>CompuBus 1 </option>
-  <option>CompuBus 2</option>
-  <option>3</option>
-  <option>4</option>
-  <option>5</option>
+ <select id="p-actuales" class="form-control">
+  <option value="">Seleccione proyecto</option>
+  
 </select>
 </ol>
 
@@ -243,18 +278,12 @@ button a:hover{
 <br><br><br><br>
 
 <div id="consultar_proyecto">
-<ol class="breadcrumb">
-  <h5> Nombre del Proyecto </h5>
-
- <select class="form-control">
-  <option>Seleccione proyecto</option>
-  <option>CompuBus 1 </option>
-  <option>CompuBus 2</option>
-  <option>3</option>
-  <option>4</option>
-  <option>5</option>
-</select>
-<center><button type="button" class="btn btn-link" data-toggle="modal" href="#myModal">Ver detalle</button></center>
+    <ol class="breadcrumb">
+        <h5> Nombre del Proyecto </h5>
+        <select class="form-control">
+          <option>Seleccione proyecto</option>
+        </select>
+<center><button type="button" class="btn btn-link" data-toggle="modal" href="#myModal1">Ver detalle</button></center>
 
 
 <h5>Inicio prestacion del servicio:</h5>
@@ -270,44 +299,34 @@ button a:hover{
   <center>
   <div class="col-lg-3">
     <h5>Fecha:</h5> 
-   </center>
-   </div>
- </div>
+   </center>cla
 
-</ol>
+     <td><p class="navbar-text" >Lunes</p></td><td><p class="navbar-text" >Hola</p></td>
 
+     <td><p class="navbar-text" >Martes</p></td><td><p class="navbar-text" >Hola</p></td>
 
-  <table id="tabla_consulta" class="table table-bordered">
-    <thead>
-      <tr>
-        <th>Domingo</th>
-        <th>Lunes</th>
-        <th>Martes</th>
-        <th>Miercoles</th>
-        <th>Jueves</th>
-        <th>Viernes</th>
-        <th>Sabado</th>
-      </tr>
-    </thead>
-  <tbody>
-    <tr>
-      <td>7:00 - 8:00</td>
-    </tr>
-    <tr>
-      <td>8:00 - 9:00</td>
-    </tr>
-    <tr>
-      <td>9:00 - 10:00</td>
-    </tr>
-    <tr>
-      <td>10:00 - 11:00</td>
-    </tr>
-    <tr>
-      <td>11:00 - 12:00</td>
-    </tr>
+   </tr>
 
-    </tbody>
+   <tr>
+
+     <td><p class="navbar-text" >Miercoles</p></td><td><p class="navbar-text" >Hola</p></td>
+
+   <td><p class="navbar-text" >Jueves</p></td><td><p class="navbar-text" >Hola</p></td>
+
+   </tr>
+
+ <tr>
+
+   <td><p class="navbar-text" >Viernes</p></td><td><p class="navbar-text" >Hola</p></td>
+
+ </tr>
+
 </table>
+
+<br></br>
+  
+
+
 </div>
 
 <center><p>
@@ -317,49 +336,130 @@ button a:hover{
 
 <!-- Modal -->
 
-
-<!-- Button trigger modal -->
-  
-
-  <!-- Modal -->
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title">Reporte de Horas</h4>
-        </div>
-        <div class="modal-body">
-          
-          <label>Registrar</label> 
-          <ol class="breadcrumb">
-            <select class="form-control">
-              <option>Seleccione</option>
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-              <option>6</option>
-              <option>7</option>
-              <option>8</option>
-              <option>9</option>
-              <option>10</option>
-              <option>11</option>
-              <option>12</option>
-            </select>
 
-          </ol>
-          <label>horas</label><br><br>
-          <label>Comentarios</label>
+    <div class="modal-dialog">
+
+      <div class="modal-content">
+
+        <div class="modal-header">
+
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+          <center><h4 class="modal-title">Reporte de Horas</h4></center>
+
+        </div>
+
+        <div class="modal-body">
+
+          <label>Realizado por </label> 
+
+          <fieldset disabled>
+
+          <input type="text" id="nombre_prestador" class="form-control" placeholder="Nombre del Alumno">
+
+         </fieldset>
+
+          <label>Horas realizadas </label> 
+
+          <input type="text" id="nombre_prestador" class="form-control" placeholder="Ingrese horas realizadas">
+
+          <label>Fecha </label>
+
+          <input type="text"  class="form-control" placeholder="Fecha de Actividad">
+
+          <label>Observación </label>
+
           <textarea class="form-control" rows="2"></textarea>
+
+
+
         </div>
+
+        
+
         <div class="modal-footer">
+
           <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+
           <button type="button" class="btn btn-primary">Guardar</button>
+
+
+
         </div>
+
       </div><!-- /.modal-content -->
+
     </div><!-- /.modal-dialog -->
+
+  </div><!-- /.modal -->
+
+
+
+ <!-- Modal 1 -->
+
+  <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+    <div class="modal-dialog">
+
+      <div class="modal-content">
+
+        <div class="modal-header">
+
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+         <center><h4 class="modal-title">Descripción de Proyecto</h4></center>
+
+        </div>
+
+        <div class="modal-body">
+
+           <fieldset disabled>
+
+             <label>Nombre del proyecto </label> 
+
+       <input type="text"  class="form-control">
+
+     
+
+             <label>Fecha de creacion </label> 
+
+       <input type="text"  class="form-control">
+
+       
+
+       <label>Estado  </label> 
+
+       <input type="text"  class="form-control">
+
+       
+
+             <label>Codigo </label> 
+
+       <input type="text"  class="form-control">
+
+      </fieldset>
+
+     <label>Horas realizadas </label> 
+
+     <input type="text" id="nombre_prestador" class="form-control" placeholder="Ingrese horas realizadas">
+
+       </div>
+
+        
+
+        <div class="modal-footer">
+
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+
+          
+
+        </div>
+
+            </div><!-- /.modal-content -->
+
+    </div><!-- /.modal-dialog -->
+
   </div><!-- /.modal -->
 
 </div> <!-- /container-->
@@ -377,30 +477,124 @@ $(document).ready(function(){
 
   $('#myModal').modal("hide");
 
+
+
   $("#consultar_proyecto").css("display", "none");
+
   $("#tabla_consulta").css("display", "none");
 
+  $("#texto").css("display", "none");
+
+  
+
+
+
 $("#btn_consultar_proyecto").click(function(){
-  $("#consultar_proyecto").fadeToggle(2000);
-  $("#tabla_consulta").fadeToggle(2000);
+
+  $("#consultar_proyecto").fadeToggle(1000);
+
+  $("#tabla_consulta").fadeToggle(1000);
+
+  $("#texto").fadeToggle(1000);
 
 });
 
 
 
-    $("#c_datos_prestador").click(function(){
+$("#modificar_datos").on("click",function(){
+
+   $(".form-modificar-datos").attr("disabled",false);
+});
+  
 
 
-       // alert($("#id_cedula").val());
+
+
+
+  function listar_proyecto(cedula){
+    
+
+    $.post("b_proyecto_prestador",{ci:cedula,estate:1},function(data){
+
+      console.log(data);
+
+       var array=JSON.parse(data);
+
+              var content ='<option value="">Seleccione </option>';
+
+              $.each(array,function(i){
+                content = content +'<option value="'+ array[i]["id_proyecto"] +'"> '+ array[i]["nombre_proyecto"]+'</option>';
+
+              });
+
+              $("#p-actuales").html(content);
+
+
+
+    });
+   
+
+}
+
+  function b_consultar_prestador(query,option){
+
+        $.post("b_listar_prestadores",{q:query,o:option},function(data){
+
+                  console.log(data); 
+      
+              var array=JSON.parse(data);
+
+              var content ="";
+
+              $.each(array,function(i){
+                content = content +'<li class="list-group-item"><a class="key_prestador" href="'+ array[i]["ci_prestador"] +' "> '+ array[i]["nombre_prestador"]+array[i]["Apellido_prestador"]+'</a></li>';
+
+              });
+
+              $("#datos_busqueda").html("<ul class='list-group'>"+content+"</ul>");
+
+        });
+  }
+
+
+
+$("body #id_prestador_cedula").on("keyup", function(event){
+
           
-          var cedula=$("#id_prestador_cedula").val();
 
-                  if(!cedula){
+        var query = $(this).val();
+         var option = "";
+          console.log($(this).val());
 
-                          toastr.warning(mensajes.error.campo_vacio);
-                  }else{
+          if (query!="" && event.keyCode >= 48 && event.keyCode <= 57){
+                console.log(query+"input was 0-9");
+            option = "cedula";
 
-                      $.post("consultar_datos_prestador",{id:cedula},function(data){
+          b_consultar_prestador(query,option);
+
+          } else if (query!="" && event.keyCode >= 65 && event.keyCode <= 90){
+
+            console.log(query+"input was a-z");
+          option = "nombre";
+
+          b_consultar_prestador(query,option);
+
+        }
+
+
+      event.stopPropagation();
+
+  });
+
+$('body').on('click','a.key_prestador', function (ev) {
+        
+          ev.preventDefault();
+
+      console.log($(this).attr("href"));
+
+ 
+
+    $.post("consultar_datos_prestador",{id:$(this).attr("href")},function(data){
 
                             var estado =JSON.parse(data)["estado"]; 
 
@@ -430,42 +624,56 @@ $("#btn_consultar_proyecto").click(function(){
                             $("#apellido_prestador").val(datos_personales.Apellido_prestador);
 
 
-                            $("#celular_prestador").text(datos_personales.celular_prestador);
+                            $("#celular_prestador").val(datos_personales.celular_prestador);
 
 
-                            $("#telefono_prestador").text(datos_personales.telefono_prestador);
+                            $("#telefono_prestador").val(datos_personales.telefono_prestador);
 
 
-                            $("#email_prestador").text(datos_personales.email_prestador);
+                            $("#email_prestador").val(datos_personales.email_prestador);
 
 
-                            $("#cedula_prestador").text(datos_personales.ci_prestador);
+                            $("#cedula_prestador").val(datos_personales.ci_prestador);
 
 
-                            $("#direccion_prestador").text(datos_personales.direccion_prestador);
+                            $("#direccion_prestador").val(datos_personales.direccion_prestador);
 
 
                               //datos academicos
 
 
-                            $("#nro_exp_prestador").text(datos_academicos.no_exp_prestador);
+                            $("#nro_exp_prestador").val(datos_academicos.no_exp_prestador);
 
 
-                            $("#escuela_prestador").text(datos_academicos.escuela_prestador);
+                            $("#escuela_prestador").val(datos_academicos.escuela_prestador);
 
 
-                            $("#mencion_prestador").text(datos_academicos.mencion_prestador);
+                            $("#mencion_prestador").val(datos_academicos.mencion_prestador);
 
 
-                            $("#semestre_prestador").text(datos_academicos.semestre_prestador);
-
-                         
+                            $("#semestre_prestador").val(datos_academicos.semestre_prestador);
+                             
+                            listar_proyecto(datos_personales.ci_prestador);
                         }
                          });
-                    
-                        }  
-    });
 
+    //limpiamos el imput y escondemos la busqueda 
+       $("#datos_busqueda").empty();
+
+      $("#id_prestador_cedula").val("");
+
+ ev.stopPropagation();
+
+
+
+
+
+
+  });
+
+
+
+ 
 
   });
 
