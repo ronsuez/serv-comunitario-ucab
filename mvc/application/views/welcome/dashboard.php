@@ -286,10 +286,11 @@ body {
 
 				</div>
 
-						<p class="footer">Page rendered in <strong>0.0236</strong> seconds</p>
+						
 
 			
 			</div>
+			<p class="footer">Page rendered in <strong>0.0236</strong> seconds</p>
 
 
 	</div><!-- /Row / Option's panel -->
