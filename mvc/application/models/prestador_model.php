@@ -66,7 +66,7 @@ public function listar_datos_prestador($cedula){
                 return "-1";
             }
     }  
-
+    
 public function listar_x_pro($id_proyecto){
 
 
