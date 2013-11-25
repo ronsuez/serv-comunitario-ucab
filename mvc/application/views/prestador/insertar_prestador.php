@@ -228,35 +228,37 @@ $("#form-prestador").validate({
 
     },email : {
       required: mensajes.reglas.requerido,
-      email:"*Introduzca una dirección de correo válida"
+      email: mensajes.reglas.email
 
     },telefono_hab :{
       required : mensajes.reglas.requerido,
-      number :"*Debe contener solo dígitos (0-9)",
-      minlength:"*Debe tener 11 dígitos(e.g 0416585684)",
-      maxlength:"*Debe tener máximo 11 dígitos (e.g 0416585684)"
+      number : mensajes.reglas.numerico,
+      minlength: mensajes.reglas.minimo,
+      maxlength: mensajes.reglas.maximo
 
     },telefono_cel :{
       required : mensajes.reglas.requerido,
-      number :"*Debe contener solo dígitos (0-9)",
-      minlength:"*Debe tener 11 dígitos(e.g 0416585684)",
-      maxlength:"*Debe tener máximo 11 dígitos (e.g 0416585684)"
+      number : mensajes.reglas.numerico,
+      minlength: mensajes.reglas.minimo_tlf,
+      maxlength: mensajes.reglas.maximo_tlf
 
     },direccion:{
-      required:"*Debe especificar la dirección de la localidad"
+      required: mensajes.reglas.requerido
 
     },expediente: {
       required:  mensajes.reglas.requerido,
-      number: "*Debe contener solo dígitos (0-9)"
+      number: mensajes.reglas.numerico
 
     },semestre: {
       required:  mensajes.reglas.requerido
 
     },cedula: {
-      required:  mensajes.reglas.requerido,
-      number: "*Debe contener solo dígitos (0-9)"
+      required: mensajes.reglas.requerido,
+      number: mensajes.reglas.numerico
+
     },carrera: {
-      required:  mensajes.reglas.requerido
+      required: mensajes.reglas.requerido
+
     },mencion: {
       required: mensajes.reglas.requerido
     }
