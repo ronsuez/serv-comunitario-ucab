@@ -44,7 +44,7 @@ public function listar_datos_prestador($cedula){
         
         }
 
-         public function insertar_datos_prestador($datos){
+public function insertar_datos($datos){
         $query = $this->db->insert('prestador', array(
                 'ci_prestador' => $datos["cedula"],
                 'nombre_prestador' => $datos["nombre"],
@@ -65,7 +65,7 @@ public function listar_datos_prestador($cedula){
             else{
                 return "-1";
             }
-    }  
+ }  
 
 
 
@@ -99,8 +99,7 @@ public function buscar_prestador($q,$o){
     }  
     
 
-   
-}
+
 
 
 public function listar_x_pro($id_proyecto){
