@@ -493,7 +493,7 @@ $(document).ready(function(){
 
 	$("#buscar_proyecto").on("click",function(){
 		var nombre=$("#nombre_proyecto").val();
-		var cedula=$("#id_cedula_asesor").val();
+		var cedula=$("#cedula_asesor").val();
 		var cedula_prestador=$("#id_p_cedula").val();
 		if(!cedula){
 			toastr.warning("Busque el asesor del proyecto");
