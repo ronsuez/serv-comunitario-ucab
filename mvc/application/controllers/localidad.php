@@ -46,6 +46,43 @@ class Localidad extends CI_Controller {
 		$this->load->view($this->controller.'insertar_localidad');
 	}
 
+	public function consultar()
+	{
+	
+		$this->load->view($this->controller.'consultar_localidad');
+	}
+	
+	public function insertar_datos_localidad(){			
+
+	$nombre = $this->input->post('nombre_loc');
+	$responsable = $this->input->post('responsable_loc');
+	$email = $this->input->post('email_loc');
+	$telefono = $this->input->post('telefono_loc');	
+	$parroquia = $this->input->post ('parroquia_loc');
+	$direccion = $this->input->post ('direccion_loc');
+
+	
+		echo $salida = ($this->localidad_model->insertar_datos_localidad($nombre,$responsable,$email,$telefono,$parroquia,$direccion));
+	}
+	
+	public function ver_datos_localidad() {
+
+		$id=$this->input->post('id');
+
+		$salida=$this->localidad_model->listar_datos_localidad($id);
+
+		if($salida == -1){
+
+			echo "No se encontro";
+		
+		} 
+		else {
+
+			echo json_encode($salida);
+
+		}
+	}   
+	
 	public function listar()
 	{
 		
