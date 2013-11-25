@@ -82,7 +82,7 @@ form label.error{
           <div class="form-group">
             <label for="">Numero de Expediente</label>
             <input type="text" id="expediente" name="expediente" class="form-control" placeholder="Introduzca el numero de expediente"></input>
-          </div>
+          </div>  
           <div class="form-group">
             <label for="">Carrera</label>
             <select id="carrera" name="carrera" class="form-control">

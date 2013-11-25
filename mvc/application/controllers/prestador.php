@@ -30,7 +30,7 @@ class Prestador extends CI_Controller {
 
 		$this->load->model("prestador_model");
 
-	}
+	}  
 
 
 	public function index() {
