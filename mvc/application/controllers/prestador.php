@@ -144,6 +144,43 @@ class Prestador extends CI_Controller {
 		}
 
 	}
+	
+	public function verdetalles(){
+
+		$nombre= $this->input->post('id');
+
+		$salida= $this->prestador_model->datos_proyecto($nombre);
+
+
+			if($salida!="-1"){
+
+				echo json_encode($salida);
+	
+			}else{
+
+				echo "No se encontro nada";
+			}
+		//echo json_encode($salida);
+
+
+	}
+
+	public function consultar_nombre_proyecto(){
+
+			$ci_prestador = $this->input->post('ci');
+			$salida = $this->prestador_model->b_nombres_proyectos($ci_prestador);
+
+			if($salida!="-1"){
+
+				echo json_encode($salida);
+	
+			}else{
+
+				echo "No se encontro nada";
+			}
+	}
+
+
 
 }
 
