@@ -179,6 +179,49 @@ class Prestador extends CI_Controller {
 				echo "No se encontro nada";
 			}
 	}
+	//-----------------------------funciones de asignar proyecto.php
+	public function ver_datos_asesor(){
+		$id=$this->input->post('id');
+		$salida=$this->prestador_model->listar_datos_asesor($id);
+		if($salida == -1){
+			echo "No se encontro";
+		}else{
+			echo json_encode($salida);
+		}
+	}
+	
+	public function verificar_proyecto(){
+		$id=$this->input->post('id');
+		$ci=$this->input->post('ci');
+		$salida=$this->prestador_model->listar_proyecto($id,$ci);
+		echo json_encode($salida);
+	}
+	public function insertar_asesor(){
+		$nombre = $this->input->post('nombre_ase');
+		$apellido = $this->input->post('apellido_ase');
+		$email = $this->input->post('email_ase');
+		$cedula = $this->input->post('cedula_ase');
+		$telefono = $this->input->post('telefono_ase');
+		$direccion = $this->input->post('direccion_ase');
+		$celular = $this->input->post('celular_ase');
+		$salida = $this->prestador_model->insertar_asesor($nombre,$apellido,$email,$cedula,$celula,$telefono,$direccion);
+		if($salida == -1){
+			echo("Asesor no insertado");
+			
+		}else{
+			echo("Asesor ingresado con exito");
+		}
+	}
+	
+	public function asociar_proyecto(){
+		$asesor = $this->input->post('cedula_ase');
+		$proyecto = $this->input->post('nombre_proy');
+		$prestador = $this->input->post('cedula_pres');
+		$salida = $this->prestador_model->asociar_proyecto($asesor,$proyecto,$prestador);
+		
+			echo json_encode($salida);
+		
+	}
 
 
 
