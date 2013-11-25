@@ -30,7 +30,7 @@ class Prestador extends CI_Controller {
 
 		$this->load->model("prestador_model");
 
-	}  
+	}
 
 
 	public function index() {
@@ -78,21 +78,17 @@ class Prestador extends CI_Controller {
 
 	public function insertar_datos_prestador()
 	{			
+		$nombre = $this->input->post('nombre_pre');
+		$apellido = $this->input->post('apellido_pre');
+		$email = $this->input->post('email_pre');
+		$celular = $this->input->post('celular_pre');
+		$telefono = $this->input->post('telefono_pre');
+		$direccion = $this->input->post('direccion_pre');
+		$expediente = $this->input->post('expediente_pre');
+		$escuela = $this->input->post('escuela_pre');
+		$mencion = $this->input->post('mencion_pre');
 
-		$datos = array("cedula" => $this->input->post('cedula'),
-					   "nombre" => $this->input->post('nombre'),
-					   "apellido" => $this->input->post('apellido'),
-					   "email" => $this->input->post('email'),
-					   "celular" => $this->input->post('telefono_cel'),
-					   "telefono" => $this->input->post('telefono_hab'),
-					   "direccion" => $this->input->post('direccion'),
-					   "expediente" => $this->input->post('expediente'),
-					   "escuela" => $this->input->post('escuela'),
-					   "mencion" => $this->input->post('mencion'),
-					   "semestre" => $this->input->post('semestre'));
-		
-
-		echo $salida = $this->prestador_model->insertar_datos_prestador($datos);
+		$salida=$this->prestador_model->insertar_datos($nombre, $apellido, $celular, $email, $telefono, $direccion, $expediente, $escuela, $mencion);
 	}
 
 
@@ -105,7 +101,42 @@ class Prestador extends CI_Controller {
 		echo json_encode($salida);
 
 	}
+  
+	public function listar_prestador(){
 
+		$query  = $this->input->post('q');
+		$option = $this->input->post('o');
+
+		//echo "server->".$query."->".$option;
+
+		$salida= $this->prestador_model->buscar_prestador($query,$option);
+
+
+			if($salida!="-1"){
+
+				echo json_encode($salida);
+	
+			}else{
+
+				echo "No se encontro nada";
+			}
+		//echo json_encode($salida);
+
+	}
+
+	public function consultar_proyectos_inscritos(){
+
+		$ci_prestador = $this->input->post('ci');
+
+		$salida= $this->prestador_model->buscar_proyectos_prestador($ci_prestador);
+
+		if ($salida!="-1"){
+			echo json_encode($salida);
+		}else{
+			echo "No se encontro nada";
+		}
+
+	}
 
 }
 
