@@ -150,6 +150,10 @@ body {
   border-top-right-radius: 0;
 }
 
+#botones {
+	text-align: center;
+}
+
 
 </style>
 
@@ -264,7 +268,7 @@ body {
 								</p>
 							</div>
 
-							<div class="row col-xs-3 col-md-3 col-lg-3 col-md-offset-1 col-xs-offset-1">
+							<div id="botones" class="row col-xs-3 col-md-3 col-lg-3 col-md-offset-1 col-xs-offset-1">
 								<br>
 								<br>
 								<br>
