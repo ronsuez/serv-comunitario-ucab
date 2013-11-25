@@ -395,7 +395,6 @@ clear:both;
   </div><!-- /.modal -->
 
 
-
  <!-- Modal 1 -->
 
   <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -414,35 +413,30 @@ clear:both;
 
         <div class="modal-body">
 
-           <fieldset disabled>
+       <form id="reporte_horas" name="reporte_horas" action="" method="POST">
+          
 
-             <label>Nombre del proyecto </label> 
+       <fieldset disabled>
+      
+       <label>Nombre del proyecto </label>          
 
-       <input type="text"  class="form-control">
+       <input  id="nombre_proyecto" type="text"  class="form-control">  
 
-     
+       <label>Fecha de creacion </label> 
 
-             <label>Fecha de creacion </label> 
-
-       <input type="text"  class="form-control">
-
-       
+       <input id="fecha_creacion" type="text"  class="form-control">
 
        <label>Estado  </label> 
 
-       <input type="text"  class="form-control">
+       <input id="estado_proyecto" type="text"  class="form-control">
 
-       
 
-             <label>Codigo </label> 
+       <label>Codigo </label> 
 
-       <input type="text"  class="form-control">
+       <input  id="codigo_proyecto" type="text"  class="form-control">
 
-      </fieldset>
-
-     <label>Horas realizadas </label> 
-
-     <input type="text" id="nombre_prestador" class="form-control" placeholder="Ingrese horas realizadas">
+       </fieldset>
+     </form>
 
        </div>
 
@@ -672,6 +666,61 @@ $('body').on('click','a.key_prestador', function (ev) {
   });
 
 
+      
+      $('#seleccion').change(function(){ 
+      
+        var option= $('#seleccion option:selected').val();
+      
+        console.log(option);
+      
+            if(option){
+      
+                $.post("ver_detalles_proyecto",{id:option,estado:1},function(data){
+      
+                  console.log(data);
+      
+      
+                 var datos_proyecto=JSON.parse(data); 
+      
+                  console.log(datos_proyecto);
+      
+                  console.log(datos_proyecto[0]["nombre_proyecto"]);
+      
+                  $("#myModal1 #nombre_proyecto").val(datos_proyecto[0]["nombre_proyecto"]);
+                  $("#myModal1 #fecha_creacion").val(datos_proyecto[0]["fecha_ini"]);
+                  $("#myModal1 #estado_proyecto").val(datos_proyecto[0]["estado_proyecto"]);
+                  $("#myModal1 #codigo_proyecto").val(datos_proyecto[0]["id_proyecto"]);
+                                   
+               });
+      
+            }
+      
+      
+      
+      
+      });
+    
+    function listar_proyecto(cedula){
+    
+    
+    $.post("consultar_nombres_proyectos",{ci:cedula,estate:1},function(data){
+    
+    console.log(data);
+    
+    var array=JSON.parse(data);
+    
+    var content ='<option value="">Seleccione </option>';
+    
+    $.each(array,function(i){
+    content = content +'<option value="'+ array[i]["id_proyecto"] +'"> '+ array[i]["nombre_proyecto"]+'</option>';
+    
+    });
+    
+    $("#seleccion").html(content);
+    
+    });
+    
+    }
 
  
 
