@@ -28,7 +28,6 @@
 
 body {
 	background-color: #e6e6e6;
-	margin-top: 0px;
 }
 
 h2, h4 {
@@ -61,19 +60,19 @@ h2, h4 {
 	<!-- 	<div class="col-xs-12 col-md-1">
 		</div> -->
 
-		<div class="col-xs-12 col-md-12">
+		<div class="col-xs-12 col-md-7">
 			<br>
-		<div class="logo"><a href="#">Servcom-UCAB</a></div>
+			<div class="logo"><a href="https://schooltraq.com/">Servcom-UCAB</a></div>
 
-		<div id ="help-box" class="col-md-6 col-sm-6 col-lg-6">
+		<div id ="help-box" class="col-md-7 col-sm-7 col-lg-7">
 			<br>
 			<div class="logo"><a href="#">Servcom-UCAB</a></div>
 
-			<h3 class="login-heading">Que bueno tenerte de vuelta :)</h3>
+			<h3 class="login-heading">¡Qué bueno tenerte de vuelta! :)</h3>
 			<div class="login-links">
 				<p>
-					Necesitas un cuenta?<a href="registro_form">Registrate en dos segundos &rarr;</a><br />
-					<span class="forgot-pass">Olvidaste tu clave? <a href="#">Presiona aqui &rarr;</a></span>
+					¿Necesitas una cuenta?<a href="registro_form">Regístrate en dos segundos. &rarr;</a><br />
+					<span class="forgot-pass">¿Olvidaste tu clave? <a href="#">Presiona aquí. &rarr;</a></span>
 				</p>
 			</div>
 		</div>
@@ -94,10 +93,9 @@ h2, h4 {
 			
 
 					
-
-			<span id="error-message">
+        		<span id="error-message"> 
 				<?php if($this->input->get("login")=="-1"){
-						 echo "Ups. Parece que hubo un problema con tus datos.";
+						 echo "¡Ups!. Parece que hubo un problema con tus datos.";
 						}else{
 							echo "";
 						}
