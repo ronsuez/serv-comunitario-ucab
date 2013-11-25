@@ -75,8 +75,11 @@
 		   
 				
 												<ul>
-														
+														<li>Estado : Bolivar</span></li>
+														<li>Municipio : Caroni</span></li>
 														<li>Parroquia :<span id="parroquia_localidad"></span></li>
+														<li>Latitud :<span id="latitud_localidad"></span></li>
+														<li>longitud :<span id="longitud_localidad"></span></li>
 														
 												</ul>
 
@@ -133,9 +136,12 @@ $(document).ready(function(){
                             $("#telefono_representante_localidad").text(datos_representante.telefono_representante_localidad);
                             $("#email_representante_localidad").text(datos_representante.email_representante_localidad);
 
+
                               //datos ubicacion
 
                             $("#parroquia_localidad").text(datos_ubicacion.parroquia_localidad);
+							 $("#latitud_localidad").text(datos_ubicacion.latitud_localidad);
+							  $("#longitud_localidad").text(datos_ubicacion.longitud_localidad);
 
                         }
                          });
