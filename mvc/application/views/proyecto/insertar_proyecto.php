@@ -1,7 +1,4 @@
 
-<?php echo $date = date("Y-m-d");?>
-
-
 <style>
 .text-area{
 

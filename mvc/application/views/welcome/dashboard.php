@@ -1,13 +1,14 @@
 <? echo $header;
-
+		
+		   //Verificar si el usuario ya se encuentra logeado.
 		  if( !$this->session->userdata('isLoggedIn') ) {
         		
         		redirect('/'); //redirige a la pagina de inicio de sesion
     	
-    		}else {
+    		}else {  //Carga información de sesion de usuario.
         			 $user =$this->session->userdata("name")." ".$this->session->userdata("last_name");
 
-        			 $escuela = "Departamento de ".$this->session->userdata("escuela");
+        			 $escuela = "Escuela de ".$this->session->userdata("escuela");
 	
    			 }
 
@@ -230,30 +231,30 @@ body {
 				</div>
 
 				<div id="main-panel-body" class="panel-body">
-					<h1>Bienvenido al sistema de gestion de Servicio comunitario</h1>
+					<h1>Bienvenido al Sistema de Gestion de Servicio Comunitario</h1>
 
 					<div id="body" class="row">
 						<div id="about" class="col-xs-6
 						">
 							<p>
-								El sistema permite la administracion de los proyectos y prestadores de servicio comunitario
-								de la Universidad Catolica Andres Bello.</p>
+								El sistema permite la administración de los proyectos y prestadores de servicio comunitario
+								de la Universidad Católica Andrés Bello.</p>
 
 								<p>
 									El proyecto nace como una iniciativa
-									de los estudiantes de la catedra de Desarrollo del Software para automatizar
-									el proceso de gestion del servicio comunitario realizado por proyeccion a la comunidad y las escuelas de
+									de los estudiantes de la cátedra de Desarrollo del Software para automatizar
+									el proceso de gestión del servicio comunitario realizado por proyección a la comunidad y las escuelas de
 									cada carrera. 
 								</p>
 
 								<p>
 									El sistema esta escrito en PHP,JS,HTML,CSS utilizando el framework MVC <em>Codeingiter</em>
-									integrado con el framework CSS <em>Bootstrap</em> para el diseno de la interfaz de usuario. 
+									integrado con el framework CSS <em>Bootstrap</em> para el diseño de la interfaz de usuario. 
 								</p>
 
 								<p>
-									Servcom-UCAB esta alojado en la nube a traves de un servicio de PaaS provisto por <em>Openshift</em> de Red Hat , ademas el 
-									codigo fuente del sistema esta publicado en github ya que se utilizo git como herramienta de control de versiones
+									Servcom-UCAB está alojado en la nube a través de un servicio de PaaS provisto por <em>Openshift</em> de Red Hat , ademas el 
+									código fuente del sistema está publicado en github ya que se utilizó git como herramienta de control de versiones
 									para el desarrollo distribuido del sistema. 
 								</p>
 
@@ -263,16 +264,10 @@ body {
 								</p>
 							</div>
 
-							<div class="row col-xs-3 col-md-3 col-lg-3 col-md-offset-2">
-								<br>
-								<button id="consultar_p" type="button" class="button-consultar btn btn-success" data-loading-text="Generando reporte" >Ir a consultar prestador</button>
-								<br>
-								<br>
-								<button id="ver_pre" type="button" class="button-consultar btn btn-success" data-loading-text="Generando reporte" >Ir a consultar prestador</button>
-								<br>
-								<br>
-								<a href="completar_datos" class="button-consultar btn btn-success" data-loading-text="Cargando formulario" >Completar datos de usuario</a>
-							</div>
+								<button id="consultar_p" type="button" class="button-consultar pull-right btn btn-success" data-loading-text="Generando reporte" >Ir a consultar prestador</button>
+
+								<button id="ver_pre" type="button" class="button-consultar pull-right btn btn-success" data-loading-text="Generando reporte" >Ir a consultar prestador</button>
+				
 					</div>
 
 
