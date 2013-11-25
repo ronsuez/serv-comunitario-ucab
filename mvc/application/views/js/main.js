@@ -21,22 +21,27 @@
 
 			reglas:{
 
-			  requerido: '*Este es campo es requerido',
-        matches: 'The %s field does not match the %s field.',
-        equalTo: "Las contrase&ntilde;as tienen que ser iguales"	
+	      requerido: '*Este es campo es requerido',
+              matches: 'The %s field does not match the %s field.',
+              equalTo: "Las contrase&ntilde;as tienen que ser iguales",
+              email : "*Introduzca una dirección de correo válida",
+              numerico: "*Debe contener solo dígitos (0-9)",
+              minimo_tlf: "*Debe tener 11 dígitos(e.g 0416585684)",
+              maximo_tlf: "*Debe tener máximo 11 dígitos (e.g 0416585684)."
 			},
 			error:{
-				campo_vacio: "No envies campos vacios !",
-				proyecto_nf:"No existen proyectos que coincidan con la busqueda !",
-				prestador_nf:"Prestador no encontrado !",
-				prestador_pnf:"No existen proyectos inscritos en el proyecto!"
+				campo_vacio: "No se permiten campos vacios.",
+				proyecto_nf:"No existen proyectos que coincidan con la busqueda.",
+				prestador_nf:"Prestador no encontrado.",
+				prestador_pnf:"No existen proyectos inscritos en el proyecto.",
+				localidad_nf: "Localidad no encontrada."
 
 			},
 			success:{
-				prestador_f:"Prestador encontrado !",
-				prestadores_f:"Prestadores  encontrados !",
-				proyecto_f:"Proyecto encontrado !",
-				proyectos_f:"Proyectos encontrados !"
+				prestador_f:"Prestador encontrado.",
+				prestadores_f:"Prestadores  encontrados.",
+				proyecto_f:"Proyecto encontrado.",
+				proyectos_f:"Proyectos encontrados."
 			},
             requerido: '*Este es campo es requerido',
             matches: 'The %s field does not match the %s field.',
