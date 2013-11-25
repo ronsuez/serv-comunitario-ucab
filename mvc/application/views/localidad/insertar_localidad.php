@@ -49,26 +49,11 @@ function updateMarker(marker,location) {
   
 	initialize();
 
-// Permito la gesti¢n de los eventos DOM
-google.maps.event.addDomListener(window, 'load', initialize);
+    // Permito la gesti¢n de los eventos DOM
+    google.maps.event.addDomListener(window, 'load', initialize);
 
 
 
-    
-   $("#form-localidad").submit(function (e){
-
-
-      e.preventDefault();
-
-
-          if ($(this).valid()){
-                alert("valid");
-              }else{  
-              alert("non valid");
-              }
-                        
-        });
-		
 		});
 
     </script>
@@ -189,7 +174,7 @@ jQuery.validator.addMethod("alpha", function(value, element) {
   return this.optional(element) || value == value.match(/^[a-zA-Z ]+$/);
 },"Solo caracteres (Aa-Zz).");
 
-$("#form-prepppstador").validate({
+$("#form-localidad").validate({
 
  
   rules: {
@@ -221,16 +206,16 @@ $("#form-prepppstador").validate({
 
     },email : {
       required: mensajes.reglas.requerido,
-      email:"*Introduzca una dirección de correo válida"
+      email:mensajes.reglas.requerido
 
     },telefono :{
       required : mensajes.reglas.requerido,
-      number :"*Debe contener solo dígitos (0-9)",
-      minlength:"*Debe tener 11 dígitos(e.g 0416585684)",
-      maxlength:"*Debe tener máximo 11 dígitos (e.g 0416585684)"
+      number :mensajes.reglas.numerico,
+      minlength:mensajes.reglas.minimo_tlf,
+      maxlength:mensajes.reglas.maximo_tlf
 
     },direccion:{
-      required:"*Debe especificar la dirección de la localidad"
+      required:mensajes.reglas.localidad
 
     }
   }
@@ -242,7 +227,7 @@ $("#form-localidad").on("submit",function (e) {
   e.preventDefault();
 
   if ($(this).valid()) {
-    alert("valid");
+
    // var datos = $(this).serialize();
 	var nombre=$("#nombre").val();
 	var responsable=$("#responsable").val();
@@ -265,12 +250,21 @@ $("#form-localidad").on("submit",function (e) {
 		
 		},
 		function(data){
-        alert(data);
-        console.log("datos insertar_datos_localidad");
+        if(data=="0"){
+
+               toastr.success(mensajes.success.localidad_insertada);
+
+               resetForm($('#form-localidad'));
+               
+          }else{
+
+              toastr.error(mensajes.error.localidad_no_insertada);
+        
+            }
       });
 
   } else{  
-    alert("non valid");
+    toastr.error(mensajes.error.form_nv);
   }
 
 });

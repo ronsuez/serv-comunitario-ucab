@@ -65,6 +65,8 @@ class Localidad extends CI_Controller {
 
 	
 		echo $salida = ($this->localidad_model->insertar_datos_localidad($nombre,$responsable,$email,$telefono,$parroquia,$direccion,$latitud,$longitud));
+	
+
 	}
 	
 	public function ver_datos_localidad() {
@@ -75,7 +77,7 @@ class Localidad extends CI_Controller {
 
 		if($salida == -1){
 
-			echo "No se encontro";
+			echo json_encode(array('estado'=>"-1"));
 		
 		} 
 		else {

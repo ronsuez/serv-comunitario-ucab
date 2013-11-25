@@ -119,12 +119,12 @@ $(document).ready(function(){
                              
                               if(estado === "-1"){
 									//cambiar a mensajes.error.localidad_nf
-                                  toastr.error(mensajes.error.prestador_nf);
+                                  toastr.error(mensajes.error.localidad_nf);
 
 
                               }else{
 
-                                 toastr.success(mensajes.success.prestador_f);
+                                 toastr.success(mensajes.success.localidad_f);
 
 
 

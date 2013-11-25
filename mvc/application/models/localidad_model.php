@@ -18,7 +18,13 @@ public function insertar_datos_localidad($nombre,$responsable,$email,$telefono,$
 	$query = $this->db->query("INSERT INTO localidad(nombre_localidad,representante_localidad,email_representante_localidad,telefono_representante_localidad,parroquia_localidad,direccion_localidad,latitud_localidad,longitud_localidad) 
                                        VALUES ('$nombre','$responsable','$email','$telefono','$parroquia','$direccion','$latitud','$longitud')");
 
-									   
+		if($query){
+
+            return "0";
+        }else{
+
+            return "-1";
+        }							   
 }
 
 public function listar_datos_localidad($nombre){
