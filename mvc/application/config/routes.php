@@ -73,7 +73,10 @@ $route['b_listar_prestadores']="prestador/listar_prestador";
 $route['b_proyecto_prestador']= "prestador/consultar_proyectos_inscritos";
 $route['ver_detalles_proyecto']="prestador/verdetalles";
 $route['consultar_nombres_proyectos']="prestador/consultar_nombre_proyecto";
-
+$route['consultar_datos_asesor']="prestador/ver_datos_asesor";
+$route['consultar_datos_proyecto']="prestador/verificar_proyecto";
+$route['insertar_asesor']="prestador/insertar_asesor";
+$route['asociar']="prestador/asociar_proyecto";
 
 /* routing for localidades controller */
 $route['gest-localidad']="localidad/index";
