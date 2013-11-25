@@ -75,9 +75,9 @@ button a:hover{
             <div class="panel-body">
               
               <div class="input-group input-group-sm">
-                <input id="id_prestador_cedula" type="text" class="form-control" placeholder="Introduzca nombre o c&eacute;dula del prestador"></input>
+                <input id="id_p_cedula" type="text" class="form-control" placeholder="Introduzca nombre o c&eacute;dula del prestador"></input>
                 <span class="input-group-btn">
-                  <button id="c_datos_prestador" class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+                  <button id="c_d_prestador" class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
                 </span>
               </div><!-- /input-group -->
 
@@ -175,7 +175,7 @@ button a:hover{
 											<div class="panel-body">
 											  
 											  <div class="input-group input-group-sm">
-												<input id="id_cedula_asesor" type="text" class="form-control" placeholder="Introduzca cédula del Asesor"></input>
+												<input id="cedula_asesor" type="text" class="form-control" placeholder="Introduzca cédula del Asesor"></input>
 												<span class="input-group-btn">
 												  <button id="consultar_asesor" class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
 												</span>
@@ -380,44 +380,14 @@ $(document).ready(function(){
 
 //configuracion de las ventanas de alerta
 
-toastr.options = {
-  "closeButton": true,
-  "debug": false,
-  "positionClass": "toast-top-right",
-  "onclick": null,
-  "showDuration": "300",
-  "hideDuration": "1000",
-  "timeOut": "5000",
-  "extendedTimeOut": "1000",
-  "showEasing": "swing",
-  "hideEasing": "linear",
-  "showMethod": "fadeIn",
-  "hideMethod": "fadeOut"
-}
-
-
   $(".collapse").collapse();
 
 
-  $('#myModal').modal("hide");
 
-  $("#consultar_proyecto").css("display", "none");
-  $("#tabla_consulta").css("display", "none");
+ $("#c_d_prestador").on('click',function(){
 
-$("#btn_consultar_proyecto").click(function(){
-  $("#consultar_proyecto").fadeToggle(2000);
-  $("#tabla_consulta").fadeToggle(2000);
-
-});
-
-
-
-    $("#c_datos_prestador").click(function(){
-
-
-       // alert($("#id_cedula").val());
           
-          var cedula=$("#id_prestador_cedula").val();
+          var cedula=$("#id_p_cedula").val();
 
                   if(!cedula){
 
@@ -490,12 +460,14 @@ $("#btn_consultar_proyecto").click(function(){
                         }  
     });
 	<!--fin de la consulta de los datos de prestador-->
-	$("#consultar_asesor").click(function(){
-		var cedula=$("#id_cedula_asesor").val();
+
+	$("#consultar_asesor").on('click',function(){
+	
+  	var cedula=$("#cedula_asesor").val();
 		if(!cedula){
 			toastr.warning("No envie campos vacios")
 		}else{
-			$.post("consultar_datos_asesor",{id:cedula},function(data){
+			$.post("consultar_datos_asesor",{cedula_asesor:cedula},function(data){
 				var estado =JSON.parse(data)["estado"]; 
 				console.log(JSON.parse(data));
 				if(estado == -1){
@@ -522,7 +494,7 @@ $("#btn_consultar_proyecto").click(function(){
 	$("#buscar_proyecto").on("click",function(){
 		var nombre=$("#nombre_proyecto").val();
 		var cedula=$("#id_cedula_asesor").val();
-		var cedula_prestador=$("#id_prestador_cedula").val();
+		var cedula_prestador=$("#id_p_cedula").val();
 		if(!cedula){
 			toastr.warning("Busque el asesor del proyecto");
 		}
@@ -584,11 +556,13 @@ $("#form-inscribir-asesor").on("submit",function(e){
 		alert("non valid");
 	}
 });
+
+
 //final de la funcion que busca prestador
 $("#asociar_proyecto").on("click",function(){
 
 
-	var asesor=$("#id_cedula_asesor").val();
+	var asesor=$("#cedula_asesor").val();
 	var proyecto=$("#nombre_proyecto").val();
 	var prestador=$("#cedula_prestador").text();
 	$.post("asociar",{

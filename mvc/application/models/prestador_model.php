@@ -25,12 +25,13 @@ public function listar_datos_prestador($cedula){
                                         FROM  `prestador` 
                                         WHERE ci_prestador = $cedula");
 
-            $salida =  array('estado'=>"1",'datos_personales' =>$query1->result_array(),'datos_academicos' =>$query2->result_array());
-
-
+        
 
                 if ($query1->num_rows() > 0 || $query2->num_rows() > 0)
                 {
+
+                $salida =  array('estado'=>"1",'datos_personales' =>$query1->result_array(),'datos_academicos' =>$query2->result_array());
+
 
                     return $salida;
             
@@ -198,21 +199,21 @@ public function datos_proyecto($id){
             
             
             //--------------------------------------------------------
-            public function listar_datos_asesor($cedula){
+public function listar_datos_asesor($cedula){
 
             /* Query Datos Personales  */
             $query1 = $this->db->query("SELECT ci_asesor, nombre_asesor, apellido_asesor, email_asesor, celular_asesor, telefono_asesor, direccion_asesor
-                                        FROM  `asesor` 
+                                        FROM  asesor
                                         WHERE ci_asesor = $cedula");
 
             
 
-            $salida =  array('estado'=>"1",'datos_personales' =>$query1->result_array());
-
-
 
                 if ($query1->num_rows() > 0)
                 {
+
+                    $salida =  array('estado'=>"1",'datos_personales' =>$query1->result_array());
+
 
                     return $salida;
             
@@ -225,16 +226,22 @@ public function datos_proyecto($id){
                     
         
         }
-	public function listar_proyecto($nombre_proy,$cedula_asesor){
+
+
+	public function verificar_estado_proyecto($nombre_proy,$cedula_asesor){
 		$query1 = $this->db->query("SELECT id_proyecto
-									FROM `proyecto` 
+									FROM  proyecto 
 									WHERE nombre_proyecto = '$nombre_proy' and ci_asesor=$cedula_asesor and estado_proyecto='activo'" );
-		$salida = array('estado'=>$query1->result_array());
-		if ($query1->num_rows() > 0){
-			$query1 = 1;
+		
+ 
+        if ($query1->num_rows() > 0){
+
+            $salida = array('estado'=>$query1->result_array());
+        
+			$query1 = "1";
 			return $query1;
 		}else{
-			$salida = -1;
+			$salida = "1";
 			return $salida;
 		}
 	

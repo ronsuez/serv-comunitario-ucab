@@ -181,7 +181,8 @@ class Prestador extends CI_Controller {
 	}
 	//-----------------------------funciones de asignar proyecto.php
 	public function ver_datos_asesor(){
-		$id=$this->input->post('id');
+		$id=$this->input->post('cedula_asesor');
+		
 		$salida=$this->prestador_model->listar_datos_asesor($id);
 		if($salida == -1){
 			echo "No se encontro";
@@ -193,7 +194,7 @@ class Prestador extends CI_Controller {
 	public function verificar_proyecto(){
 		$id=$this->input->post('id');
 		$ci=$this->input->post('ci');
-		$salida=$this->prestador_model->listar_proyecto($id,$ci);
+		$salida=$this->prestador_model->verificar_estado_proyecto($id,$ci);
 		echo json_encode($salida);
 	}
 	public function insertar_asesor(){
