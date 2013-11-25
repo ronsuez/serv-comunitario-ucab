@@ -277,10 +277,10 @@ clear:both;
 
 <br><br><br><br>
 
-<div id="consultar_proyecto">
+<div id="consultar_detalles_proyecto">
     <ol class="breadcrumb">
         <h5> Nombre del Proyecto </h5>
-        <select class="form-control">
+        <select  id="l_proyectos" class="form-control">
           <option>Seleccione proyecto</option>
         </select>
 <center><button type="button" class="btn btn-link" data-toggle="modal" href="#myModal1">Ver detalle</button></center>
@@ -473,7 +473,7 @@ $(document).ready(function(){
 
 
 
-  $("#consultar_proyecto").css("display", "none");
+  $("#consultar_detalles_proyecto").css("display", "none");
 
   $("#tabla_consulta").css("display", "none");
 
@@ -485,7 +485,7 @@ $(document).ready(function(){
 
 $("#btn_consultar_proyecto").click(function(){
 
-  $("#consultar_proyecto").fadeToggle(1000);
+  $("#consultar_detalles_proyecto").fadeToggle(1000);
 
   $("#tabla_consulta").fadeToggle(1000);
 
@@ -524,6 +524,8 @@ $("#modificar_datos").on("click",function(){
               $("#p-actuales").html(content);
 
 
+              $("#l_proyectos").html(content);
+
 
     });
    
@@ -551,8 +553,7 @@ $("#modificar_datos").on("click",function(){
   }
 
 
-
-$("body #id_prestador_cedula").on("keyup", function(event){
+$("body").on("keyup","#id_prestador_cedula", function(event){
 
           
 
@@ -667,9 +668,9 @@ $('body').on('click','a.key_prestador', function (ev) {
 
 
       
-      $('#seleccion').change(function(){ 
+$('body').on('change','#l_proyectos',function(){ 
       
-        var option= $('#seleccion option:selected').val();
+        var option= $('#l_proyectos option:selected').val();
       
         console.log(option);
       
@@ -700,27 +701,6 @@ $('body').on('click','a.key_prestador', function (ev) {
       
       });
     
-    function listar_proyecto(cedula){
-    
-    
-    $.post("consultar_nombres_proyectos",{ci:cedula,estate:1},function(data){
-    
-    console.log(data);
-    
-    var array=JSON.parse(data);
-    
-    var content ='<option value="">Seleccione </option>';
-    
-    $.each(array,function(i){
-    content = content +'<option value="'+ array[i]["id_proyecto"] +'"> '+ array[i]["nombre_proyecto"]+'</option>';
-    
-    });
-    
-    $("#seleccion").html(content);
-    
-    });
-    
-    }
 
  
 

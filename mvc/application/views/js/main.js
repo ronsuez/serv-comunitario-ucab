@@ -31,17 +31,20 @@
 			},
 			error:{
 				campo_vacio: "No se permiten campos vacios.",
+				form_nv : "Los datos del formulario no son validos",
 				proyecto_nf:"No existen proyectos que coincidan con la busqueda.",
 				prestador_nf:"Prestador no encontrado.",
 				prestador_pnf:"No existen proyectos inscritos en el proyecto.",
-				localidad_nf: "Localidad no encontrada."
+				localidad_nf: "Localidad no encontrada.",
+				prestador_no_insertado:"No se pudo registrar el prestador"
 
 			},
 			success:{
 				prestador_f:"Prestador encontrado.",
 				prestadores_f:"Prestadores  encontrados.",
 				proyecto_f:"Proyecto encontrado.",
-				proyectos_f:"Proyectos encontrados."
+				proyectos_f:"Proyectos encontrados.",
+				prestador_insertado:"El prestador fue inscrito en el Sistema"
 			},
             requerido: '*Este es campo es requerido',
             matches: 'The %s field does not match the %s field.',
@@ -212,7 +215,13 @@ $("#main-panel a").on("click",function (e) {
 //================================================================//
 //================================================================//
 
+function resetForm($form) {
 
+    $form.find('input:text, input:password, input:file, select, textarea').val('');
+    $form.find('input:radio, input:checkbox')
+         .removeAttr('checked').removeAttr('selected');
+
+}
 
 function nav_pestanas_principal(id_pestana,url,texto,tab){
 

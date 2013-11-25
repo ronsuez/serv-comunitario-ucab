@@ -271,21 +271,33 @@ $("#form-prestador").submit(function (e) {
   e.preventDefault();
 
   if ($(this).valid()) {
-    alert("valid");
     var datos = $(this).serialize();
 
     $.post("insertar_datos_prestador",datos,
       
       function(data){
-        alert(data);
-        console.log("datos insertar_datos_prestador");
-      });
+       
+          if(data=="0"){
 
-  } else{  
-    alert("non valid");
-  }
+               toastr.success(mensajes.success.prestador_insertado);
+
+               resetForm($('#form-prestador'));
+               
+          }else{
+
+              toastr.error(mensajes.error.prestador_no_insertado);
+        
+            }
+        });
+
+    } else{
+
+         toastr.error(mensajes.error.form_nv);
+    }
 
 });
+
+
 
   $('#mencion').css("display","none");
 
