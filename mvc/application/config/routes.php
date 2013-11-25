@@ -71,6 +71,8 @@ $route['insertar_datos_prestador']="prestador/insertar_datos_prestador";
 $route['listar_p_x_proy']="prestador/listar_x_proyecto";
 $route['b_listar_prestadores']="prestador/listar_prestador";
 $route['b_proyecto_prestador']= "prestador/consultar_proyectos_inscritos";
+$route['ver_detalles_proyecto']="prestador/verdetalles";
+$route['consultar_nombres_proyectos']="prestador/consultar_nombre_proyecto";
 
 
 /* routing for localidades controller */
