@@ -152,6 +152,51 @@ public function buscar_proyectos_prestador($ci_prestador){
 }
 
 
+public function datos_proyecto($id){
+
+            $sql="SELECT nombre_proyecto, fecha_ini, estado_proyecto, id_proyecto 
+                  FROM  proyecto
+                  WHERE id_proyecto = $id";
+
+                  $query=$this->db->query($sql,$id);
+
+
+             if ($query->num_rows() > 0)
+                {
+
+                    return $query->result_array();
+            
+                }else{
+
+                    $salida =  "-1";    
+                    
+                    return $salida;
+                }
+
+        }
+
+
+            public function b_nombres_proyectos($ci_prestador){
+
+                $sql = "SELECT proyecto.id_proyecto, proyecto.nombre_proyecto
+                        FROM participa, proyecto
+                        WHERE participa.ci_prestador = $ci_prestador
+                        AND proyecto.id_proyecto = participa.id_proyecto";
+
+                $query = $this->db->query($sql,$ci_prestador);
+
+                if($query->num_rows()>0){
+
+                    return $query->result_array();
+                }else{
+                    $salida = '-1';
+                }
+
+
+
+            }
+
+
 }    
 
 
