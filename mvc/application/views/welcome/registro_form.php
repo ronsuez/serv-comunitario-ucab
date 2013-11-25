@@ -33,7 +33,7 @@ form label.error{
 </style>
 
 <div class="container container-main">
-	<div id= "main-content" class="row jumbotron col-xs-6 col-md-6 col-lg-6 col-md-offset-3">
+	<div id= "main-content" class="row jumbotron col-xs-6 col-md-6 col-md-offset-3">
 
 		<form name="registro_user" id="registro_user" action="registro_user" method="POST"  action="login" class="form-signin">
 
@@ -41,7 +41,7 @@ form label.error{
 			<h4 class="form-signin-heading">Complete el formulario para registrarse</h4>
 			<br>
 			<div class="form-group">
-				<label for="cedula">Cedula</label>
+				<label for="cedula">Cédula</label>
 				<input type="text" name="cedula" id="cedula" class="form-control" placeholder="Numero de c&#233;dula" required autofocus>
 			</div>
 			
@@ -63,7 +63,7 @@ form label.error{
 			<div class="form-group">
 				<label for="tipo">Tipo de usuario</label>
 				<select name="tipo" class="form-control">
-					<option value="">-Seleccione una opcion-</option>
+					<option value="">-Seleccione una opción-</option>
 					<option value="CO">Coordinador(a) de servicio</option>
 					<option value="DI">Director(a) de escuela</option>
 					<option value="PR">Proyecci&oacute;n a la comunidad</option>
@@ -129,8 +129,9 @@ $("#registro_user").validate({
 </script>
 
 <?php
+//Usuario existente.
    if ( isset($_GET["error"]) && ($_GET["error"] == 1) ){?>
     <script type="text/javascript">
-      alert("Esta cedula o nombre de usuario ya existe");
+      alert("Esta cédula o nombre de usuario ya existe");
     </script>
    <?php }?>
