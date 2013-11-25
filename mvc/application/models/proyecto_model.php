@@ -107,7 +107,7 @@ public function get_id(){
             if ($query)
                 return $this->get_id();
             else
-                return $this->db->_error_name();
+                return "-1";
 
     }
 
