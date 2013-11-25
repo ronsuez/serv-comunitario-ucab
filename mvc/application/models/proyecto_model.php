@@ -58,7 +58,7 @@ public function get_id(){
      public function buscar_proyectos($query){
 
             $query = $this->db->query("SELECT  id_proyecto,nombre_proyecto  FROM proyecto 
-                                WHERE nombre_proyecto LIKE  '%".$query."%' ");
+                                WHERE nombre_proyecto LIKE  '".$query."%' ");
 
                 if ($query->num_rows() > 0)
                 {
