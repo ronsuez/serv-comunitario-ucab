@@ -72,10 +72,10 @@
 	<div id="body">
 		<h1>Bienvenido al sistema de gestion de Servicio comunatario</h1>
 		<p>
-			El sistema permite la administracion de los proyectos y prestadores de servicio comunitario
-			de la Universidad Catolica Andres Bello	, el sistema nace como una iniciativa
+			El sistema permite la administración de los proyectos y prestadores de servicio comunitario
+			de la Universidad Católica Andrés Bello, el sistema nace como una iniciativa
 			de los estudiantes de la catedra de Desarrollo del Software para automatizar
-			el proceso de gestion del servicio comunitario realizado por proyeccion a la comunidad y las escuelas de
+			el proceso de gestión del servicio comunitario realizado por proyección a la comunidad y las escuelas de
 			cada carrera. 
 		</p>
 	</div>
