@@ -264,9 +264,18 @@ body {
 								</p>
 							</div>
 
-								<button id="consultar_p" type="button" class="button-consultar pull-right btn btn-success" data-loading-text="Generando reporte" >Ir a consultar prestador</button>
-
-								<button id="ver_pre" type="button" class="button-consultar pull-right btn btn-success" data-loading-text="Generando reporte" >Ir a consultar prestador</button>
+							<div class="row col-xs-3 col-md-3 col-lg-3 col-md-offset-1 col-xs-offset-1">
+								<br>
+								<br>
+								<br>
+								<button id="consultar_p" type="button" class="button-consultar btn btn-success" data-loading-text="Generando reporte" >Ir a consultar prestador</button>
+								<br>
+								<br>
+								<button id="ver_pre" type="button" class="button-consultar btn btn-success" data-loading-text="Generando reporte" >Ir a consultar prestador</button>
+								<br>
+								<br>
+								<a href="completar_datos_usuario" class="button-consultar btn btn-success">Completar mis datos</a>
+							<div>
 				
 					</div>
 
