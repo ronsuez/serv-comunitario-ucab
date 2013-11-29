@@ -2,5 +2,9 @@ proyecto de servicio comunitario UCAB Guayana
 Please make note of these MySQL credentials again:
   Root User: adminNxTUqFY
   Root Password: B93lB-nwG6DG
-URL: https://servcom-rsuezdev.rhcloud.com/phpmyad
+URL: https://servcom-rsuezdev.rhcloud.com/phpmyadmin
+
+
+Para acceder al servidor remoto (Openshift)
+ssh 524e35e15973cae1080000b4@servcom-rsuezdev.rhcloud.com
 

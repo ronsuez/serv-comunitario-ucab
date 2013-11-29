@@ -103,17 +103,17 @@ class Proyecto extends CI_Controller {
 			 echo $this->load->view($this->controller."ver_proyecto",$array,TRUE);
 
 	}
-
+   
 
 
 	public function generar_reporte($id = false , $estado = false){
 
 
-				if($this->input->post('id_proyecto')){
+				if($this->input->post('id_proyecto')){ 
 
 					$id = $this->input->post('id_proyecto');
 				}
-
+  
 
 			 $salida=$this->proyecto_model->listar_proyectos($id);
 	
