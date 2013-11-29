@@ -5,87 +5,109 @@ form label.error{
   margin-left: 2px;
   font-weight: lighter; 
 }
-/*
-  #foto{
-    height: 20px;
-  */  }
+
+#foto{
+    margin-top: 20px;
+
+    float:left;
+    
+    margin-right: 20px;
+  }
+
+
+
+  #cont{
+
+    width:100%;
+    height:200px;
+   
+  }
+
+   
+
 
   </style>
 
 
   <div class="container">
 
-    <div class="panel panel-default">
-
-      <div class="panel-heading">
-        <h3 class="panel-title">Buscar Prestador</h3>
-      </div>
-      <div class="panel-body">
-
-        <div class="input-group input-group-sm">
-          <input id="id_cedula" type="text" class="form-control" placeholder="Introduzca c&eacute;dula del prestador"></input>
-          <span class="input-group-btn">
-            <button id="consultar_prestador" class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
-          </span>
-        </div><!-- /input-group -->
-
-
-      </div>
-
+    
+      <div id="cont">
+      
+      <div id="foto">
+        <img  style="width: 140px; height: 140px;" src="http://1120.gogiro.com/wp-content/uploads/2012/04/facebook-profile-picture-no-pic-avatar.jpg" alt="Avatar" class="img-thumbnail">
+      </div>      
     </div>
-    <br>
 
-
+  <div class="panel-group" id="accordion-datos-prestador">
+     
     <form name="form-prestador" id="form-prestador" action="#" method="POST">
 
       <!-- Datos personales -->
       <div class="panel panel-default">
-        <div class="panel-heading">Datos Personales</div>
+        <div class="panel-heading">
+           <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-datos-prestador" href="#collapseOne">
+           Datos Personales
+           </a>
+      </div>
+
+    <div id="collapseOne" class="panel-collapse collapse ">
         <div class="panel-body">
 
           <div class="form-group">
             <label for="">C&eacute;dula</label>
-            <input id="cedula" name="cedula" type="text" class="form-control" placeholder="Introduzca la c&eacute;dula del prestador"></input>
+            <input id="ci_prestador" name="cedula" type="text" class="form-control" placeholder="Introduzca la c&eacute;dula del prestador"></input>
           </div>
           <div class="form-group">
             <label for="">Nombres</label>
-            <input id="nombre" name="nombre" type="text" class="form-control" placeholder="Introduzca los nombres del prestador"></input>
+            <input id="nombre_prestador" name="nombre" type="text" class="form-control" placeholder="Introduzca los nombres del prestador"></input>
           </div>
           <div class="form-group">
             <label for="">Apellidos</label>
-            <input id="apellido" name="apellido" type="text" class="form-control" placeholder="Introduzca los apellidos del prestador"></input>
+            <input id="apellido_prestador" name="apellido" type="text" class="form-control" placeholder="Introduzca los apellidos del prestador"></input>
           </div>
 
           <div class="form-group">
             <label>Correo Electr&oacute;nico</label>
-            <input id="email" name="email" type="text" class="form-control" placeholder="Introduzca el correo electr&oacute;nico"></input>
+            <input id="email_prestador" name="email" type="email" class="form-control" placeholder="Introduzca el correo electr&oacute;nico"></input>
           </div>
           <div class="form-group">  
             <label for="">Tel&eacute;fono Celular</label>
-            <input id="telefono_cel" name="telefono_cel" type="text" class="form-control" placeholder="Introduzca un tel&eacute;fono celular"></input>
+            <input id="celular_prestador" name="telefono_cel" type="text" class="form-control" placeholder="Introduzca un tel&eacute;fono celular"></input>
           </div>
           <div class="form-group">
             <label for="">Tel&eacute;fono de Habitaci&oacute;n</label>
-            <input id="telefono_hab" name="telefono_hab" type="text" class="form-control" placeholder="Introduzca un tel&eacute;fono de habitaci&oacute;n"></input>
+            <input id="telefono_prestador" name="telefono_hab" type="text" class="form-control" placeholder="Introduzca un tel&eacute;fono de habitaci&oacute;n"></input>
           </div>
           <div class="form-group">
             <label for="">Direcci&oacute;n de Habitaci&oacute;n</label>
-            <input id="direccion" name="direccion" type="text" class="form-control" placeholder="Introduzca una direcci&oacute;n de habitaci&oacute;n"></input>
+            <input id="direccion_prestador" name="direccion" type="text" class="form-control" placeholder="Introduzca una direcci&oacute;n de habitaci&oacute;n"></input>
           </div>
         </div>
       </div>
 
+    </div><!--/Datos personales-->
+
+
       <!-- Datos académicos -->
-      <div class="panel panel-default">
-        <div class="panel-heading">Datos Acad&eacute;micos</div>
+  <div class="panel panel-default">
+        <div class="panel-heading">
+          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-datos-prestador" href="#collapseTwo">
+            Datos Acad&eacute;micos
+           </a>
+        </div>
+
+
+    <div id="collapseTwo" class="panel-collapse collapse ">
+
         <div class="panel-body">
           <div class="form-group">
             <label for="">Numero de Expediente</label>
-            <input type="text" id="expediente" name="expediente" class="form-control" placeholder="Introduzca el numero de expediente"></input>
+            <input type="text" id="no_exp_prestador" name="expediente" class="form-control" placeholder="Introduzca el numero de expediente"></input>
           </div>  
           <div class="form-group">
             <label for="">Carrera</label>
-            <select id="carrera" name="carrera" class="form-control">
+            <select id="escuela_prestador" name="carrera" class="form-control">
               <option value="">Seleccione</option>
               <option value="ingenieria informatica">Ingenier&iacute;a Inform&aacute;tica</option>
               <option value="ingenieria civil">Ingenier&iacute;a Civil</option>
@@ -102,7 +124,7 @@ form label.error{
 
           <div class="form-group" id='mencion'>
             <label for="">Menci&oacute;n</label>
-            <select id="mencion-select" name="mencion" class="form-control">
+            <select id="mencion_prestador" name="mencion" class="form-control">
               <option value="">Seleccione</option>
               <option value="artes audiovisuales">Artes Audiovisuales</option>
               <option value="comunicaciones publicitarias">Comunicaciones Publicitarias</option>
@@ -113,7 +135,7 @@ form label.error{
 
           <div class="form-group">
             <label for="">Semestre</label>
-            <select id="semestre" name="semestre" class="form-control">
+            <select id="semestre_prestador" name="semestre" class="form-control">
               <option value="">Seleccione</option>
               <option value="6">6</option>
               <option value="7">7</option>
@@ -123,29 +145,6 @@ form label.error{
 
 
             </select>
-          </div>
-
-
-          <div class="form-group">                
-
-            <!-- Foto -->
-            <form enctype="multipart/form-data" action="uploader.php" method="POST">
-
-              <div class="row">
-                <div class="col-xs-6 col-sm-4 col-md-4">
-                  <img id="foto" src="http://1120.gogiro.com/wp-content/uploads/2012/04/facebook-profile-picture-no-pic-avatar.jpg" alt="Avatar" class="img-thumbnail">
-                </div>
-                <div class="col-xs-6 col-sm-4 col-md-4">
-                  <label>Foto: </label>
-                  <input name="uploadedfile" type="file"></input>
-                </div>
-                <!-- Optional: clear the XS cols if their content doesn't match in height -->
-                <!-- <div class="clearfix visible-xs"></div> -->
-                <div class="col-xs-6 col-sm-4 col-md-4"></div>
-              </div>  
-
-            </form> 
-
           </div>
 
 
@@ -166,8 +165,10 @@ form label.error{
 
         </form> <!-- /form-prestador-->
 
+ </div> <!-- /datos-prestador -->
 
-  </div><!-- /container -->
+
+</div><!-- /container -->
 
   <script>
 
@@ -306,8 +307,6 @@ $("#form-prestador").submit(function (e) {
           console.log($(this).val());
 
           if($(this).val()==="comunicacion social"){
-
-            console.log("hola ");
 
           $("#mencion").fadeIn(1000);
           }else{

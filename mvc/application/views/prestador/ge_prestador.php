@@ -17,6 +17,33 @@ $(document).ready(function() {
 }
 </style>
 
+
+  <div class="panel panel-default">
+
+            <div class="panel-heading">
+              <h3 class="panel-title">Buscar prestador</h3>
+            </div>
+            <div class="panel-body">
+              
+              <div class="input-group input-group-sm">
+               
+                <input id="id_prestador_cedula" type="text" class="form-control" placeholder="Introduzca nombre o c&eacute;dula del prestador"></input>
+                <span class="input-group-btn">
+                  <button id="c_datos_prestador" class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+                </span>
+              
+              </div><!-- /input-group -->
+
+                 <div id="datos_busqueda">
+
+                </div>
+
+            </div>
+
+
+  </div>
+
+
 <!-- listado de tabs -->
 
 <div class="header">
@@ -36,4 +63,3 @@ $(document).ready(function() {
 <div class="tab-pane" id="hola"></div>
 
 </div>
-

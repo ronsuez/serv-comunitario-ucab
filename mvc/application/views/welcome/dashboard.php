@@ -264,7 +264,7 @@ body {
 								</p>
 							</div>
 
-								<button id="consultar_p" type="button" class="button-consultar pull-right btn btn-success" data-loading-text="Generando reporte" >Ir a consultar prestador</button>
+								<button id="consultar_p" type="button" class="button-consultar pull-right btn btn-success" data-loading-text="Generando reporte" >Ir a consultar proyecto</button>
 
 								<button id="ver_pre" type="button" class="button-consultar pull-right btn btn-success" data-loading-text="Generando reporte" >Ir a consultar prestador</button>
 				

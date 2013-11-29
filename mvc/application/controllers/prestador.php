@@ -87,8 +87,8 @@ class Prestador extends CI_Controller {
                 'celular' => $this->input->post('telefono_cel'),
                 'telefono' => $this->input->post('telefono_hab'),
                 'expediente' => $this->input->post('expediente'),
-                'escuela' => $this->input->post('escuela'),
-                'semestre' => $this->input->post('mencion'),
+                'escuela' => $this->input->post('carrera'),
+                'semestre' => $this->input->post('semestre'),
                 'mencion' => "1",
                 'direccion' => $this->input->post('direccion'));
 
@@ -125,9 +125,8 @@ class Prestador extends CI_Controller {
 	
 			}else{
 
-				echo "No se encontro nada";
+				echo "-1";
 			}
-		//echo json_encode($salida);
 
 	}
 
@@ -140,7 +139,7 @@ class Prestador extends CI_Controller {
 		if ($salida!="-1"){
 			echo json_encode($salida);
 		}else{
-			echo "No se encontro nada";
+			echo "-1";
 		}
 
 	}
@@ -158,7 +157,7 @@ class Prestador extends CI_Controller {
 	
 			}else{
 
-				echo "No se encontro nada";
+				echo "-1";
 			}
 		//echo json_encode($salida);
 
