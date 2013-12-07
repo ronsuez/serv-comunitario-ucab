@@ -41,6 +41,12 @@
 $route['default_controller'] = "welcome";
 $route['404_override'] = '';
 
+/* administrador de usuarios */
+$route['gest-usuarios'] = 'administrador/admin_usuarios';
+$route['b_listar_usuario'] = 'usuario/listar';
+$route['registrar_usuario'] = 'administrador/registrar_usuario';
+
+
 /*gestion de usuarios*/
 $route['login'] = 'usuario/login_attempt';
 $route['logout'] = 'usuario/log_out';

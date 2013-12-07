@@ -131,6 +131,34 @@ public function insertar_datos_usuario($datos){
 
         }
 
+
+        public function buscar_usuario($q,$o){
+
+            if($o== "cedula"){
+                $filtro="cedula";
+                  $sql="SELECT cedula, user
+                                        FROM usuario
+                                        WHERE $filtro=$q";
+
+            }else if($o=="user"){
+                $filtro="user";
+                  $sql="SELECT cedula, user
+                                        FROM usuario 
+                                        WHERE $filtro LIKE '".$q."%'";
+            }
+
+        
+
+            $query = $this->db->query($sql);
+
+            if($query->num_rows()>0){
+
+                return $query->result_array();
+            }else{
+
+                return "-1";
+            }
+    } 
     
 
 }

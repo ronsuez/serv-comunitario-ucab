@@ -231,21 +231,6 @@
 
  $(document).ready(function () {
 
-	var elementos = ["nombre_proyecto",
-					 "fecha_ini",
-					 "estado_proyecto",
-					 "id_proyecto",
-					 "diagnostico_proyecto",
-					 "justificacion_proyecto",
-					 "impacto_proyecto",
-					 "obj_generales_proyecto",
-					 "obj_especificos_proyecto",
-					 "metas_proyecto",
-					 "producto_proyecto",
-					 "plan_trabajo_proyecto",
-					 "recursos_requeridos_proyecto",
-					 "cronograma_proyecto"];
-
 	$("#buscar_proyecto").on("click",function(e){
 
 			e.preventDefault();
@@ -264,38 +249,6 @@
 			});
 
 
-
-$('body').on('click','a.key_proyecto', function (ev) {
-    		
-    			ev.preventDefault();
-
-    			$("#results").css("display","none");
-    			$("div#search_results ").empty();
-
-    			var key_proyecto = $(this).attr("href");
-
-				$.post("listar_datos_proyecto",{id_proyecto:key_proyecto},function(data){
-
-						var listado = JSON.parse(data);
-
-						
-
-							$.each(elementos, function(i){
-
-									$("#"+elementos[i]).html(listado[0][elementos[i]]);
-
-
-							});
-
-
-							
-					});
-				//listar prestadores asociados al pryecto
- 				listar_prestadores_x_proy(key_proyecto);
-			 
-			 ev.stopPropagation();
-
-			});
 	
 	
 

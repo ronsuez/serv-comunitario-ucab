@@ -67,6 +67,9 @@ class Usuario extends CI_Controller {
 
 		$tipo = $info_user[0]["tipo"];
 
+		$user= $info_user[0]["user"];
+
+
 		if($tipo == "DI"){
 
 			$this->session->set_userdata('name', $user_name[0]["nombre_di"]);
@@ -86,6 +89,15 @@ class Usuario extends CI_Controller {
 			$this->session->set_userdata('escuela', "la Comunidad");
 		}
 				// var_dump($user_name);
+
+
+		if($user=="admin"){
+
+			$this->session->set_userdata("panel_admin","1");
+
+		}else{
+			$this->session->set_userdata("panel_admin","0");
+		}
 
 
 		redirect("/dashboard");
@@ -191,6 +203,27 @@ class Usuario extends CI_Controller {
 		else{
 			redirect("/completar_datos?error=1&salida=".$salida."&user=".$user."&tipo=".$tipo->tipo."&ci=".$cedula);
 		}
+	}
+
+
+	public function listar() {
+
+		$query  = $this->input->post('q');
+		$option = $this->input->post('o');
+
+		//echo "server->".$query."->".$option;
+
+		$salida= $this->usuario_model->buscar_usuario($query,$option);
+
+
+			if($salida!="-1"){
+
+				echo json_encode($salida);
+	
+			}else{
+
+				echo "-1";
+			}
 	}
 
 

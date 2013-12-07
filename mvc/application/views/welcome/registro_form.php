@@ -130,8 +130,8 @@ $("#registro_user").validate({
 
 <?php
 //Usuario existente.
-   if ( isset($_GET["error"]) && ($_GET["error"] == 1) ){?>
-    <script type="text/javascript">
-      alert("Esta cédula o nombre de usuario ya existe");
-    </script>
-   <?php }?>
+   if ( isset($_GET["error"]) && ($_GET["error"] == 1) ){
+   echo '<script type="text/javascript">'.
+      'alert("Esta cédula o nombre de usuario ya existe")'.
+    '</script>';
+       }?>

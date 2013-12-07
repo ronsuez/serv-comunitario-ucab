@@ -66,26 +66,6 @@ button a:hover{
 
 
 <div class="container">
-
-    <div class="panel panel-default">
-
-            <div class="panel-heading">
-              <h3 class="panel-title">Buscar prestador</h3>
-            </div>
-            <div class="panel-body">
-              
-              <div class="input-group input-group-sm">
-                <input id="id_p_cedula" type="text" class="form-control" placeholder="Introduzca nombre o c&eacute;dula del prestador"></input>
-                <span class="input-group-btn">
-                  <button id="c_d_prestador" class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
-                </span>
-              </div><!-- /input-group -->
-
-
-            </div>
-
-
-          </div>
       <div id="cont">
       
       <div id="foto">
@@ -379,6 +359,7 @@ button a:hover{
 $(document).ready(function(){
 
 //configuracion de las ventanas de alerta
+$("#asociar_proyecto").prop('disabled', true);
 
   $(".collapse").collapse();
 
