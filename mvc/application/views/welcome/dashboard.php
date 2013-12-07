@@ -12,6 +12,19 @@
 	
    			 }
 
+   			if($this->session->userdata("panel_admin")=="1"){
+
+   			 	$menu='<li class="active"><a id="pestana-usuarios" href="gest-usuarios">Usuarios</a>';
+   			 	$menu.='<li class=""><a id="pestana-historial" href="ver-historial">Historial</a></li>';
+   			 	$menu.='<li class=""><a id="pestana-config" href="config">Configuracion</a></li>';
+   			 
+   			 }else{
+
+   			 	$menu='<li class=""><a id="pestana-proyectos" href="gest-proyecto">Proyectos</a>';
+   			 	$menu.='<li class=""><a id="pestana-prestadores" href="gest-prestador">Prestadores</a></li>';
+   			 	$menu.='<li class=""><a id="pestana-localidades" href="gest-localidad">Localidades</a></li>';
+   			 }
+
  ?>
 
 <style type="text/css">
@@ -210,10 +223,7 @@ body {
 				</div>
 				<div class="navbar-collapse collapse">
 					<ul id="main-panel" class="nav navbar-nav">
-						<li class=""><a id="pestana-proyectos" href="gest-proyecto">Proyectos</a></li>
-						<li class=""><a id="pestana-prestadores" href="gest-prestador">Prestadores</a></li>
-						<li class=""><a id="pestana-localidades" href="gest-localidad">Localidades</a></li>
-
+						<?php echo $menu; ?>
 					</ul>
 
 				</div><!--/.nav-collapse -->

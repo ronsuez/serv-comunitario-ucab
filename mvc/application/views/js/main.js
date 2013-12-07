@@ -249,6 +249,33 @@ $("body").on("keyup","#id_prestador_cedula", function(event){
 });
 
 
+// listener para buscar usuarios
+
+$("body").on("keyup","#id_usuario", function(event){
+
+  var query = $(this).val();
+  var option = "";
+  console.log($(this).val());
+
+  if(query!=""){
+    
+    if ($.isNumeric(query)){
+      console.log(query+"input was 0-9");
+      option = "cedula";
+
+    } else{
+      console.log(query+"input was a-z");
+      option = "user";
+    }
+          b_consultar_usuario(query,option);
+
+  }
+
+  event.stopPropagation();
+
+});
+
+
 
 $('body').on('click','a.key_proyecto', function (ev) {
   
@@ -392,6 +419,47 @@ function b_consultar_prestador(query,option){
 
 
 
+function b_consultar_usuario(query,option){
+
+  $.post("b_listar_usuario",{q:query,o:option},function(data){
+
+    console.log(data); 
+    
+    if(data!="-1"){
+
+
+      
+      var array=JSON.parse(data);
+
+      console.log(array.length);
+      
+      if (array.length === 1) 
+        toastr.success(array.length+" "+mensajes.success.prestador_f);
+      else
+        toastr.success(array.length+" "+mensajes.success.prestadores_f);
+      
+      var content ="";
+
+      $.each(array,function(i){
+        content = content +'<li class="list-group-item"><a class="key_usuario" href="'+ array[i]["cedula"] +' "> '+ array[i]["user"]+'</a></li>';
+
+      });
+
+      
+
+      $("#datos_busqueda").html("<ul class='list-group'>"+content+"</ul>");
+
+    }else{
+
+      $("#datos_busqueda").html('<div class="no-results">No se encontraron resultados</div>');
+      
+
+    }   
+
+  });
+}
+
+
 function resetForm($form) {
 
   
@@ -399,6 +467,36 @@ function resetForm($form) {
   $form.find("input[name='email']").val('');
   $form.find('input:radio, input:checkbox')
   .removeAttr('checked').removeAttr('selected');
+
+}
+
+
+function show_messages(type,messages){
+
+  toastr.clear($(".toastr"));
+
+      switch (type){
+
+        case "error": 
+          toastr.error(messages);
+                  
+        break;
+
+        case "warning": 
+          toastr.warning(messages);
+                  
+        break;
+
+        case "success": 
+          toastr.success(messages);
+                  
+        break;
+
+        default:
+
+        break;
+      }
+  
 
 }
 
@@ -631,7 +729,8 @@ function busqueda(url,value){
 
     if(data==="-1"){
 
-     toastr.error(mensajes.error.proyecto_nf);
+      show_messages("error",mensajes.error.proyecto_nf);
+     
 
      $("div#search_results").html('<span class="no-results">No se encontraron resultados</span>');
 
