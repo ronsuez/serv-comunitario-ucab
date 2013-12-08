@@ -45,6 +45,7 @@ $route['404_override'] = '';
 $route['gest-usuarios'] = 'administrador/admin_usuarios';
 $route['b_listar_usuario'] = 'usuario/listar';
 $route['registrar_usuario'] = 'administrador/registrar_usuario';
+$route['registrar_datos_usuario'] = 'administrador/registrar_datos_usuario';
 
 
 /*gestion de usuarios*/

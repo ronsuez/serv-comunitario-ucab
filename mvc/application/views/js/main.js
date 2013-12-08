@@ -39,7 +39,8 @@ var mensajes = {
   prestador_pnf:"No existen prestadores inscritos en el proyecto.",
   localidad_nf: "Localidad no encontrada.",
   prestador_no_insertado:"No se pudo registrar el prestador",
-  localidad_no_insertada:"No se pudo registrar la localidad"
+  localidad_no_insertada:"No se pudo registrar la localidad",
+  usuario_no_registrado:"No se pudo registrar el usuario."
 
 },
 success:{
@@ -50,7 +51,8 @@ success:{
   proyectos_f:"Proyectos encontrados.",
   prestador_insertado:"El prestador fue inscrito en el Sistema",
   localidad_f: "Localidad  encontrada.",
-  localidad_insertada:"La localidad se registro existosamente"
+  localidad_insertada:"La localidad se registro existosamente",
+  usuario_registrado:"El usuario ha sido registrado exitosamente."
 },
 requerido: '*Este es campo es requerido',
 matches: 'The %s field does not match the %s field.',
