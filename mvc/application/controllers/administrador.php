@@ -133,22 +133,20 @@ class Administrador extends CI_Controller {
 
 	}
 
-	public function send_mail() {
+	public function send_mail($email,$title,$html) {
 
-		//$email = $this->input->post('email');
+		$this->postmark->from( 'info@rsuezdev.com', 'servcom-ucab' );
+		$this->postmark->to($email);
 
-		$this->postmark->from( 'info@rsuezdev.com', 'adminscaucab' );
-		$this->postmark->to( 'osalbr.14@gmail.com' );
-
-		$this->postmark->subject( 'Email Test' );
-		$this->postmark->message( 'Testing the email class.' );
+		$this->postmark->subject($title);
+		$this->postmark->message($html);
 
 		$retorno = $this->postmark->send();
 
 		if ($retorno)
-			echo 1;
+			return 1;
 		else
-			echo 0;
+			return 0;
 
 
 	}
@@ -170,10 +168,20 @@ class Administrador extends CI_Controller {
 
 		$salida = $this->administrador_model->registrar_datos_usuario($datos, $tipo);
 
-		echo $salida;
+		if(!$salida){
 
-		if(!$salida)
-			$this->send_mail();
+			if($this->send_mail()){
+
+				echo "0";
+			}else
+			{
+				echo "-1";
+			}
+		}else
+			{
+				echo "-1";
+		}
+			
 
 	}
 
@@ -215,7 +223,19 @@ class Administrador extends CI_Controller {
 
 		$salida = $this->administrador_model->deshabilitar_coord($cedula);
 
-		echo $salida;
+		if(!$salida){
+
+			if($this->send_mail()){
+
+				echo "0";
+			}else
+			{
+				echo "-1";
+			}
+		}else
+			{
+				echo "-1";
+		}
 
 	}
 }
