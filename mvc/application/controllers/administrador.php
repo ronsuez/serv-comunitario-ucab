@@ -172,7 +172,26 @@ class Administrador extends CI_Controller {
 	}
 
 
+	public function def_coordinador() {
 
+		$cedula = $this->input->post('ci');
+
+		$salida = $this->administrador_model->asignar_coord_principal($cedula);
+
+		echo $salida;
+
+	}
+
+
+	public function deshab_coordinador() {
+
+		$cedula = $this->input->post('ci');
+
+		$salida = $this->administrador_model->deshabilitar_coord($cedula);
+
+		echo $salida;
+
+	}
 }
 
 /* End of file welcome.php */

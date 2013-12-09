@@ -174,13 +174,13 @@ $(document).ready(function() {
   				</select>
   			</td>
   			<td>
-  				<button type="button" class="btn btn-default btn-xs">
+  				<button type="button" class="coord btn btn-default btn-xs">
 				  <span class="glyphicon glyphicon-star"></span> 
 				  Coordinador
 				</button>
 			</td>
       <td>
-          <button type="button" class="btn btn-default btn-xs">
+          <button type="button" class="deshab btn btn-default btn-xs">
           <span class="glyphicon glyphicon-minus-sign"></span> 
           Deshabilitar
         </button>
