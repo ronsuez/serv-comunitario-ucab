@@ -28,24 +28,18 @@ class Administrador extends CI_Controller {
 
 		$this->controller="administrador/";
 
-<<<<<<< HEAD
-			$this->load->model("usuario_model");
-=======
+
+		$this->load->model("usuario_model");
+
 		$this->load->model("administrador_model");
->>>>>>> a191c64a1751f55318bf2c7256a43b7ea5261e91
 
 	}
 
 
 	public function index()
 	{
-<<<<<<< HEAD
 	
 		$this->load->view($this->controller.'ge_administrador');
-=======
-
-		$this->load->view($this->controller.'ge_proyecto');
->>>>>>> a191c64a1751f55318bf2c7256a43b7ea5261e91
 	}
 
 	public function admin_usuarios()
@@ -77,8 +71,6 @@ class Administrador extends CI_Controller {
 
 	public function ver_usuarios()
 	{
-<<<<<<< HEAD
-	 		
 
 			 $salida=$this->usuario_model->traer_usuarios();
 	
@@ -89,48 +81,6 @@ class Administrador extends CI_Controller {
 
 
 	
-		public function buscar()
-=======
-		$id2=$this->input->post('id2');
-
-		$salida=$this->proyecto_model->listar_datos_coordinador($id2);
-
-
-		echo json_encode($salida);
-
-
-	}
-
-
-	public function ver_proyectos()
-	{
-		$id=$this->input->post('id_proyecto');
-
-		$salida=$this->proyecto_model->listar_proyectos($id,"consultar");
-
-
-		echo json_encode($salida);
-
-
-	}
-
-
-	public function buscar()
->>>>>>> a191c64a1751f55318bf2c7256a43b7ea5261e91
-	{
-		if($this->input->post('query'))
-			$id=$this->input->post('query');
-		else
-			redirect("/dashboard");
-
-		$salida=$this->proyecto_model->buscar_proyectos($id);
-
-
-		echo json_encode($salida);
-
-
-	}
-
 	 public function registrar(){
 
 		    $informacion = json_decode($this->input->post('texto'),true);
@@ -181,8 +131,6 @@ class Administrador extends CI_Controller {
 	}
 
 
-<<<<<<< HEAD
-=======
 	public function registrar(){
 
 		$informacion = json_decode($this->input->post('texto'),true);
@@ -243,7 +191,6 @@ class Administrador extends CI_Controller {
 		echo $salida;
 	}
 
->>>>>>> a191c64a1751f55318bf2c7256a43b7ea5261e91
 
 
 }
