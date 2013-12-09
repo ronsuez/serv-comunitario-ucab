@@ -158,6 +158,28 @@ public function insertar_datos_usuario($datos){
 
                 return "-1";
             }
+    }
+
+    public function traer_usuarios(){
+
+
+        $sql_directores="SELECT ci_di,escuela_di,apellido_di,nombre_di FROM director";
+
+        $sql_coordinadores="SELECT ci_coord,escuela_coord,apellido_coord,nombre_coord FROM coordinador";
+
+        $sql_proyeccion="SELECT ci_pr,apellido_pr,nombre_pr FROM proyeccion_comunidad";
+
+
+              $q1=$this->db->query($sql_directores);
+
+              $q2=$this->db->query($sql_coordinadores);
+
+              $q3=$this->db->query($sql_proyeccion);
+
+              return array('directores'=>$q1->result_array(),'coordinadores'=>$q2->result_array(),'proyeccion'=>$q3->result_array());
+
+
+
     } 
     
 

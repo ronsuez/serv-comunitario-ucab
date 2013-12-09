@@ -28,6 +28,8 @@ class Administrador extends CI_Controller {
 
 		$this->controller="administrador/";
 
+		$this->load->model("usuario_model");
+
 		$this->load->model("administrador_model");
 
 	}
@@ -35,20 +37,27 @@ class Administrador extends CI_Controller {
 
 	public function index()
 	{
-
-		$this->load->view($this->controller.'ge_proyecto');
+	
+		$this->load->view($this->controller.'ge_administrador');
 	}
 
 	public function admin_usuarios()
 	{
 
-		$this->load->view($this->controller.'admin_usuario');
+		$this->load->view($this->controller.'ge_administrador');
 	}
 
 	public function modificar()
 	{
 
 		$this->load->view($this->controller.'modificar');
+	}
+
+
+	public function admin_coordinadores()
+	{
+	
+		$this->load->view($this->controller.'admin_coordinadores');
 	}
 
 	
@@ -59,46 +68,19 @@ class Administrador extends CI_Controller {
 	}
 	
 
-	public function ver_datos_coordinador()
+	public function ver_usuarios()
 	{
-		$id2=$this->input->post('id2');
 
-		$salida=$this->proyecto_model->listar_datos_coordinador($id2);
-
-
-		echo json_encode($salida);
-
-
+			 $salida=$this->usuario_model->traer_usuarios();
+	
+			 echo json_encode($salida);
+		 		
+			 
 	}
 
 
-	public function ver_proyectos()
-	{
-		$id=$this->input->post('id_proyecto');
+	
 
-		$salida=$this->proyecto_model->listar_proyectos($id,"consultar");
-
-
-		echo json_encode($salida);
-
-
-	}
-
-
-	public function buscar()
-	{
-		if($this->input->post('query'))
-			$id=$this->input->post('query');
-		else
-			redirect("/dashboard");
-
-		$salida=$this->proyecto_model->buscar_proyectos($id);
-
-
-		echo json_encode($salida);
-
-
-	}
 
 	public function preparar_datos_reporte($data,$estado){
 

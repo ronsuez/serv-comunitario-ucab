@@ -1,4 +1,4 @@
-<? echo $header;
+<?php echo $header;
 		
 		   //Verificar si el usuario ya se encuentra logeado.
 		  if( !$this->session->userdata('isLoggedIn') ) {
@@ -190,7 +190,7 @@ body {
 			</ul>
 			<ul class ="nav navbar-nav pull-right">
 				<li class="dropdown ">
-					<a href="#" id="#user" class="dropdown-toggle" data-toggle="dropdown"><? echo $user ?> <span class="glyphicon glyphicon-user"></span> <b class="caret"></b></a>
+					<a href="#" id="#user" class="dropdown-toggle" data-toggle="dropdown"><?php echo $user ?> <span class="glyphicon glyphicon-user"></span> <b class="caret"></b></a>
 					<ul class="pull-right dropdown-menu">
 						<li><a href="logout">Salir</a></li>
 						<li><a href="#">Another action</a></li>
