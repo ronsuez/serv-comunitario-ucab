@@ -39,7 +39,8 @@ var mensajes = {
   prestador_pnf:"No existen prestadores inscritos en el proyecto.",
   localidad_nf: "Localidad no encontrada.",
   prestador_no_insertado:"No se pudo registrar el prestador",
-  localidad_no_insertada:"No se pudo registrar la localidad"
+  localidad_no_insertada:"No se pudo registrar la localidad",
+  select_user: "Debe seleccionar un usuario"
 
 },
 success:{
@@ -50,7 +51,9 @@ success:{
   proyectos_f:"Proyectos encontrados.",
   prestador_insertado:"El prestador fue inscrito en el Sistema",
   localidad_f: "Localidad  encontrada.",
-  localidad_insertada:"La localidad se registro existosamente"
+  localidad_insertada:"La localidad se registro existosamente",
+  coordinador:"ahora es el coordinador de la escuela de ",
+  usuario_deshab:"esta deshabilitado"
 },
 requerido: '*Este es campo es requerido',
 matches: 'The %s field does not match the %s field.',
@@ -225,6 +228,48 @@ $(document).on("click","#ver_pre",function (e) {
 
 });
 
+$(document).on("click","#listado_usuarios .coord",function (e) {
+
+
+      var usuario= $(this).parent().parent().find("select option:selected");
+
+      var escuela = $(this).parent().parent().find("td").eq(0);
+
+      console.log(usuario.val());
+
+          if(usuario.val()){
+
+            show_messages("success","El usuario "+usuario.text()+" "+mensajes.success.coordinador+" "+escuela.text());
+
+          }else{
+
+              show_messages("error",mensajes.error.select_user);
+
+          }
+
+
+});
+
+
+
+$(document).on("click","#listado_usuarios .deshab",function (e) {
+
+      var usuario= $(this).parent().parent().find("select option:selected");
+
+      console.log(usuario.val());
+
+          if(usuario.val()){
+
+            show_messages("success","El usuario "+usuario.text()+" "+mensajes.success.usuario_deshab);
+
+          }else{
+
+              show_messages("error",mensajes.error.select_user);
+
+          }
+ 
+
+});
 
 $("body").on("keyup","#id_prestador_cedula", function(event){
 
@@ -434,9 +479,9 @@ function b_consultar_usuario(query,option){
       console.log(array.length);
       
       if (array.length === 1) 
-        toastr.success(array.length+" "+mensajes.success.prestador_f);
+          show_messages("success",array.length+" "+mensajes.success.prestador_f);
       else
-        toastr.success(array.length+" "+mensajes.success.prestadores_f);
+       show_messages("success",array.length+" "+mensajes.success.prestadores_f);
       
       var content ="";
 
@@ -473,7 +518,7 @@ function resetForm($form) {
 
 function show_messages(type,messages){
 
-  toastr.clear($(".toastr"));
+  toastr.clear($("body").find(".toast"));
 
       switch (type){
 
@@ -770,6 +815,21 @@ function busqueda(url,value){
   $("div#search_results").html('<span class="no-results">No envies campos vacios</span>');
 
 }
+
+}
+
+
+function ver_usuarios(url){
+
+    var d_users;
+
+   $.get(url,function(data){
+
+        d_users=data;
+
+
+
+ });
 
 }
 

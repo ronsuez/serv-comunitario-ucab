@@ -28,7 +28,7 @@ class Administrador extends CI_Controller {
 
 			$this->controller="administrador/";
 
-			$this->load->model("proyecto_model");
+			$this->load->model("usuario_model");
 
 		}
 
@@ -36,7 +36,7 @@ class Administrador extends CI_Controller {
 	public function index()
 	{
 	
-		$this->load->view($this->controller.'ge_proyecto');
+		$this->load->view($this->controller.'ge_administrador');
 	}
 
 	public function admin_usuarios()
@@ -51,6 +51,13 @@ class Administrador extends CI_Controller {
 		$this->load->view($this->controller.'modificar');
 	}
 
+
+	public function admin_coordinadores()
+	{
+	
+		$this->load->view($this->controller.'admin_coordinadores');
+	}
+
 	
 	public function registrar_usuario()
 	{
@@ -59,32 +66,19 @@ class Administrador extends CI_Controller {
 	}
 	
 
-	public function ver_datos_coordinador()
+	public function ver_usuarios()
 	{
-	 				$id2=$this->input->post('id2');
+	 		
 
-			 		$salida=$this->proyecto_model->listar_datos_coordinador($id2);
+			 $salida=$this->usuario_model->traer_usuarios();
 	
-			
 			 echo json_encode($salida);
 		 		
 			 
 	}
 
 
-		public function ver_proyectos()
-	{
-	 				$id=$this->input->post('id_proyecto');
-
-			 		$salida=$this->proyecto_model->listar_proyectos($id,"consultar");
 	
-			
-			 echo json_encode($salida);
-		 		
-			 
-	}
-
-
 		public function buscar()
 	{
 	 				if($this->input->post('query'))
@@ -99,6 +93,27 @@ class Administrador extends CI_Controller {
 		 		
 			 
 	}
+
+	 public function registrar(){
+
+		    $informacion = json_decode($this->input->post('texto'),true);
+
+		    $datos = json_decode($this->input->post('datos'),true);
+
+		    $estado = $this->input->post('estado');
+
+
+		     $array = array_merge($datos, $informacion);
+
+		    $id = $this->proyecto_model->registrar_proyecto($array);
+
+		   // echo $id;
+
+		  	$this->generar_reporte($id,$estado);
+
+
+		   }
+
 
 	public function preparar_datos_reporte($data,$estado){
 
@@ -129,26 +144,6 @@ class Administrador extends CI_Controller {
 	}
 
 
-
-	 public function registrar(){
-
-		    $informacion = json_decode($this->input->post('texto'),true);
-
-		    $datos = json_decode($this->input->post('datos'),true);
-
-		    $estado = $this->input->post('estado');
-
-
-		     $array = array_merge($datos, $informacion);
-
-		    $id = $this->proyecto_model->registrar_proyecto($array);
-
-		   // echo $id;
-
-		  	$this->generar_reporte($id,$estado);
-
-
-		   }
 
 
 

@@ -1,4 +1,4 @@
-<? echo $header;
+<?php echo $header;
 		
 		   //Verificar si el usuario ya se encuentra logeado.
 		  if( !$this->session->userdata('isLoggedIn') ) {
@@ -14,7 +14,7 @@
 
    			if($this->session->userdata("panel_admin")=="1"){
 
-   			 	$menu='<li class="active"><a id="pestana-usuarios" href="gest-usuarios">Usuarios</a>';
+   			 	$menu='<li class="active"><a id="pestana-usuarios" href="ge_administrador">Usuarios</a>';
    			 	$menu.='<li class=""><a id="pestana-historial" href="ver-historial">Historial</a></li>';
    			 	$menu.='<li class=""><a id="pestana-config" href="config">Configuracion</a></li>';
    			 
@@ -189,7 +189,7 @@ body {
 			</ul>
 			<ul class ="nav navbar-nav pull-right">
 				<li class="dropdown ">
-					<a href="#" id="#user" class="dropdown-toggle" data-toggle="dropdown"><? echo $user ?> <span class="glyphicon glyphicon-user"></span> <b class="caret"></b></a>
+					<a href="#" id="#user" class="dropdown-toggle" data-toggle="dropdown"><?php echo $user ?> <span class="glyphicon glyphicon-user"></span> <b class="caret"></b></a>
 					<ul class="pull-right dropdown-menu">
 						<li><a href="logout">Salir</a></li>
 						<li><a href="#">Another action</a></li>
