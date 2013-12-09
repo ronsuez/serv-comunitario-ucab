@@ -28,3 +28,36 @@ table td {
 	margin-top: 50px;
 }
 
+#firmas .pull-left{
+
+	float: left;
+
+	text-align: left;
+
+	font-style: italic;
+
+	width: 250px;
+
+	overflow: auto;
+}
+
+
+#firmas .pull-right{
+
+	float: right;
+
+	text-align: right;
+
+	font-style: italic;
+
+	width: 250px;
+
+	overflow: auto;
+}
+
+#firmas .clear{
+
+	clear: both;
+
+	text-align: center;
+}

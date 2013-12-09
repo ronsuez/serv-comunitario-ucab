@@ -450,7 +450,8 @@ $('body').on('click','a.key_prestador', function (ev) {
 
 
    });
-    toastr.success(mensajes.success.prestador_datos_cargados);  
+    show_messages("success",mensajes.success.prestador_datos_cargados);
+    
 
   });
 
@@ -568,9 +569,10 @@ function b_consultar_prestador(query,option){
       console.log(array.length);
       
       if (array.length === 1) 
-        toastr.success(array.length+" "+mensajes.success.prestador_f);
+        show_messages("success",array.length+" "+mensajes.success.prestador_f);
       else
-        toastr.success(array.length+" "+mensajes.success.prestadores_f);
+        show_messages("success",array.length+" "+mensajes.success.prestadores_f);
+    
       
       var content ="";
 
@@ -845,7 +847,7 @@ function listar_prestadores_x_proy(id){
 
       if(listado==="-1"){
 
-       toastr.error(mensajes.error.prestador_pnf);
+        show_messages("error",mensajes.error.prestador_pnf);
 
        $(content).html('<span class="no-results">No se encontraron resultados</span>');
 
@@ -862,9 +864,9 @@ function listar_prestadores_x_proy(id){
       });
 
        if(results.length>1)
-         toastr.success(results.length+" "+mensajes.success.prestadores_f);
+        show_messages("success",results.length+" "+mensajes.success.prestadores_f);
        else
-         toastr.success(results.length+" "+mensajes.success.prestador_f); 
+        show_messages("success",results.length+" "+mensajes.success.prestador_f);
 
        $( "<ul/>", {
         "class": "list-group",
@@ -925,10 +927,10 @@ function busqueda(url,value){
     });
 
      if(results.length>1){
-       toastr.success(results.length+" "+mensajes.success.proyectos_f);
+        show_messages("success",results.length+" "+mensajes.success.proyectos_f);
      }
      else{
-       toastr.success(results.length+" "+mensajes.success.proyecto_f);  
+        show_messages("success",results.length+" "+mensajes.success.proyecto_f);
       }
 
      $( "<ul/>", {
@@ -945,7 +947,8 @@ function busqueda(url,value){
    
  }else{
 
-  toastr.warning(mensajes.error.campo_vacio);
+  show_messages("warning",mensajes.error.campo_vacio);
+  
 
   $("div#search_results").html('<span class="no-results">No envies campos vacios</span>');
 

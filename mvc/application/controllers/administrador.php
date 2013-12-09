@@ -57,7 +57,7 @@ class Administrador extends CI_Controller {
 	public function admin_coordinadores()
 	{
 	
-		$this->load->view($this->controller.'admin_usuario');
+		$this->load->view($this->controller.'admin_coordinadores');
 	}
 
 	
