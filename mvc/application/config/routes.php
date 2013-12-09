@@ -51,6 +51,8 @@ $route['traer_usuarios'] = 'administrador/ver_usuarios';
 $route['registrar_datos_usuario'] = 'administrador/registrar_datos_usuario';
 $route['get_info_user'] = 'usuario/get_info_user';
 $route['actualizar_datos_usuario'] = 'administrador/actualizar_datos_usuario';
+$route['def_coordinador'] = 'administrador/def_coordinador';
+$route['deshab_coordinador'] = 'administrador/deshab_coordinador';
 
 /*gestion de usuarios*/
 $route['login'] = 'usuario/login_attempt';

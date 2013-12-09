@@ -59,6 +59,11 @@ success:{
   usuario_actualizado: "El usuario ha sido actualizado existosamente"
 
 },
+warning:{
+  coor_principal: "El coordinador ya esta definido como principal",
+  coor_deshabilitado: "Este coordinador ya se encuentra deshabilitado"
+},
+
 requerido: '*Este es campo es requerido',
 matches: 'The %s field does not match the %s field.',
 "default": 'The %s field is still set to default, please change.',
@@ -244,6 +249,8 @@ $(document).on("click","#ver_pre",function (e) {
 
 });
 
+
+//Boton para definir el coordinador de cada escuela
 $(document).on("click","#listado_usuarios .coord",function (e) {
 
 
@@ -255,8 +262,22 @@ $(document).on("click","#listado_usuarios .coord",function (e) {
 
           if(usuario.val()){
 
-            show_messages("success","El usuario "+usuario.text()+" "+mensajes.success.coordinador+" "+escuela.text());
+            $.post("def_coordinador", {ci:usuario.val()}, function(data){
+                
+                console.log(data);
 
+                if (data==="0") {
+                  show_messages("success","El usuario "+usuario.text()+" "+mensajes.success.coordinador+" "+escuela.text());
+
+                }
+                else {
+
+                  show_messages("warning",mensajes.warning.coor_principal);
+                  
+                }
+            
+            });
+            
           }else{
 
               show_messages("error",mensajes.error.select_user);
@@ -267,7 +288,7 @@ $(document).on("click","#listado_usuarios .coord",function (e) {
 });
 
 
-
+// Boton para deshabilitar los usarios
 $(document).on("click","#listado_usuarios .deshab",function (e) {
 
       var usuario= $(this).parent().parent().find("select option:selected");
@@ -276,7 +297,23 @@ $(document).on("click","#listado_usuarios .deshab",function (e) {
 
           if(usuario.val()){
 
-            show_messages("success","El usuario "+usuario.text()+" "+mensajes.success.usuario_deshab);
+            $.post("deshab_coordinador", {ci:usuario.val()}, function(data){
+                
+                console.log(data);
+
+                if (data==="0") {
+                   show_messages("success","El usuario "+usuario.text()+" "+mensajes.success.usuario_deshab);
+
+                }
+                else {
+
+                  show_messages("warning",mensajes.warning.coor_deshabilitado);
+                  
+                }
+            
+            });
+
+         
 
           }else{
 
