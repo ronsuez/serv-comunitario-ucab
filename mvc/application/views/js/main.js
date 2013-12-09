@@ -291,6 +291,27 @@ $("body").on("keyup","#id_usuario", function(event){
 
 });
 
+$("body").on("keyup","#query_proyecto", function(event){
+
+  var query = $(this).val();
+  var option = "";
+  console.log($(this).val());
+
+  if(query!=""){
+
+    $("#results").css("display","block");
+
+      $("#results").css("height","auto");
+    
+    busqueda("buscar_proyecto",query);
+
+
+  }
+
+  event.stopPropagation();
+
+});
+
 
 
 $('body').on('click','a.key_proyecto', function (ev) {
@@ -821,10 +842,12 @@ function busqueda(url,value){
 
     });
 
-     if(results.length>1)
+     if(results.length>1){
        toastr.success(results.length+" "+mensajes.success.proyectos_f);
-     else
+     }
+     else{
        toastr.success(results.length+" "+mensajes.success.proyecto_f);  
+      }
 
      $( "<ul/>", {
       "class": "list-group",
