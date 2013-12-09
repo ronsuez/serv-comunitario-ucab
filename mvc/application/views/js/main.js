@@ -40,7 +40,7 @@ var mensajes = {
   localidad_nf: "Localidad no encontrada.",
   prestador_no_insertado:"No se pudo registrar el prestador",
   localidad_no_insertada:"No se pudo registrar la localidad",
-  select_user: "Debe seleccionar un usuario"
+  select_user: "Debe seleccionar un usuario",
   usuario_no_registrado:"No se pudo registrar el usuario.",
   usuario_no_actualizado: "No se pudo actualziar el usario"
 },
@@ -54,7 +54,7 @@ success:{
   localidad_f: "Localidad  encontrada.",
   localidad_insertada:"La localidad se registro existosamente",
   coordinador:"ahora es el coordinador de la escuela de ",
-  usuario_deshab:"esta deshabilitado"
+  usuario_deshab:"esta deshabilitado",
   usuario_registrado:"El usuario ha sido registrado exitosamente",
   usuario_actualizado: "El usuario ha sido actualizado existosamente"
 

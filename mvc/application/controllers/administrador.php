@@ -28,7 +28,6 @@ class Administrador extends CI_Controller {
 
 		$this->controller="administrador/";
 
-
 		$this->load->model("usuario_model");
 
 		$this->load->model("administrador_model");
@@ -45,7 +44,7 @@ class Administrador extends CI_Controller {
 	public function admin_usuarios()
 	{
 
-		$this->load->view($this->controller.'admin_usuario');
+		$this->load->view($this->controller.'ge_administrador');
 	}
 
 	public function modificar()
@@ -81,25 +80,6 @@ class Administrador extends CI_Controller {
 
 
 	
-	 public function registrar(){
-
-		    $informacion = json_decode($this->input->post('texto'),true);
-
-		    $datos = json_decode($this->input->post('datos'),true);
-
-		    $estado = $this->input->post('estado');
-
-
-		     $array = array_merge($datos, $informacion);
-
-		    $id = $this->proyecto_model->registrar_proyecto($array);
-
-		   // echo $id;
-
-		  	$this->generar_reporte($id,$estado);
-
-
-		   }
 
 
 	public function preparar_datos_reporte($data,$estado){
