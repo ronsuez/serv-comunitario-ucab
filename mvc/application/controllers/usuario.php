@@ -30,6 +30,7 @@ class Usuario extends CI_Controller {
 		$this->controller="usuario/";
 
 		$this->load->model('usuario_model');
+
 	}
 
 
@@ -101,6 +102,7 @@ class Usuario extends CI_Controller {
 
 
 		redirect("/dashboard");
+
 			
 			//echo json_encode(array('status' =>"0"));
 
