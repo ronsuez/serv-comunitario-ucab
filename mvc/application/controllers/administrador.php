@@ -169,6 +169,26 @@ class Administrador extends CI_Controller {
 		echo $salida;
 	}
 
+	public function actualizar_datos_usuario() {
+
+		$datos = array(
+				'cedula' => $this->input->post('cedula'),
+				'pass' => $this->input->post('pass'),
+                'tipo' => $this->input->post('tipo_usuario'),
+                'nombre' => $this->input->post('nombre'),
+                'apellido' => $this->input->post('apellido'),
+                'email' => $this->input->post('email'),
+                'celular' => $this->input->post('celular'),
+                'telefono' => $this->input->post('telefono'),
+                'escuela' => $this->input->post('escuela'));
+
+        $tipo = $this->input->post('tipo_usuario');
+
+		$salida = $this->administrador_model->actualizar_datos_usuario($datos, $tipo);
+
+		echo $salida;
+	}
+
 
 
 }

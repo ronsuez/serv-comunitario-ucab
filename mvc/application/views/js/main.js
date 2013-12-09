@@ -40,7 +40,8 @@ var mensajes = {
   localidad_nf: "Localidad no encontrada.",
   prestador_no_insertado:"No se pudo registrar el prestador",
   localidad_no_insertada:"No se pudo registrar la localidad",
-  usuario_no_registrado:"No se pudo registrar el usuario."
+  usuario_no_registrado:"No se pudo registrar el usuario.",
+  usuario_no_actualizado: "No se pudo actualziar el usario"
 
 },
 success:{
@@ -52,7 +53,8 @@ success:{
   prestador_insertado:"El prestador fue inscrito en el Sistema",
   localidad_f: "Localidad  encontrada.",
   localidad_insertada:"La localidad se registro existosamente",
-  usuario_registrado:"El usuario ha sido registrado exitosamente."
+  usuario_registrado:"El usuario ha sido registrado exitosamente",
+  usuario_actualizado: "El usuario ha sido actualizado existosamente"
 },
 requerido: '*Este es campo es requerido',
 matches: 'The %s field does not match the %s field.',
@@ -111,7 +113,19 @@ var datos_de_proyecto = ["nombre_proyecto",
 "cronograma_proyecto"
 ];
 
+var datos_de_usuario=[
+'ci',
+'pass',
+'tipo_usuario',
+'nombre',
+'apellido',
+'email',
+'celular',
+'telefono',
+'escuela',
+];
 
+var act_datos_usuario = 0;
 
 
 //================================================================//
@@ -348,6 +362,63 @@ $('body').on('click','a.key_prestador', function (ev) {
   });
 
 
+$('body').on('click','a.key_usuario', function (ev) {
+  
+  ev.preventDefault();
+
+  act_datos_usuario = 1;
+
+  if (act_datos_usuario) {
+    $("#boton_usuario").html("Actualizar");
+    $("#titulo_registro").html("Actualizar datos de usuarios");
+
+  }
+
+//imprime en la consola la cedula 
+  var ci = $(this).attr("href");
+
+  var t = $(this).find("span.tipo").text();
+
+  var id_tipo;
+
+    if(t=="CO"){
+          id_tipo="_coord";
+    }else if(t=="PR"){
+          id_tipo="_pr";
+    }
+
+
+
+  $.post("get_info_user",{cedula:ci,tipo:t},function(data){
+
+      var listado = JSON.parse(data)[0];
+      
+      $.each(datos_de_usuario, function(i){
+
+                if(datos_de_usuario[i]==="tipo_usuario"){
+                    console.log(t);
+
+                    $("#tipo_usuario").val(t);
+                }else{
+                    
+              $("#"+datos_de_usuario[i]).val(listado[datos_de_usuario[i]+id_tipo]);                  
+                }
+
+        });
+  });
+
+  //habilitamos la nav de registro 
+    
+    //limpiamos el input y escondemos la busqueda 
+    $("#datos_busqueda").empty();
+
+    $("#id_usuario").val("");
+
+    ev.stopPropagation();
+
+
+  });
+
 
 //================================================================//
 //================================================================//
@@ -423,6 +494,7 @@ function b_consultar_prestador(query,option){
 
 function b_consultar_usuario(query,option){
 
+
   $.post("b_listar_usuario",{q:query,o:option},function(data){
 
     console.log(data); 
@@ -443,7 +515,7 @@ function b_consultar_usuario(query,option){
       var content ="";
 
       $.each(array,function(i){
-        content = content +'<li class="list-group-item"><a class="key_usuario" href="'+ array[i]["cedula"] +' "> '+ array[i]["user"]+'</a></li>';
+        content = content +'<li class="list-group-item"><a class="key_usuario" href="'+ array[i]["cedula"] +' "><span class="tipo">'+array[i]["tipo"]+'</span>:'+array[i]["user"]+'</a></li>';
 
       });
 
@@ -519,6 +591,9 @@ function nav_pestanas_principal(id_pestana,url,texto,tab){
 
     pestana = "inscribir_localidad";
 
+  }else if(url==="gest-usuarios"){
+
+    pestana ="registrar_usuario";
   }
 
   console.log(pestana);
@@ -599,10 +674,8 @@ function nav_tabs(tab){
       url: url,
       success: function (data) {
                   // replace div's content with returned data
-
-                  setTimeout(function() {
                     $(href).html(data);
-                  },1000);
+                  
                 }
 
               });

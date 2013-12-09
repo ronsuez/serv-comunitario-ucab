@@ -136,13 +136,13 @@ public function insertar_datos_usuario($datos){
 
             if($o== "cedula"){
                 $filtro="cedula";
-                  $sql="SELECT cedula, user
+                  $sql="SELECT cedula, user, tipo
                                         FROM usuario
                                         WHERE $filtro=$q";
 
             }else if($o=="user"){
                 $filtro="user";
-                  $sql="SELECT cedula, user
+                  $sql="SELECT cedula, user, tipo
                                         FROM usuario 
                                         WHERE $filtro LIKE '".$q."%'";
             }

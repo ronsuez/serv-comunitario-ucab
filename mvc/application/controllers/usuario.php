@@ -226,6 +226,16 @@ class Usuario extends CI_Controller {
 			}
 	}
 
+	public function get_info_user() {
+
+		$cedula  = $this->input->post('cedula');
+		$tipo = $this->input->post('tipo');
+
+		$salida= $this->usuario_model->get_info_user($cedula,$tipo);
+
+		echo json_encode($salida);
+	}
+
 
 
 }

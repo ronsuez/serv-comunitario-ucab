@@ -11,7 +11,7 @@ form label.error {
 <div class="panel panel-default">
 	
 	<div class="panel-heading">
-		<h3 class="panel-title">Registro de datos de usuarios</h3>
+		<h3 id="titulo_registro" class="panel-title">Registro de datos de usuario</h3>
 	</div>
 
 	<div class="panel-body">
@@ -20,7 +20,7 @@ form label.error {
 
 			<div class="form-group">
 				<label for="cedula">C&eacute;dula</label>
-				<input type="text" name="cedula" id="cedula" class="form-control" placeholder="Introduzca la cedula del nuevo usuario" autofocus>
+				<input type="text" name="cedula" id="ci" class="form-control" placeholder="Introduzca la cedula del nuevo usuario" autofocus>
 			</div>
 
 			<div class="form-group">
@@ -34,7 +34,7 @@ form label.error {
 			</div>
 
 			<div class="form-group">
-				<label for="tipo" id="tipo">Tipo de usuario</label>
+				<label for="tipo_usuario">Tipo de usuario</label>
 				<select id="tipo_usuario" name="tipo_usuario" class="form-control">
 					<option value="">-Seleccione-</option>
 					<option value="CO">Coordinador</option>
@@ -85,7 +85,7 @@ form label.error {
 			</div>
 
 			<br>
-			<button class="btn btn-primary" type="submit">Aceptar</button>
+			<button id="boton_usuario" class="btn btn-primary" type="submit">Registrar</button>
 		</form>
 
 	</div>
@@ -210,21 +210,29 @@ $("#registrar_datos_usuario").submit(function (e) {
 
 	e.preventDefault();
 
+	var ruta = "registrar_datos_usuario";
+
+  if (act_datos_usuario) {
+    ruta = "actualizar_datos_usuario";
+  }
+
 	if ($(this).valid()) {
 		var datos = $(this).serialize();
 
-		$.post("registrar_datos_usuario",datos,
+		$.post(ruta,datos,
 
 			function(data){
 
 				if(data=="0") {
 
-					toastr.success(mensajes.success.usuario_registrado);
+					toastr.success(mensajes.success.usuario_actualizado);
 					resetForm($('#registrar_datos_usuario'));
-
+					act_datos_usuario = 0;
+					$("#boton_usuario").html("Registrar");
+					$("#titulo_registro").html("Registrar datos de usuarios");
 				}
 				else {
-					toastr.error(mensajes.error.usuario_no_registrado);
+					toastr.error(mensajes.error.usuario_no_actualizado);
 
 				}
 			});
