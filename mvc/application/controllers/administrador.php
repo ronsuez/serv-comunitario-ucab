@@ -32,6 +32,8 @@ class Administrador extends CI_Controller {
 
 		$this->load->model("administrador_model");
 
+		$this->load->library('postmark');
+
 	}
 
 
@@ -60,7 +62,7 @@ class Administrador extends CI_Controller {
 		$this->load->view($this->controller.'admin_coordinadores');
 	}
 
-	
+
 	public function registrar_usuario()
 	{
 
@@ -131,6 +133,26 @@ class Administrador extends CI_Controller {
 
 	}
 
+	public function send_mail() {
+
+		//$email = $this->input->post('email');
+
+		$this->postmark->from( 'info@rsuezdev.com', 'adminscaucab' );
+		$this->postmark->to( 'osalbr.14@gmail.com' );
+
+		$this->postmark->subject( 'Email Test' );
+		$this->postmark->message( 'Testing the email class.' );
+
+		$retorno = $this->postmark->send();
+
+		if ($retorno)
+			echo 1;
+		else
+			echo 0;
+
+
+	}
+
 	public function registrar_datos_usuario() {
 
 		$datos = array(
@@ -149,6 +171,10 @@ class Administrador extends CI_Controller {
 		$salida = $this->administrador_model->registrar_datos_usuario($datos, $tipo);
 
 		echo $salida;
+
+		if(!$salida)
+			$this->send_mail();
+
 	}
 
 	public function actualizar_datos_usuario() {
