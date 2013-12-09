@@ -48,8 +48,9 @@ $route['b_listar_usuario'] = 'usuario/listar';
 $route['registrar_usuario'] = 'administrador/registrar_usuario';
 $route['admin_coo'] = 'administrador/admin_coordinadores';
 $route['traer_usuarios'] = 'administrador/ver_usuarios';
-
-
+$route['registrar_datos_usuario'] = 'administrador/registrar_datos_usuario';
+$route['get_info_user'] = 'usuario/get_info_user';
+$route['actualizar_datos_usuario'] = 'administrador/actualizar_datos_usuario';
 
 /*gestion de usuarios*/
 $route['login'] = 'usuario/login_attempt';

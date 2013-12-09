@@ -20,34 +20,43 @@ class Administrador extends CI_Controller {
 
 	private $controller;
 
-		function __construct(){
+	function __construct(){
 
-			parent::__construct();
+		parent::__construct();
 
 			//$this->load->helper('author_helper');
 
-			$this->controller="administrador/";
+		$this->controller="administrador/";
 
+<<<<<<< HEAD
 			$this->load->model("usuario_model");
+=======
+		$this->load->model("administrador_model");
+>>>>>>> a191c64a1751f55318bf2c7256a43b7ea5261e91
 
-		}
+	}
 
 
 	public function index()
 	{
+<<<<<<< HEAD
 	
 		$this->load->view($this->controller.'ge_administrador');
+=======
+
+		$this->load->view($this->controller.'ge_proyecto');
+>>>>>>> a191c64a1751f55318bf2c7256a43b7ea5261e91
 	}
 
 	public function admin_usuarios()
 	{
-	
+
 		$this->load->view($this->controller.'admin_usuario');
 	}
 
 	public function modificar()
 	{
-	
+
 		$this->load->view($this->controller.'modificar');
 	}
 
@@ -61,13 +70,14 @@ class Administrador extends CI_Controller {
 	
 	public function registrar_usuario()
 	{
-	
+
 		$this->load->view($this->controller.'registrar_usuario');
 	}
 	
 
 	public function ver_usuarios()
 	{
+<<<<<<< HEAD
 	 		
 
 			 $salida=$this->usuario_model->traer_usuarios();
@@ -80,18 +90,45 @@ class Administrador extends CI_Controller {
 
 	
 		public function buscar()
-	{
-	 				if($this->input->post('query'))
-	 					$id=$this->input->post('query');
-	 				else
-	 					redirect("/dashboard");
+=======
+		$id2=$this->input->post('id2');
 
-			 		$salida=$this->proyecto_model->buscar_proyectos($id);
-	
-			
-			 echo json_encode($salida);
-		 		
-			 
+		$salida=$this->proyecto_model->listar_datos_coordinador($id2);
+
+
+		echo json_encode($salida);
+
+
+	}
+
+
+	public function ver_proyectos()
+	{
+		$id=$this->input->post('id_proyecto');
+
+		$salida=$this->proyecto_model->listar_proyectos($id,"consultar");
+
+
+		echo json_encode($salida);
+
+
+	}
+
+
+	public function buscar()
+>>>>>>> a191c64a1751f55318bf2c7256a43b7ea5261e91
+	{
+		if($this->input->post('query'))
+			$id=$this->input->post('query');
+		else
+			redirect("/dashboard");
+
+		$salida=$this->proyecto_model->buscar_proyectos($id);
+
+
+		echo json_encode($salida);
+
+
 	}
 
 	 public function registrar(){
@@ -117,34 +154,96 @@ class Administrador extends CI_Controller {
 
 	public function preparar_datos_reporte($data,$estado){
 
-				$array = array("datos"=>$data, "estado"=>$estado);
+		$array = array("datos"=>$data, "estado"=>$estado);
 
 
-			 echo $this->load->view($this->controller."ver_proyecto",$array,TRUE);
+		echo $this->load->view($this->controller."ver_proyecto",$array,TRUE);
 
 	}
-   
+
 
 
 	public function generar_reporte($id = false , $estado = false){
 
 
-				if($this->input->post('id_proyecto')){ 
+		if($this->input->post('id_proyecto')){ 
 
-					$id = $this->input->post('id_proyecto');
-				}
-  
+			$id = $this->input->post('id_proyecto');
+		}
 
-			 $salida=$this->proyecto_model->listar_proyectos($id);
-	
+
+		$salida=$this->proyecto_model->listar_proyectos($id);
+
 		
-			 $this->preparar_datos_reporte($salida,$estado);
-		 		
+		$this->preparar_datos_reporte($salida,$estado);
+
 
 	}
 
 
+<<<<<<< HEAD
+=======
+	public function registrar(){
 
+		$informacion = json_decode($this->input->post('texto'),true);
+
+		$datos = json_decode($this->input->post('datos'),true);
+
+		$estado = $this->input->post('estado');
+
+
+		$array = array_merge($datos, $informacion);
+
+		$id = $this->proyecto_model->registrar_proyecto($array);
+
+		   // echo $id;
+
+		$this->generar_reporte($id,$estado);
+
+
+	}
+
+	public function registrar_datos_usuario() {
+
+		$datos = array(
+				'cedula' => $this->input->post('cedula'),
+				'pass' => $this->input->post('pass'),
+                'tipo' => $this->input->post('tipo_usuario'),
+                'nombre' => $this->input->post('nombre'),
+                'apellido' => $this->input->post('apellido'),
+                'email' => $this->input->post('email'),
+                'celular' => $this->input->post('celular'),
+                'telefono' => $this->input->post('telefono'),
+                'escuela' => $this->input->post('escuela'));
+
+        $tipo = $this->input->post('tipo_usuario');
+
+		$salida = $this->administrador_model->registrar_datos_usuario($datos, $tipo);
+
+		echo $salida;
+	}
+
+	public function actualizar_datos_usuario() {
+
+		$datos = array(
+				'cedula' => $this->input->post('cedula'),
+				'pass' => $this->input->post('pass'),
+                'tipo' => $this->input->post('tipo_usuario'),
+                'nombre' => $this->input->post('nombre'),
+                'apellido' => $this->input->post('apellido'),
+                'email' => $this->input->post('email'),
+                'celular' => $this->input->post('celular'),
+                'telefono' => $this->input->post('telefono'),
+                'escuela' => $this->input->post('escuela'));
+
+        $tipo = $this->input->post('tipo_usuario');
+
+		$salida = $this->administrador_model->actualizar_datos_usuario($datos, $tipo);
+
+		echo $salida;
+	}
+
+>>>>>>> a191c64a1751f55318bf2c7256a43b7ea5261e91
 
 
 }

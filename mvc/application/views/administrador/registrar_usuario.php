@@ -1,26 +1,51 @@
+<style type="text/css">
+
+form label.error {
+	color: #e33241;
+	margin-left: 2px;
+	font-weight: lighter; 
+}
+
+</style>
+
 <div class="panel panel-default">
 	
 	<div class="panel-heading">
-		<h3 class="panel-title">Registro de datos de usuarios</h3>
+		<h3 id="titulo_registro" class="panel-title">Registro de datos de usuario</h3>
 	</div>
 
 	<div class="panel-body">
 		
-		<form name="completar_datos_usuario" id="completar_datos_usuario" action="completar_datos_usuario" method="POST"  action="login" class="">
+		<form name="registrar_datos_usuario" id="registrar_datos_usuario" action="registrar_datos_usuario" method="POST"  action="login" class="">
 
 			<div class="form-group">
-				<label for="tipo" id="tipo">Tipo de usuario</label>
+				<label for="cedula">C&eacute;dula</label>
+				<input type="text" name="cedula" id="ci" class="form-control" placeholder="Introduzca la cedula del nuevo usuario" autofocus>
+			</div>
+
+			<div class="form-group">
+				<label for="pass">Contrase&ntilde;a</label>
+				<input type="password" name="pass" id="pass" class="form-control" placeholder="Introduzca la contrasena que tendra el nuevo usuario">
+			</div>
+
+			<div class="form-group">
+				<label for="conf_pass">Confirmar contrase&ntilde;a</label>
+				<input type="password" name="conf_pass" id="conf_pass" class="form-control" placeholder="Confirmar clave de acceso">
+			</div>
+
+			<div class="form-group">
+				<label for="tipo_usuario">Tipo de usuario</label>
 				<select id="tipo_usuario" name="tipo_usuario" class="form-control">
 					<option value="">-Seleccione-</option>
-					<option value="coordinador">Coordenador</option>
-					<option value="director de escuela">Director de escuela</option>
-					<option value="proyeccion a la comunidad">Proyeccion a la comunidad</option>
+					<option value="CO">Coordinador</option>
+					<option value="DI">Director de escuela</option>
+					<option value="PR">Proyecci&oacute;n a la comunidad</option>
 				</select>
 			</div>
 
 			<div class="form-group">
 				<label for="nombre">Nombre(s)</label>
-				<input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre(s)" autofocus>
+				<input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre(s)">
 			</div>
 			
 			<div class="form-group">
@@ -46,23 +71,179 @@
 			<div class="form-group">
 				<label for="carrera" id="carrera">Escuela</label>
 				<select id="escuela" name="escuela" class="form-control">
-					<option value="">Seleccione</option>
-					<option value="ingenieria informatica">Ingenier&iacute;a Inform&aacute;tica</option>
-					<option value="ingenieria civil">Ingenier&iacute;a Civil</option>
-					<option value="ingenieria industrial">Ingenier&iacute;a Industrial</option>
-					<option value="comunicacion social">Comunicaci&oacute;n Social</option>
-					<option value="administracion">Administraci&oacute;n</option>
-					<option value="contaduria">Contadur&iacute;a</option>
-					<option value="relaciones industriales">Relaciones Industriales</option>
-					<option value="educacion">Educaci&oacute;n</option>
-					<option value="derecho">Derecho</option>
+					<option value="">-Seleccione-</option>
+					<option value="Ingenieria informatica">Ingenier&iacute;a Inform&aacute;tica</option>
+					<option value="Ingenieria civil">Ingenier&iacute;a Civil</option>
+					<option value="Ingenieria industrial">Ingenier&iacute;a Industrial</option>
+					<option value="Comunicacion social">Comunicaci&oacute;n Social</option>
+					<option value="Administracion">Administraci&oacute;n</option>
+					<option value="Contaduria">Contadur&iacute;a</option>
+					<option value="Relaciones industriales">Relaciones Industriales</option>
+					<option value="Educacion">Educaci&oacute;n</option>
+					<option value="Derecho">Derecho</option>
 				</select>
 			</div>
 
 			<br>
-			<button class="btn btn-lg btn-primary btn-block" type="submit">Aceptar</button>
+			<button id="boton_usuario" class="btn btn-primary" type="submit">Registrar</button>
 		</form>
 
 	</div>
 
 </div>
+
+
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+	$('#carrera').css("display","none");
+	$('#escuela').css("display","none");
+	$("#tipo_usuario").on("change",function() {
+		console.log($(this).val());
+		if($(this).val()==="PR") {
+			$("#carrera").fadeOut(1000);
+			$("#escuela").fadeOut(1000);
+		}
+		else{
+			$("#carrera").fadeIn(1000);
+			$("#escuela").fadeIn(1000);
+			
+		}
+	});
+
+	//funcionalidad para la regla alfebetica
+	jQuery.validator.addMethod("alpha", function(value, element) {
+		return this.optional(element) || value == value.match(/^[a-zA-Z ]+$/);
+	},"Solo caracteres (Aa-Zz).");
+
+	$("#registrar_datos_usuario").validate({
+
+		rules: {
+			cedula: {
+				required: true,
+				number: true,
+				maxlength: 8,
+				minlength: 6,
+			},
+			pass: {
+				required: true,
+			}, 
+			conf_pass:{
+				required: true,
+				equalTo: "#pass"
+			},
+			nombre: {
+				required: true,
+				alpha:true
+			},
+			apellido :{
+				required: true,
+				alpha:true
+			},
+			email :{
+				required: true,
+				email: true
+			},
+			celular:{
+				required: true,
+				number: true,
+				maxlength:11,
+				minlength:11
+			},
+			telefono:{
+				required: true,
+				number: true,
+				maxlength:11,
+				minlength:11
+			}
+		},
+
+		messages:{
+			cedula: {
+				required: mensajes.reglas.requerido,
+				number: mensajes.reglas.numerico,
+				minlength: mensajes.reglas.minimo,
+				maxlength: mensajes.reglas.maximo
+
+			},
+			pass: {
+				required: mensajes.reglas.requerido
+			},
+			conf_pass:{
+				required: mensajes.reglas.requerido,
+				equalTo: mensajes.reglas.equalTo
+			},
+			nombre : {
+				required: mensajes.reglas.requerido
+
+			},
+			apellido :{
+				required: mensajes.reglas.requerido
+
+			},
+			email : {
+				required: mensajes.reglas.requerido,
+				email: mensajes.reglas.email
+
+			},
+			celular: {
+				required: mensajes.reglas.requerido,
+				number: mensajes.reglas.numerico,
+				minlength: mensajes.reglas.minimo_tlf,
+				maxlength: mensajes.reglas.maximo_tlf
+
+			},
+			telefono: {
+				required: mensajes.reglas.requerido,
+				number: mensajes.reglas.numerico,
+				minlength: mensajes.reglas.minimo,
+				maxlength: mensajes.reglas.maximo
+
+			}
+		}
+
+	});
+
+$("#registrar_datos_usuario").submit(function (e) {
+
+	e.preventDefault();
+
+	var ruta = "registrar_datos_usuario";
+
+  if (act_datos_usuario) {
+    ruta = "actualizar_datos_usuario";
+  }
+
+	if ($(this).valid()) {
+		var datos = $(this).serialize();
+
+		$.post(ruta,datos,
+
+			function(data){
+
+				if(data=="0") {
+
+					toastr.success(mensajes.success.usuario_actualizado);
+					resetForm($('#registrar_datos_usuario'));
+					act_datos_usuario = 0;
+					$("#boton_usuario").html("Registrar");
+					$("#titulo_registro").html("Registrar datos de usuarios");
+				}
+				else {
+					toastr.error(mensajes.error.usuario_no_actualizado);
+
+				}
+			});
+
+	} 
+	else {
+		toastr.error(mensajes.error.form_nv);
+	}
+
+});
+
+});
+
+</script>

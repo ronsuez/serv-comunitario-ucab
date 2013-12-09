@@ -17,6 +17,7 @@
    			 	$menu='<li class="active"><a id="pestana-usuarios" href="ge_administrador">Usuarios</a>';
    			 	$menu.='<li class=""><a id="pestana-historial" href="ver-historial">Historial</a></li>';
    			 	$menu.='<li class=""><a id="pestana-config" href="config">Configuracion</a></li>';
+   			 	$escuela = " ";
    			 
    			 }else{
 
