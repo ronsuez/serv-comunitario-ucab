@@ -107,7 +107,7 @@ form label.error{
           </div>  
           <div class="form-group">
             <label for="">Carrera</label>
-            <select id="escuela_prestador" name="carrera" class="form-control">
+            <select id="escuela_prestador" name="escuela" class="form-control">
               <option value="">Seleccione</option>
               <option value="ingenieria informatica">Ingenier&iacute;a Inform&aacute;tica</option>
               <option value="ingenieria civil">Ingenier&iacute;a Civil</option>

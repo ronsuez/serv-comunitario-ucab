@@ -73,7 +73,6 @@ $route['gest-prestador']="prestador/index";
 $route['insertar_prestador']="prestador/insertar";
 $route['consultar_prestador']="prestador/consultar";
 $route['asignar_proyecto']="prestador/asignar_pro";
-$route['hola']="prestador/hola";
 $route['consultar_datos_prestador']="prestador/ver_datos_personales";
 $route['insertar_datos_prestador']="prestador/insertar_datos_prestador";
 $route['listar_p_x_proy']="prestador/listar_x_proyecto";

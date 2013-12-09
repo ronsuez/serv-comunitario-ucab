@@ -86,11 +86,11 @@ class Prestador extends CI_Controller {
                 'email' => $this->input->post('email'),
                 'celular' => $this->input->post('telefono_cel'),
                 'telefono' => $this->input->post('telefono_hab'),
+                'direccion' => $this->input->post('direccion'),
                 'expediente' => $this->input->post('expediente'),
-                'escuela' => $this->input->post('carrera'),
-                'semestre' => $this->input->post('semestre'),
-                'mencion' => "1",
-                'direccion' => $this->input->post('direccion'));
+                'escuela' => $this->input->post('escuela'),
+                'mencion' => $this->input->post('mencion'),
+                'semestre' => $this->input->post('semestre'));
 
 
 		$salida=$this->prestador_model->insertar_datos($datos);

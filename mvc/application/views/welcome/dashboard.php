@@ -249,8 +249,7 @@ body {
 					<h1>Bienvenido al Sistema de Gestion de Servicio Comunitario</h1>
 
 					<div id="body" class="row">
-						<div id="about" class="col-xs-6
-						">
+						<div id="about" class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
 							<p>
 								El sistema permite la administración de los proyectos y prestadores de servicio comunitario
 								de la Universidad Católica Andrés Bello.</p>
@@ -278,24 +277,6 @@ body {
 									EL repositorio de Servcom-UCAB esta disponible en <a href="https://github.com/ronsuez/serv-comunitario-ucab" target="_blank">Servcom-ucab</a>.							
 								</p>
 							</div>
-
-
-								<button id="consultar_p" type="button" class="button-consultar pull-right btn btn-success" data-loading-text="Generando reporte" >Ir a consultar proyecto</button>
-
-								<button id="ver_pre" type="button" class="button-consultar pull-right btn btn-success" data-loading-text="Generando reporte" >Ir a consultar prestador</button>
-
-							<div id="botones" class="row col-xs-3 col-md-3 col-lg-3 col-md-offset-1 col-xs-offset-1">
-								<br>
-								<br>
-								<br>
-								<button id="consultar_p" type="button" class="button-consultar btn btn-success" data-loading-text="Generando reporte" >Ir a consultar prestador</button>
-								<br>
-								<br>
-								<button id="ver_pre" type="button" class="button-consultar btn btn-success" data-loading-text="Generando reporte" >Ir a consultar prestador</button>
-								<br>
-								<br>
-								<a href="completar_datos_usuario" class="button-consultar btn btn-success">Completar mis datos</a>
-							<div>
 				
 					</div>
 
