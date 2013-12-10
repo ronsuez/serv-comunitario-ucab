@@ -137,9 +137,9 @@
 
 	<div id="firmas">
 		<h3>Validación del Proyecto</h3>
-		<div>Coordinador Servicio Comunitario Escuela</div>
-		<div>Coordinador Servicio Proyección a la Comunidad</div>
-		<div>Responsable por la Comunidad</div>
+		<div class="pull-left">Coordinacion de Servicio Comunitario  escuela</div>
+		<div class="pull-right">Coordinador de Proyección a la Comunidad</div>
+		<div class="clear">Responsable por la Comunidad</div>
 	</div>
 
 </div>

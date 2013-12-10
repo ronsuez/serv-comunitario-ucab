@@ -133,16 +133,24 @@ class Prestador extends CI_Controller {
 	public function consultar_proyectos_inscritos(){
 
 		$ci_prestador = $this->input->post('ci');
+		$option = $this->input->post('option');
 
 		$salida= $this->prestador_model->buscar_proyectos_prestador($ci_prestador);
 
 		if ($salida!="-1"){
-			echo json_encode($salida);
+
+			if($option=="1"){
+				echo json_encode($salida);	
+			}else{
+				echo "0"; //tiene proyectos asignados
+			}
+			
 		}else{
-			echo "-1";
+			echo "-1";//no tiene proyectos asignados
 		}
 
 	}
+
 	
 	public function verdetalles(){
 
@@ -180,9 +188,11 @@ class Prestador extends CI_Controller {
 	}
 	//-----------------------------funciones de asignar proyecto.php
 	public function ver_datos_asesor(){
-		$id=$this->input->post('cedula_asesor');
+		$query  = $this->input->post('q');
+		$option = $this->input->post('o');
+		//$id=$this->input->post('cedula_asesor');
 		
-		$salida=$this->prestador_model->listar_datos_asesor($id);
+		$salida=$this->prestador_model->listar_datos_asesor($query,$option);
 		if($salida == -1){
 			echo "No se encontro";
 		}else{

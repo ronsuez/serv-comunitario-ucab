@@ -59,7 +59,7 @@ class Administrador extends CI_Controller {
 	public function admin_coordinadores()
 	{
 	
-		$this->load->view($this->controller.'admin_usuario');
+		$this->load->view($this->controller.'admin_coordinadores');
 	}
 
 
@@ -133,22 +133,22 @@ class Administrador extends CI_Controller {
 
 	}
 
-	public function send_mail($email,$titulo,$cuerpo) {
 
-		//$email = $this->input->post('email');
+	public function send_mail($email,$title,$html) {
 
-		$this->postmark->from( 'info@rsuezdev.com', 'adminscaucab' );
-		$this->postmark->to( $email );
+		$this->postmark->from( 'info@rsuezdev.com', 'servcom-ucab' );
+		$this->postmark->to($email);
 
-		$this->postmark->subject($titulo );
-		$this->postmark->message( $cuerpo );
+		$this->postmark->subject($title);
+		$this->postmark->message($html);
+
 
 		$retorno = $this->postmark->send();
 
 		if ($retorno)
-			echo 1;
+			return 1;
 		else
-			echo 0;
+			return 0;
 
 
 	}
@@ -170,10 +170,20 @@ class Administrador extends CI_Controller {
 
 		$salida = $this->administrador_model->registrar_datos_usuario($datos, $tipo);
 
-		echo $salida;
+		if(!$salida){
 
-		if(!$salida)
-			$this->send_mail();
+			if($this->send_mail()){
+
+				echo "0";
+			}else
+			{
+				echo "-1";
+			}
+		}else
+			{
+				echo "-1";
+		}
+			
 
 	}
 
@@ -213,8 +223,12 @@ class Administrador extends CI_Controller {
 
 		$cedula = $this->input->post('ci');
 
+		
+		$msg = "Se deshabilito el usuario".$cedula;
+
 		$salida = $this->administrador_model->deshabilitar_coord($cedula);
 
+<<<<<<< HEAD
 			 if(send_mail('rsuez93@gmail.com','usuario deshabilitado','fueiste deshabilitado') ){
 
 			 	echo $salida;
@@ -223,6 +237,21 @@ class Administrador extends CI_Controller {
 			 }
 
 		
+=======
+		if(!$salida){
+
+			if($this->send_mail("rsuez93@gmail.com","usuario deshab",$msg)){
+
+				echo "0";
+			}else
+			{
+				echo "-1";
+			}
+		}else
+			{
+				echo "-1";
+		}
+>>>>>>> 69c64e3db4b608ee111840e6f2bc4854506896dd
 
 	}
 }

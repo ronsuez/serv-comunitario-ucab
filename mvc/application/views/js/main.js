@@ -105,6 +105,26 @@ var datos_de_prestador=[
 ];
 
 
+var main_datos={
+
+        prestador : {
+          cedula : "",
+          nombre : "",
+          apellido : "",
+          expediente : "",
+          escuela : "",
+          email : "",
+          telefono: "",
+          celular: "",
+          direccion: "",
+          mencion: "",
+          semestre: "",
+        }
+        
+};
+
+
+
 var datos_de_proyecto = ["nombre_proyecto",
 "fecha_ini",
 "estado_proyecto",
@@ -134,6 +154,7 @@ var datos_de_usuario=[
 ];
 
 var act_datos_usuario = 0;
+var prestador_tiene_proyectos=0;
 
 
 //================================================================//
@@ -435,6 +456,8 @@ $('body').on('click','a.key_prestador', function (ev) {
 
   console.log($(this).attr("href"));
 
+  var cedula=$(this).attr("href");
+
   $.post("consultar_datos_prestador",{id:$(this).attr("href")},function(data){
 
     var estado =JSON.parse(data)["estado"];
@@ -444,15 +467,36 @@ $('body').on('click','a.key_prestador', function (ev) {
 
     console.log(JSON.parse(data));
 
+     //almaceno la cedula del usuario para realizar operaciones sobre el 
+      main_datos.prestador.cedula=listado["ci_prestador"];
+      main_datos.prestador.nombre=listado["nombre_prestador"];
+      main_datos.prestador.apellido=listado["apellido_prestador"];
+      main_datos.prestador.expediente=listado["no_exp_prestador"];
+      main_datos.prestador.telefono=listado["telefono_prestador"];
+      main_datos.prestador.email=listado["email_prestador"];
+      main_datos.prestador.celular=listado["celular_prestador"];
+      main_datos.prestador.direccion=listado["direccion_prestador"];
+      main_datos.prestador.mencion=listado["mencion_prestador"];
+      main_datos.prestador.semestre=listado["semestre_prestador"];
+      main_datos.prestador.escuela=listado["escuela_prestador"];
+
+
     $.each(datos_de_prestador, function(i){
 
      $("#"+datos_de_prestador[i]).val(listado[datos_de_prestador[i]]);
 
 
    });
-    toastr.success(mensajes.success.prestador_datos_cargados);  
+    show_messages("success",mensajes.success.prestador_datos_cargados);
+    
 
   });
+
+//consulto si el prestador tiene proyectos asociados , 
+ // si tiene , se esconde la pestana asignar proyetcor
+
+
+    listar_proyecto(cedula,0);
 
     //limpiamos el input y escondemos la busqueda 
     $("#datos_busqueda").empty();
@@ -522,6 +566,47 @@ $('body').on('click','a.key_usuario', function (ev) {
 
   });
 
+$("body").on("keyup","#b_asesor", function(event){
+  var query = $(this).val();
+  var option = "";
+  console.log($(this).val());
+
+  if(query!=""){
+    if ($.isNumeric(query)){
+      console.log(query+"input was 0-9");
+      option = "cedula";
+      b_consultar_asesor(query,option);
+    } else{
+      console.log(query+"input was a-z");
+      option = "nombre";
+      b_consultar_asesor(query,option);
+    }
+  }
+
+  event.stopPropagation();
+
+});
+
+$('body').on('click','a.key_asesor', function (ev) {
+  ev.preventDefault();
+
+  console.log($(this).attr("href"));
+
+  var cedula=$(this).attr("href");
+  $.post("consultar_datos_asesor",{q:$(this).attr("href"),o:'cedula'},function(data){
+      var estado =JSON.parse(data)["estado"]; 
+        console.log(JSON.parse(data));
+        if(estado == -1){
+          toastr.error("Asesor no encontrado");
+        }else{
+          toastr.success("Asesor encontrado");
+          var datos_personales =JSON.parse(data)[0];
+          $("#nombre_asesor_res").val(datos_personales.nombre_asesor);
+          $("#apellido_asesor_res").val(datos_personales.apellido_asesor);
+        }
+      });
+});
+
 
 //================================================================//
 //================================================================//
@@ -550,6 +635,50 @@ $('body').on('click','a.key_usuario', function (ev) {
 //================================================================//
 //================================================================//
 
+//#############buscar asesor############################################################
+
+//funcion keyup para asesor
+function b_consultar_asesor(query,option){
+  alert(option);
+  $.post("consultar_datos_asesor",{q:query,o:option},function(data){
+
+    console.log(data); 
+    
+    if(data!="-1"){
+
+
+      
+      var array=JSON.parse(data);
+
+      console.log(array.length);
+      
+      if (array.length === 1) 
+        toastr.success(array.length+" "+mensajes.success.asesor_f);
+      else
+        toastr.success(array.length+" "+mensajes.success.asesores_f);
+      
+      var content ="";
+
+      $.each(array,function(i){
+        content = content +'<li class="list-group-item"><a class="key_asesor" href="'+ array[i]["ci_asesor"] +' "> '+ array[i]["nombre_asesor"]+' '+array[i]["apellido_asesor"]+' '+array[i]["ci_asesor"]+'</a></li>';
+
+      });
+
+      
+
+      $("#busqueda_asesor").html("<ul class='list-group'>"+content+"</ul>");
+
+    }else{
+
+      $("#busqueda_asesor").html('<div class="no-results">No se encontraron resultados</div>');
+      
+
+    }   
+
+  });
+}
+
+//final asesor##################################################################################################
 
 
 
@@ -568,9 +697,10 @@ function b_consultar_prestador(query,option){
       console.log(array.length);
       
       if (array.length === 1) 
-        toastr.success(array.length+" "+mensajes.success.prestador_f);
+        show_messages("success",array.length+" "+mensajes.success.prestador_f);
       else
-        toastr.success(array.length+" "+mensajes.success.prestadores_f);
+        show_messages("success",array.length+" "+mensajes.success.prestadores_f);
+    
       
       var content ="";
 
@@ -845,7 +975,7 @@ function listar_prestadores_x_proy(id){
 
       if(listado==="-1"){
 
-       toastr.error(mensajes.error.prestador_pnf);
+        show_messages("error",mensajes.error.prestador_pnf);
 
        $(content).html('<span class="no-results">No se encontraron resultados</span>');
 
@@ -862,9 +992,9 @@ function listar_prestadores_x_proy(id){
       });
 
        if(results.length>1)
-         toastr.success(results.length+" "+mensajes.success.prestadores_f);
+        show_messages("success",results.length+" "+mensajes.success.prestadores_f);
        else
-         toastr.success(results.length+" "+mensajes.success.prestador_f); 
+        show_messages("success",results.length+" "+mensajes.success.prestador_f);
 
        $( "<ul/>", {
         "class": "list-group",
@@ -925,10 +1055,10 @@ function busqueda(url,value){
     });
 
      if(results.length>1){
-       toastr.success(results.length+" "+mensajes.success.proyectos_f);
+        show_messages("success",results.length+" "+mensajes.success.proyectos_f);
      }
      else{
-       toastr.success(results.length+" "+mensajes.success.proyecto_f);  
+        show_messages("success",results.length+" "+mensajes.success.proyecto_f);
       }
 
      $( "<ul/>", {
@@ -945,7 +1075,8 @@ function busqueda(url,value){
    
  }else{
 
-  toastr.warning(mensajes.error.campo_vacio);
+  show_messages("warning",mensajes.error.campo_vacio);
+  
 
   $("div#search_results").html('<span class="no-results">No envies campos vacios</span>');
 
@@ -992,8 +1123,72 @@ function generar_reporte(url,estado,key){
 }
 
 
+function listar_proyecto(cedula,op){
+    
+
+    $.post("b_proyecto_prestador",{ci:cedula,option:op},function(data){
 
 
+        if(data!="-1"){
+
+
+              show_messages("success","Este prestador tiene un proyecto asignado");
+
+              prestador_tiene_proyectos=1;
+
+              if(op){ //si quiero listar sus proyectos
+
+
+              var array=JSON.parse(data);
+
+              var content ='<option value="">Seleccione </option>';
+
+              $.each(array,function(i){
+                content = content +'<option value="'+ array[i]["id_proyecto"] +'"> '+ array[i]["nombre_proyecto"]+'</option>';
+
+              });
+
+              $("#l_proyectos").html(content);
+             } 
+    
+  }else{
+
+
+     
+      show_messages("warning","Este prestador no tiene proyectos asignados");
+
+
+      prestador_tiene_proyectos=0;
+
+  }
+
+    //defino las pestanas para el prestador
+    if(!prestador_tiene_proyectos){
+
+         $("div [href='#asignar_pro']").show();
+      }else{
+         $("div [href='#asignar_pro']").hide();
+
+      }
+
+
+   });
+
+    
+}
+
+
+
+function mostrar_opciones(){
+
+      if(!prestador_tiene_proyectos){
+
+         $("div [href='#asignar_pro']").show();
+      }else{
+         $("div [href='#asignar_pro']").hide();
+
+      }
+}
 
 //fin-archivo
 
