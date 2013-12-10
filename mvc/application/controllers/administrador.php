@@ -133,15 +133,15 @@ class Administrador extends CI_Controller {
 
 	}
 
-	public function send_mail() {
+	public function send_mail($email,$titulo,$cuerpo) {
 
 		//$email = $this->input->post('email');
 
 		$this->postmark->from( 'info@rsuezdev.com', 'adminscaucab' );
-		$this->postmark->to( 'osalbr.14@gmail.com' );
+		$this->postmark->to( $email );
 
-		$this->postmark->subject( 'Email Test' );
-		$this->postmark->message( 'Testing the email class.' );
+		$this->postmark->subject($titulo );
+		$this->postmark->message( $cuerpo );
 
 		$retorno = $this->postmark->send();
 
@@ -215,7 +215,14 @@ class Administrador extends CI_Controller {
 
 		$salida = $this->administrador_model->deshabilitar_coord($cedula);
 
-		echo $salida;
+			 if(send_mail('rsuez93@gmail.com','usuario deshabilitado','fueiste deshabilitado') ){
+
+			 	echo $salida;
+			 }else{
+			 	echo "-1"; // no se pudo enviar el correo
+			 }
+
+		
 
 	}
 }
