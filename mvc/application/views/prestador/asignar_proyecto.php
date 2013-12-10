@@ -1,29 +1,7 @@
 <style>
 
 
-  #cont{
-
-    width:100%;
-    height:200px;
-   
-  }
-
-  #foto{
-    margin-top: 20px;
-
-    float:left;
-    
-    margin-right: 20px;
-  }
-
-
-  #info{
-    margin-top: 20px;
-  float: right;
-  width:70%;
   
-
-  }
 
   .form-control1 {
   display: block;
@@ -66,88 +44,11 @@ button a:hover{
 
 
 <div class="container">
-      <div id="cont">
-      
-      <div id="foto">
-        <img  style="width: 140px; height: 140px;" src="http://1120.gogiro.com/wp-content/uploads/2012/04/facebook-profile-picture-no-pic-avatar.jpg" alt="Avatar" class="img-thumbnail">
-
-      </div>
-
-      <div id="info">
-        <form class="form-inline" role="form">
-          <fieldset disabled>
-            <div class="form-group">
-              <label>Nombre</label>
-              <input type="text" id="nombre_prestador" class="form-control" placeholder="Nombre del Alumno">
-              <label>Apellido</label>
-              <input type="text" id="apellido_prestador" class="form-control" placeholder="Apellido del Alumno">
-            </div>
-          </fieldset>
-        </form>
-      </div>
-
-      
-
-
-    </div>
+     
 
       <br><br>
 
-   <div id="cont1">       
-  
-    <div class="panel-group" id="accordion">
-    <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-           Datos Personales
-        </a>
-      </h4>
-    </div>
-    <div id="collapseOne" class="panel-collapse collapse in">
-      <div class="panel-body">
-        
-
-            <ul>
-                <li>Cedula : <span id="cedula_prestador"></span></li>
-                <li>Telefono :<span id="telefono_prestador"></span></li>
-                <li>Email :<span id="email_prestador"></span></li>
-                <li>Celular :<span id="celular_prestador"></span></li>
-                <li>Direccion :<span id="direccion_prestador"></span></li>
-            </ul>
-
-      </div>
-    </div>
-  </div>
-
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-          Datos Academicos
-        </a>
-      </h4>
-    </div>
-    <div id="collapseTwo" class="panel-collapse collapse in">
-      <div class="panel-body">
-       
-            
-         <ul>
-                <li>Nro. Expendiente : <span id="nro_exp_prestador"></span></li>
-                <li>Escuela :<span id="escuela_prestador"></span></li>
-                <li>Mencion :<span id="mencion_prestador"></span></li>
-                <li>Semestre :<span id="semestre_prestador"></span></li>
-            </ul>
-
-
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-</br></br>
-						
-									<div class="panel panel-default">
+						<div class="panel panel-default">
 
 											<div class="panel-heading">
 											  <h3 class="panel-title">Buscar Asesor</h3>
@@ -155,12 +56,13 @@ button a:hover{
 											<div class="panel-body">
 											  
 											  <div class="input-group input-group-sm">
-												<input id="cedula_asesor" type="text" class="form-control" placeholder="Introduzca cédula del Asesor"></input>
+												<input id="b_asesor" type="text" class="form-control" placeholder="Introduzca cédula del Asesor"></input>
 												<span class="input-group-btn">
 												  <button id="consultar_asesor" class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
 												</span>
 											  </div><!-- /input-group -->
-
+												<div id="busqueda_asesor">
+												</div>
 
 											</div>
 
@@ -336,11 +238,12 @@ button a:hover{
 		<div class="result-search panel-body">
 		
 			<div class="input-group input-group-sm">
-                <input id="nombre_proyecto" type="text" class="form-control" placeholder="Nombre del proyecto"></input>
+                <input id="query_proyecto" type="text" class="form-control" placeholder="Nombre del proyecto"></input>
                 <span class="input-group-btn">
                   <button id="buscar_proyecto" class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
                 </span>
-              </div><!-- /input-group -->
+              </div>
+             <div id="l_proyectos2"></div> <!-- /input-group -->
 		</br>
 
 			

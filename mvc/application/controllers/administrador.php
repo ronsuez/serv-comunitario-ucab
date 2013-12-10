@@ -221,11 +221,14 @@ class Administrador extends CI_Controller {
 
 		$cedula = $this->input->post('ci');
 
+		
+		$msg = "Se deshabilito el usuario".$cedula;
+
 		$salida = $this->administrador_model->deshabilitar_coord($cedula);
 
 		if(!$salida){
 
-			if($this->send_mail()){
+			if($this->send_mail("rsuez93@gmail.com","usuario deshab",$msg)){
 
 				echo "0";
 			}else

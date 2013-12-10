@@ -31,14 +31,7 @@ form label.error{
 
   <div class="container">
 
-    
-      <div id="cont">
-      
-      <div id="foto">
-        <img  style="width: 140px; height: 140px;" src="http://1120.gogiro.com/wp-content/uploads/2012/04/facebook-profile-picture-no-pic-avatar.jpg" alt="Avatar" class="img-thumbnail">
-      </div>      
-    </div>
-
+  
   <div class="panel-group" id="accordion-datos-prestador">
      
     <form name="form-prestador" id="form-prestador" action="#" method="POST">
@@ -51,7 +44,7 @@ form label.error{
            </a>
       </div>
 
-    <div id="collapseOne" class="panel-collapse collapse ">
+    <div id="collapseOne" class="panel-collapse collapse in">
         <div class="panel-body">
 
           <div class="form-group">
@@ -98,7 +91,7 @@ form label.error{
         </div>
 
 
-    <div id="collapseTwo" class="panel-collapse collapse ">
+    <div id="collapseTwo" class="panel-collapse collapse in">
 
         <div class="panel-body">
           <div class="form-group">

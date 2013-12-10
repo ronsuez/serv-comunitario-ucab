@@ -24,6 +24,7 @@
     
   <link href="<?php echo base_url() ; ?>application/views/css/toastr.css" rel="stylesheet">
     
+      <link href="<?php echo base_url() ; ?>application/views/css/main.css" rel="stylesheet">
     
     <!-- Le javascript
     ================================================== -->

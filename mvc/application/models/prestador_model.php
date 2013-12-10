@@ -195,33 +195,33 @@
 
 
             //--------------------------------------------------------
-    public function listar_datos_asesor($cedula){
+  public function listar_datos_asesor($q,$o){
 
-        /* Query Datos Personales  */
-        $query1 = $this->db->query("SELECT ci_asesor, nombre_asesor, apellido_asesor, email_asesor, celular_asesor, telefono_asesor, direccion_asesor
-            FROM  asesor
-            WHERE ci_asesor = $cedula");
+            /* Query Datos Personales  */         
+            if($o== "cedula"){
+                $filtro="ci_asesor";
+                  $sql="SELECT ci_asesor, nombre_asesor, apellido_asesor
+                                        FROM asesor 
+                                        WHERE $filtro=$q";
 
+            }else if($o=="nombre"){
+                $filtro="nombre_asesor";
+                  $sql="SELECT ci_asesor, nombre_asesor, apellido_asesor
+                                        FROM asesor
+                                        WHERE $filtro LIKE '".$q."%'
+                                        OR apellido_asesor LIKE '".$q."%'";
+            }
 
+            $query = $this->db->query($sql);
 
+            if($query->num_rows()>0){
 
-        if ($query1->num_rows() > 0)
-        {
+                return $query->result_array();
+            }else{
 
-            $salida =  array('estado'=>"1",'datos_personales' =>$query1->result_array());
-
-
-            return $salida;
-            
-        }else{
-
-            $salida =  array('estado' =>"-1");    
-
-            return $salida;
+                return "-1";
+            }        
         }
-
-        
-    }
 
 
     public function verificar_estado_proyecto($nombre_proy,$cedula_asesor){

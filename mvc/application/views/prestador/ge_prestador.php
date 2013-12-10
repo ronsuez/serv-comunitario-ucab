@@ -3,6 +3,7 @@
 
 $(document).ready(function() {
 
+    //$("div [href='#asignar_pro']").hide();
 
 });
 
@@ -38,19 +39,46 @@ $(document).ready(function() {
 
                 </div>
 
+
+  <div id="data-re-prestador">
+      
+      <div id="foto">
+        <img  style="width: 140px; height: 140px;" src="http://1120.gogiro.com/wp-content/uploads/2012/04/facebook-profile-picture-no-pic-avatar.jpg" alt="Avatar" class="img-thumbnail">
+
+      </div>
+
+      <div id="info">
+        <form class="form-inline" role="form">
+          <fieldset disabled>
+            <div class="form-group">
+              <label>Nombre</label>
+              <input type="text" id="nombre_prestador" class="form-control" placeholder="Nombre del Alumno">
+              <label>Apellido</label>
+              <input type="text" id="apellido_prestador" class="form-control" placeholder="Apellido del Alumno">
+            </div>
+          </fieldset>
+        </form>
+      </div>
+        
             </div>
 
 
   </div>
 
 
+
+      
+
+
+    </div>
+
 <!-- listado de tabs -->
 
 <div class="header">
   <h1>Gestión de Prestadores</h1>
   <ul class="pestanas nav nav-tabs" id="myTab">
-    <li class=""><a href="#inscribir_prestador" data-url="insertar_prestador" >Inscribir</a></li>
-    <li class=""><a href="#consultar_pre" data-url="consultar_prestador">Consultar/Modificar</a></li>
+    <li class=""><a href="#inscribir_prestador" data-url="insertar_prestador" >Inscribir/Modificar</a></li>
+    <li class=""><a href="#consultar_pre" data-url="consultar_prestador">Consultar proyecto</a></li>
     <li class=""><a href="#asignar_pro" data-url="asignar_proyecto">Asignar Proyecto</a></li>
   </ul>
 </div>
