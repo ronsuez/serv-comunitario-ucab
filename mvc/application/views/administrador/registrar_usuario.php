@@ -24,6 +24,11 @@ form label.error {
 			</div>
 
 			<div class="form-group">
+				<label for="cedula">Username</label>
+				<input type="text" name="user" id="user" class="form-control" placeholder="Introduzca el username del nuevo usuario" autofocus>
+			</div>
+
+			<div class="form-group">
 				<label for="pass">Contrase&ntilde;a</label>
 				<input type="password" name="pass" id="pass" class="form-control" placeholder="Introduzca la contrasena que tendra el nuevo usuario">
 			</div>
@@ -72,13 +77,13 @@ form label.error {
 				<label for="carrera" id="carrera">Escuela</label>
 				<select id="escuela" name="escuela" class="form-control">
 					<option value="">-Seleccione-</option>
-					<option value="Ingenieria informatica">Ingenier&iacute;a Inform&aacute;tica</option>
-					<option value="Ingenieria civil">Ingenier&iacute;a Civil</option>
-					<option value="Ingenieria industrial">Ingenier&iacute;a Industrial</option>
-					<option value="Comunicacion social">Comunicaci&oacute;n Social</option>
+					<option value="Ingenieria Informatica">Ingenier&iacute;a Inform&aacute;tica</option>
+					<option value="Ingenieria Civil">Ingenier&iacute;a Civil</option>
+					<option value="Ingenieria Industrial">Ingenier&iacute;a Industrial</option>
+					<option value="Comunicacion Social">Comunicaci&oacute;n Social</option>
 					<option value="Administracion">Administraci&oacute;n</option>
 					<option value="Contaduria">Contadur&iacute;a</option>
-					<option value="Relaciones industriales">Relaciones Industriales</option>
+					<option value="Relaciones Industriales">Relaciones Industriales</option>
 					<option value="Educacion">Educaci&oacute;n</option>
 					<option value="Derecho">Derecho</option>
 				</select>

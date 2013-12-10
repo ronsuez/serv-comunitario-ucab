@@ -27,7 +27,7 @@
 
 			$query = $this->db->insert('usuario', array(
 				'cedula' => $datos["cedula"],
-				'user' => $datos["nombre"],
+				'user' => $datos["user"],
 				'contrasena' => $datos["pass"],
 				'tipo' => $datos["tipo"]));
 		}
@@ -44,7 +44,7 @@
 
 			$query = $this->db->insert('usuario', array(
 				'cedula' => $datos["cedula"],
-				'user' => $datos["nombre"],
+				'user' => $datos["user"],
 				'contrasena' => $datos["pass"],
 				'tipo' => $datos["tipo"]));
 		}
@@ -60,7 +60,7 @@
 
 			$query = $this->db->insert('usuario', array(
 				'cedula' => $datos["cedula"],
-				'user' => $datos["nombre"],
+				'user' => $datos["user"],
 				'contrasena' => $datos["pass"],
 				'tipo' => $datos["tipo"]));
 		}
@@ -179,6 +179,23 @@
 			return "0";
 		}
 	}
+
+	public function obtener_correo_coord($ci){
+
+		$this->db->where("ci_coord", $ci);
+
+		$this->db->select('email_coord');
+
+		$query = $this->db->get('coordinador');
+		
+		$fila = $query->row();
+
+		return $fila->email_coord;
+
+	}
+
+
+
 	
 
 }

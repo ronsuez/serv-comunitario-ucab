@@ -156,6 +156,7 @@ class Administrador extends CI_Controller {
 	public function registrar_datos_usuario() {
 
 		$datos = array(
+				'user' => $this->input->post('user'),
 				'cedula' => $this->input->post('cedula'),
 				'pass' => $this->input->post('pass'),
                 'tipo' => $this->input->post('tipo_usuario'),
@@ -166,13 +167,22 @@ class Administrador extends CI_Controller {
                 'telefono' => $this->input->post('telefono'),
                 'escuela' => $this->input->post('escuela'));
 
+
+        $email = $this->input->post('email');
+
+        $user = $this->input->post('user');
+
+        $pass = $this->input->post('pass');
+
+        $cuerpo = "Su username es: ".$user." y su contraseña es: ".$pass;
+ 
         $tipo = $this->input->post('tipo_usuario');
 
 		$salida = $this->administrador_model->registrar_datos_usuario($datos, $tipo);
 
 		if(!$salida){
 
-			if($this->send_mail()){
+			if($this->send_mail($email,"Bienvenido a Servcom",$cuerpo)){
 
 				echo "0";
 			}else
@@ -222,36 +232,27 @@ class Administrador extends CI_Controller {
 	public function deshab_coordinador() {
 
 		$cedula = $this->input->post('ci');
-
-		
-		$msg = "Se deshabilito el usuario".$cedula;
+	
+		$msga = "Se deshabilito el usuario ".$cedula;
+		$msgc = "Ha sido deshabilitado";
 
 		$salida = $this->administrador_model->deshabilitar_coord($cedula);
 
-<<<<<<< HEAD
-			 if(send_mail('rsuez93@gmail.com','usuario deshabilitado','fueiste deshabilitado') ){
+		$correo = $this->administrador_model->obtener_correo_coord($cedula);
 
-			 	echo $salida;
-			 }else{
-			 	echo "-1"; // no se pudo enviar el correo
-			 }
-
-		
-=======
-		if(!$salida){
-
-			if($this->send_mail("rsuez93@gmail.com","usuario deshab",$msg)){
-
+		if($salida=="0"){
+			
+			if($this->send_mail($correo,"Notificación",$msgc)){
 				echo "0";
 			}else
 			{
 				echo "-1";
 			}
+
 		}else
 			{
 				echo "-1";
 		}
->>>>>>> 69c64e3db4b608ee111840e6f2bc4854506896dd
 
 	}
 }
