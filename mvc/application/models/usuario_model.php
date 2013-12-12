@@ -50,7 +50,7 @@ public function get_tipo_user($user){
         public function get_info_user($id,$tipo){
 
 
-                $query_usuario = $this->db->query("SELECT user,contrasena FROM usuario WHERE cedula='$id'");
+                $query_usuario = $this->db->query("SELECT user,contrasena,tipo FROM usuario WHERE cedula='$id'");
                 if($tipo == "CO"){
                  $query=$this->db->query("SELECT * FROM coordinador WHERE ci_coord='$id'");
                 }

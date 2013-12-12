@@ -6,9 +6,10 @@
         		redirect('/'); //redirige a la pagina de inicio de sesion
     	
     		}else {  //Carga información de sesion de usuario.
+    			
         			 $user =$this->session->userdata("name")." ".$this->session->userdata("last_name");
 
-        			 $escuela = "Escuela de ".$this->session->userdata("escuela");
+        			 $escuela = $this->session->userdata("escuela");
 	
    			 }
 
@@ -24,8 +25,8 @@
    			 	$menu='<li class=""><a id="pestana-proyectos" href="gest-proyecto">Proyectos</a>';
    			 	$menu.='<li class=""><a id="pestana-prestadores" href="gest-prestador">Prestadores</a></li>';
    			 	$menu.='<li class=""><a id="pestana-localidades" href="gest-localidad">Localidades</a></li>';
-   			 }
-
+   			 	
+   			 	}
  ?>
 
 <style type="text/css">
