@@ -66,31 +66,39 @@ class Usuario extends CI_Controller {
 		
 		$user_name = $this->usuario_model->get_info_user($info_user[0]["cedula"],$info_user[0]["tipo"]);
 
-		$tipo = $info_user[0]["tipo"];
+		var_dump($user_name);
 
-		$user= $info_user[0]["user"];
 
+		$tipo =$user_name["datos_usuario"]->tipo;
+		$user= $user_name["datos_usuario"]->user;
+
+		$user_sufix="";
+		$nombre="nombre";
+		$apellido="apellido";
 
 		if($tipo == "DI"){
 
-			$this->session->set_userdata('name', $user_name[0]["nombre_di"]);
-			$this->session->set_userdata('last_name', $user_name[0]["apellido_di"]);
-			$this->session->set_userdata('escuela', $user_name[0]["escuela_di"]);
-
+					$user_sufix="_di";
+					$coordinacion = "escuela_dr";
 		}
-		elseif ($tipo == "CO") {
-
-			$this->session->set_userdata('name', $user_name[0]["nombre_coord"]);
-			$this->session->set_userdata('last_name', $user_name[0]["apellido_coord"]);
-			$this->session->set_userdata('escuela', $user_name[0]["escuela_coord"]);
+		else if ($tipo == "CO") {
+				$user_sufix="_coord";
+				$coordinacion = "escuela_coord";
 		}
-		elseif ($tipo == "PR") {
-			$this->session->set_userdata('name', $user_name[0]["nombre_pr"]);
-			$this->session->set_userdata('last_name', $user_name[0]["apellido_pr"]);
-			$this->session->set_userdata('escuela', "la Comunidad");
+		else if ($tipo == "PR") {
+			$user_sufix="_pr";
+			$coordinacion = "Proyeccion a la comunidad";
+		
 		}
 				// var_dump($user_name);
+		$nombre.=$user_sufix;
+		$apellido.=$user_sufix;
 
+
+		    $this->session->set_userdata('name', $user_name["datos_p_usuario"]->$nombre);
+			$this->session->set_userdata('last_name', $user_name["datos_p_usuario"]->$apellido);			
+			$this->session->set_userdata('escuela',$coordinacion);
+		
 
 		if($user=="admin"){
 
@@ -99,7 +107,7 @@ class Usuario extends CI_Controller {
 		}else{
 			$this->session->set_userdata("panel_admin","0");
 		}
-
+ 			
 
 		redirect("/dashboard");
 
@@ -150,6 +158,9 @@ class Usuario extends CI_Controller {
 		$this->session->set_userdata('isLoggedIn', "0");
 		$this->session->set_userdata('user_name', "");
 		$this->session->set_userdata('escuela', "");
+		$this->session->set_userdata('name', "");
+		$this->session->set_userdata('last_name', "");
+
 		$this->session->sess_destroy();
 
 		redirect(base_url());
@@ -235,7 +246,10 @@ class Usuario extends CI_Controller {
 
 		$salida= $this->usuario_model->get_info_user($cedula,$tipo);
 
+		if($salida!="-1")
 		echo json_encode($salida);
+		else
+			echo "-1";
 	}
 
 

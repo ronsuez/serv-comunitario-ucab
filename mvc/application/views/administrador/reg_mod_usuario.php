@@ -8,6 +8,9 @@ form label.error {
 
 </style>
 
+
+<form name="registrar_datos_usuario" id="registrar_datos_usuario" action="registrar_datos_usuario" method="POST"  action="login" class="">
+
 <div class="panel panel-default">
 	
 	<div class="panel-heading">
@@ -16,26 +19,10 @@ form label.error {
 
 	<div class="panel-body">
 		
-		<form name="registrar_datos_usuario" id="registrar_datos_usuario" action="registrar_datos_usuario" method="POST"  action="login" class="">
-
+		
 			<div class="form-group">
 				<label for="cedula">C&eacute;dula</label>
 				<input type="text" name="cedula" id="ci" class="form-control" placeholder="Introduzca la cedula del nuevo usuario" autofocus>
-			</div>
-
-			<div class="form-group">
-				<label for="cedula">Username</label>
-				<input type="text" name="user" id="user" class="form-control" placeholder="Introduzca el username del nuevo usuario" autofocus>
-			</div>
-
-			<div class="form-group">
-				<label for="pass">Contrase&ntilde;a</label>
-				<input type="password" name="pass" id="pass" class="form-control" placeholder="Introduzca la contrasena que tendra el nuevo usuario">
-			</div>
-
-			<div class="form-group">
-				<label for="conf_pass">Confirmar contrase&ntilde;a</label>
-				<input type="password" name="conf_pass" id="conf_pass" class="form-control" placeholder="Confirmar clave de acceso">
 			</div>
 
 			<div class="form-group">
@@ -87,15 +74,42 @@ form label.error {
 					<option value="Educacion">Educaci&oacute;n</option>
 					<option value="Derecho">Derecho</option>
 				</select>
-			</div>
-
-			<br>
-			<button id="boton_usuario" class="btn btn-primary" type="submit">Registrar</button>
-		</form>
-
-	</div>
+			</div>	
 
 </div>
+
+</div>
+
+<div class="panel panel-default">
+	  <div class="panel-heading">
+	    <h3 class="panel-title">Datos de acceso al sistema</h3>
+	  </div>
+	  <div class="panel-body">
+
+	  			<div class="form-group">
+					<label for="user">Usuario</label>
+					<input type="text" name="user" id="user" class="form-control" placeholder="Introduzca la contrasena que tendra el nuevo usuario">
+				</div>
+
+	    		<div class="form-group">
+					<label for="pass">Contrase&ntilde;a</label>
+					<input type="password" name="pass" id="pass" class="form-control" placeholder="Introduzca la contrasena que tendra el nuevo usuario">
+				</div>
+
+				<div class="form-group">
+					<label for="conf_pass">Confirmar contrase&ntilde;a</label>
+					<input type="password" name="conf_pass" id="conf_pass" class="form-control" placeholder="Confirmar clave de acceso">
+				</div>
+
+	  </div>
+</div>
+
+			<br>
+
+	<button id="boton_usuario" class="btn btn-primary" type="submit">Registrar</button>
+		</form>
+		
+</div><!--fin panel registrar/modificar -->
 
 
 
@@ -219,6 +233,8 @@ $("#registrar_datos_usuario").submit(function (e) {
 
   if (act_datos_usuario) {
     ruta = "actualizar_datos_usuario";
+    $("#conf_pass").attr("disabled",false);
+    $("#pass").attr("disabled",false);
   }
 
 	if ($(this).valid()) {

@@ -66,7 +66,7 @@ class Administrador extends CI_Controller {
 	public function registrar_usuario()
 	{
 
-		$this->load->view($this->controller.'registrar_usuario');
+		$this->load->view($this->controller.'reg_mod_usuario');
 	}
 	
 
@@ -158,6 +158,7 @@ class Administrador extends CI_Controller {
 		$datos = array(
 				'user' => $this->input->post('user'),
 				'cedula' => $this->input->post('cedula'),
+				'user' => $this->input->post('user'),
 				'pass' => $this->input->post('pass'),
                 'tipo' => $this->input->post('tipo_usuario'),
                 'nombre' => $this->input->post('nombre'),
@@ -201,6 +202,7 @@ class Administrador extends CI_Controller {
 
 		$datos = array(
 				'cedula' => $this->input->post('cedula'),
+				'user' => $this->input->post('user'),
 				'pass' => $this->input->post('pass'),
                 'tipo' => $this->input->post('tipo_usuario'),
                 'nombre' => $this->input->post('nombre'),
