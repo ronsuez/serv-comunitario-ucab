@@ -109,13 +109,6 @@ button a:hover{
       </tr>
     </thead>
     <tbody>
-
-       <tr>
-        <td id="tabla_proy_observacion"></td>
-        <td id="tabla_proy_realizado"></td>
-        <td id="tabla_proy_horas"></td>
-        <td id="tabla_proy_fecha"></td>
-      </tr>
     </tbody>
 </table>
 
@@ -226,9 +219,9 @@ button a:hover{
 
         <div class="modal-footer">
 
-          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn-cerrar-modal btn btn-default"  data-dismiss="modal">Cerrar</button>
 
-          <button type="submit" id="enviar_datos_modal" class="btn btn-primary">Guardar</button>
+          <button type="submit" id="enviar_datos_modal" data-loading-text="Guardando registro" class="btn btn-primary">Guardar</button>
 
 
 
@@ -293,23 +286,29 @@ $("#modificar_datos").on("click",function(){
 });
   
 
-      
-  $('body').on('change','#l_proyectos',function(){ 
 
 
+$('body').unbind('change').on('change','#l_proyectos',function(ev){ 
+
+     $("#informacion_proyecto tbody").empty();
     var option= $('#l_proyectos option:selected').val();
     var id_proy ;
     var id = main_datos.prestador.cedula;
-
-    if(option){
+    var datos_proyecto; 
+    
+    if(option!=""){
         
 
-      $("button.reportar-horas").removeAttr("disabled");
+  $("button.reportar-horas").removeAttr("disabled");
 
-      $.post("ver_detalles_proyecto",{id:option,estado:1},function(data){
-        
-        
-        var datos_proyecto=JSON.parse(data); 
+        $.ajax({
+          type : "POST",
+          url: "ver_detalles_proyecto",
+          data: {id:option,estado:1},
+          success: function(data) {
+
+      
+         datos_proyecto=JSON.parse(data); 
    
         $("#nombre_proyecto").val(datos_proyecto[0]["nombre_proyecto"]);
         $("#fecha_creacion").val(datos_proyecto[0]["fecha_ini"]);
@@ -317,13 +316,13 @@ $("#modificar_datos").on("click",function(){
         $("#codigo_proyecto").val(datos_proyecto[0]["id_proyecto"]);
               // console.log(buscar_proyectos_prestador);
 
-              id_proy=datos_proyecto[0]["id_proyecto"];
+        id_proy=datos_proyecto[0]["id_proyecto"];
 
-        $.post("horario_trabajo",{id_proyecto:id_proy ,id_prestador:id },function(data){
+
+      $.post("horario_trabajo",{id_proyecto:id_proy ,id_prestador:id },function(data){
 
             var horas=JSON.parse(data);
           
-
               var horas;
 
               $.each(horas[0],function(index){
@@ -333,15 +332,40 @@ $("#modificar_datos").on("click",function(){
 
               });
 
+    
+      });
+
+       $.post("datos_horas_insertadas",{id_proyecto:id_proy ,id_prestador:id },function(data){
+
+                 var horas_insertadas=JSON.parse(data);
+          
+                  console.log("vez");
+
+                     var tr="";
+                     var td="";
+                     $.each(horas_insertadas,function(index){
+
+                         td += "<tr><td>"+horas_insertadas[index]["observaciones_proyecto"]+"</td>";
+                         td += "<td>"+horas_insertadas[index]["ci_prestador"]+"</td>";
+                         td += "<td>"+horas_insertadas[index]["cant_horas"]+"</td>";
+                         td += "<td>"+horas_insertadas[index]["fecha"]+"</td></tr>";
+                     });
+                      $("#informacion_proyecto tbody").append(td);
+
           });
 
-      });
+    }
+
+  });
+
+
         
     }else{
 
         $("button.reportar-horas").attr("disabled","disabled");
         
-       $("#nombre_proyecto").val("");
+        $("#informacion_proyecto tbody").empty();
+        $("#nombre_proyecto").val("");
         $("#fecha_creacion").val("");
         $("#estado_proyecto").val("");
         $("#estado_proyecto").val("");
@@ -349,12 +373,15 @@ $("#modificar_datos").on("click",function(){
 
 
     }
-            
-  });
+
+ });
     
 
 
 $("#enviar_datos_modal").on("click",function () {
+
+
+  $(this).button(loading);
 
 
   //e.preventDefault();
@@ -370,9 +397,9 @@ $("#enviar_datos_modal").on("click",function () {
 
  
 
-  $("#horas_realizadas_modal").val("");
-  $("#fecha_modal").val("");
-  $("#observacion_modal").val("");
+  $(".horas_realizadas_modal").val("");
+  $(".fecha_modal").val("");
+  $(".observacion_modal").val("");
 
 
     $.post("insertar_datos_reportar_horas",{
@@ -386,16 +413,25 @@ $("#enviar_datos_modal").on("click",function () {
 
     },
     function(data){
+
+      var td;
+
         if(data=="0"){
 
                toastr.success(mensajes.success.reporte_horas);
 
-                 $("#tabla_proy_observacion").text(observacion);
-                 $("#tabla_proy_realizado").text(ci);
-                 $("#tabla_proy_horas").text(n_horas);
-                 $("#tabla_proy_fecha").text(fecha);
+                         td += "<tr><td>"+observacion+"</td>";
+                         td += "<td>"+ci+"</td>";
+                         td += "<td>"+n_horas+"</td>";
+                         td += "<td>"+fecha+"</td></tr>";
+                  
 
-               
+                      $("#informacion_proyecto tbody").append(td);
+
+          $(button).button('reset');
+
+          $(".btn-cerrar-modal").click();
+
           }else{
 
               toastr.error(mensajes.error.error_reporte_horas);
@@ -404,30 +440,12 @@ $("#enviar_datos_modal").on("click",function () {
       });
 
 
-
-//para listar el horario del prestador
-    $.post("datos_horas_insertadas",{id_proyecto:idproyecto ,id_prestador:ci },function(data){
-
-    var horas_insertadas=JSON.parse(data);
-            
-              console.log(horas_insertadas[0]);
-
-              var horas_insertadas;
-
-              $.each(horas_insertadas[0],function(index){
-
-                  
-                $("#informacion_proyecto").find("td."+index).text(horas_insertadas[0][index]);
-              });
-
-            });
-
   
 
 });
 
-
 });
+
 
  
 </script>
