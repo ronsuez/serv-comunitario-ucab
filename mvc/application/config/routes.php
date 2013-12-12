@@ -89,7 +89,9 @@ $route['consultar_datos_asesor']="prestador/ver_datos_asesor";
 $route['consultar_datos_proyecto']="prestador/verificar_proyecto";
 $route['insertar_asesor']="prestador/insertar_asesor";
 $route['asociar']="prestador/asociar_proyecto";
-
+$route['horario_trabajo'] = "prestador/horario_trabajo";
+$route['insertar_datos_reportar_horas']="prestador/insertar_datos_reportar_horas";
+$route['datos_horas_insertadas'] = "prestador/datos_horas_insertadas";
 /* routing for localidades controller */
 $route['gest-localidad']="localidad/index";
 $route['listar_loc']="localidad/listar";

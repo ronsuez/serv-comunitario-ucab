@@ -8,6 +8,9 @@ form label.error {
 
 </style>
 
+
+<form name="registrar_datos_usuario" id="registrar_datos_usuario" action="registrar_datos_usuario" method="POST"  action="login" class="">
+
 <div class="panel panel-default">
 	
 	<div class="panel-heading">
@@ -16,22 +19,12 @@ form label.error {
 
 	<div class="panel-body">
 		
-		<form name="registrar_datos_usuario" id="registrar_datos_usuario" action="registrar_datos_usuario" method="POST"  action="login" class="">
-
+		
 			<div class="form-group">
 				<label for="cedula">C&eacute;dula</label>
 				<input type="text" name="cedula" id="ci" class="form-control" placeholder="Introduzca la cedula del nuevo usuario" autofocus>
 			</div>
 
-			<div class="form-group">
-				<label for="pass">Contrase&ntilde;a</label>
-				<input type="password" name="pass" id="pass" class="form-control" placeholder="Introduzca la contrasena que tendra el nuevo usuario">
-			</div>
-
-			<div class="form-group">
-				<label for="conf_pass">Confirmar contrase&ntilde;a</label>
-				<input type="password" name="conf_pass" id="conf_pass" class="form-control" placeholder="Confirmar clave de acceso">
-			</div>
 
 			<div class="form-group">
 				<label for="tipo_usuario">Tipo de usuario</label>
@@ -72,25 +65,52 @@ form label.error {
 				<label for="carrera" id="carrera">Escuela</label>
 				<select id="escuela" name="escuela" class="form-control">
 					<option value="">-Seleccione-</option>
-					<option value="Ingenieria informatica">Ingenier&iacute;a Inform&aacute;tica</option>
-					<option value="Ingenieria civil">Ingenier&iacute;a Civil</option>
-					<option value="Ingenieria industrial">Ingenier&iacute;a Industrial</option>
-					<option value="Comunicacion social">Comunicaci&oacute;n Social</option>
+					<option value="Ingenieria Informatica">Ingenier&iacute;a Inform&aacute;tica</option>
+					<option value="Ingenieria Civil">Ingenier&iacute;a Civil</option>
+					<option value="Ingenieria Industrial">Ingenier&iacute;a Industrial</option>
+					<option value="Comunicacion Social">Comunicaci&oacute;n Social</option>
 					<option value="Administracion">Administraci&oacute;n</option>
 					<option value="Contaduria">Contadur&iacute;a</option>
-					<option value="Relaciones industriales">Relaciones Industriales</option>
+					<option value="Relaciones Industriales">Relaciones Industriales</option>
 					<option value="Educacion">Educaci&oacute;n</option>
 					<option value="Derecho">Derecho</option>
 				</select>
-			</div>
-
-			<br>
-			<button id="boton_usuario" class="btn btn-primary" type="submit">Registrar</button>
-		</form>
-
-	</div>
+			</div>	
 
 </div>
+
+</div>
+
+<div class="panel panel-default">
+	  <div class="panel-heading">
+	    <h3 class="panel-title">Datos de acceso al sistema</h3>
+	  </div>
+	  <div class="panel-body">
+
+	  			<div class="form-group">
+					<label for="user">Usuario</label>
+					<input type="text" name="user" id="user" class="form-control" placeholder="Introduzca la contrasena que tendra el nuevo usuario">
+				</div>
+
+	    		<div class="form-group">
+					<label for="pass">Contrase&ntilde;a</label>
+					<input type="password" name="pass" id="pass" class="form-control" placeholder="Introduzca la contrasena que tendra el nuevo usuario">
+				</div>
+
+				<div class="form-group">
+					<label for="conf_pass">Confirmar contrase&ntilde;a</label>
+					<input type="password" name="conf_pass" id="conf_pass" class="form-control" placeholder="Confirmar clave de acceso">
+				</div>
+
+	  </div>
+</div>
+
+			<br>
+
+	<button id="boton_usuario" class="btn btn-primary" type="submit">Registrar</button>
+		</form>
+		
+</div><!--fin panel registrar/modificar -->
 
 
 
@@ -214,6 +234,8 @@ $("#registrar_datos_usuario").submit(function (e) {
 
   if (act_datos_usuario) {
     ruta = "actualizar_datos_usuario";
+    $("#conf_pass").attr("disabled",false);
+    $("#pass").attr("disabled",false);
   }
 
 	if ($(this).valid()) {

@@ -235,7 +235,10 @@ class Usuario extends CI_Controller {
 
 		$salida= $this->usuario_model->get_info_user($cedula,$tipo);
 
+		if($salida!="-1")
 		echo json_encode($salida);
+		else
+			echo "-1";
 	}
 
 

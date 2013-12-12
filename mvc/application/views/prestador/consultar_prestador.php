@@ -56,11 +56,6 @@ button a:hover{
 
 
 <div class="container">
-<div id="d_prestador">
-<h4>Nombre: <span class="nombre_prestador"></span></h4>
-<h4>Apellido : <span class="apellido_prestador"></span></h4>
-
-</div>
 
 <br><br>
 
@@ -129,7 +124,7 @@ button a:hover{
 <br><br>
 <center>
 
-<button type="button" class="btn btn-success" data-toggle="modal" href="#myModal">Reportar Horas</button>
+<button type="button" class="reportar-horas btn btn-success" data-toggle="modal" href="#myModal">Reportar Horas</button>
 
 <!-- Indicates a successful or positive action -->
 <button type="button" id="btn_consultar_proyecto" class="btn btn-success" >Consultar Proyecto</a></button>
@@ -252,18 +247,23 @@ button a:hover{
 <script>
 $(document).ready(function(){
 
+
+//deshabilitamos  los botones de reporte-horas
+
+  $("button.reportar-horas").attr("disabled","disabled");
+
 //configuracion de las ventanas de alerta
 
    var ci =  main_datos.prestador.cedula;
    
+   if(ci) listar_proyecto(ci,1);
+
    //Inserto los datos del Prestador
-   $(".nombre_prestador").html(main_datos.prestador.nombre);
-   $(".apellido_prestador").html(main_datos.prestador.apellido);
-   $("#nombre_prestador_modal").val(main_datos.prestador.nombre);
+   $("#nombre_prestador_modal").val(main_datos.prestador.nombre+" "+main_datos.prestador.apellido);
 
    //listo los proyectos del prestador
    
-    listar_proyecto(ci,1);
+   
 
   $(".collapse").collapse();
 
@@ -303,6 +303,9 @@ $("#modificar_datos").on("click",function(){
 
     if(option){
         
+
+      $("button.reportar-horas").removeAttr("disabled");
+
       $.post("ver_detalles_proyecto",{id:option,estado:1},function(data){
         
         
@@ -319,8 +322,7 @@ $("#modificar_datos").on("click",function(){
         $.post("horario_trabajo",{id_proyecto:id_proy ,id_prestador:id },function(data){
 
             var horas=JSON.parse(data);
-            
-              console.log(horas[0]);
+          
 
               var horas;
 
@@ -335,6 +337,17 @@ $("#modificar_datos").on("click",function(){
 
       });
         
+    }else{
+
+        $("button.reportar-horas").attr("disabled","disabled");
+        
+       $("#nombre_proyecto").val("");
+        $("#fecha_creacion").val("");
+        $("#estado_proyecto").val("");
+        $("#estado_proyecto").val("");
+        $("#codigo_proyecto").val("");
+
+
     }
             
   });
@@ -390,6 +403,9 @@ $("#enviar_datos_modal").on("click",function () {
             }
       });
 
+
+
+//para listar el horario del prestador
     $.post("datos_horas_insertadas",{id_proyecto:idproyecto ,id_prestador:ci },function(data){
 
     var horas_insertadas=JSON.parse(data);

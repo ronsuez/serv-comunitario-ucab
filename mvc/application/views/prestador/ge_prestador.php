@@ -40,27 +40,36 @@ $(document).ready(function() {
                 </div>
 
 
-  <div id="data-re-prestador">
-      
-      <div id="foto">
-        <img  style="width: 140px; height: 140px;" src="http://1120.gogiro.com/wp-content/uploads/2012/04/facebook-profile-picture-no-pic-avatar.jpg" alt="Avatar" class="img-thumbnail">
 
-      </div>
+              <div  id="data-re-prestador">
 
-      <div id="info">
-        <form class="form-inline" role="form">
-          <fieldset disabled>
-            <div class="form-group">
-              <label>Nombre</label>
-              <input type="text" id="nombre_prestador" class="form-control" placeholder="Nombre del Alumno">
-              <label>Apellido</label>
-              <input type="text" id="apellido_prestador" class="form-control" placeholder="Apellido del Alumno">
+                  <div class="row">
+                  
+                  <div class="foto-prestador col-xs-6" >
+                    <img  style="width: 140px; height: 140px;" src="http://1120.gogiro.com/wp-content/uploads/2012/04/facebook-profile-picture-no-pic-avatar.jpg" alt="Avatar" class="img-thumbnail">
+
+                  </div>
+
+                  <div   class="col-xs-6" >
+                    <form class="form-inline" role="form">
+                      <fieldset disabled>
+                        <div class="form-group">
+                          <label>Nombre</label>
+                          <input type="text" id="nombre_prestador" class="form-control" placeholder="Nombre del Alumno">
+                          <label>Apellido</label>
+                          <input type="text" id="apellido_prestador" class="form-control" placeholder="Apellido del Alumno">
+                        </div>
+                      </fieldset>
+                    </form>
+                  </div>
+                  </div>
+                
+              <div class="row">
+              <div class="col-xs-6"><button type="button" class="btn-subir-foto btn btn-primary">Primary</button></div>
             </div>
-          </fieldset>
-        </form>
-      </div>
-        
-            </div>
+
+              </div>
+
 
 
   </div>

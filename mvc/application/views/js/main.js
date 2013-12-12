@@ -15,8 +15,7 @@
 //======================Variables goblales  ======================//
 //================================================================//
 //================================================================//
-
-
+  
 var mensajes = {
 
  reglas:{
@@ -37,6 +36,7 @@ var mensajes = {
   proyecto_nf:"No existen proyectos que coincidan con la busqueda.",
   prestador_nf:"Prestador no encontrado.",
   prestador_pnf:"No existen prestadores inscritos en el proyecto.",
+  error_reporte_horas:"No se pudo insertar las horas",
   localidad_nf: "Localidad no encontrada.",
   prestador_no_insertado:"No se pudo registrar el prestador",
   localidad_no_insertada:"No se pudo registrar la localidad",
@@ -48,6 +48,7 @@ success:{
   prestador_f:"Prestador encontrado.",
   prestadores_f:"Prestadores encontrados.",
   prestador_datos_cargados:"Los datos del prestador fueron cargados correctamente",
+  reporte_horas: "Horas Insertadas Satisfactoriamente",
   proyecto_f:"Proyecto encontrado.",
   proyectos_f:"Proyectos encontrados.",
   prestador_insertado:"El prestador fue inscrito en el Sistema",
@@ -143,6 +144,7 @@ var datos_de_proyecto = ["nombre_proyecto",
 
 var datos_de_usuario=[
 'ci',
+'user',
 'pass',
 'tipo_usuario',
 'nombre',
@@ -394,6 +396,8 @@ $("body").on("keyup","#id_usuario", function(event){
 
 });
 
+
+
 $("body").on("keyup","#query_proyecto", function(event){
 
   var query = $(this).val();
@@ -518,7 +522,10 @@ $('body').on('click','a.key_usuario', function (ev) {
   if (act_datos_usuario) {
     $("#boton_usuario").html("Actualizar");
     $("#titulo_registro").html("Actualizar datos de usuarios");
-
+    $("#pass").attr("type","text");
+    $("#pass").attr("disabled","disabled");
+    $("#conf_pass").attr("type","text");
+    $("#conf_pass").attr("disabled","disabled");
   }
 
 //imprime en la consola la cedula 
@@ -530,28 +537,46 @@ $('body').on('click','a.key_usuario', function (ev) {
 
     if(t=="CO"){
           id_tipo="_coord";
+          $("#carrera").fadeIn(1000);
+          $("#escuela").fadeIn(1000);
+      
+    }else if(t=="DI"){
+          id_tipo="_di";
+          $("#carrera").fadeIn(1000);
+          $("#escuela").fadeIn(1000);
+       
     }else if(t=="PR"){
           id_tipo="_pr";
+           $("#carrera").fadeOut(1000);
+          $("#escuela").fadeOut(1000);
     }
-
 
 
   $.post("get_info_user",{cedula:ci,tipo:t},function(data){
 
-      var listado = JSON.parse(data)[0];
-      
+      var datos_usuario = JSON.parse(data)["datos_usuario"];
+
+      var datos_p_usuario = JSON.parse(data)["datos_p_usuario"];
+
+        console.log(datos_usuario);
+
       $.each(datos_de_usuario, function(i){
 
                 if(datos_de_usuario[i]==="tipo_usuario"){
                     console.log(t);
-
                     $("#tipo_usuario").val(t);
                 }else{
                     
-              $("#"+datos_de_usuario[i]).val(listado[datos_de_usuario[i]+id_tipo]);                  
+                $("#"+datos_de_usuario[i]).val(datos_p_usuario[datos_de_usuario[i]+id_tipo]);
+
                 }
 
         });
+
+      $("#user").val(datos_usuario["user"]);
+      $("#pass").val(datos_usuario["contrasena"]);
+      $("#conf_pass").val(datos_usuario["contrasena"]);
+
   });
 
   //habilitamos la nav de registro 
@@ -566,6 +591,21 @@ $('body').on('click','a.key_usuario', function (ev) {
 
   });
 
+
+/*listener para el boton reportar horas*/
+
+
+$("body").on("click",".reportar-horas", function(event){
+  
+    if(!$("#l_proyectos").val()){
+
+        event.preventDefault();
+
+        console.log("seleccione un proyecto");
+
+    }
+
+});
 $("body").on("keyup","#b_asesor", function(event){
   var query = $(this).val();
   var option = "";
@@ -605,6 +645,12 @@ $('body').on('click','a.key_asesor', function (ev) {
           $("#apellido_asesor_res").val(datos_personales.apellido_asesor);
         }
       });
+});
+
+//listener para subir las imagenes
+
+$('body').on('click','.btn-subir-foto', function (ev) {
+      console.log("imagen");
 });
 
 
@@ -741,7 +787,7 @@ function b_consultar_usuario(query,option){
       console.log(array.length);
       
       if (array.length === 1) 
-          show_messages("success",array.length+" "+mensajes.success.prestador_f);
+        show_messages("success",array.length+" "+mensajes.success.prestador_f);
       else
        show_messages("success",array.length+" "+mensajes.success.prestadores_f);
       
@@ -1166,8 +1212,11 @@ function listar_proyecto(cedula,op){
     if(!prestador_tiene_proyectos){
 
          $("div [href='#asignar_pro']").show();
+      
+         $("div [href='#consultar_pre']").hide();
       }else{
          $("div [href='#asignar_pro']").hide();
+         $("div [href='#consultar_pre']").show();
 
       }
 

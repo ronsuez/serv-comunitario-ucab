@@ -75,11 +75,6 @@ code {
 	padding: 12px 10px 12px 10px;
 }
 
-img {
-
-	float: right;
-
-}
 
 #body{
 	margin: 0 15px 0 15px;

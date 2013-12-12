@@ -233,6 +233,45 @@ class Prestador extends CI_Controller {
 		
 	}
 
+	
+public function insertar_datos_reportar_horas(){			
+
+	$id_prestador = $this->input->post('id_prestador');
+	$n_horas = $this->input->post('horas_realizadas_proyecto');
+	$fecha = $this->input->post('fecha_avance');
+	$observaciones = $this->input->post('observaciones_proyecto');
+	$id_proyecto = $this->input->post('idproyecto');
+	$estado_proyecto = $this->input->post('estadoact');	
+	
+
+	
+		echo $salida = ($this->prestador_model->insertar_datos_reportar_horas($id_prestador,$n_horas,$fecha,$observaciones,$id_proyecto,$estado_proyecto));
+	
+
+	}
+
+public function datos_horas_insertadas(){
+
+$id_prestador = $this->input->post("id_prestador");
+$id_proyecto = $this->input->post("id_proyecto");
+
+$salida = $this->prestador_model->datos_horas_insertadas($id_prestador,$id_proyecto);
+
+echo json_encode($salida);
+
+}
+public function horario_trabajo(){
+
+	$id_prestador = $this->input->post("id_prestador");
+	$id_proyecto = $this->input->post("id_proyecto");
+
+	$salida = $this->prestador_model->horario_trabajo($id_prestador,$id_proyecto);
+
+echo json_encode($salida);
+
+}
+
+
 
 
 }

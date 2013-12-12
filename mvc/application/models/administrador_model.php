@@ -15,6 +15,14 @@
 
 	public function registrar_datos_usuario($datos, $tipo) {
 
+		//se registran los datos de usuario
+		$query = $this->db->insert('usuario', array(
+				'cedula' => $datos["cedula"],
+				'user' => $datos["user"],
+				'contrasena' => $datos["pass"],
+				'tipo' => $datos["tipo"]));
+
+//se registran los datos de usuario dependiendo del tipo
 		if ($tipo == "CO") {
 			$query = $this->db->insert('coordinador', array(
 				'ci_coord' => $datos["cedula"],
@@ -25,11 +33,7 @@
 				'email_coord' => $datos["email"],
 				'escuela_coord' => $datos["escuela"]));
 
-			$query = $this->db->insert('usuario', array(
-				'cedula' => $datos["cedula"],
-				'user' => $datos["nombre"],
-				'contrasena' => $datos["pass"],
-				'tipo' => $datos["tipo"]));
+
 		}
 
 		if ($tipo == "DI") {
@@ -42,11 +46,6 @@
 				'email_di' => $datos["email"],
 				'escuela_di' => $datos["escuela"]));
 
-			$query = $this->db->insert('usuario', array(
-				'cedula' => $datos["cedula"],
-				'user' => $datos["nombre"],
-				'contrasena' => $datos["pass"],
-				'tipo' => $datos["tipo"]));
 		}
 
 		if ($tipo == "PR") {
@@ -57,12 +56,6 @@
 				'celular_pr' => $datos["celular"],
 				'telefono_pr' => $datos["telefono"],
 				'email_pr' => $datos["email"]));
-
-			$query = $this->db->insert('usuario', array(
-				'cedula' => $datos["cedula"],
-				'user' => $datos["nombre"],
-				'contrasena' => $datos["pass"],
-				'tipo' => $datos["tipo"]));
 		}
 
 		if($query){
@@ -75,6 +68,16 @@
 
 	public function actualizar_datos_usuario($datos, $tipo) {
 
+
+		//se actualizan los datos de usuario
+		
+			$this->db->where('cedula', $datos["cedula"]);
+			$query = $this->db->update('usuario', array(
+				'cedula' => $datos["cedula"],
+				'user' => $datos["user"],
+				'contrasena' => $datos["pass"],
+				'tipo' => $datos["tipo"]));
+
 		if ($tipo == "CO") {
 			$this->db->where('ci_coord', $datos["cedula"]);
 			$query = $this->db->update('coordinador', array(
@@ -86,12 +89,6 @@
 				'email_coord' => $datos["email"],
 				'escuela_coord' => $datos["escuela"]));
 
-			$this->db->where('cedula', $datos["cedula"]);
-			$query = $this->db->update('usuario', array(
-				'cedula' => $datos["cedula"],
-				'user' => $datos["nombre"],
-				'contrasena' => $datos["pass"],
-				'tipo' => $datos["tipo"]));
 		}
 
 		if ($tipo == "DI") {
@@ -104,13 +101,6 @@
 				'telefono_di' => $datos["telefono"],
 				'email_di' => $datos["email"],
 				'escuela_di' => $datos["escuela"]));
-
-			$this->db->where('cedula', $datos["cedula"]);
-			$query = $this->db->update('usuario', array(
-				'cedula' => $datos["cedula"],
-				'user' => $datos["nombre"],
-				'contrasena' => $datos["pass"],
-				'tipo' => $datos["tipo"]));
 		}
 
 		if ($tipo == "PR") {
@@ -122,13 +112,6 @@
 				'celular_pr' => $datos["celular"],
 				'telefono_pr' => $datos["telefono"],
 				'email_pr' => $datos["email"]));
-			
-			$this->db->where('cedula', $datos["cedula"]);
-			$query = $this->db->update('usuario', array(
-				'cedula' => $datos["cedula"],
-				'user' => $datos["nombre"],
-				'contrasena' => $datos["pass"],
-				'tipo' => $datos["tipo"]));
 		}
 
 		if($query){

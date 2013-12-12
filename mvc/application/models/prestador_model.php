@@ -270,4 +270,65 @@ public function asociar_proyecto($asesor,$proyecto,$prestador){
 
 }
 
+
+/*pantalla consultar proyecto */
+
+public function insertar_datos_reportar_horas ($id_prestador,$n_horas,$fecha,$observaciones,$id_proyecto,$estado_proyecto){
+
+    $query = $this->db->query(" SELECT ci_asesor,ci_coord FROM proyecto WHERE id_proyecto = $id_proyecto");
+
+                $query_filas=$query->row();
+
+                                $ci_asesor = $query_filas->ci_asesor;
+                                $ci_coord = $query_filas->ci_coord;
+
+    $query_2= $this->db->query("INSERT INTO control_horas(fecha, cant_horas, ci_prestador, id_proyecto, ci_coord, ci_asesor, observaciones_proyecto, estado_proy_pres)
+                                VALUES ('$fecha',$n_horas,$id_prestador,$id_proyecto,$ci_coord,$ci_asesor,'$observaciones','$estado_proyecto')");
+
+        if($query && $query_2){
+
+            return "0";
+        }else{
+
+            return "-1";
+        }                              
+}
+
+    public function horario_trabajo($id_prestador,$id_proyecto){
+
+              $query1 = $this->db->query(" SELECT lunes,martes,miercoles,jueves,viernes,sabado,domingo 
+                                          FROM  participa 
+                                          WHERE ci_prestador = $id_prestador AND id_proyecto = $id_proyecto ");
+
+
+                if($query1->num_rows()>0){
+
+                    return $query1->result_array();
+                }else{
+                    $salida = '-1';
+                }
+
+
+
+            }
+
+    public function datos_horas_insertadas ($id_prestador,$id_proyecto){
+
+              $query1 = $this->db->query(" SELECT observaciones_proyecto, ci_prestador, cant_horas, fecha  
+                                           FROM control_horas
+                                           WHERE ci_prestador = $id_prestador AND id_proyecto = $id_proyecto ");
+
+
+                if($query1->num_rows()>0){
+
+                    return $query1->result_array();
+                }else{
+                    $salida = '-1';
+                }
+
+
+
+            }
+
+
 }    
