@@ -80,14 +80,17 @@ class Usuario extends CI_Controller {
 
 					$user_sufix="_di";
 					$coordinacion = "escuela_dr";
+					$this->session->set_userdata('escuela',$user_name["datos_p_usuario"]->$coordinacion);
 		}
 		else if ($tipo == "CO") {
 				$user_sufix="_coord";
 				$coordinacion = "escuela_coord";
+				$this->session->set_userdata('escuela',$user_name["datos_p_usuario"]->$coordinacion);
 		}
 		else if ($tipo == "PR") {
 			$user_sufix="_pr";
 			$coordinacion = "Proyeccion a la comunidad";
+			$this->session->set_userdata('escuela',$coordinacion);
 		
 		}
 				// var_dump($user_name);
@@ -97,7 +100,7 @@ class Usuario extends CI_Controller {
 
 		    $this->session->set_userdata('name', $user_name["datos_p_usuario"]->$nombre);
 			$this->session->set_userdata('last_name', $user_name["datos_p_usuario"]->$apellido);			
-			$this->session->set_userdata('escuela',$coordinacion);
+			
 		
 
 		if($user=="admin"){

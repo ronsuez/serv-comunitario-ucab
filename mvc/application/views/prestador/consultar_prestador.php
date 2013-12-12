@@ -381,7 +381,9 @@ $('body').unbind('change').on('change','#l_proyectos',function(ev){
 $("#enviar_datos_modal").on("click",function () {
 
 
-  $(this).button(loading);
+      var btn = $(this);
+
+      btn.button("loading");
 
 
   //e.preventDefault();
@@ -428,7 +430,7 @@ $("#enviar_datos_modal").on("click",function () {
 
                       $("#informacion_proyecto tbody").append(td);
 
-          $(button).button('reset');
+          $(btn).button('reset');
 
           $(".btn-cerrar-modal").click();
 
