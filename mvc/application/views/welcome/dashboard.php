@@ -178,10 +178,10 @@ body {
 			</button>
 			<a class="navbar-brand" href="#">Servcom-UCAB</a>
 		</div>
-		<div class="navbar-collapse collapse">
+		<div class="nav-top navbar-collapse collapse">
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="#">Home</a></li>
-				<li class=""><a href="#about">Acerca de</a></li>
+				<li class=""><a href="acerca_de">Acerca de</a></li>
 				<li class=""><a href="#contact">Contacto</a></li>
 			</ul>
 			<ul class ="nav navbar-nav pull-right">

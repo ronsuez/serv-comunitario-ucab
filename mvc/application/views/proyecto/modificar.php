@@ -1,67 +1,33 @@
 <!--/Consultar/Modificar proyecto-->
-<style>
-#accordion{
-	
-	margin-top: 30px;
-}
 
-#results{
-	
-	display: none;
-}
-
-#results label {
-
-	margin-top:10px;
-	margin-bottom:10px;
-}
-
-.search{
-
-	
-
-	height: auto;
-
-}
-
-.button-generar{
-
-	margin-top: 10px;
-
-}
-.result-search{
-
-	height: auto;
-}
-</style>
 
 
 
 
 <div class="container">
 
-	<div class="panel panel-default">
+	
+		<div class="panel panel-default">
 		<div class="panel-heading">Formulario de Búsqueda </div>
 		<div class="result-search panel-body">
 		
 			<div class="input-group input-group-sm">
-                <input id="query_proyecto" type="text" class="query form-control" placeholder="Nombre del proyecto"></input>
+                <input  type="text" class="q_proyecto form-control" placeholder="Nombre del proyecto"></input>
                 <span class="input-group-btn">
                   <button id="buscar_proyecto" class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
                 </span>
               </div><!-- /input-group -->
 		
 
-			<div id="results">
+			<div class="results proyecto">
 				<label>Resultados</label>
-				<div id="search_results">
+				<div class="search_results proyecto">
 				
 
 				</div>
 			</div>
 		</div>
 	</div>
-
 	<div class="panel panel-default">
 		<div class="panel-heading">Descripción del proyecto</div>
 		<div class="panel-body">

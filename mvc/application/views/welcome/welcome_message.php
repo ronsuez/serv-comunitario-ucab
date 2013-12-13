@@ -72,11 +72,7 @@
 	<div id="body">
 		<h1>Bienvenido al sistema de gestion de Servicio comunatario</h1>
 		<p>
-			El sistema permite la administración de los proyectos y prestadores de servicio comunitario
-			de la Universidad Católica Andrés Bello, el sistema nace como una iniciativa
-			de los estudiantes de la catedra de Desarrollo del Software para automatizar
-			el proceso de gestión del servicio comunitario realizado por proyección a la comunidad y las escuelas de
-			cada carrera. 
+			<iframe height="360" width="640" frameborder="0" src="http://www.magisto.com/embed/MFkMP19WHSI3T0RgCzE"></iframe> 
 		</p>
 	</div>
 

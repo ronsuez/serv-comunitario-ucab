@@ -1,9 +1,46 @@
 
 
 
+#accordion{
+  
+  margin-top: 30px;
+}
+
+
+
+.button-generar{
+
+  margin-top: 10px;
+
+}
+
 
 
 /* Css para el modulo de busqueda */
+
+.results{
+  
+  display: none;
+}
+
+.results label {
+
+  margin-top:10px;
+  margin-bottom:10px;
+}
+
+.search{
+
+  
+
+  height: auto;
+
+}
+
+.result-search{
+
+  height: auto;
+}
 
 #result-box{
 	

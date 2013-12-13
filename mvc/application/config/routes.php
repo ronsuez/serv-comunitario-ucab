@@ -41,6 +41,9 @@
 $route['default_controller'] = "welcome";
 $route['404_override'] = '';
 
+/*acerca del proyecto */
+$route['acerca_de'] = 'welcome/acerca_de';
+
 /* administrador de usuarios */
 $route['ge_administrador'] = 'administrador/index';
 $route['gest-usuarios'] = 'administrador/admin_usuarios';

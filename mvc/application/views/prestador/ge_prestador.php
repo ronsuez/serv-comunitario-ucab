@@ -55,9 +55,9 @@ $(document).ready(function() {
                       <fieldset disabled>
                         <div class="form-group">
                           <label>Nombre</label>
-                          <input type="text" id="nombre_prestador" class="form-control" placeholder="Nombre del Alumno">
+                          <input type="text"  class="nombre_prestador form-control" placeholder="Nombre del Alumno">
                           <label>Apellido</label>
-                          <input type="text" id="apellido_prestador" class="form-control" placeholder="Apellido del Alumno">
+                          <input type="text"  class="apellido_prestador form-control" placeholder="Apellido del Alumno">
                         </div>
                       </fieldset>
                     </form>
@@ -86,7 +86,7 @@ $(document).ready(function() {
 <div class="header">
   <h1>Gestión de Prestadores</h1>
   <ul class="pestanas nav nav-tabs" id="myTab">
-    <li class=""><a href="#inscribir_prestador" data-url="insertar_prestador" >Inscribir/Modificar</a></li>
+    <li class=""><a href="#inscribir_prestador" data-url="insertar_prestador" >Inscribir/Modificar datos</a></li>
     <li class=""><a href="#consultar_pre" data-url="consultar_prestador">Consultar proyecto</a></li>
     <li class=""><a href="#asignar_pro" data-url="asignar_proyecto">Asignar Proyecto</a></li>
   </ul>

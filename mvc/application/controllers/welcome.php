@@ -48,6 +48,12 @@ class Welcome extends CI_Controller {
 		$this->load->view($this->controller.'registro_form',$page_struct);
 	}
 
+	public function acerca_de()
+	{
+	
+		$this->load->view($this->controller.'acerca_de');
+	}
+
 
 	public function dashboard()
 	{

@@ -169,11 +169,11 @@ class Administrador extends CI_Controller {
                 'escuela' => $this->input->post('escuela'));
 
 
-        $email = $this->input->post('email');
+        $email = $datos['email'];
 
-        $user = $this->input->post('user');
+        $user = $datos['user'];
 
-        $pass = $this->input->post('pass');
+        $pass = $datos['pass'];
 
         $cuerpo = "Su username es: ".$user." y su contraseña es: ".$pass;
  

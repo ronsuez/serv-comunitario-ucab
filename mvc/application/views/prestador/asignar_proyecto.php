@@ -46,59 +46,37 @@ button a:hover{
 <div class="container">
      
 
+			
+			<!--formulario de busqueda de proyectos-->
+
+		<div class="panel panel-default">
+		<div class="panel-heading">Busqueda de proyectos</div>
+		<div class="result-search panel-body">
+		
+			<div class="input-group input-group-sm">
+                <input  type="text" class="q_proyecto form-control" placeholder="Nombre del proyecto"></input>
+                <span class="input-group-btn">
+                  <button id="buscar_proyecto" class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+                </span>
+              </div><!-- /input-group -->
+		
+
+			<div class="results proyecto">
+				<label>Resultados</label>
+				<div class="search_results proyecto">
+				
+
+				</div>
+			</div>
+		</div>
+	</div>
       <br><br>
-
-						<div class="panel panel-default">
-
-											<div class="panel-heading">
-											  <h3 class="panel-title">Buscar Asesor</h3>
-											</div>
-											<div class="panel-body">
-											  
-											  <div class="input-group input-group-sm">
-												<input id="b_asesor" type="text" class="form-control" placeholder="Introduzca cédula del Asesor"></input>
-												<span class="input-group-btn">
-												  <button id="consultar_asesor" class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
-												</span>
-											  </div><!-- /input-group -->
-												<div id="busqueda_asesor">
-												</div>
-
-											</div>
-
-
-									</div>
-									 <div id="cont2">
-									  
-									  <div id="foto">
-										<img  style="width: 140px; height: 140px;" src="http://1120.gogiro.com/wp-content/uploads/2012/04/facebook-profile-picture-no-pic-avatar.jpg" alt="Avatar" class="img-thumbnail">
-
-									  </div>
-
-									  <div id="info2">
-												<form class="form-inline" role="form">
-												  
-													<div class="form-group">
-													  <label>Nombre</label>
-													  <input id="nombre_asesor_res" type="text" class="form-control" placeholder="Nombre del Asesor">
-													  <label>Apellido</label>
-													  <input type="text" id="apellido_asesor_res" class="form-control" placeholder="Apellido del Asesor">
-													</div>
-												 
-												</form>
-												</br>
-												<button class="btn btn-default" data-toggle="modal" data-target="#form-asesor">  Inscribir Asesor</button>
-										</div>
-									</div>
-									
-									</br></br>
-									
 									<div id="cont3">       
 		  
 												
 												<div class="panel panel-default">
 												<div class="panel-heading">
-												   <h3 class="panel-title">Asesor(es) participante(s) en el Proyecto</h3>
+												   <h3 class="panel-title">Informacion sobre el proyecto</h3>
 												</div>
 												<div id="collapseOne" class="panel-collapse collapse in">
 												  <div class="panel-body">
@@ -120,72 +98,67 @@ button a:hover{
 											  
 											
 									</div>
+
+
 											
-									 
-<!-- modal ventana emergente) inscribir proyecto ------------------------------------------------------------------------------------------------------------------->
-						 
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title">Inscripcion de Proyecto</h4>
-        </div>
-        <div class="modal-body">
-			<div class="form-group">
-                 <label for="parroquia">Seleccione proyecto</label>
-                  <select name="parroquia" class="form-control" id="parroquia">
-                   <option value="">Seleccione</option>
-                         
-                       
-                    </select>
-               </div>
-			   
-			   <div class="form-group">
-                     <label for="parroquia">Periodo Academico</label>
-                     <select name="parroquia" class="form-control" id="parroquia">
-						<option value="">Seleccione</option>
-                         <option value="">2013-21</option>
-                         <option value="cachamay">2013-22</option>
-                        
-                       
-                    </select>
-					
-					
-					
-               </div>
-							
-							  <td>Fecha Inicio de Proyecto <input type="text"  class="panel panel-default"  placeholder="dd/mm/aa"></td>
-							  
-							  <td>Horas Semanales de servicio: <input for="proyecto" type="text"  class="panel panel-default">
-															 
-									<table class="table">
-												
-													<td>Lunes</td><td><input type="text"  class="panel panel-default" placeholder="00:00-24:00"></td>
-													<td>Martes</td><td><input type="text"  class="panel panel-default" placeholder="00:00-24:00"></td>
-												</tr>
-												<tr>
-													<td>Miercoles</td><td><input type="text"  class="panel panel-default" placeholder="00:00-24:00"></td>
-													<td>Jueves</td><td><input type="text"  class="panel panel-default" placeholder="00:00-24:00"></td>
-												</tr>
-												<tr>
-													<td>Viernes</td><td><input type="text"  class="panel panel-default" placeholder="00:00-24:00"></td>
-												
-												
-											  </table>
-							  </form>
-									<button type="button" class="btn btn-default"> Inscribir Proyecto </button>
-									<button type="button" class="btn btn-default"> Generar Reporte </button>
-							</div>
-						 </div>
-</div>
-</div>
-						 
- <!-- fin model ------------------------------------------------------------------------------------------------------------------------------------------------>
-										
-										
-<!-- modal ventana emergente) inscribir asesor ------------------------------------------------------------------------------------------------------------------->
-						 
+			
+
+						<div class="panel panel-default">
+
+											<div class="panel-heading">
+											  <h3 class="panel-title">Buscar Asesor</h3>
+											</div>
+											<div class="panel-body">
+											  
+											  <div class="input-group input-group-sm">
+												<input id="b_asesor" type="text" class="form-control" placeholder="Introduzca cédula del Asesor"></input>
+												<span class="input-group-btn">
+												  <button id="consultar_asesor" class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+												</span>
+											  </div><!-- /input-group -->
+												<div class="results asesor">
+													<label>Resultados</label>
+													<div class="search_results asesor">
+													
+
+													</div>
+												</div>
+
+						</div>
+			
+
+						 <div id="cont2">
+									  
+									  <div id="foto">
+										<img  style="width: 140px; height: 140px;" src="http://1120.gogiro.com/wp-content/uploads/2012/04/facebook-profile-picture-no-pic-avatar.jpg" alt="Avatar" class="img-thumbnail">
+
+									  </div>
+
+									  <div id="info2">
+												<form class="form-inline" role="form">
+												  
+													<div class="form-group">
+													  <label>Nombre</label>
+													  <input id="nombre_asesor_res" type="text" class="form-control" placeholder="Nombre del Asesor">
+													  <label>Apellido</label>
+													  <input type="text" id="apellido_asesor_res" class="form-control" placeholder="Apellido del Asesor">
+													</div>
+												 
+												</form>
+												</br>
+												<button class="btn btn-default" data-toggle="modal" data-target="#form-asesor">  Inscribir Asesor</button>
+										</div>
+						</div>
+		</div>
+
+		<button class="btn btn-default" id="asociar_proyecto" type="submit">  Asociar proyecto a prestador</button>	
+
+</div>	<!-- fin container -->
+
+
+
+		<!--modal-inscribir asesor-->
+
 <div class="modal fade" id="form-asesor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -221,190 +194,20 @@ button a:hover{
 </div>
 </div>
 </div>
-						 
- <!-- fin model ------------------------------------------------------------------------------------------------------------------------------------------------>
-										
 
-		
-						 
-						
-					</div> <!-- panel total fin-->
-				</div>	
-				
-			</div>
-			
-			<div class="panel panel-default">
-		<div class="panel-heading">Buscar Proyecto </div>
-		<div class="result-search panel-body">
-		
-			<div class="input-group input-group-sm">
-                <input id="query_proyecto" type="text" class="form-control" placeholder="Nombre del proyecto"></input>
-                <span class="input-group-btn">
-                  <button id="buscar_proyecto" class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
-                </span>
-              </div>
-             <div id="l_proyectos2"></div> <!-- /input-group -->
-		</br>
-
-			
-				
-					
-				
-			
-		</div>
-		
-	</div>
-		<button class="btn btn-default" id="asociar_proyecto" type="submit">  Asociar proyecto a prestador</button>	
-		</div>	<!-- fin container -->
 <!--Consultar / modificar prestador-->
 
 <script>
 $(document).ready(function(){
 
 //configuracion de las ventanas de alerta
-$("#asociar_proyecto").prop('disabled', true);
 
-  $(".collapse").collapse();
-
-
-
- $("#c_d_prestador").on('click',function(){
-
-          
-          var cedula=$("#id_p_cedula").val();
-
-                  if(!cedula){
-
-                          toastr.warning("No envies campos vacios");
-                  }else{
-
-                      $.post("consultar_datos_prestador",{id:cedula},function(data){
-
-                            var estado =JSON.parse(data)["estado"]; 
-
-                                   console.log(JSON.parse(data));
-
-                             
-                              if(estado === "-1"){
-
-                                  toastr.error("prestador no encontrado");
-
-
-                              }else{
-
-                                 toastr.success("Prestador encontrado");
-
-
-
-                              var datos_personales =JSON.parse(data)["datos_personales"][0];
-                            
-                              var datos_academicos =JSON.parse(data)["datos_academicos"][0];
-                              
-                      
-
-                            $("#nombre_prestador").val(datos_personales.nombre_prestador);
-
-
-                            $("#apellido_prestador").val(datos_personales.Apellido_prestador);
-
-
-                            $("#celular_prestador").text(datos_personales.celular_prestador);
-
-
-                            $("#telefono_prestador").text(datos_personales.telefono_prestador);
-
-
-                            $("#email_prestador").text(datos_personales.email_prestador);
-
-
-                            $("#cedula_prestador").text(datos_personales.ci_prestador);
-
-
-                            $("#direccion_prestador").text(datos_personales.direccion_prestador);
-
-
-                              //datos academicos
-
-
-                            $("#nro_exp_prestador").text(datos_academicos.no_exp_prestador);
-
-
-                            $("#escuela_prestador").text(datos_academicos.escuela_prestador);
-
-
-                            $("#mencion_prestador").text(datos_academicos.mencion_prestador);
-
-
-                            $("#semestre_prestador").text(datos_academicos.semestre_prestador);
-
-                         
-                        }
-                         });
-                    
-                        }  
-    });
-	<!--fin de la consulta de los datos de prestador-->
-
-	$("#consultar_asesor").on('click',function(){
-	
-  	var cedula=$("#cedula_asesor").val();
-		if(!cedula){
-			toastr.warning("No envie campos vacios")
-		}else{
-			$.post("consultar_datos_asesor",{cedula_asesor:cedula},function(data){
-				var estado =JSON.parse(data)["estado"]; 
-				console.log(JSON.parse(data));
-				if(estado == -1){
-					toastr.error("Asesor no encontrado");
-				}else{
-					toastr.success("Asesor encontrado");
-					var datos_personales =JSON.parse(data)["datos_personales"][0];
-					$("#nombre_asesor_res").val(datos_personales.nombre_asesor);
-					$("#apellido_asesor_res").val(datos_personales.apellido_asesor);
-				}
-			});
-		}		
-	
-	});
-
-
-  
 //fin del script de busqueda de asesor
 
 
 
 //hay que revisar este puto script
 
-	$("#buscar_proyecto").on("click",function(){
-		var nombre=$("#nombre_proyecto").val();
-		var cedula=$("#cedula_asesor").val();
-		var cedula_prestador=$("#id_p_cedula").val();
-		if(!cedula){
-			toastr.warning("Busque el asesor del proyecto");
-		}
-		if(!cedula_prestador){
-			toastr.warning("Busque el prestador que se asignara al proyecto");
-		}
-		if(!nombre){
-			toastr.warning("No envie campos vacios");
-		}else{
-			$.post("consultar_datos_proyecto",{id:nombre,ci:cedula},function(data){
-				var estado =JSON.parse(data); 
-				console.log(data);
-				if(estado == "-1"){
-					toastr.error("Proyecto inactivo o no encontrado");
-					
-					 $("#asociar_proyecto").prop('disabled', true);
-				}else{
-						toastr.success("Proyecto encontrado");
-						
-						$("#asociar_proyecto").prop('disabled', false);
-					}
-				
-			});
-		}
-
-	});
 	
 	
  //fin del script que no funciona

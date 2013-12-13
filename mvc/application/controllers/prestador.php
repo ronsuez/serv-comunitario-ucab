@@ -194,7 +194,7 @@ class Prestador extends CI_Controller {
 		
 		$salida=$this->prestador_model->listar_datos_asesor($query,$option);
 		if($salida == -1){
-			echo "No se encontro";
+			echo "-1";
 		}else{
 			echo json_encode($salida);
 		}
