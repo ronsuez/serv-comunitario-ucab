@@ -89,7 +89,7 @@ p.footer{
 	padding: 0 10px 0 10px;
 	margin: 20px 0 0 0;
 }
-
+   
 .main-content{
 	margin-top: 50px;
 	padding-bottom: 50px;

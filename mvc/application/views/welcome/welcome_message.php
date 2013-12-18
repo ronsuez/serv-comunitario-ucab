@@ -42,7 +42,7 @@
 		display: block;
 		margin: 14px 0 14px 0;
 		padding: 12px 10px 12px 10px;
-	}
+	}  
 
 	#body{
 		margin: 0 15px 0 15px;

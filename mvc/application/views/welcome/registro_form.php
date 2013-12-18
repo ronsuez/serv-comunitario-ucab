@@ -28,8 +28,7 @@ form label.error{
   font-weight: lighter;
   font-size: 12px; 
 }
-
-
+  
 </style>
 
 <div class="container container-main">

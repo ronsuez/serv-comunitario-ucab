@@ -32,7 +32,7 @@ body {
 h2, h4 {
 	text-align: center;
 }
-
+  
 #error-message{
 
 	font-size: 14px;
