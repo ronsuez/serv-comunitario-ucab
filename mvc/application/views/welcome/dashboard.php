@@ -178,9 +178,9 @@ body {
 			</button>
 			<a class="navbar-brand" href="#">Servcom-UCAB</a>
 		</div>
-		<div class="nav-top navbar-collapse collapse">
-			<ul class="nav navbar-nav">
-				<li class="active"><a href="#">Home</a></li>
+		<div class="navbar-collapse collapse">
+			<ul class="nav navbar-nav nav-top">
+				<li class="active"><a href="/">Home</a></li>
 				<li class=""><a href="acerca_de">Acerca de</a></li>
 				<li class=""><a href="#contact">Contacto</a></li>
 			</ul>
