@@ -329,6 +329,53 @@ public function insertar_datos_reportar_horas ($id_prestador,$n_horas,$fecha,$ob
 
 
             }
+            
+            public function suma_horas($id_prestador,$id_proyecto){
+
+              $query1 = $this->db->query(" SELECT SUM(cant_horas) AS sum1
+                                           FROM control_horas
+                                           WHERE ci_prestador = $id_prestador AND id_proyecto = $id_proyecto ");
+
+
+               
+              if ($query1->num_rows() > 0)
+                {
+
+                return $query1->result_array(); //&& $query2->result_array();
+
+
+            
+                }else{    
+                    
+                    return $salida = '-1';
+                }
+
+
+            }
+
+
+            public function suma_horas_totales($id_prestador){
+
+              $query2 = $this->db->query("SELECT SUM(cant_horas) AS sum1 
+                                           FROM control_horas
+                                           WHERE ci_prestador = $id_prestador");
+
+
+               
+              if ($query2->num_rows() > 0)
+                {
+
+                return $query2->result_array(); //&& $query2->result_array();
+
+
+            
+                }else{    
+                    
+                    return $salida = '-1';
+                }
+
+
+            }
 
 
 }    
