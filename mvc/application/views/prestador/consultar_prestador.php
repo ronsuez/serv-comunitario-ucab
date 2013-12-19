@@ -353,6 +353,24 @@ $('body').unbind('change').on('change','#l_proyectos',function(ev){
                       $("#informacion_proyecto tbody").append(td);
 
           });
+          
+          $.post("suma_horas",{id_proyecto:id_proy ,id_prestador:id },function(data){
+
+                  var horas_totales_actual = JSON.parse(data);
+          
+                  console.log(horas_totales_actual[0]["sum1"]);
+                  $("#total_horas_proyecto_act").html(horas_totales_actual[0]["sum1"]);
+            
+          });
+
+        $.post("suma_horas_totales",{id_prestador:id },function(data){
+
+                  var horas_totales_proyectos = JSON.parse(data);
+          
+                  console.log(horas_totales_proyectos[0]["sum1"]);
+                  $("#total_horas_proyectos").html(horas_totales_proyectos[0]["sum1"]);
+
+          });
 
     }
 
@@ -433,6 +451,24 @@ $("#enviar_datos_modal").on("click",function () {
           $(btn).button('reset');
 
           $(".btn-cerrar-modal").click();
+          
+          $.post("suma_horas",{id_proyecto:idproyecto ,id_prestador:ci },function(data){
+
+                  var horas_totales_actual = JSON.parse(data);
+          
+                  console.log(horas_totales_actual[0]["sum1"]);
+                  $("#total_horas_proyecto_act").html(horas_totales_actual[0]["sum1"]);
+            
+          });
+
+        $.post("suma_horas_totales",{id_prestador:ci },function(data){
+
+                  var horas_totales_proyectos = JSON.parse(data);
+          
+                  console.log(horas_totales_proyectos[0]["sum1"]);
+                  $("#total_horas_proyectos").html(horas_totales_proyectos[0]["sum1"]);
+
+          });
 
           }else{
 
