@@ -112,7 +112,8 @@ button a:hover{
     </tbody>
 </table>
 
-<h4>Total</h4>
+<h4>Total Horas Proyecto Actual: <span id="total_horas_proyecto_act"> </span></h4>
+<h4>Total Horas Todos Proyecto: <span id="total_horas_proyectos"> </span></h4>
 
 <br><br>
 <center>
