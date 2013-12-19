@@ -365,7 +365,7 @@ public function insertar_datos_reportar_horas ($id_prestador,$n_horas,$fecha,$ob
               if ($query2->num_rows() > 0)
                 {
 
-                return $query2->result_array(); //&& $query2->result_array();
+                return $query2->result_array();
 
 
             
