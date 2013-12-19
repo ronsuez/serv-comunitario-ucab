@@ -271,6 +271,27 @@ echo json_encode($salida);
 
 }
 
+public function suma_horas(){
+
+		$id_prestador = $this->input->post("id_prestador");
+		$id_proyecto = $this->input->post("id_proyecto");
+
+		$salida = $this->prestador_model->suma_horas($id_prestador,$id_proyecto);
+
+	echo json_encode($salida);
+
+	}
+
+	public function suma_horas_totales(){
+
+		$id_prestador = $this->input->post("id_prestador");
+
+		$salida = $this->prestador_model->suma_horas_totales($id_prestador);
+
+	echo json_encode($salida);
+
+	}
+
 
 
 
