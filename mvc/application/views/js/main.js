@@ -7,7 +7,7 @@
  * Script purpose: This file is the core javascript, containig
  *           All the actions, consults, validations and 
  *           Data processing for the SERVCOM application.
- */
+ */  
   
 
 //================================================================//
