@@ -152,7 +152,7 @@ class Administrador extends CI_Controller {
 
 
 	}
-
+   
 	public function registrar_datos_usuario() {
 
 		$datos = array(
