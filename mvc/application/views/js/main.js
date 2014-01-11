@@ -710,6 +710,9 @@ $('body').on('click','.btn-subir-foto', function (ev) {
 });
 
 
+
+
+
 //================================================================//
 //================================================================//
 //================= SERVCOM bootstrap events     =================//
@@ -741,11 +744,18 @@ $('body').on('click','.btn-subir-foto', function (ev) {
 
 //funcion keyup para asesor
 function b_consultar_asesor(query,option){
+
+  var add_asesor="#add-asesor-box";
+
+
   $.post("consultar_datos_asesor",{q:query,o:option},function(data){
 
     console.log(data);  
     
     if(data!="-1"){
+
+
+      $(add_asesor).hide(); //se esconde el boton para agregar asesor
       
       var array=JSON.parse(data);
 
@@ -769,6 +779,8 @@ function b_consultar_asesor(query,option){
     }else{
 
 
+
+      $(add_asesor).show(); //se esconde el boton para agregar asesor
 
       $(".search_results.asesor").html('<div class="no-results">No se encontraron resultados</div>');
       
