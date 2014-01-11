@@ -474,7 +474,10 @@ $('body').on('click','a.key_proyecto', function (ev) {
 
    $("#"+datos_de_proyecto[i]).html(listado[0][datos_de_proyecto[i]]);
 
-
+   $("#n_proyecto").val(listado[0][datos_de_proyecto[0]]);
+   $("#f_proyecto").val(listado[0][datos_de_proyecto[1]]);
+   $("#e_proyecto").val(listado[0][datos_de_proyecto[2]]);
+   $("#c_proyecto").val(listado[0][datos_de_proyecto[3]]);
  });
 
 
@@ -484,7 +487,7 @@ $('body').on('click','a.key_proyecto', function (ev) {
        listar_prestadores_x_proy(key_proyecto);
        
        ev.stopPropagation();
-
+ 
      });
 
 
@@ -534,6 +537,7 @@ $('body').on('click','a.key_prestador', function (ev) {
 
     $(".nombre_prestador").val(main_datos.prestador.nombre);
     $(".apellido_prestador").val(main_datos.prestador.apellido);
+    $(".cedula_prestador").val(main_datos.prestador.cedula);
     show_messages("success",mensajes.success.prestador_datos_cargados);
     
 
