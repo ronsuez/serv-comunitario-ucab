@@ -224,10 +224,18 @@ class Prestador extends CI_Controller {
 	}
 	
 	public function asociar_proyecto(){
-		$asesor = $this->input->post('cedula_ase');
-		$proyecto = $this->input->post('nombre_proy');
+		$f_proyecto = $this->input->post('fecha_proyecto');
+		$proyecto = $this->input->post('codigo_proyecto');
 		$prestador = $this->input->post('cedula_pres');
-		$salida = $this->prestador_model->asociar_proyecto($asesor,$proyecto,$prestador);
+		$lunes = $this->input->post('lu');
+		$martes = $this->input->post('ma');
+		$miercoles = $this->input->post('mier');
+		$jueves = $this->input->post('jue');
+		$viernes = $this->input->post('vier');
+		$sabado = $this->input->post('sa');
+		$domingo = $this->input->post('dom');
+		
+		$salida = $this->prestador_model->asociar_proyecto($f_proyecto,$proyecto,$prestador,$lunes,$martes,$miercoles,$jueves,$viernes,$sabado,$domingo);
 		
 			echo json_encode($salida);
 		

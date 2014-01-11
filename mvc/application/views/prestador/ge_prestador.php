@@ -1,15 +1,3 @@
-
-<script>
-
-$(document).ready(function() {
-
-    //$("div [href='#asignar_pro']").hide();
-
-});
-
-
-</script>
-
 <style>
 
 .tab-content{
@@ -98,3 +86,15 @@ $(document).ready(function() {
 <div class="tab-pane" id="asignar_pro"></div>
 
 </div>
+
+<script>
+
+$(document).ready(function() {
+
+    $("div [href='#asignar_pro']").hide();
+    $("div [href='#consultar_pre']").hide();
+    //$("div [href='#ge_prestador']").hide();
+});
+
+
+</script>
