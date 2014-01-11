@@ -89,7 +89,7 @@ p.footer{
 	padding: 0 10px 0 10px;
 	margin: 20px 0 0 0;
 }
-
+   
 .main-content{
 	margin-top: 50px;
 	padding-bottom: 50px;
@@ -179,9 +179,9 @@ body {
 			<a class="navbar-brand" href="#">Servcom-UCAB</a>
 		</div>
 		<div class="navbar-collapse collapse">
-			<ul class="nav navbar-nav">
-				<li class="active"><a href="#">Home</a></li>
-				<li class=""><a href="#about">Acerca de</a></li>
+			<ul class="nav navbar-nav nav-top">
+				<li class="active"><a href="/">Home</a></li>
+				<li class=""><a href="acerca_de">Acerca de</a></li>
 				<li class=""><a href="#contact">Contacto</a></li>
 			</ul>
 			<ul class ="nav navbar-nav pull-right">

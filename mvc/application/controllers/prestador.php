@@ -194,7 +194,7 @@ class Prestador extends CI_Controller {
 		
 		$salida=$this->prestador_model->listar_datos_asesor($query,$option);
 		if($salida == -1){
-			echo "No se encontro";
+			echo "-1";
 		}else{
 			echo json_encode($salida);
 		}
@@ -224,10 +224,18 @@ class Prestador extends CI_Controller {
 	}
 	
 	public function asociar_proyecto(){
-		$asesor = $this->input->post('cedula_ase');
-		$proyecto = $this->input->post('nombre_proy');
+		$f_proyecto = $this->input->post('fecha_proyecto');
+		$proyecto = $this->input->post('codigo_proyecto');
 		$prestador = $this->input->post('cedula_pres');
-		$salida = $this->prestador_model->asociar_proyecto($asesor,$proyecto,$prestador);
+		$lunes = $this->input->post('lu');
+		$martes = $this->input->post('ma');
+		$miercoles = $this->input->post('mier');
+		$jueves = $this->input->post('jue');
+		$viernes = $this->input->post('vier');
+		$sabado = $this->input->post('sa');
+		$domingo = $this->input->post('dom');
+		
+		$salida = $this->prestador_model->asociar_proyecto($f_proyecto,$proyecto,$prestador,$lunes,$martes,$miercoles,$jueves,$viernes,$sabado,$domingo);
 		
 			echo json_encode($salida);
 		
@@ -270,6 +278,27 @@ public function horario_trabajo(){
 echo json_encode($salida);
 
 }
+
+public function suma_horas(){
+
+		$id_prestador = $this->input->post("id_prestador");
+		$id_proyecto = $this->input->post("id_proyecto");
+
+		$salida = $this->prestador_model->suma_horas($id_prestador,$id_proyecto);
+
+	echo json_encode($salida);
+
+	}
+
+	public function suma_horas_totales(){
+
+		$id_prestador = $this->input->post("id_prestador");
+
+		$salida = $this->prestador_model->suma_horas_totales($id_prestador);
+
+	echo json_encode($salida);
+
+	}
 
 
 

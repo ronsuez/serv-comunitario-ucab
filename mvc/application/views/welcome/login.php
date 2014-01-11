@@ -26,12 +26,13 @@
 
 body {
 	background-color: #e6e6e6;
+	margin-top: 0px;
 }
 
 h2, h4 {
 	text-align: center;
 }
-
+  
 #error-message{
 
 	font-size: 14px;
@@ -68,10 +69,6 @@ h2, h4 {
 
 			<h3 class="login-heading">¡Qué bueno tenerte de vuelta! :)</h3>
 			<div class="login-links">
-				<p>
-					¿Necesitas una cuenta?<a href="registro_form">Regístrate en dos segundos. &rarr;</a><br />
-					<span class="forgot-pass">¿Olvidaste tu clave? <a href="#">Presiona aquí. &rarr;</a></span>
-				</p>
 			</div>
 		</div>
 

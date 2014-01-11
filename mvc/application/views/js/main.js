@@ -7,8 +7,8 @@
  * Script purpose: This file is the core javascript, containig
  *           All the actions, consults, validations and 
  *           Data processing for the SERVCOM application.
- */
-
+ */  
+  
 
 //================================================================//
 //================================================================//
@@ -36,22 +36,25 @@ var mensajes = {
   proyecto_nf:"No existen proyectos que coincidan con la busqueda.",
   prestador_nf:"Prestador no encontrado.",
   prestador_pnf:"No existen prestadores inscritos en el proyecto.",
+  prestador_no_insertado:"No se pudo registrar el prestador",
   error_reporte_horas:"No se pudo insertar las horas",
   localidad_nf: "Localidad no encontrada.",
-  prestador_no_insertado:"No se pudo registrar el prestador",
   localidad_no_insertada:"No se pudo registrar la localidad",
   select_user: "Debe seleccionar un usuario",
   usuario_no_registrado:"No se pudo registrar el usuario.",
   usuario_no_actualizado: "No se pudo actualziar el usario"
 },
 success:{
+  asesor_f:"Asesor encontrado",
+  asesores_f:"Asesores encontrados",
+  asesor_datos_cargados:"Los datos del asesor fueron cargados correctamente",
   prestador_f:"Prestador encontrado.",
   prestadores_f:"Prestadores encontrados.",
   prestador_datos_cargados:"Los datos del prestador fueron cargados correctamente",
   reporte_horas: "Horas Insertadas Satisfactoriamente",
+  prestador_insertado:"El prestador fue inscrito en el Sistema",
   proyecto_f:"Proyecto encontrado.",
   proyectos_f:"Proyectos encontrados.",
-  prestador_insertado:"El prestador fue inscrito en el Sistema",
   localidad_f: "Localidad  encontrada.",
   localidad_insertada:"La localidad se registro existosamente",
   coordinador:"ahora es el coordinador de la escuela de ",
@@ -156,6 +159,7 @@ var datos_de_usuario=[
 ];
 
 var act_datos_usuario = 0;
+var act_datos_prestador = 0;
 var prestador_tiene_proyectos=0;
 
 
@@ -237,6 +241,36 @@ $("#main-panel a").on("click",function (e) {
 */
 
 // ajax request 
+
+
+$(document).on("click",".nav-top li a",function (e) {
+
+
+  e.preventDefault();
+
+  url = $(this).attr("href");
+
+
+   $.ajax({
+           beforeSend: function(){
+               // Handle the beforeSend event
+               $('#main-panel-body').html('<div id="loading"><img src="./jar-loading.gif"></div>');
+               
+             },
+             type: "GET",
+             url: url,
+             success: function (data) {
+                      // replace div's content with returned data
+                      
+                     setTimeout(function() {
+                      $('#main-panel-body').html(data);
+      
+                    },1000);
+              }               
+          
+});
+
+});
 
 $(document).on("click",".pestanas li a",function (e) {
 
@@ -398,7 +432,7 @@ $("body").on("keyup","#id_usuario", function(event){
 
 
 
-$("body").on("keyup","#query_proyecto", function(event){
+$("body").on("keyup",".q_proyecto", function(event){
 
   var query = $(this).val();
   var option = "";
@@ -406,9 +440,9 @@ $("body").on("keyup","#query_proyecto", function(event){
 
   if(query!=""){
 
-    $("#results").css("display","block");
+    $(".results").css("display","block");
 
-      $("#results").css("height","auto");
+      $(".results").css("height","auto");
     
     busqueda("buscar_proyecto",query);
 
@@ -425,8 +459,8 @@ $('body').on('click','a.key_proyecto', function (ev) {
   
  ev.preventDefault();
 
- $("#results").css("display","none");
- $("div#search_results ").empty();
+ $(".results.proyecto").css("display","none");
+ $("div.search_results.proyecto ").empty();
 
  var key_proyecto = $(this).attr("href");
 
@@ -440,7 +474,10 @@ $('body').on('click','a.key_proyecto', function (ev) {
 
    $("#"+datos_de_proyecto[i]).html(listado[0][datos_de_proyecto[i]]);
 
-
+   $("#n_proyecto").val(listado[0][datos_de_proyecto[0]]);
+   $("#f_proyecto").val(listado[0][datos_de_proyecto[1]]);
+   $("#e_proyecto").val(listado[0][datos_de_proyecto[2]]);
+   $("#c_proyecto").val(listado[0][datos_de_proyecto[3]]);
  });
 
 
@@ -450,13 +487,20 @@ $('body').on('click','a.key_proyecto', function (ev) {
        listar_prestadores_x_proy(key_proyecto);
        
        ev.stopPropagation();
-
+ 
      });
 
 
 $('body').on('click','a.key_prestador', function (ev) {
   
   ev.preventDefault();
+
+   act_datos_prestador = 1;
+
+  if (act_datos_prestador) {
+    $("#boton_prestador").val("Actualizar datos");
+    $("#titulo_registro_prestador").html("Actualizar datos del prestador");
+  }
 
   console.log($(this).attr("href"));
 
@@ -489,8 +533,11 @@ $('body').on('click','a.key_prestador', function (ev) {
 
      $("#"+datos_de_prestador[i]).val(listado[datos_de_prestador[i]]);
 
-
    });
+
+    $(".nombre_prestador").val(main_datos.prestador.nombre);
+    $(".apellido_prestador").val(main_datos.prestador.apellido);
+    $(".cedula_prestador").val(main_datos.prestador.cedula);
     show_messages("success",mensajes.success.prestador_datos_cargados);
     
 
@@ -612,6 +659,11 @@ $("body").on("keyup","#b_asesor", function(event){
   console.log($(this).val());
 
   if(query!=""){
+
+    $(".results").css("display","block");
+
+      $(".results").css("height","auto");
+
     if ($.isNumeric(query)){
       console.log(query+"input was 0-9");
       option = "cedula";
@@ -629,6 +681,10 @@ $("body").on("keyup","#b_asesor", function(event){
 
 $('body').on('click','a.key_asesor', function (ev) {
   ev.preventDefault();
+
+
+ $(".results.asesor").css("display","none");
+ $("div.search_results.asesor").empty();
 
   console.log($(this).attr("href"));
 
@@ -652,6 +708,9 @@ $('body').on('click','a.key_asesor', function (ev) {
 $('body').on('click','.btn-subir-foto', function (ev) {
       console.log("imagen");
 });
+
+
+
 
 
 //================================================================//
@@ -685,14 +744,18 @@ $('body').on('click','.btn-subir-foto', function (ev) {
 
 //funcion keyup para asesor
 function b_consultar_asesor(query,option){
-  alert(option);
+
+  var add_asesor="#add-asesor-box";
+
+
   $.post("consultar_datos_asesor",{q:query,o:option},function(data){
 
-    console.log(data); 
+    console.log(data);  
     
     if(data!="-1"){
 
 
+      $(add_asesor).hide(); //se esconde el boton para agregar asesor
       
       var array=JSON.parse(data);
 
@@ -710,13 +773,16 @@ function b_consultar_asesor(query,option){
 
       });
 
-      
 
-      $("#busqueda_asesor").html("<ul class='list-group'>"+content+"</ul>");
+      $(".search_results.asesor").html("<ul class='list-group'>"+content+"</ul>");
 
     }else{
 
-      $("#busqueda_asesor").html('<div class="no-results">No se encontraron resultados</div>');
+
+
+      $(add_asesor).show(); //se esconde el boton para agregar asesor
+
+      $(".search_results.asesor").html('<div class="no-results">No se encontraron resultados</div>');
       
 
     }   
@@ -1079,19 +1145,19 @@ function busqueda(url,value){
 
     var results = [];
 
-    $("div#search_results ul").remove();
+    $("div.search_results.proyecto ul").remove();
 
     if(data==="-1"){
 
       show_messages("error",mensajes.error.proyecto_nf);
      
 
-     $("div#search_results").html('<span class="no-results">No se encontraron resultados</span>');
+     $("div.search_results.proyecto").html('<span class="no-results">No se encontraron resultados</span>');
 
    }else{
 
 
-     $("div#search_results .no-results").remove();
+     $("div.search_results .no-results").remove();
 
      $.each(listado, function(){
 
@@ -1110,7 +1176,7 @@ function busqueda(url,value){
      $( "<ul/>", {
       "class": "list-group",
       html: results
-    }).appendTo( "#search_results" );
+    }).appendTo( ".search_results.proyecto" );
 
 
    }

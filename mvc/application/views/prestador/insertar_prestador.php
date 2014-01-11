@@ -144,7 +144,7 @@ form label.error{
           <div class="form-group">
 
             <!-- Indicates a successful or positive action -->
-            <input type="submit" class="btn btn-success" value="Registrar" ></input>
+            <input type="submit" id="boton_prestador" class="btn btn-success" value="Registrar" ></input>
 
             <!-- Indicates caution should be taken with this action -->
             <button type="reset" class="btn btn-default">Cancelar</button>
@@ -264,6 +264,12 @@ $("#form-prestador").submit(function (e) {
 
   e.preventDefault();
 
+  var ruta = "insertar_datos_prestador";
+
+  if (act_datos_prestador) {
+    ruta = "actualizar_datos_usuario";
+  }
+
   if ($(this).valid()) {
     var datos = $(this).serialize();
 
@@ -288,6 +294,8 @@ $("#form-prestador").submit(function (e) {
 
          toastr.error(mensajes.error.form_nv);
     }
+
+    act_datos_prestador=0;
 
 });
 

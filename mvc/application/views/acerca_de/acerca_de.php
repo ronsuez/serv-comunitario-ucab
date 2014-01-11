@@ -8,6 +8,7 @@
 
 	::selection{ background-color: #E13300; color: white; }
 	::moz-selection{ background-color: #E13300; color: white; }
+	::moz-selection{ background-color: #E13300; color: white; }
 	::webkit-selection{ background-color: #E13300; color: white; }
 
 	body {
@@ -42,7 +43,7 @@
 		display: block;
 		margin: 14px 0 14px 0;
 		padding: 12px 10px 12px 10px;
-	}  
+	}
 
 	#body{
 		margin: 0 15px 0 15px;
@@ -70,7 +71,7 @@
 	<h1>Welcome to CodeIgniter lol !</h1>
 
 	<div id="body">
-		<h1>Bienvenido al sistema de gestion de Servicio comunatario</h1>
+		<h1>Conoce a los desarrolladores</h1>
 		<p>
 			<iframe height="360" width="640" frameborder="0" src="http://www.magisto.com/embed/MFkMP19WHSI3T0RgCzE"></iframe> 
 		</p>

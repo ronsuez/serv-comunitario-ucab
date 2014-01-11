@@ -250,23 +250,26 @@ public function insertar_asesor($nombre,$apellido,$email,$cedula,$celular,$telef
 }
 
 
-public function asociar_proyecto($asesor,$proyecto,$prestador){
-  $query1 = $this->db->query("SELECT id_proyecto
+public function asociar_proyecto($f_proyecto,$proyecto,$prestador,$lunes,$martes,$miercoles,$jueves,$viernes,$sabado,$domingo){
+  $query1 = $this->db->query("SELECT ci_asesor,ci_coord
                               FROM proyecto
-                              WHERE nombre_proyecto = '$proyecto' and ci_asesor = $asesor and estado_proyecto='activo'");
+                              WHERE id_proyecto = $proyecto and estado_proyecto='activo'");
 
-  $id_proyecto = $query1->row()->id_proyecto;
-  $query2 = $this->db->query("SELECT escuela_prestador
+  $asesor = $query1->row()->ci_asesor;
+  $coordinador = $query1->row()->ci_coord;
+  
+  /*$query2 = $this->db->query("SELECT escuela_prestador
                               FROM prestador
                               WHERE ci_prestador = $prestador");
   $escuela = $query2->row()->escuela_prestador;
   $query3 = $this->db->query("SELECT ci_coord 
                               FROM coordinador
                               WHERE escuela_coord='$escuela'");
-  $coordinador = $query3->row()->ci_coord;
-  $query = $this->db->query("INSERT INTO participa(ci_prestador,id_proyecto,ci_coord,ci_asesor)
-                             VALUES ('$prestador','$id_proyecto','$coordinador','$asesor')");
+  $coordinador = $query3->row()->ci_coord;*/
+  $query = $this->db->query("INSERT INTO participa(ci_prestador,id_proyecto,ci_coord,ci_asesor,lunes,martes,miercoles,jueves,viernes,sabado,domingo)
+                             VALUES ('$prestador','$proyecto','$coordinador','$asesor','$lunes','$martes','$miercoles','$jueves','$viernes','$sabado','$domingo')");
   return $query;
+
 
 }
 
@@ -326,6 +329,53 @@ public function insertar_datos_reportar_horas ($id_prestador,$n_horas,$fecha,$ob
                     $salida = '-1';
                 }
 
+
+
+            }
+            
+            public function suma_horas($id_prestador,$id_proyecto){
+
+              $query1 = $this->db->query(" SELECT SUM(cant_horas) AS sum1
+                                           FROM control_horas
+                                           WHERE ci_prestador = $id_prestador AND id_proyecto = $id_proyecto ");
+
+
+               
+              if ($query1->num_rows() > 0)
+                {
+
+                return $query1->result_array(); //&& $query2->result_array();
+
+
+            
+                }else{    
+                    
+                    return $salida = '-1';
+                }
+
+
+            }
+
+
+            public function suma_horas_totales($id_prestador){
+
+              $query2 = $this->db->query("SELECT SUM(cant_horas) AS sum1 
+                                           FROM control_horas
+                                           WHERE ci_prestador = $id_prestador");
+
+
+               
+              if ($query2->num_rows() > 0)
+                {
+
+                return $query2->result_array();
+
+
+            
+                }else{    
+                    
+                    return $salida = '-1';
+                }
 
 
             }

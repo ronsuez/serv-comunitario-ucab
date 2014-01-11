@@ -19,20 +19,7 @@
 							</div><!-- /input-group -->
 						</div>
 					</div>
-					<div id="cont">
-						<div id="info">
-							<form class="form-inline" role="form">
-								<fieldset disabled>
-									<div class="form-group">
-										<label>Nombre</label>
-										<input type="text" id="nombre_localidad1" class="form-control" placeholder="Nombre de la localidad">
-										
-									</div>
-								</fieldset>
-							</form>
-						 </div>
-					</div>
-				
+					
 					</br></br>
 					<!-- dattos perosnales y academicos-->
 										
