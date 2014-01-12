@@ -106,8 +106,12 @@ $route['consultar_localidad']="localidad/consultar";
 $route['insertar_datos_localidad']="localidad/insertar_datos_localidad";
 $route['consultar_datos_localidad']="localidad/ver_datos_localidad";
 
+
+/* reportes */
+
 $route['ver_reporte'] = 'reportes/index';
 
+$route['generar_carta_culminacion']="prestador/generar_cc";
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

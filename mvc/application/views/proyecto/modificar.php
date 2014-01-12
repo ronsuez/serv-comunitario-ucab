@@ -136,7 +136,7 @@
 					</div>
 				</div>
 			</div>
-						<!-- boton para generar reporte -->
+						<!-- boton para generar reporte de un proyecto -->
 
 			<button id="gen_reporte_proy" type="button" class="button-generar pull-right btn btn-success" data-loading-text="Generando reporte" >Generar reporte PDF</button>
 		</div>

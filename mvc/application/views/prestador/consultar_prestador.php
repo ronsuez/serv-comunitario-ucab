@@ -169,7 +169,7 @@ button a:hover{
     
       <button  id= "btn_finalizar" type="button" class="btn btn-info">Finalizar Prestacion en este Proyecto </button>
       
-      <button id= "btn_imprimir" type="button" class="btn btn-info">Imprimir Notificacion Culminacion</button>
+      <button id="btn_print_not_culminacion" type="button" class="btn btn-info button-generar">Imprimir Notificacion Culminacion</button>
     
     </p>
   </center>
@@ -482,6 +482,17 @@ $("#enviar_datos_modal").on("click",function () {
   
 
 });
+
+
+$("#btn_print_not_culminacion").on('click',function () {
+
+  var ci =main_datos.prestador.cedula;
+
+    console.log('cedula prestador',main_datos.prestador.cedula);
+
+
+      generar_reporte("generar_carta_culminacion",0,ci);
+})
 
 });
 

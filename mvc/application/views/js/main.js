@@ -1214,7 +1214,7 @@ function ver_usuarios(url){
 function generar_reporte(url,estado,key){
 
 
- $.post(url,{state:estado,id_proyecto:key},function(data){
+ $.post(url,{state:estado,id:key},function(data){
 
 
   
