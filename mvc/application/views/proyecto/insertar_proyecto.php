@@ -5,9 +5,9 @@
     width: 100%;
     height: auto;
 
-
-
 }
+
+
 </style>
 <div class="container">
 
@@ -130,7 +130,7 @@
 
 
 <div class="panel panel-default">
-  <div class="panel-heading"> Estrategias</div>
+  <div class="panel-heading">Estrategias</div>
   <div class="panel-body">
 
 
@@ -208,8 +208,16 @@
 
              <div id="add-asesor-box">
                     
-              <button class="btn btn-default" data-toggle="modal" data-target="#form-asesor">  Inscribir Asesor</button>
+              <button class="btn btn-default" data-toggle="modal" data-target="#form-asesor">Inscribir Asesor</button>
             </div>
+
+    </div>
+</div>
+
+
+<br><input type="submit" class="btn btn-success" id="enviar" value="Crear Proyecto"></input><br><br> 
+</form>
+
     <!--modal-inscribir asesor-->
 
 <div class="modal fade" id="form-asesor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -223,9 +231,8 @@
 
         <div class="modal-body">
          
-      <form  id="form-inscribir-asesor" action="#" method="POST"> 
-      
-      
+      <form  id="inscribir-asesor" action="#" method="POST"> 
+
        <div class="form-group">
 
         <label>Nombre</label>
@@ -282,15 +289,11 @@
 </div>
 </div>
 
-
-</div>
-</div>
-
-
-<br><input type="submit" class="btn btn-success" id="enviar" value="Crear Proyecto"></input><br><br> 
-</form>
-
     </div> <!--/container-->
+
+
+
+
 <script type="text/javascript">
 
 $(document).ready(function() {
@@ -405,9 +408,68 @@ listar_localidades();
 
 });
 
-     //comienzod del script de insertar asesor
 
-$("#form-inscribir-asesor").bind("submit",function (e){
+         //Inicializdor y handler para el validador del form insertar-asesor
+
+    $("#inscribir-asesor").validate({
+
+      rules:{
+        nombre: {
+          required: true,
+          alpha:true
+        },apellido :{
+          required: true,
+          alpha:true
+        },email :{
+          required: true,
+          email: true
+        },telefono:{
+          required: true,
+          number: true,
+          maxlength:11,
+          minlength:11
+        },direccion:{
+          required:true
+        },celular:{
+          required: true,
+          number: true,
+          maxlength:11,
+          minlength:11
+        },cedula: {
+          required: true,
+          number: true
+        }
+      },
+      messages:{
+        nombre : {
+          required: mensajes.reglas.requerido,
+        },apellido :{
+          required: mensajes.reglas.requerido
+        },email : {
+          required: mensajes.reglas.requerido,
+          email: mensajes.reglas.email
+        },telefono :{
+          required : mensajes.reglas.requerido,
+          number : mensajes.reglas.numerico,
+          minlength: mensajes.reglas.minimo,
+          maxlength: mensajes.reglas.maximo
+        },celular :{
+          required : mensajes.reglas.requerido,
+          number : mensajes.reglas.numerico,
+          minlength: mensajes.reglas.minimo_tlf,
+          maxlength: mensajes.reglas.maximo_tlf
+        },direccion:{
+          required: mensajes.reglas.requerido
+        },cedula: {
+          required: mensajes.reglas.requerido,
+          number: mensajes.reglas.numerico
+        }
+    }
+  });
+
+     //comienzo del script de insertar asesor
+
+$("#inscribir-asesor").bind("submit",function (e){
 
   e.preventDefault();
   var nombre=$("#nombre_asesor").val();
@@ -440,7 +502,6 @@ $("#form-inscribir-asesor").bind("submit",function (e){
 });
 
 });
-
 
 
 </script>

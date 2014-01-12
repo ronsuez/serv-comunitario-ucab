@@ -177,13 +177,13 @@ $("#form-prestador").validate({
 
  
   rules: {
-    nombre: {
+    nombre:{
       required: true,
       alpha:true
-    },apellido :{
+    },apellido:{
       required: true,
       alpha:true
-    },email :{
+    },email:{
       required: true,
       email: true
     },telefono_hab:{

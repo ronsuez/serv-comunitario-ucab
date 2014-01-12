@@ -214,7 +214,7 @@ class Prestador extends CI_Controller {
 		$telefono = $this->input->post('telefono_ase');
 		$direccion = $this->input->post('direccion_ase');
 		$celular = $this->input->post('celular_ase');
-		$salida = $this->prestador_model->insertar_asesor($nombre,$apellido,$email,$cedula,$celula,$telefono,$direccion);
+		$salida = $this->prestador_model->insertar_asesor($nombre,$apellido,$email,$cedula,$celular,$telefono,$direccion);
 		if($salida == -1){
 			echo("Asesor no insertado");
 			
