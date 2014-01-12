@@ -302,6 +302,35 @@ public function suma_horas(){
 
 
 
+/*reportes*/
+
+public function preparar_datos_reporte($data,$estado){
+
+				$array = array("datos"=>$data['datos_prestador'], "estado"=>$estado);
+
+
+			 echo $this->load->view($this->controller."carta_culminacion",$array,TRUE);
+
+	}
+   
+
+
+	public function generar_cc($id = false , $estado = false){
+
+
+				if($this->input->post('id')){ 
+
+					$id = $this->input->post('id');
+				}
+  
+
+			 $salida=$this->prestador_model->listar_datos_prestador($id);
+	
+		
+			 $this->preparar_datos_reporte($salida,$estado);
+		 		
+
+	}
 
 }
 
