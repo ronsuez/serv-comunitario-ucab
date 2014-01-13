@@ -556,12 +556,13 @@ $('body').on('click','a.key_prestador', function (ev) {
 
     show_messages("success",mensajes.success.prestador_datos_cargados);
     
+     $("#data-re-prestador").show();
+
+
 
   });
   
-  $("#data-re-prestador").show();
-
-
+ 
 
 
 //consulto si el prestador tiene proyectos asociados , 
@@ -1364,7 +1365,7 @@ function mostrar_opciones(){
             }
 
               console.log("hola");
-              
+
                $(".foto-prestador img").attr("src",img_path);
     });
 
