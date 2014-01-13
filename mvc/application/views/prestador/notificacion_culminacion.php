@@ -1,82 +1,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <style>
-        
-            
-            #contenedor{
-                
-                
-                width:972px;
-                margin:auto;
-                border-radius: 8px;
-            }
-            
-            #cabecera{
-                margin:20px auto;     
-            }
-            
-            #cabecera img{
-            margin: 0px 0px 0px 60px;
-            width:300px;
-            height:50px;
-            }
-            
-            #cabecera h6{
-                margin: 0px 200px 0px 0px;
-                float:right;
-                position:relative;
-            }
-            
-            #contenido{
-            
-            margin:80px auto;
-            /*width:500px;*/
-            height:auto;   
-            }
-            
-            #contenido h2{
-                font-size: 15px;
-                margin:auto;
-                text-align:center;
-                width:500px;
-                height:50px;
-            }
-            
-            #contenido #fecha{
-                
-                margin: 0px 185px 0px 0px;
-                width:auto;
-                height:auto;
-                float:right;
-            }
-            
-            #contenido p{
-                
-                text-align:justify;
-                margin:auto;
-                width:600px;
-                height:auto;
-                line-height:40px;
-                
-            }
-            #pie p{
-                width:300px;
-                height:50px;
-                text-align:center;
-                margin:auto;
-            }
-            
-            #pie #final{
-                width:300px;
-                height:50px;
-                text-align:center;
-                margin:auto;
-                line-height:50px;
-            }
-            
-        
-        </style>
+  
+    <link href="<?php echo base_url() ; ?>application/views/css/carta_culminacion.css" rel="stylesheet">
+  
     </head>
     
     <body>

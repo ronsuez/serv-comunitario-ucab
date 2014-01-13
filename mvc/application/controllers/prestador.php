@@ -310,18 +310,21 @@ public function suma_horas(){
 
 /*reportes*/
 
-public function preparar_datos_reporte($data,$estado){
+public function preparar_datos_reporte($data,$estado,$tipo = false){
 
 				$array = array("datos"=>$data['datos_prestador'], "estado"=>$estado);
 
 
-			 echo $this->load->view($this->controller."carta_culminacion",$array,TRUE);
+			 echo $this->load->view($this->controller.$tipo,$array,TRUE);
 
 	}
    
 
 
 	public function generar_cc($id = false , $estado = false){
+
+
+			$tipo = "carta_culminacion";
 
 
 				if($this->input->post('id')){ 
@@ -333,7 +336,29 @@ public function preparar_datos_reporte($data,$estado){
 			 $salida=$this->prestador_model->listar_datos_prestador($id);
 	
 		
-			 $this->preparar_datos_reporte($salida,$estado);
+			 $this->preparar_datos_reporte($salida,$estado,$tipo);
+		 		
+
+	}
+
+
+
+
+
+	public function generar_nc($id = false , $estado = false){
+
+			$tipo = "notificacion_culminacion";
+
+				if($this->input->post('id')){ 
+
+					$id = $this->input->post('id');
+				}
+  
+
+			 $salida=$this->prestador_model->listar_datos_prestador($id);
+	
+		
+			 $this->preparar_datos_reporte($salida,$estado,$tipo);
 		 		
 
 	}

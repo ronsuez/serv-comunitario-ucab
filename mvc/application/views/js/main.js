@@ -115,12 +115,12 @@ var main_datos={
           cedula : "",
           nombre : "",
           apellido : "",
-          expediente : "",
-          escuela : "",
           email : "",
           telefono: "",
           celular: "",
           direccion: "",
+          expediente : "",
+          escuela : "",
           mencion: "",
           semestre: "",
         }
@@ -543,11 +543,9 @@ $('body').on('click','a.key_prestador', function (ev) {
       main_datos.prestador.escuela=listado["escuela_prestador"];
 
 
-    $.each(datos_de_prestador, function(i){
+      //popular datos del prestador 
 
-     $("#"+datos_de_prestador[i]).val(listado[datos_de_prestador[i]]);
-
-   });
+        popular_datos_prestador();
 
     $("#info-nombre_prestador").html(main_datos.prestador.nombre+""+main_datos.prestador.apellido);
 
@@ -770,6 +768,25 @@ $('body').on("click","#btn-inscribir_prestador",function(){
 //#############buscar asesor############################################################
 
 
+
+//funcion popular datos del prestador
+
+function popular_datos_prestador(listado){
+
+    var array = $.map(main_datos.prestador, function(value, index) {
+    
+    return [value];
+    
+    });
+
+    $.each(datos_de_prestador, function(i){
+
+     $("#"+datos_de_prestador[i]).val(array[i]);
+
+   });
+
+
+}
 //funcion manejadora de tabs
 
 function handler_tab(container,tab,state){
@@ -834,6 +851,9 @@ function b_consultar_asesor(query,option){
 
 
 function b_consultar_prestador(query,option,escuela){
+
+
+
 
   $.post("b_listar_prestadores",{q:query,o:option,esc:escuela},function(data){
 

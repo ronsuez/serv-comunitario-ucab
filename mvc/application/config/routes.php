@@ -98,7 +98,7 @@ $route['ver_reporte'] = 'reportes/index';
 
 $route['generar_carta_culminacion']="prestador/generar_cc";
 
-$route['generar_notificacion_culminacion']="prestador/generar_nc";
+$route['generar_not_culminacion']="prestador/generar_nc";
 
 /*fotos*/
 

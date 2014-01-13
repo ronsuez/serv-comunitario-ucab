@@ -103,14 +103,14 @@ form label.error{
             <select id="escuela_prestador" name="escuela" class="form-control">
               <option value="">Seleccione</option>
               <option value="Informatica">Ingenier&iacute;a Inform&aacute;tica</option>
-              <option value="ingenieria civil">Ingenier&iacute;a Civil</option>
-              <option value="ingenieria industrial">Ingenier&iacute;a Industrial</option>
-              <option value="comunicacion social">Comunicaci&oacute;n Social</option>
+              <option value="Civil">Ingenier&iacute;a Civil</option>
+              <option value="Industrial">Ingenier&iacute;a Industrial</option>
+              <option value="Comunicacion social">Comunicaci&oacute;n Social</option>
               <option value="administracion">Administraci&oacute;n</option>
-              <option value="contaduria">Contadur&iacute;a</option>
-              <option value="relaciones industriales">Relaciones Industriales</option>
-              <option value="educacion">Educaci&oacute;n</option>
-              <option value="derecho">Derecho</option>
+              <option value="Contaduria">Contadur&iacute;a</option>
+              <option value="Relaciones industriales">Relaciones Industriales</option>
+              <option value="Educacion">Educaci&oacute;n</option>
+              <option value="Derecho">Derecho</option>
           </select>
           </div> 
           
@@ -166,6 +166,8 @@ form label.error{
   <script>
 
 $(document).ready(function(){
+
+  popular_datos_prestador();
 
 
 //funcionalidad para la regla alfebetica
