@@ -43,7 +43,7 @@ class UploadHandler extends CI_Controller {
    $msg = "";
    $file_element_name = 'userfile';
     
-   if (empty($this->input->post('name')))
+   if ($this->input->post('name'))
    {
       $status = "error";
       $msg = "Please enter a title";
