@@ -161,6 +161,9 @@ var datos_de_usuario=[
 var act_datos_usuario = 0;
 var act_datos_prestador = 0;
 var prestador_tiene_proyectos=0;
+var escuela = "";
+var img_name = "";
+var img_path = "http://1120.gogiro.com/wp-content/uploads/2012/04/facebook-profile-picture-no-pic-avatar.jpg";
 
 
 //================================================================//
@@ -387,15 +390,22 @@ $("body").on("keyup","#id_prestador_cedula", function(event){
   var option = "";
   console.log($(this).val());
 
+$("#prestador-tab-content").hide();
+
+$("#data-re-prestador").hide();
+
+
+
+
   if(query!=""){
     if ($.isNumeric(query)){
       console.log(query+"input was 0-9");
       option = "cedula";
-      b_consultar_prestador(query,option);
+      b_consultar_prestador(query,option,escuela);
     } else{
       console.log(query+"input was a-z");
       option = "nombre";
-      b_consultar_prestador(query,option);
+      b_consultar_prestador(query,option,escuela);
     }
   }
 
@@ -495,6 +505,10 @@ $('body').on('click','a.key_prestador', function (ev) {
   
   ev.preventDefault();
 
+
+
+  $("#prestador-tab-content").show();
+
    act_datos_prestador = 1;
 
   if (act_datos_prestador) {
@@ -535,13 +549,20 @@ $('body').on('click','a.key_prestador', function (ev) {
 
    });
 
-    $(".nombre_prestador").val(main_datos.prestador.nombre);
-    $(".apellido_prestador").val(main_datos.prestador.apellido);
-    $(".cedula_prestador").val(main_datos.prestador.cedula);
+    $("#info-nombre_prestador").html(main_datos.prestador.nombre+""+main_datos.prestador.apellido);
+
+      set_photo();
+ 
+
     show_messages("success",mensajes.success.prestador_datos_cargados);
     
 
   });
+  
+  $("#data-re-prestador").show();
+
+
+
 
 //consulto si el prestador tiene proyectos asociados , 
  // si tiene , se esconde la pestana asignar proyetcor
@@ -710,6 +731,11 @@ $('body').on('click','.btn-subir-foto', function (ev) {
 });
 
 
+$('body').on("click","#btn-inscribir_prestador",function(){
+
+        $("#prestador-tab-content").show();
+  });
+
 
 
 
@@ -741,6 +767,18 @@ $('body').on('click','.btn-subir-foto', function (ev) {
 //================================================================//
 
 //#############buscar asesor############################################################
+
+
+//funcion manejadora de tabs
+
+function handler_tab(container,tab,state){
+
+
+
+
+
+}
+
 
 //funcion keyup para asesor
 function b_consultar_asesor(query,option){
@@ -794,9 +832,9 @@ function b_consultar_asesor(query,option){
 
 
 
-function b_consultar_prestador(query,option){
+function b_consultar_prestador(query,option,escuela){
 
-  $.post("b_listar_prestadores",{q:query,o:option},function(data){
+  $.post("b_listar_prestadores",{q:query,o:option,esc:escuela},function(data){
 
     console.log(data); 
     
@@ -827,7 +865,7 @@ function b_consultar_prestador(query,option){
 
     }else{
 
-      $("#datos_busqueda").html('<div class="no-results">No se encontraron resultados</div>');
+      $("#datos_busqueda").html('<div class="no-results">No se encontraron resultados <br><button id="btn-inscribir_prestador" type="button"  class="btn btn-primary">Inscribir prestador</button></div>');
       
 
     }   
@@ -1304,6 +1342,36 @@ function mostrar_opciones(){
 
       }
 }
+
+
+ function set_photo(){
+
+      $.post('set_photo',{ci:main_datos.prestador.cedula},function(data){
+
+          console.log(data);
+
+          img_name = JSON.parse(data);
+
+            if(img_name['filename']){
+
+              //img_path = $(location).attr('hostname');
+              img_path="files/"+img_name['filename'];
+           
+
+            }else{
+
+              img_path =  "http://1120.gogiro.com/wp-content/uploads/2012/04/facebook-profile-picture-no-pic-avatar.jpg";
+            }
+
+              console.log("hola");
+              
+               $(".foto-prestador img").attr("src",img_path);
+    });
+
+
+  }
+
+
 
 //fin-archivo
 

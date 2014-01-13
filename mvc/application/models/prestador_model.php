@@ -66,20 +66,31 @@
 
 
 
-    public function buscar_prestador($q,$o){
+    public function buscar_prestador($q,$o,$e){
+
+
+        if($e=="Todas las escuelas"){
+
+                $escuela="";
+
+        }else{
+
+            $escuela=$e;
+        }
 
         if($o== "cedula"){
             $filtro="ci_prestador";
+
             $sql="SELECT ci_prestador, nombre_prestador, Apellido_prestador
             FROM prestador 
-            WHERE $filtro=$q";
+            WHERE $filtro=$q AND escuela_prestador='$escuela'";
 
         }else if($o=="nombre"){
             $filtro="nombre_prestador";
             $sql="SELECT ci_prestador, nombre_prestador, Apellido_prestador
             FROM prestador 
-            WHERE $filtro LIKE '".$q."%'
-            OR Apellido_prestador LIKE '".$q."%'";
+            WHERE  escuela_prestador='$escuela' AND ($filtro LIKE '".$q."%'
+                OR Apellido_prestador LIKE '".$q."%')";
         }
 
         

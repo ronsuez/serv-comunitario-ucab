@@ -41,22 +41,6 @@
 $route['default_controller'] = "welcome";
 $route['404_override'] = '';
 
-/*acerca del proyecto */
-$route['acerca_de'] = 'welcome/acerca_de';
-
-/* administrador de usuarios */
-$route['ge_administrador'] = 'administrador/index';
-$route['gest-usuarios'] = 'administrador/admin_usuarios';
-$route['b_listar_usuario'] = 'usuario/listar';
-$route['registrar_usuario'] = 'administrador/registrar_usuario';
-$route['admin_coo'] = 'administrador/admin_coordinadores';
-$route['traer_usuarios'] = 'administrador/ver_usuarios';
-$route['registrar_datos_usuario'] = 'administrador/registrar_datos_usuario';
-$route['get_info_user'] = 'usuario/get_info_user';
-$route['actualizar_datos_usuario'] = 'administrador/actualizar_datos_usuario';
-$route['def_coordinador'] = 'administrador/def_coordinador';
-$route['deshab_coordinador'] = 'administrador/deshab_coordinador';
-
 /*gestion de usuarios*/
 $route['login'] = 'usuario/login_attempt';
 $route['logout'] = 'usuario/log_out';
@@ -81,6 +65,7 @@ $route['gest-prestador']="prestador/index";
 $route['insertar_prestador']="prestador/insertar";
 $route['consultar_prestador']="prestador/consultar";
 $route['asignar_proyecto']="prestador/asignar_pro";
+$route['hola']="prestador/hola";
 $route['consultar_datos_prestador']="prestador/ver_datos_personales";
 $route['insertar_datos_prestador']="prestador/insertar_datos_prestador";
 $route['listar_p_x_proy']="prestador/listar_x_proyecto";
@@ -92,8 +77,9 @@ $route['consultar_datos_asesor']="prestador/ver_datos_asesor";
 $route['consultar_datos_proyecto']="prestador/verificar_proyecto";
 $route['insertar_asesor']="prestador/insertar_asesor";
 $route['asociar']="prestador/asociar_proyecto";
-$route['horario_trabajo'] = "prestador/horario_trabajo";
 $route['insertar_datos_reportar_horas']="prestador/insertar_datos_reportar_horas";
+$route['actualizar_datos_prestador']="prestador/actualizar_datos_prestador";
+$route['horario_trabajo'] = "prestador/horario_trabajo";
 $route['datos_horas_insertadas'] = "prestador/datos_horas_insertadas";
 $route['suma_horas'] = "prestador/suma_horas";
 $route['suma_horas_totales'] = "prestador/suma_horas_totales";
@@ -107,11 +93,16 @@ $route['insertar_datos_localidad']="localidad/insertar_datos_localidad";
 $route['consultar_datos_localidad']="localidad/ver_datos_localidad";
 
 
-/* reportes */
-
+/*reportes*/
 $route['ver_reporte'] = 'reportes/index';
 
 $route['generar_carta_culminacion']="prestador/generar_cc";
+
+$route['generar_notificacion_culminacion']="prestador/generar_nc";
+
+/*fotos*/
+
+$route['set_photo']="prestador/set_photo";
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

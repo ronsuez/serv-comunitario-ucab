@@ -102,7 +102,7 @@ form label.error{
             <label for="">Carrera</label>
             <select id="escuela_prestador" name="escuela" class="form-control">
               <option value="">Seleccione</option>
-              <option value="ingenieria informatica">Ingenier&iacute;a Inform&aacute;tica</option>
+              <option value="Informatica">Ingenier&iacute;a Inform&aacute;tica</option>
               <option value="ingenieria civil">Ingenier&iacute;a Civil</option>
               <option value="ingenieria industrial">Ingenier&iacute;a Industrial</option>
               <option value="comunicacion social">Comunicaci&oacute;n Social</option>

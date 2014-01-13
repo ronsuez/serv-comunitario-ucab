@@ -29,6 +29,9 @@ class Prestador extends CI_Controller {
 		$this->controller="prestador/";
 
 		$this->load->model("prestador_model");
+		
+		$this->load->model("files_model");
+
 
 	}
 
@@ -53,9 +56,11 @@ class Prestador extends CI_Controller {
 		$this->load->view($this->controller.'asignar_proyecto');
 	}
 
-	public function hola() {
+	public function set_photo() {
 
-		$this->load->view($this->controller.'hola');
+			$cedula=$this->input->post('ci');
+
+		echo json_encode($this->files_model->set_photo($cedula));
 	}
 
 	public function ver_datos_personales() {
@@ -113,10 +118,11 @@ class Prestador extends CI_Controller {
 
 		$query  = $this->input->post('q');
 		$option = $this->input->post('o');
+		$escuela = $this->input->post('esc');
 
 		//echo "server->".$query."->".$option;
 
-		$salida= $this->prestador_model->buscar_prestador($query,$option);
+		$salida= $this->prestador_model->buscar_prestador($query,$option,$escuela);
 
 
 			if($salida!="-1"){

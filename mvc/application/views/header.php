@@ -24,7 +24,10 @@
     
   <link href="<?php echo base_url() ; ?>application/views/css/toastr.css" rel="stylesheet">
     
-      <link href="<?php echo base_url() ; ?>application/views/css/main.css" rel="stylesheet">
+  <link href="<?php echo base_url() ; ?>application/views/css/main.css" rel="stylesheet">
+
+  <!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
+<link href="<?php echo base_url() ; ?>application/views/css/jquery.fileupload.css" rel="stylesheet">
     
     <!-- Le javascript
     ================================================== -->
@@ -63,6 +66,9 @@
 
 <script src=<?php echo  base_url()."application/views/js/toastr.js" ; ?>  type="text/javascript"></script>
 
+
+<!-- Plugin para subir archivos w/ ajax-->
+<script src=<?php echo  base_url()."application/views/js/ajaxfileupload.js" ; ?> type="text/javascript"></script>
 
   </head>
 
