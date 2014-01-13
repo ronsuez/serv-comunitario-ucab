@@ -45,10 +45,11 @@ class UploadHandler extends CI_Controller {
     
    if ($this->input->post('name'))
    {
-      $status = "error";
-      $msg = "Please enter a title";
-   }else{
+      
    	 $title=$this->input->post('name');
+   }else{
+   	$status = "error";
+      $msg = "Please enter a title";
    }
     
   
