@@ -125,7 +125,6 @@
 $("#inscribir-asesor").bind("submit",function (e){
 
   e.preventDefault();
-  var nombre=$("#nombre_asesor").val();
   if($(this).valid()){
     var nombre = $("#nombre_asesor").val();
     var apellido = $("#apellido_asesor").val();
