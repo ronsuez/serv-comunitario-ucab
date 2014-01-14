@@ -172,9 +172,9 @@ body {
 		$(document).ready(function(){
 
 
-			escuela = $(".escuela").text();
+			escuela_usuario = $(".escuela").text();
 
-			console.log(escuela);
+			console.log("Escuela Usuario:"+escuela_usuario);
 		});
 
 </script>

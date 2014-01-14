@@ -140,6 +140,16 @@
 $(document).ready(function() {
 
 
+    //validacion de permisologias
+      if(escuela_usuario === "Proyeccion a la comunidad"){
+
+            $(".pestanas [href='#inscribir_prestador']").remove();
+
+            $(".pestanas [href='#asignar_pro']").remove();
+
+           // $(".pestanas [href='#consultar_pre']").click();
+            
+      }
 
 
   $('#upload_photo').on('show.bs.modal', function (e) {

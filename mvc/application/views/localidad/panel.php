@@ -5,7 +5,16 @@
                   
     $(document).ready(function() {
   
-        
+          //validacion de permisologias
+      if(escuela_usuario === "Proyeccion a la comunidad"){
+
+            $(".pestanas [href='#inscribir_localidad']").remove();
+
+            $(".pestanas [href='#consultar']").click();
+            
+      }
+
+
  });
   
     </script>

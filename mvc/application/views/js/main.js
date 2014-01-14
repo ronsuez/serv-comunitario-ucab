@@ -158,7 +158,7 @@ var datos_de_usuario=[
 'escuela',
 ];
 
-var escuela = "";
+var escuela_usuario = "";
 var act_datos_usuario = 0;
 var act_datos_prestador = 0;
 var prestador_tiene_proyectos=0;
@@ -574,8 +574,11 @@ $('body').on('click','a.key_prestador', function (ev) {
 //consulto si el prestador tiene proyectos asociados , 
  // si tiene , se esconde la pestana asignar proyetcor
 
-
+ 
     listar_proyecto(cedula,0);
+  
+
+
 
     //limpiamos el input y escondemos la busqueda 
     $("#datos_busqueda").empty();
@@ -805,6 +808,16 @@ function popular_datos_prestador(listado){
 
 
 }
+
+function vaciar_datos_prestador(){
+
+$.each(main_datos.prestador,function(index,value){ 
+ 
+       main_datos.prestador[index]="";  
+
+ });
+
+}
 //funcion manejadora de tabs
 
 function handler_tab(container,tab,state){
@@ -875,12 +888,10 @@ function b_consultar_prestador(query,option,escuela){
 
   $.post("b_listar_prestadores",{q:query,o:option,esc:escuela},function(data){
 
-    console.log(data); 
+    console.log("salida"+data); 
     
     if(data!="-1"){
-
-
-      
+  
       var array=JSON.parse(data);
 
       console.log(array.length);
@@ -903,6 +914,8 @@ function b_consultar_prestador(query,option,escuela){
       $("#datos_busqueda").html("<ul class='list-group'>"+content+"</ul>");
 
     }else{
+
+      console.log("hola");
 
       $("#datos_busqueda").html('<div class="no-results">No se encontraron resultados <br><button id="btn-inscribir_prestador" type="button"  class="btn btn-primary">Inscribir prestador</button></div>');
       
@@ -999,7 +1012,8 @@ function show_messages(type,messages){
 function nav_pestanas_principal(id_pestana,url,texto,tab){
 
 
-  
+  vaciar_datos_prestador();
+
   var pestana;
 
   if(url ==="gest-proyecto"){
@@ -1101,7 +1115,6 @@ function nav_tabs(tab){
                 }
 
               });
-
 
 
   }
@@ -1352,6 +1365,9 @@ function listar_proyecto(cedula,op){
   }
 
     //defino las pestanas para el prestador
+
+
+
     if(!prestador_tiene_proyectos){
 
          $("div [href='#asignar_pro']").show();
@@ -1359,10 +1375,12 @@ function listar_proyecto(cedula,op){
          $("div [href='#consultar_pre']").hide();
       }else{
          $("div [href='#asignar_pro']").hide();
-         $("div [href='#consultar_pre']").show();
+
+    
+          $("div [href='#consultar_pre']").show();
 
       }
-
+  
 
    });
 
