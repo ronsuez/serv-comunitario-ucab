@@ -47,12 +47,14 @@ class Proyecto extends CI_Controller {
 
 	public function modificar()
 	{
-	
 		$this->load->view($this->controller.'modificar');
 	}
 
 	
-	
+	public function asesor() 
+	{
+		$this->load->view($this->controller.'asesor');
+	}
 
 	public function ver_datos_coordinador()
 	{
