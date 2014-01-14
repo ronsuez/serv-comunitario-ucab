@@ -98,8 +98,8 @@ var datos_de_prestador=[
 'ci_prestador',
 'nombre_prestador',
 'apellido_prestador',
-'celular_prestador',
 'email_prestador',
+'celular_prestador',
 'telefono_prestador',
 'direccion_prestador',
 'no_exp_prestador',
@@ -116,8 +116,8 @@ var main_datos={
           nombre : "",
           apellido : "",
           email : "",
-          telefono: "",
           celular: "",
+          telefono: "",
           direccion: "",
           expediente : "",
           escuela : "",
@@ -866,13 +866,13 @@ function b_consultar_prestador(query,option,escuela){
       var array=JSON.parse(data);
 
       console.log(array.length);
-      
+      /*
       if (array.length === 1) 
         show_messages("success",array.length+" "+mensajes.success.prestador_f);
       else
         show_messages("success",array.length+" "+mensajes.success.prestadores_f);
     
-      
+      */
       var content ="";
 
       $.each(array,function(i){
