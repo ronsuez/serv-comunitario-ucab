@@ -410,5 +410,38 @@ public function insertar_datos_reportar_horas ($id_prestador,$n_horas,$fecha,$ob
 
             }
 
+            public function datos_prestador_asociado($id){
+
+                $query = $this->db->query("SELECT ci_coord
+                                             FROM proyecto
+                                             WHERE id_proyecto = $id");
+
+
+                    $cedula = ($query->row()->ci_coord);
+
+                $query2 = $this->db->query("SELECT nombre_coord,apellido_coord
+                                            FROM coordinador
+                                            WHERE ci_coord = $cedula");
+
+
+
+                        if ($query2->num_rows() > 0){
+
+                        $salida =  array('estado'=>"1",'datos_proyecto' =>$query2->row());
+
+
+                        return $salida;
+
+                        }else{
+
+                        $salida =  array('estado' =>"-1");    
+
+                        return $salida;
+        }
+
+
+
+            }
+
 
 }    
