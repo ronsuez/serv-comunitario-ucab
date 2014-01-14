@@ -141,11 +141,11 @@ $(document).ready(function() {
       Opciones <span class="glyphicon glyphicon-cog"></span>
     </button>
     <ul class="dropdown-menu" role="menu">
-      <li><a href="#">Activar Coordinador</a></li>
+      <li><a href="#" class="coord">Activar Coordinador</a></li>
       <li><a href="#">Desactivar Coordinador</a></li>
       <li class="divider"></li>
       <li><a href="#">Habilitar</a></li>
-      <li><a href="#">Deshabilitar</a></li>
+      <li><a href="#" class="deshab" >Deshabilitar</a></li>
     </ul>
   </div>
 </td>
@@ -165,7 +165,7 @@ $(document).ready(function() {
       Opciones <span class="glyphicon glyphicon-cog"></span>
     </button>
     <ul class="dropdown-menu" role="menu">
-      <li><a href="#" class="coord" >Activar Coordinador</a></li>
+      <li><a href="#" class="coord">Activar Coordinador</a></li>
       <li><a href="#">Desactivar Coordinador</a></li>
       <li class="divider"></li>
       <li><a href="#">Habilitar</a></li>
@@ -188,11 +188,11 @@ $(document).ready(function() {
       Opciones <span class="glyphicon glyphicon-cog"></span>
     </button>
     <ul class="dropdown-menu" role="menu">
-      <li><a href="#">Activar Coordinador</a></li>
+      <li><a href="#" class="coord">Activar Coordinador</a></li>
       <li><a href="#">Desactivar Coordinador</a></li>
       <li class="divider"></li>
       <li><a href="#">Habilitar</a></li>
-      <li><a href="#">Deshabilitar</a></li>
+      <li><a href="#" class="deshab" >Deshabilitar</a></li>
     </ul>
   </div>
 </td>
@@ -211,11 +211,11 @@ $(document).ready(function() {
       Opciones <span class="glyphicon glyphicon-cog"></span>
     </button>
     <ul class="dropdown-menu" role="menu">
-      <li><a href="#">Activar Coordinador</a></li>
+      <li><a href="#" class="coord">Activar Coordinador</a></li>
       <li><a href="#">Desactivar Coordinador</a></li>
       <li class="divider"></li>
       <li><a href="#">Habilitar</a></li>
-      <li><a href="#">Deshabilitar</a></li>
+      <li><a href="#" class="deshab" >Deshabilitar</a></li>
     </ul>
   </div>
 </td>
@@ -234,11 +234,11 @@ $(document).ready(function() {
       Opciones <span class="glyphicon glyphicon-cog"></span>
     </button>
     <ul class="dropdown-menu" role="menu">
-      <li><a href="#">Activar Coordinador</a></li>
+      <li><a href="#" class="coord">Activar Coordinador</a></li>
       <li><a href="#">Desactivar Coordinador</a></li>
       <li class="divider"></li>
       <li><a href="#">Habilitar</a></li>
-      <li><a href="#">Deshabilitar</a></li>
+      <li><a href="#" class="deshab" >Deshabilitar</a></li>
     </ul>
   </div>
 </td>
@@ -257,13 +257,13 @@ $(document).ready(function() {
       Opciones <span class="glyphicon glyphicon-cog"></span>
     </button>
     <ul class="dropdown-menu" role="menu">
-      <li><a href="#">Activar Coordinador</a></li>
-      <li><a href="#">Desactivar Coordinador</a></li>
-      <li class="divider"></li>
-      <li><a href="#">Habilitar</a></li>
-      <li><a href="#">Deshabilitar</a></li>
-    </ul>
-  </div>
+     <li><a href="#" class="coord">Activar Coordinador</a></li>
+     <li><a href="#">Desactivar Coordinador</a></li>
+     <li class="divider"></li>
+     <li><a href="#">Habilitar</a></li>
+     <li><a href="#" class="deshab" >Deshabilitar</a></li>
+   </ul>
+ </div>
 </td>
 
 </tr>
@@ -280,11 +280,11 @@ $(document).ready(function() {
       Opciones <span class="glyphicon glyphicon-cog"></span>
     </button>
     <ul class="dropdown-menu" role="menu">
-      <li><a href="#">Activar Coordinador</a></li>
+      <li><a href="#" class="coord">Activar Coordinador</a></li>
       <li><a href="#">Desactivar Coordinador</a></li>
       <li class="divider"></li>
       <li><a href="#">Habilitar</a></li>
-      <li><a href="#">Deshabilitar</a></li>
+      <li><a href="#" class="deshab" >Deshabilitar</a></li>
     </ul>
   </div>
 </td>
@@ -304,11 +304,11 @@ $(document).ready(function() {
         Opciones <span class="glyphicon glyphicon-cog"></span>
       </button>
       <ul class="dropdown-menu" role="menu">
-        <li><a href="#">Activar Coordinador</a></li>
+        <li><a href="#" class="coord">Activar Coordinador</a></li>
         <li><a href="#">Desactivar Coordinador</a></li>
         <li class="divider"></li>
         <li><a href="#">Habilitar</a></li>
-        <li><a href="#">Deshabilitar</a></li>
+        <li><a href="#" class="deshab" >Deshabilitar</a></li>
       </ul>
     </div>
   </td>
