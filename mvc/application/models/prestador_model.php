@@ -20,14 +20,10 @@
             FROM  prestador
             WHERE ci_prestador = $cedula");
 
-
-        
-
         if ($query1->num_rows() > 0 || $query2->num_rows() > 0)
         {
 
             $salida =  array('estado'=>"1",'datos_prestador' =>$query1->row());
-
 
             return $salida;
             
@@ -55,7 +51,6 @@
             'mencion_prestador' => $datos["mencion"],
             'semestre_prestador' => $datos["semestre"]));
 
-
         if($query){
             return "0";
         }
@@ -64,6 +59,30 @@
         }
     }  
 
+
+    public function actualizar_prestador($datos) {
+
+        $this->db->where('ci_prestador', $datos["cedula"]);
+        $query = $this->db->update('prestador', array(
+            'ci_prestador' => $datos["cedula"],
+            'nombre_prestador' => $datos["nombre"],
+            'Apellido_prestador' => $datos["apellido"],
+            'email_prestador' => $datos["email"],
+            'celular_prestador' => $datos["celular"],
+            'telefono_prestador' => $datos["telefono"],
+            'direccion_prestador' => $datos["direccion"],
+            'no_exp_prestador' => $datos["expediente"],
+            'escuela_prestador' => $datos["escuela"],
+            'mencion_prestador' => $datos["mencion"],
+            'semestre_prestador' => $datos["semestre"]));
+
+        if($query){
+            return "0";
+        }
+        else{
+            return "-1";
+        }
+    }
 
 
     public function buscar_prestador($q,$o,$e){

@@ -58,7 +58,7 @@ class Prestador extends CI_Controller {
 
 	public function set_photo() {
 
-			$cedula=$this->input->post('ci');
+		$cedula=$this->input->post('ci');
 
 		echo json_encode($this->files_model->set_photo($cedula));
 	}
@@ -72,7 +72,7 @@ class Prestador extends CI_Controller {
 		if($salida == -1){
 
 			echo "No se encontro";
-		
+
 		} 
 		else {
 
@@ -85,20 +85,40 @@ class Prestador extends CI_Controller {
 	{			
 
 		$datos = array(
-                'cedula' => $this->input->post('cedula'),
-                'nombre' => $this->input->post('nombre'),
-                'apellido' => $this->input->post('apellido'),
-                'email' => $this->input->post('email'),
-                'celular' => $this->input->post('telefono_cel'),
-                'telefono' => $this->input->post('telefono_hab'),
-                'direccion' => $this->input->post('direccion'),
-                'expediente' => $this->input->post('expediente'),
-                'escuela' => $this->input->post('escuela'),
-                'mencion' => $this->input->post('mencion'),
-                'semestre' => $this->input->post('semestre'));
+			'cedula' => $this->input->post('cedula'),
+			'nombre' => $this->input->post('nombre'),
+			'apellido' => $this->input->post('apellido'),
+			'email' => $this->input->post('email'),
+			'celular' => $this->input->post('telefono_cel'),
+			'telefono' => $this->input->post('telefono_hab'),
+			'direccion' => $this->input->post('direccion'),
+			'expediente' => $this->input->post('expediente'),
+			'escuela' => $this->input->post('escuela'),
+			'mencion' => $this->input->post('mencion'),
+			'semestre' => $this->input->post('semestre'));
 
 
 		$salida=$this->prestador_model->insertar_datos($datos);
+
+		echo $salida;
+	}
+
+	public function actualizar_prestador() {
+		$datos = array(
+			'cedula' => $this->input->post('cedula'),
+			'nombre' => $this->input->post('nombre'),
+			'apellido' => $this->input->post('apellido'),
+			'email' => $this->input->post('email'),
+			'celular' => $this->input->post('telefono_cel'),
+			'telefono' => $this->input->post('telefono_hab'),
+			'direccion' => $this->input->post('direccion'),
+			'expediente' => $this->input->post('expediente'),
+			'escuela' => $this->input->post('escuela_prestador'),
+			'mencion' => $this->input->post('mencion'),
+			'semestre' => $this->input->post('semestre'));
+
+
+		$salida=$this->prestador_model->actualizar_prestador($datos);
 
 		echo $salida;
 	}
@@ -113,7 +133,7 @@ class Prestador extends CI_Controller {
 		echo json_encode($salida);
 
 	}
-  
+
 	public function listar_prestador(){
 
 		$query  = $this->input->post('q');
@@ -125,14 +145,14 @@ class Prestador extends CI_Controller {
 		$salida= $this->prestador_model->buscar_prestador($query,$option,$escuela);
 
 
-			if($salida!="-1"){
+		if($salida!="-1"){
 
-				echo json_encode($salida);
-	
-			}else{
+			echo json_encode($salida);
 
-				echo "-1";
-			}
+		}else{
+
+			echo "-1";
+		}
 
 	}
 
@@ -165,14 +185,14 @@ class Prestador extends CI_Controller {
 		$salida= $this->prestador_model->datos_proyecto($nombre);
 
 
-			if($salida!="-1"){
+		if($salida!="-1"){
 
-				echo json_encode($salida);
-	
-			}else{
+			echo json_encode($salida);
 
-				echo "-1";
-			}
+		}else{
+
+			echo "-1";
+		}
 		//echo json_encode($salida);
 
 
@@ -180,17 +200,17 @@ class Prestador extends CI_Controller {
 
 	public function consultar_nombre_proyecto(){
 
-			$ci_prestador = $this->input->post('ci');
-			$salida = $this->prestador_model->b_nombres_proyectos($ci_prestador);
+		$ci_prestador = $this->input->post('ci');
+		$salida = $this->prestador_model->b_nombres_proyectos($ci_prestador);
 
-			if($salida!="-1"){
+		if($salida!="-1"){
 
-				echo json_encode($salida);
-	
-			}else{
+			echo json_encode($salida);
 
-				echo "No se encontro nada";
-			}
+		}else{
+
+			echo "No se encontro nada";
+		}
 	}
 	//-----------------------------funciones de asignar proyecto.php
 	public function ver_datos_asesor(){
@@ -243,56 +263,55 @@ class Prestador extends CI_Controller {
 		
 		$salida = $this->prestador_model->asociar_proyecto($f_proyecto,$proyecto,$prestador,$lunes,$martes,$miercoles,$jueves,$viernes,$sabado,$domingo);
 		
-			echo json_encode($salida);
+		echo json_encode($salida);
 		
 	}
 
 	
-public function insertar_datos_reportar_horas(){			
+	public function insertar_datos_reportar_horas(){			
 
-	$id_prestador = $this->input->post('id_prestador');
-	$n_horas = $this->input->post('horas_realizadas_proyecto');
-	$fecha = $this->input->post('fecha_avance');
-	$observaciones = $this->input->post('observaciones_proyecto');
-	$id_proyecto = $this->input->post('idproyecto');
-	$estado_proyecto = $this->input->post('estadoact');	
-	
+		$id_prestador = $this->input->post('id_prestador');
+		$n_horas = $this->input->post('horas_realizadas_proyecto');
+		$fecha = $this->input->post('fecha_avance');
+		$observaciones = $this->input->post('observaciones_proyecto');
+		$id_proyecto = $this->input->post('idproyecto');
+		$estado_proyecto = $this->input->post('estadoact');	
 
-	
 		echo $salida = ($this->prestador_model->insertar_datos_reportar_horas($id_prestador,$n_horas,$fecha,$observaciones,$id_proyecto,$estado_proyecto));
-	
 
 	}
 
-public function datos_horas_insertadas(){
+	public function datos_horas_insertadas(){
 
-$id_prestador = $this->input->post("id_prestador");
-$id_proyecto = $this->input->post("id_proyecto");
+		$id_prestador = $this->input->post("id_prestador");
+		$id_proyecto = $this->input->post("id_proyecto");
 
-$salida = $this->prestador_model->datos_horas_insertadas($id_prestador,$id_proyecto);
+		$salida = $this->prestador_model->datos_horas_insertadas($id_prestador,$id_proyecto);
 
-echo json_encode($salida);
+		echo json_encode($salida);
 
-}
-public function horario_trabajo(){
+	}
 
-	$id_prestador = $this->input->post("id_prestador");
-	$id_proyecto = $this->input->post("id_proyecto");
 
-	$salida = $this->prestador_model->horario_trabajo($id_prestador,$id_proyecto);
+	public function horario_trabajo(){
 
-echo json_encode($salida);
+		$id_prestador = $this->input->post("id_prestador");
+		$id_proyecto = $this->input->post("id_proyecto");
 
-}
+		$salida = $this->prestador_model->horario_trabajo($id_prestador,$id_proyecto);
 
-public function suma_horas(){
+		echo json_encode($salida);
+
+	}
+
+	public function suma_horas(){
 
 		$id_prestador = $this->input->post("id_prestador");
 		$id_proyecto = $this->input->post("id_proyecto");
 
 		$salida = $this->prestador_model->suma_horas($id_prestador,$id_proyecto);
 
-	echo json_encode($salida);
+		echo json_encode($salida);
 
 	}
 
@@ -302,42 +321,42 @@ public function suma_horas(){
 
 		$salida = $this->prestador_model->suma_horas_totales($id_prestador);
 
-	echo json_encode($salida);
+		echo json_encode($salida);
 
 	}
 
 
 
-/*reportes*/
+	/*reportes*/
 
-public function preparar_datos_reporte($data,$estado,$tipo = false){
+	public function preparar_datos_reporte($data,$estado,$tipo = false){
 
-				$array = array("datos"=>$data['datos_prestador'], "estado"=>$estado);
+		$array = array("datos"=>$data['datos_prestador'], "estado"=>$estado);
 
 
-			 echo $this->load->view($this->controller.$tipo,$array,TRUE);
+		echo $this->load->view($this->controller.$tipo,$array,TRUE);
 
 	}
-   
+
 
 
 	public function generar_cc($id = false , $estado = false){
 
 
-			$tipo = "carta_culminacion";
+		$tipo = "carta_culminacion";
 
 
-				if($this->input->post('id')){ 
+		if($this->input->post('id')){ 
 
-					$id = $this->input->post('id');
-				}
-  
+			$id = $this->input->post('id');
+		}
 
-			 $salida=$this->prestador_model->listar_datos_prestador($id);
-	
+
+		$salida=$this->prestador_model->listar_datos_prestador($id);
+
 		
-			 $this->preparar_datos_reporte($salida,$estado,$tipo);
-		 		
+		$this->preparar_datos_reporte($salida,$estado,$tipo);
+
 
 	}
 
@@ -347,19 +366,19 @@ public function preparar_datos_reporte($data,$estado,$tipo = false){
 
 	public function generar_nc($id = false , $estado = false){
 
-			$tipo = "notificacion_culminacion";
+		$tipo = "notificacion_culminacion";
 
-				if($this->input->post('id')){ 
+		if($this->input->post('id')){ 
 
-					$id = $this->input->post('id');
-				}
-  
+			$id = $this->input->post('id');
+		}
 
-			 $salida=$this->prestador_model->listar_datos_prestador($id);
-	
+
+		$salida=$this->prestador_model->listar_datos_prestador($id);
+
 		
-			 $this->preparar_datos_reporte($salida,$estado,$tipo);
-		 		
+		$this->preparar_datos_reporte($salida,$estado,$tipo);
+
 
 	}
 

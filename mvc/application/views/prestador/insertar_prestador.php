@@ -268,14 +268,14 @@ $("#form-prestador").submit(function (e) {
 
   var ruta = "insertar_datos_prestador";
 
-  if (act_datos_prestador) {
-    ruta = "actualizar_datos_usuario";
+  if (act_datos_prestador != 0) {
+    ruta = "actualizar_prestador";
   }
 
   if ($(this).valid()) {
     var datos = $(this).serialize();
 
-    $.post("insertar_datos_prestador",datos,
+    $.post(ruta,datos,
       
       function(data){
        
@@ -305,11 +305,11 @@ $("#form-prestador").submit(function (e) {
 
   $('#mencion').css("display","none");
 
-    $("#carrera").on("change",function(){
+    $("#escuela_prestador").on("change",function(){
 
           console.log($(this).val());
 
-          if($(this).val()==="comunicacion social"){
+          if($(this).val()==="Comunicacion social"){
 
           $("#mencion").fadeIn(1000);
           }else{
