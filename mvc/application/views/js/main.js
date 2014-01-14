@@ -390,6 +390,8 @@ $("body").on("keyup","#id_prestador_cedula", function(event){
   var option = "";
   console.log($(this).val());
 
+  /*seteo la variable de actualizacion en falso */
+  
 $("#prestador-tab-content").hide();
 
 $("#data-re-prestador").hide();
@@ -733,6 +735,16 @@ $('body').on('click','.btn-subir-foto', function (ev) {
 $('body').on("click","#btn-inscribir_prestador",function(){
 
         $("#prestador-tab-content").show();
+
+        act_datos_prestador = 0;
+
+        $("#form-prestador")[0].reset();
+
+    $("#boton_prestador").val("Registrar");
+    $("#titulo_registro").html("Registrar prestador");
+    
+
+
   });
 
 
