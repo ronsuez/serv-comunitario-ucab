@@ -835,10 +835,10 @@ function b_consultar_asesor(query,option){
 
       console.log(array.length);
       
-      if (array.length === 1) 
-        toastr.success(array.length+" "+mensajes.success.asesor_f);
-      else
-        toastr.success(array.length+" "+mensajes.success.asesores_f);
+      // if (array.length === 1) 
+      //   toastr.success(array.length+" "+mensajes.success.asesor_f);
+      // else
+      //   toastr.success(array.length+" "+mensajes.success.asesores_f);
       
       var content ="";
 

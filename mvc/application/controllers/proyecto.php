@@ -148,6 +148,35 @@ class Proyecto extends CI_Controller {
 		   }
 
 
+	public function insertar_asesor(){
+		$nombre = $this->input->post('nombre_ase');
+		$apellido = $this->input->post('apellido_ase');
+		$email = $this->input->post('email_ase');
+		$cedula = $this->input->post('cedula_ase');
+		$telefono = $this->input->post('telefono_ase');
+		$direccion = $this->input->post('direccion_ase');
+		$celular = $this->input->post('celular_ase');
+		$salida = $this->proyecto_model->insertar_asesor($nombre,$apellido,$email,$cedula,$celular,$telefono,$direccion);
+		if($salida == -1){
+			echo("Asesor no insertado");
+			
+		}else{
+			echo("Asesor ingresado con exito");
+		}
+	}
+
+		public function ver_datos_asesor(){
+		$query  = $this->input->post('q');
+		$option = $this->input->post('o');
+		//$id=$this->input->post('cedula_asesor');
+		
+		$salida=$this->proyecto_model->listar_datos_asesor($query,$option);
+		if($salida == -1){
+			echo "-1";
+		}else{
+			echo json_encode($salida);
+		}
+	}
 
 }
 

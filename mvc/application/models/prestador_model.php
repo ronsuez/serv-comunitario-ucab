@@ -225,33 +225,6 @@
 
 
             //--------------------------------------------------------
-  public function listar_datos_asesor($q,$o){
-
-            /* Query Datos Personales  */         
-            if($o== "cedula"){
-                $filtro="ci_asesor";
-                  $sql="SELECT ci_asesor, nombre_asesor, apellido_asesor
-                                        FROM asesor 
-                                        WHERE $filtro=$q";
-
-            }else if($o=="nombre"){
-                $filtro="nombre_asesor";
-                  $sql="SELECT ci_asesor, nombre_asesor, apellido_asesor
-                                        FROM asesor
-                                        WHERE $filtro LIKE '".$q."%'
-                                        OR apellido_asesor LIKE '".$q."%'";
-            }
-
-            $query = $this->db->query($sql);
-
-            if($query->num_rows()>0){
-
-                return $query->result_array();
-            }else{
-
-                return "-1";
-            }        
-        }
 
 
     public function verificar_estado_proyecto($nombre_proy,$cedula_asesor){
@@ -273,11 +246,6 @@
 
 }
 
-public function insertar_asesor($nombre,$apellido,$email,$cedula,$celular,$telefono,$direccion){
-  $query = $this->db->query("INSERT INTO asesor(ci_asesor,nombre_asesor,apellido_asesor,email_asesor,celular_asesor,telefono_asesor,direccion_asesor)
-                             VALUES ('$cedula','$nombre','$apellido','$email','$celular','$telefono','$direccion')");
-  return $query;
-}
 
 
 public function asociar_proyecto($f_proyecto,$proyecto,$prestador,$lunes,$martes,$miercoles,$jueves,$viernes,$sabado,$domingo){
