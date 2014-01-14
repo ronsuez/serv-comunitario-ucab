@@ -98,8 +98,8 @@ var datos_de_prestador=[
 'ci_prestador',
 'nombre_prestador',
 'apellido_prestador',
-'celular_prestador',
 'email_prestador',
+'celular_prestador',
 'telefono_prestador',
 'direccion_prestador',
 'no_exp_prestador',
@@ -116,8 +116,8 @@ var main_datos={
           nombre : "",
           apellido : "",
           email : "",
-          telefono: "",
           celular: "",
+          telefono: "",
           direccion: "",
           expediente : "",
           escuela : "",
@@ -311,8 +311,9 @@ $(document).on("click","#ver_pre",function (e) {
 
 
 //Boton para definir el coordinador de cada escuela
-$(document).on("click","#listado_usuarios .coord",function (e) {
+$(document).on("click","#listado_usuarios a.coord",function (e) {
 
+        
 
       var usuario= $(this).parent().parent().find("select option:selected");
 
@@ -390,6 +391,8 @@ $("body").on("keyup","#id_prestador_cedula", function(event){
   var option = "";
   console.log($(this).val());
 
+  /*seteo la variable de actualizacion en falso */
+  
 $("#prestador-tab-content").hide();
 
 $("#data-re-prestador").hide();
@@ -733,6 +736,16 @@ $('body').on('click','.btn-subir-foto', function (ev) {
 $('body').on("click","#btn-inscribir_prestador",function(){
 
         $("#prestador-tab-content").show();
+
+        act_datos_prestador = 0;
+
+        $("#form-prestador")[0].reset();
+
+    $("#boton_prestador").val("Registrar");
+    $("#titulo_registro").html("Registrar prestador");
+    
+
+
   });
 
 
@@ -866,13 +879,13 @@ function b_consultar_prestador(query,option,escuela){
       var array=JSON.parse(data);
 
       console.log(array.length);
-      
+      /*
       if (array.length === 1) 
         show_messages("success",array.length+" "+mensajes.success.prestador_f);
       else
         show_messages("success",array.length+" "+mensajes.success.prestadores_f);
     
-      
+      */
       var content ="";
 
       $.each(array,function(i){

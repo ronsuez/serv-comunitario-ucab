@@ -70,6 +70,15 @@ $route['registro_user'] = 'usuario/insertar_usuario';
 $route['completar_datos'] = 'usuario/completar_datos';
 $route['completar_datos_usuario'] = 'usuario/completar_datos_usuario';
 
+ /* administrador de usuarios */
+ $route['ge_administrador'] = 'administrador/index';
+ $route['gest-usuarios'] = 'administrador/admin_usuarios';
+ $route['b_listar_usuario'] = 'usuario/listar';
+ $route['registrar_usuario'] = 'administrador/registrar_usuario';
+ $route['admin_coo'] = 'administrador/admin_coordinadores';
+ $route['traer_usuarios'] = 'administrador/ver_usuarios';
+ 
+
 /* routing for proyecto controller__*/
 $route['gest-proyecto']="proyecto/index";
 $route['insertar_proyecto']="proyecto/inscribir";
@@ -98,7 +107,7 @@ $route['consultar_datos_proyecto']="prestador/verificar_proyecto";
 $route['insertar_asesor']="prestador/insertar_asesor";
 $route['asociar']="prestador/asociar_proyecto";
 $route['insertar_datos_reportar_horas']="prestador/insertar_datos_reportar_horas";
-$route['actualizar_datos_prestador']="prestador/actualizar_datos_prestador";
+$route['actualizar_prestador']="prestador/actualizar_prestador";
 $route['horario_trabajo'] = "prestador/horario_trabajo";
 $route['datos_horas_insertadas'] = "prestador/datos_horas_insertadas";
 $route['suma_horas'] = "prestador/suma_horas";
