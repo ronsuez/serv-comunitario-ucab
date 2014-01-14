@@ -1,8 +1,6 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-     
-  <link href="<?php echo base_url() ; ?>application/views/css/carta_culminacion.css" rel="stylesheet">
   
     </head>
     
@@ -17,7 +15,7 @@
        <div id="contenedor">
            <div id="cabecera"> 
            <h6>codigo</h6>
-           <img src=<?php echo base_url()."application/views/proyecto/images/ucab.jpg";?> alt="ucab" height="90" width="90"/>
+           <img src=<?php echo base_url()."application/views/proyecto/images/ucab.jpg";?> alt="ucab" height="90" width="180"/>
            </div>
            
        <div id="contenido">

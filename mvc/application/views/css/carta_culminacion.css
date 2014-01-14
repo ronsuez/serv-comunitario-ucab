@@ -9,7 +9,8 @@
             }
             
             #cabecera{
-                margin:20px auto;     
+                margin:20px auto; 
+                width: 800px;    
             }
             
             #cabecera img{

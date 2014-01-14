@@ -21,7 +21,11 @@ class Reportes extends CI_Controller {
     $pdf->SetFooter($_SERVER['HTTP_HOST'].'|{PAGENO}|'.date(DATE_RFC822)); // Add a footer for good measure ;)
     
     $css=file_get_contents(FCPATH."application/views/css/reporte.css");
+    //$css_cc=file_get_contents(FCPATH."application/views/css/carta_culminacion.css");
+
     $pdf->WriteHTML($css,1);
+
+    //$pdf->WriteHTML($css_cc,2);
 
     $pdf->WriteHTML($html,2); // write the HTML into the PDF
     $pdf->Output($pdfFilePath, 'F'); // save to file because we can
