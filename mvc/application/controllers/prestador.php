@@ -329,9 +329,9 @@ class Prestador extends CI_Controller {
 
 	/*reportes*/
 
-public function preparar_datos_reporte($datos_prestador = false ,$datos_proyecto = false , $nombre_proyecto = false, $estado,$tipo = false){
+public function preparar_datos_reporte($datos_prestador = false ,$datos_proyecto = false , $nombre_proyecto = false, $tipo ){
 
-				$array = array("datos"=>$datos_prestador['datos_prestador'],"nombre"=>$datos_proyecto['datos_proyecto'], "nombre_pro"=>$nombre_proyecto, "estado"=>$estado);
+				$array = array("datos"=>$datos_prestador['datos_prestador'],"nombre"=>$datos_proyecto['datos_proyecto'], "nombre_pro"=>$nombre_proyecto);
 		
 
 			 echo $this->load->view($this->controller.$tipo,$array,TRUE);
@@ -359,10 +359,10 @@ public function preparar_datos_reporte($datos_prestador = false ,$datos_proyecto
   
 
 			 $datos_prestador=$this->prestador_model->listar_datos_prestador($ci);
-			 $datos_proyecto=$this->prestador_model->datos_prestador_asociado($id);
+			 $datos_proyecto=$this->prestador_model->datos_coordinador_asociado($id);
 			 
 
-			 $this->preparar_datos_reporte($datos_prestador,$datos_proyecto,$estado,$tipo);
+			 $this->preparar_datos_reporte($datos_prestador,$datos_proyecto,NULL,$tipo);
 		 		
 
 	}
@@ -388,11 +388,11 @@ public function preparar_datos_reporte($datos_prestador = false ,$datos_proyecto
   
 
 			 $datos_prestador=$this->prestador_model->listar_datos_prestador($ci);
-			 $datos_proyecto=$this->prestador_model->datos_prestador_asociado($id);
+				 $datos_proyecto=$this->prestador_model->datos_coordinador_asociado($id);
 			 $nombre_proyecto = $this->prestador_model->datos_proyecto($id);
 			
 		
-			 $this->preparar_datos_reporte($datos_prestador,$datos_proyecto,$nombre_proyecto,$estado,$tipo);
+			 $this->preparar_datos_reporte($datos_prestador,$datos_proyecto,$nombre_proyecto,$tipo);
 		 		
 
 	}
