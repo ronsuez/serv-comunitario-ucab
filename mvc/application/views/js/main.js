@@ -314,10 +314,12 @@ $(document).on("click","#ver_pre",function (e) {
 $(document).on("click","#listado_usuarios a.coord",function (e) {
 
         
+e.preventDefault();
 
-      var usuario= $(this).parent().parent().find("select option:selected");
+      var usuario= $(this).closest('td').parent().find("td select option:selected");
 
-      var escuela = $(this).parent().parent().find("td").eq(0);
+
+      var escuela = $(this).closest('td').parent().find("td").eq(0);
 
       console.log(usuario.val());
 
@@ -352,7 +354,9 @@ $(document).on("click","#listado_usuarios a.coord",function (e) {
 // Boton para deshabilitar los usarios
 $(document).on("click","#listado_usuarios .deshab",function (e) {
 
-      var usuario= $(this).parent().parent().find("select option:selected");
+      e.preventDefault();
+
+      var usuario= $(this).closest('td').parent().find("td select option:selected");
 
       console.log(usuario.val());
 
