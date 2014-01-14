@@ -179,36 +179,44 @@
 
                       
       
-<!--formulario de busqueda de proyectos-->
+<!--formulario de busqueda de asesores-->
+<div class="panel panel-default">
+
+    <div class="panel-heading">Buscar Asesor</div>
+    <div class="panel-body">
+        <div class="input-group input-group-sm">
+            <input id="b_asesor" type="text" class="form-control" placeholder="Introduzca cédula del Asesor"></input>
+            <span class="input-group-btn">
+                <button id="consultar_asesor" class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+            </span>
+        </div>
+        <div class="results asesor">
+            <label>Resultados (haga click sobre el asesor para asignarlo al proyecto)</label>
+            <div class="search_results asesor">
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
             <div class="panel panel-default">
 
-                      <div class="panel-heading">
-                        <h3 class="panel-title">Buscar Asesor</h3>
-                      </div>
-                      <div class="panel-body">
+                    <div class="panel-heading">Asesores del proyecto</div>
+                    <div class="panel-body">
                         
-                        <div class="input-group input-group-sm">
-                        <input id="b_asesor" type="text" class="form-control" placeholder="Introduzca cédula del Asesor"></input>
-                        <span class="input-group-btn">
-                          <button id="consultar_asesor" class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
-                        </span>
-                        </div> 
-                        <div class="results asesor">
-                          <label>Resultados</label>
-                          <div class="search_results asesor">
-                          
-
-                          </div>
-                        </div>
+                    </div>
 
             </div>
       
     </div>
 
 
-             <div id="add-asesor-box">
-                    
-              <button class="btn btn-default" data-toggle="modal" data-target="#form-asesor">Inscribir Asesor</button>
+            <div id="add-asesor-box">      
+            <button class="btn btn-default" data-toggle="modal" data-target="#form-asesor">Inscribir Asesor</button>
             </div>
 
     </div>
