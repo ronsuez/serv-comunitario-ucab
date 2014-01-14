@@ -51,6 +51,12 @@ class Localidad extends CI_Controller {
 	
 		$this->load->view($this->controller.'consultar_localidad');
 	}
+
+	public function mapa()
+	{
+	
+		$this->load->view($this->controller.'ver_mapa');
+	}
 	
 	public function insertar_datos_localidad(){			
 
@@ -68,12 +74,51 @@ class Localidad extends CI_Controller {
 	
 
 	}
+
+public function ver_coordenadas_totales() {
+
+		$id=$this->input->post('id');
+
+		$salida=$this->localidad_model->cordenadas_todas_localidades($id);
+
+		if($salida == -1){
+
+			echo json_encode(array('estado'=>"-1"));
+		
+		} 
+		else {
+
+			echo json_encode($salida);
+
+		}
+	}   
+
+	public function listar_localidad(){
+
+		$query  = $this->input->post('q');
+		$option = $this->input->post('o');
+
+		//echo "server->".$query."->".$option;
+
+		$salida= $this->localidad_model->buscar_localidad($query,$option);
+
+
+			if($salida!="-1"){
+
+				echo json_encode($salida);
+	
+			}else{
+
+				echo "-1";
+			}
+
+	}
 	
 	public function ver_datos_localidad() {
 
 		$id=$this->input->post('id');
 
-		$salida=$this->localidad_model->listar_datos_localidad($id);
+		$salida=$this->localidad_model->listar_datos_local($id);
 
 		if($salida == -1){
 
@@ -92,6 +137,9 @@ class Localidad extends CI_Controller {
 		
 			echo json_encode($this->localidad_model->listar());
 	}
+
+
+
 
 }
 
