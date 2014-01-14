@@ -378,7 +378,7 @@ public function insertar_datos_reportar_horas ($id_prestador,$n_horas,$fecha,$ob
 
             }
 
-            public function datos_prestador_asociado($id){
+            public function datos_coordinador_asociado($id){
 
                 $query = $this->db->query("SELECT ci_coord
                                              FROM proyecto

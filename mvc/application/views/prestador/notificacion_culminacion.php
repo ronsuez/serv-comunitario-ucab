@@ -10,6 +10,8 @@
 
     $datos_p = get_object_vars($datos);
     $datos_Co = get_object_vars($nombre);
+    
+    //print_r($nombre);
 
     $fecha = "A los ".date("d")." días del mes de ".date("m")." de ".date("Y");
  ?>

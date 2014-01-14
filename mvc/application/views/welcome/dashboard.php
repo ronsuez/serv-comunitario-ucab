@@ -167,7 +167,17 @@ body {
 
 </style>
 
+<script type="text/javascript">
 
+		$(document).ready(function(){
+
+
+			escuela = $(".escuela").text();
+
+			console.log(escuela);
+		});
+
+</script>
 <div class="navbar navbar-inverse navbar-fixed-top">
 	<div class="container">
 		<div class="navbar-header">
@@ -237,7 +247,7 @@ body {
 
 			<div class="panel panel-success">
 				<div class="panel-heading">
-					<h3 id="main-title" class="panel-title"><span id="tab-title">Administracion</span> <span class="pull-right"><?php echo $escuela; ?></span></h3>
+					<h3 id="main-title" class="panel-title"><span id="tab-title">Administracion</span> <span class="pull-right escuela"><?php echo $escuela; ?></span></h3>
 
 				</div>
 
