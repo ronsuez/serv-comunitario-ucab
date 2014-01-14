@@ -100,8 +100,11 @@ $route['gest-localidad']="localidad/index";
 $route['listar_loc']="localidad/listar";
 $route['insertar_localidad']="localidad/insertar";
 $route['consultar_localidad']="localidad/consultar";
+$route['ver_mapa']="localidad/mapa";
 $route['insertar_datos_localidad']="localidad/insertar_datos_localidad";
-$route['consultar_datos_localidad']="localidad/ver_datos_localidad";
+$route['consultarlocalidad']="localidad/ver_coordenadas_totales";
+$route['b_listar_localidades']="localidad/listar_localidad";
+$route['consutar_datos_busquedad_localidad']="localidad/ver_datos_localidad";
 
 
 /*reportes*/
