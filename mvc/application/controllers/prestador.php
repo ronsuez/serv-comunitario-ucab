@@ -113,7 +113,7 @@ class Prestador extends CI_Controller {
 			'telefono' => $this->input->post('telefono_hab'),
 			'direccion' => $this->input->post('direccion'),
 			'expediente' => $this->input->post('expediente'),
-			'escuela' => $this->input->post('escuela_prestador'),
+			'escuela' => $this->input->post('escuela'),
 			'mencion' => $this->input->post('mencion'),
 			'semestre' => $this->input->post('semestre'));
 
