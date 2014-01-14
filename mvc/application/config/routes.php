@@ -1,3 +1,23 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 /*
 | -------------------------------------------------------------------------
@@ -54,7 +74,7 @@ $route['completar_datos_usuario'] = 'usuario/completar_datos_usuario';
 $route['gest-proyecto']="proyecto/index";
 $route['insertar_proyecto']="proyecto/inscribir";
 $route['consultar_proyecto']="proyecto/modificar";
-
+$route['asesor']="proyecto/asesor";
 $route['registrar_proyecto']="proyecto/registrar";
 $route['buscar_proyecto']="proyecto/buscar";
 $route['listar_datos_proyecto']="proyecto/ver_proyectos";
