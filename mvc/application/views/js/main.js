@@ -158,6 +158,7 @@ var datos_de_usuario=[
 'escuela',
 ];
 
+var escuela = "";
 var act_datos_usuario = 0;
 var act_datos_prestador = 0;
 var prestador_tiene_proyectos=0;
