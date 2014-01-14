@@ -77,6 +77,8 @@ $route['completar_datos_usuario'] = 'usuario/completar_datos_usuario';
  $route['registrar_usuario'] = 'administrador/registrar_usuario';
  $route['admin_coo'] = 'administrador/admin_coordinadores';
  $route['traer_usuarios'] = 'administrador/ver_usuarios';
+ $route['def_coordinador'] = 'administrador/def_coordinador';
+ $route['deshab_coordinador'] = 'administrador/deshab_coordinador';
  
 
 /* routing for proyecto controller__*/

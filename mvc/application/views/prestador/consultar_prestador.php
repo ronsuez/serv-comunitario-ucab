@@ -418,9 +418,9 @@ $("#enviar_datos_modal").on("click",function () {
 
  
 
-  $(".horas_realizadas_modal").val("");
-  $(".fecha_modal").val("");
-  $(".observacion_modal").val("");
+  $("#horas_realizadas_modal").val("");
+  $("#fecha_modal").val("");
+  $("#observacion_modal").val("");
 
 
     $.post("insertar_datos_reportar_horas",{
@@ -486,24 +486,28 @@ $("#enviar_datos_modal").on("click",function () {
 
 $("#btn_carta_culminacion").on('click',function () {
 
-  var ci =main_datos.prestador.cedula;
+  var ci = main_datos.prestador.cedula;
+  var id = $("#codigo_proyecto").val();
+
 
     console.log('cedula prestador',main_datos.prestador.cedula);
 
 
-      generar_reporte("generar_carta_culminacion",0,ci);
+      generar_reporte("generar_carta_culminacion",0,ci,id);
+     
 })
 
 
 $("#btn_not_culminacion").on('click',function () {
 
-  var ci =main_datos.prestador.cedula;
-
+  var ci = main_datos.prestador.cedula;
+  var id = $("#codigo_proyecto").val();
+  
     console.log('cedula prestador',main_datos.prestador.cedula);
 
 
-      generar_reporte("generar_not_culminacion",0,ci);
-})
+      generar_reporte("generar_not_culminacion",0,ci,id);
+});
 
 
 });

@@ -302,56 +302,71 @@ class Prestador extends CI_Controller {
 
 	/*reportes*/
 
-	public function preparar_datos_reporte($data,$estado,$tipo = false){
+public function preparar_datos_reporte($datos_prestador = false ,$datos_proyecto = false , $nombre_proyecto = false, $estado,$tipo = false){
 
-		$array = array("datos"=>$data['datos_prestador'], "estado"=>$estado);
+				$array = array("datos"=>$datos_prestador['datos_prestador'],"nombre"=>$datos_proyecto['datos_proyecto'], "nombre_pro"=>$nombre_proyecto, "estado"=>$estado);
+		
+
+			 echo $this->load->view($this->controller.$tipo,$array,TRUE);
+
+	}
+   
 
 
-		echo $this->load->view($this->controller.$tipo,$array,TRUE);
+	public function generar_cc($ci = false ,$id = false , $estado = false){
+
+
+			$tipo = "carta_culminacion";
+
+
+				if($this->input->post('id')){ 
+
+					$id = $this->input->post('id');
+				}
+
+				if($this->input->post('ci')){
+
+					$ci = $this->input->post('ci');
+				}
+
+  
+
+			 $datos_prestador=$this->prestador_model->listar_datos_prestador($ci);
+			 $datos_proyecto=$this->prestador_model->datos_prestador_asociado($id);
+			 
+
+			 $this->preparar_datos_reporte($datos_prestador,$datos_proyecto,$estado,$tipo);
+		 		
 
 	}
 
 
 
-	public function generar_cc($id = false , $estado = false){
 
 
-		$tipo = "carta_culminacion";
+	public function generar_nc($ci = false , $estado = false){
 
+			$tipo = "notificacion_culminacion";
 
-		if($this->input->post('id')){ 
+				if($this->input->post('id')){ 
 
-			$id = $this->input->post('id');
-		}
+					$id = $this->input->post('id');
+				}
 
+				if($this->input->post('ci')){
 
-		$salida=$this->prestador_model->listar_datos_prestador($id);
+					$ci = $this->input->post('ci');
+				}
 
+  
+
+			 $datos_prestador=$this->prestador_model->listar_datos_prestador($ci);
+			 $datos_proyecto=$this->prestador_model->datos_prestador_asociado($id);
+			 $nombre_proyecto = $this->prestador_model->datos_proyecto($id);
+			
 		
-		$this->preparar_datos_reporte($salida,$estado,$tipo);
-
-
-	}
-
-
-
-
-
-	public function generar_nc($id = false , $estado = false){
-
-		$tipo = "notificacion_culminacion";
-
-		if($this->input->post('id')){ 
-
-			$id = $this->input->post('id');
-		}
-
-
-		$salida=$this->prestador_model->listar_datos_prestador($id);
-
-		
-		$this->preparar_datos_reporte($salida,$estado,$tipo);
-
+			 $this->preparar_datos_reporte($datos_prestador,$datos_proyecto,$nombre_proyecto,$estado,$tipo);
+		 		
 
 	}
 

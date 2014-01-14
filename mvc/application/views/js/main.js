@@ -314,10 +314,12 @@ $(document).on("click","#ver_pre",function (e) {
 $(document).on("click","#listado_usuarios a.coord",function (e) {
 
         
+e.preventDefault();
 
-      var usuario= $(this).parent().parent().find("select option:selected");
+      var usuario= $(this).closest('td').parent().find("td select option:selected");
 
-      var escuela = $(this).parent().parent().find("td").eq(0);
+
+      var escuela = $(this).closest('td').parent().find("td").eq(0);
 
       console.log(usuario.val());
 
@@ -352,7 +354,9 @@ $(document).on("click","#listado_usuarios a.coord",function (e) {
 // Boton para deshabilitar los usarios
 $(document).on("click","#listado_usuarios .deshab",function (e) {
 
-      var usuario= $(this).parent().parent().find("select option:selected");
+      e.preventDefault();
+
+      var usuario= $(this).closest('td').parent().find("td select option:selected");
 
       console.log(usuario.val());
 
@@ -889,7 +893,7 @@ function b_consultar_prestador(query,option,escuela){
       var content ="";
 
       $.each(array,function(i){
-        content = content +'<li class="list-group-item"><a class="key_prestador" href="'+ array[i]["ci_prestador"] +' "> '+ array[i]["nombre_prestador"]+array[i]["Apellido_prestador"]+'</a></li>';
+       content = content +'<li class="list-group-item"><a class="key_prestador" href="'+ array[i]["ci_prestador"] +' "> '+'Cedula: '+array[i]["ci_prestador"]+' '+'Alumno: '+array[i]["nombre_prestador"]+' '+array[i]["Apellido_prestador"]+'</a></li>';
 
       });
 
@@ -1283,10 +1287,10 @@ function ver_usuarios(url){
 
 }
 
-function generar_reporte(url,estado,key){
+function generar_reporte(url,estado,ci_prestador,id_proyecto){
 
 
- $.post(url,{state:estado,id:key},function(data){
+ $.post(url,{state:estado,ci:ci_prestador,id:id_proyecto},function(data){
 
 
   

@@ -1,21 +1,23 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-  
+    
     </head>
     
 <?php
 
     $datos_p = get_object_vars($datos);
+    $datos_Co = get_object_vars($nombre);
+    
 
-    $fecha = "a los ".date("d")." días del mes de ".date("m")." de ".date("Y");
+    $fecha = "A los ".date("d")." días del mes de ".date("m")." de ".date("Y");
  ?>
 
     <body>
        <div id="contenedor">
            <div id="cabecera"> 
            <h6>codigo</h6>
-           <img src=<?php echo base_url()."application/views/proyecto/images/ucab.jpg";?> alt="ucab" height="90" width="180"/>
+           <img src=<?php echo base_url()."application/views/proyecto/images/ucab.jpg";?> alt="ucab" max-height="90" max-width="90"/>
            </div>
            
        <div id="contenido">
@@ -34,8 +36,9 @@
        </div>
        <div id="pie">
            
-           <p>__________________________________ Coordinador(a) de Servicio Comunitario del Estudiante de Educacion Superior</p>
-           <p id="final">Escuela de ____________________</p>
+           <p> <u> <?=$datos_Co['nombre_coord']?>  <?=$datos_Co['apellido_coord']?></u></p>
+           <p> Coordinador(a) de Servicio Comunitario del Estudiante de Educacion Superior</p>
+           <p id="final">Escuela de <u> <?=$datos_p['escuela_prestador']?> </u></p>
        </div>
        </div>
     </body>
