@@ -311,8 +311,9 @@ $(document).on("click","#ver_pre",function (e) {
 
 
 //Boton para definir el coordinador de cada escuela
-$(document).on("click","#listado_usuarios .coord",function (e) {
+$(document).on("click","#listado_usuarios a.coord",function (e) {
 
+        
 
       var usuario= $(this).parent().parent().find("select option:selected");
 
