@@ -27,16 +27,16 @@
 
                <div class="col-xs-4  btn-group">
                       <button type="button" class="filtro-escuela btn btn-default" disabled>Todas las escuelas</button>
-                      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                      <button type="button" class="sel-escuela btn btn-default dropdown-toggle" data-toggle="dropdown">
                         <span class="caret"></span>
                         <span class="sr-only">Seleccionar escuela</span>
                       </button>
                       <ul class="menu-escuelas dropdown-menu" role="menu">
-                        <li><a href="#">Informatica</a></li>
-                        <li><a href="#">Civil</a></li>
-                        <li><a href="#">Industrial</a></li>
-                        <li><a href="#">Comunicacion Social</a></li>
-                        <li><a href="#">Educacion</a></li>
+                        <li><a class="Ingenieria Informatica" href="#">Informatica</a></li>
+                        <li><a class="Ingenieria Civil" href="#">Civil</a></li>
+                        <li><a class="Ingenieria Industrial"  href="#">Industrial</a></li>
+                        <li><a class="Comunicacion Social" href="#">Comunicacion Social</a></li>
+                        <li><a class="Educacion" href="#">Educacion</a></li>
                         <li><a href="#">Relaciones industriales</a></li>
                         <li><a href="#">Todas las escuelas</a></li>
                       </ul>
@@ -140,6 +140,25 @@
 $(document).ready(function() {
 
 
+  $(".menu-escuelas li a").on("click",function(){
+
+        var title = $(this).text();
+
+        console.log(title);
+
+        escuela =  title;   
+
+        $(".filtro-escuela").text(escuela);
+
+         $("#data-re-prestador").hide();
+
+
+         $("#prestador-tab-content").hide();
+
+
+  });
+
+
     //validacion de permisologias
       if(escuela_usuario === "Proyeccion a la comunidad"){
 
@@ -149,6 +168,11 @@ $(document).ready(function() {
 
            // $(".pestanas [href='#consultar_pre']").click();
             
+      }else{
+
+          $(".sel-escuela").attr('disabled',true);
+
+          $(".menu-escuelas a[class='"+escuela_usuario+"'").click();
       }
 
 
@@ -167,24 +191,6 @@ $(document).ready(function() {
 
     
 
-
-  $(".menu-escuelas li a").on("click",function(){
-
-        var title = $(this).text();
-
-        console.log(title);
-
-        escuela =  title;   
-
-        $(".filtro-escuela").text(escuela);
-
-         $("#data-re-prestador").hide();
-
-
-         $("#prestador-tab-content").hide();
-
-
-  });
 
 
 
