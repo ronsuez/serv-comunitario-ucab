@@ -200,8 +200,7 @@ toastr.options = {
 
       // funciones para los handlers de las solicitudes via ajax.
       $( document ).ajaxStart(function() {
-       console.log($(this).activeElement);
-
+    
        console.log( "Triggered ajaxStart handler." );
 
      });
@@ -928,6 +927,9 @@ function b_consultar_prestador(query,option,escuela){
 
 
 function b_consultar_usuario(query,option){
+
+
+    console.log("");
 
 
   $.post("b_listar_usuario",{q:query,o:option},function(data){
