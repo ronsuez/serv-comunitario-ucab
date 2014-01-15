@@ -172,7 +172,7 @@ $(document).ready(function() {
 
           $(".sel-escuela").attr('disabled',true);
 
-          $(".menu-escuelas a[class='"+escuela_usuario+"'").click();
+          $(".menu-escuelas a[class='"+escuela_usuario+"']").click();
       }
 
 

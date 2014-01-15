@@ -27,6 +27,24 @@ public function insertar_datos_localidad($nombre,$responsable,$email,$telefono,$
         }							   
 }
 
+
+public function cordenadas_todas_localidades($latitud,$longitud){
+
+    
+
+    $query = $this->db->query("SELECT latitud_localidad,longitud_localidad FROM localidad");
+
+        if($query){
+
+            return "0";
+        }else{
+
+            return "-1";
+
+            $salida =  array('estado'=>"1",'datos_coordenadas_totales' =>$query1->result_array());
+        }                              
+}
+
 public function listar_datos_localidad($nombre){
 
             /* Query Datos Personales  */
@@ -55,8 +73,39 @@ public function listar_datos_localidad($nombre){
                     return $salida;
                 }
                     
-        }
+        } 
 
+  
+
+
+public function buscar_localidad($q,$o){
+
+            if($o== "cedula"){
+                $filtro="id_localidad";
+                  $sql="SELECT id_localidad, nombre_localidad
+                                        FROM localidad 
+                                        WHERE $filtro=$q";
+
+            }else if($o=="nombre"){
+                $filtro="nombre_localidad";
+                  $sql="SELECT id_localidad, nombre_localidad
+                                        FROM localidad 
+                                        WHERE $filtro LIKE '".$q."%'
+                                        OR direccion_localidad LIKE '".$q."%'";
+            }
+
+        
+
+            $query = $this->db->query($sql);
+
+            if($query->num_rows()>0){
+
+                return $query->result_array();
+            }else{
+
+                return "-1";
+            }
+    }
 
 public function listar(){
 
@@ -78,6 +127,33 @@ public function listar(){
         
         }
 
-    
+
+    public function listar_datos_local($id){
+
+        /* Query Datos Personales  */
+        $query1 = $this->db->query("SELECT *
+            FROM localidad
+            WHERE id_localidad = '$id'");
+
+
+        
+
+        if ($query1->num_rows() > 0 )
+        {
+
+            $salida =  array('estado'=>"1",'datos_localidad' =>$query1->row());
+
+
+            return $salida;
+            
+        }else{
+
+            $salida =  array('estado' =>"-1");    
+
+            return $salida;
+        }
+
+        
+    }
 
 }
