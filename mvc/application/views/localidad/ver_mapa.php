@@ -52,6 +52,25 @@ function drop(array) {
   }
 }
 
+function escribir_info(nombre_localidad,proyectos){
+
+        var content ="" ;
+
+        $.each(proyectos,function(index){
+
+            var escuela = proyectos[index].escuela_coord;
+
+           //var sig_escuela = proyectos[p].escuela_coord;
+            
+            content += '<div class="escuela">'+escuela+"<br>";
+
+            content+="Proyecto :"+proyectos[index].nombre_proyecto+"<br></div>";
+
+
+        });
+
+  return "<div><h1>Localidad:"+nombre_localidad+"</h1>"+content+"</div>";
+}
 
 //funcion para dibujar coordenadas
 
@@ -63,11 +82,13 @@ function addMarker(array) {
 
   var nombre_localidad =array[iterator].nombre_localidad;
 
+ var proyectos=array[iterator].proyectos;
+
   var  marker =  new google.maps.Marker({
     position: pos,
     map: map,
     title: nombre_localidad,
-    info : "<div><h1>Localidad:"+nombre_localidad+"</h1></div>"
+    info : escribir_info(nombre_localidad,proyectos)
    });
 
    google.maps.event.addListener(marker, 'click', function(){
@@ -110,7 +131,34 @@ function deleteMarkers() {
   markers = [];
 }
 
+
  
+function set_localidad_info(lat,lng,id_localidad,nombre){
+
+
+          var loc = new Object();
+          
+            $.ajax({
+            type:"POST",
+            url:"proy_on_ejec",
+            data:{id:id_localidad},
+            success: function(data){
+
+                   loc.lat=lat;
+                   loc.lng=lng;
+                   loc.nombre_localidad=nombre;
+                   loc.id_localidad=id_localidad;
+                   loc.proyectos = JSON.parse(data);
+
+                    localidades.push(loc);
+              }
+
+            });
+
+}
+
+
+
 
 
   $(document).ready(function() {
@@ -128,28 +176,19 @@ function deleteMarkers() {
 
     $.get("listar_loc",function(data){
 
-        console.log(data);
-
+    
         var listado = JSON.parse(data);
 
-        console.log(listado);
-
+      
         $.each(listado,function(index){
+
 
             var lat = listado[index].latitud_localidad;
             var lng = listado[index].longitud_localidad;
             var id_localidad = listado[index].id_localidad;
             var nombre = listado[index].nombre_localidad;
         
-                  var loc = new Object();
-
-                   loc.lat=lat;
-                   loc.lng=lng;
-                   loc.nombre_localidad=nombre;
-                   loc.id_localidad=id_localidad;
-                
-
-            localidades.push(loc);
+            set_localidad_info(lat,lng,id_localidad,nombre);
 
         });
 
@@ -162,7 +201,7 @@ function deleteMarkers() {
 
   
 
-  });
+  }).click();
 });
 
 
