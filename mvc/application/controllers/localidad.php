@@ -1,3 +1,4 @@
+
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Localidad extends CI_Controller {
@@ -75,24 +76,21 @@ class Localidad extends CI_Controller {
 
 	}
 
-public function ver_coordenadas_totales() {
+	public function modificar_datos_localidad(){			
 
-		$id=$this->input->post('id');
+	$nombre = $this->input->post('nombre_loc1');
+	$responsable = $this->input->post('responsable_loc1');
+	$email = $this->input->post('email_loc1');
+	$telefono = $this->input->post('telefono_loc1');	
+	$parroquia = $this->input->post ('parroquia_loc1');
+	$direccion = $this->input->post ('direccion_loc1');
+	
+		echo $salida = ($this->localidad_model->modificar_datos_localidad($nombre,$responsable,$email,$telefono,$parroquia,$direccion));
+	
 
-		$salida=$this->localidad_model->cordenadas_todas_localidades($id);
+	}
 
-		if($salida == -1){
-
-			echo json_encode(array('estado'=>"-1"));
-		
-		} 
-		else {
-
-			echo json_encode($salida);
-
-		}
-	}   
-
+// esta funcion es para buscar loclaidades
 	public function listar_localidad(){
 
 		$query  = $this->input->post('q');
@@ -132,10 +130,26 @@ public function ver_coordenadas_totales() {
 		}
 	}   
 	
+
+	// esta funcio  es para poblar el mapa
 	public function listar()
 	{
 		
 			echo json_encode($this->localidad_model->listar());
+	}
+
+
+	//funcion para listar los proyectos en ejecucion en una localidad
+
+	public function pro_en_ejec(){
+
+			$id=$this->input->post('id');
+
+		$salida=$this->localidad_model->listar_proyectos_asociados($id);
+
+		echo json_encode($salida);
+
+
 	}
 
 

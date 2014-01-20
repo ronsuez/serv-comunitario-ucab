@@ -95,16 +95,18 @@ $route['datos_horas_insertadas'] = "prestador/datos_horas_insertadas";
 $route['suma_horas'] = "prestador/suma_horas";
 $route['suma_horas_totales'] = "prestador/suma_horas_totales";
 
+
 /* routing for localidades controller */
 $route['gest-localidad']="localidad/index";
 $route['listar_loc']="localidad/listar";
 $route['insertar_localidad']="localidad/insertar";
 $route['consultar_localidad']="localidad/consultar";
-$route['ver_mapa']="localidad/mapa";
 $route['insertar_datos_localidad']="localidad/insertar_datos_localidad";
-$route['consultarlocalidad']="localidad/ver_coordenadas_totales";
+$route['modificar_datos_localidad']="localidad/modificar_datos_localidad";
+$route['ver_mapa']="localidad/mapa";
 $route['b_listar_localidades']="localidad/listar_localidad";
 $route['consutar_datos_busquedad_localidad']="localidad/ver_datos_localidad";
+$route['proy_on_ejec']="localidad/pro_en_ejec";
 
 
 /*reportes*/
