@@ -24,7 +24,7 @@
 
    			 	$menu='<li class=""><a id="pestana-proyectos" href="gest-proyecto">Proyectos</a>';
    			 	$menu.='<li class=""><a id="pestana-prestadores" href="gest-prestador">Prestadores</a></li>';
-   			 	$menu.='<li class=""><a id="pestana-localidades" href="gest-localidad">Localidades</a></li>';
+   			 	$menu.='<li class=""><a id="pestana-localidades" href="gest-localidad">Organizaciones</a></li>';
    			 	
    			 	}
  ?>
