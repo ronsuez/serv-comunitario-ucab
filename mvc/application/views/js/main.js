@@ -43,6 +43,7 @@ var mensajes = {
   select_user: "Debe seleccionar un usuario",
   usuario_no_registrado:"No se pudo registrar el usuario.",
   usuario_no_actualizado: "No se pudo actualziar el usario"
+
 },
 success:{
   asesor_f:"Asesor encontrado",
@@ -57,7 +58,9 @@ success:{
   proyectos_f:"Proyectos encontrados.",
   localidad_f: "Localidad  encontrada.",
   localidad_insertada:"La localidad se registro existosamente",
-  coordinador:"ahora es el coordinador de la escuela de ",
+  coordinador:"ahora es el coordinador principal de la escuela de ",
+  des_coord: "Ya no es el coordinador principal de la escuela de ",
+  usuario_hab:"esta habilitado",
   usuario_deshab:"esta deshabilitado",
   usuario_registrado:"El usuario ha sido registrado exitosamente",
   usuario_actualizado: "El usuario ha sido actualizado existosamente"
@@ -65,7 +68,9 @@ success:{
 },
 warning:{
   coor_principal: "El coordinador ya esta definido como principal",
-  coor_deshabilitado: "Este coordinador ya se encuentra deshabilitado"
+  des_coord: "El coordinador ya no esta definido como principal",
+  coor_deshabilitado: "Este coordinador ya se encuentra deshabilitado",
+  coor_habilitado: "Este coordinador ya se encuentra habilitado"
 },
 
 requerido: '*Este es campo es requerido',
@@ -321,12 +326,10 @@ $(document).on("click","#ver_pre",function (e) {
 
 //Boton para definir el coordinador de cada escuela
 $(document).on("click","#listado_usuarios a.coord",function (e) {
-
-        
+    
 e.preventDefault();
 
       var usuario= $(this).closest('td').parent().find("td select option:selected");
-
 
       var escuela = $(this).closest('td').parent().find("td").eq(0);
 
@@ -338,7 +341,7 @@ e.preventDefault();
                 
                 console.log(data);
 
-                if (data==="0") {
+                if (data===0) {
                   show_messages("success","El usuario "+usuario.text()+" "+mensajes.success.coordinador+" "+escuela.text());
 
                 }
@@ -356,7 +359,81 @@ e.preventDefault();
 
           }
 
+});
 
+
+//Boton para cambiar el estado principal en el coordinador de cada escuela
+$(document).on("click","#listado_usuarios a.des_coord",function (e) {
+        
+e.preventDefault();
+
+      var usuario= $(this).closest('td').parent().find("td select option:selected");
+
+
+      var escuela = $(this).closest('td').parent().find("td").eq(0);
+
+      console.log(usuario.val());
+
+          if(usuario.val()){
+
+            $.post("des_coordinador", {ci:usuario.val()}, function(data){
+                
+                console.log(data);
+
+                if (data===0) {
+                  show_messages("success","El usuario "+usuario.text()+" "+mensajes.success.coor_principal+" "+escuela.text());
+
+                }
+                else {
+
+                  show_messages("warning",mensajes.warning.des_coord);
+                  
+                }
+            
+            });
+            
+          }else{
+
+              show_messages("error",mensajes.error.select_user);
+
+          }
+
+});
+
+
+// Boton para habilitar los usarios
+$(document).on("click","#listado_usuarios .hab",function (e) {
+
+      e.preventDefault();
+
+      var usuario= $(this).closest('td').parent().find("td select option:selected");
+
+      console.log(usuario.val());
+
+          if(usuario.val()){
+
+            $.post("hab_coordinador", {ci:usuario.val()}, function(data){
+                
+                console.log(data);
+
+                if (data.status===0) {
+                   show_messages("success","El usuario "+usuario.text()+" "+mensajes.success.usuario_hab);
+
+                }
+                else {
+
+                  show_messages("warning",mensajes.warning.coor_habilitado);
+                  
+                }
+            
+            });
+
+          }else{
+
+              show_messages("error",mensajes.error.select_user);
+
+          }
+ 
 });
 
 
@@ -373,9 +450,9 @@ $(document).on("click","#listado_usuarios .deshab",function (e) {
 
             $.post("deshab_coordinador", {ci:usuario.val()}, function(data){
                 
-                console.log(data);
+                console.log(data.status);
 
-                if (data==="0") {
+                if (data.status===0) {
                    show_messages("success","El usuario "+usuario.text()+" "+mensajes.success.usuario_deshab);
 
                 }
@@ -387,15 +464,12 @@ $(document).on("click","#listado_usuarios .deshab",function (e) {
             
             });
 
-         
-
           }else{
 
               show_messages("error",mensajes.error.select_user);
 
           }
  
-
 });
 
 $("body").on("keyup","#id_prestador_cedula", function(event){

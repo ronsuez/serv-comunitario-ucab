@@ -145,6 +145,52 @@
 	}
 
 
+	public function desasignar_coord_principal($ci) {
+
+		$this->db->where("cedula", $ci);
+
+		$this->db->select('cedula, principal');
+
+		$query = $this->db->get('usuario');
+		
+		$fila = $query->row();
+
+		if ($fila->principal){ //si esta en 1 lo lo designa como secundario
+			
+			$this->db->where('cedula', $fila->cedula);
+			$this->db->update('usuario', array('principal' => 0));
+			return "0";
+		}
+		else { //si no es coordinador principal
+			return "-1";
+
+		}
+	}
+
+
+	public function habilitar_coord($ci) {
+
+		$this->db->where("cedula", $ci);
+
+		$this->db->select('cedula, estado');
+
+		$query = $this->db->get('usuario');
+		
+		$fila = $query->row();
+
+		if ($fila->estado){
+
+			return "-1";
+		}
+		else {
+
+			$this->db->where('cedula', $fila->cedula);
+			$this->db->update('usuario', array('estado' => 1));
+			return "0";
+			
+		}
+	}
+
 	public function deshabilitar_coord($ci) {
 
 		$this->db->where("cedula", $ci);
@@ -156,12 +202,14 @@
 		$fila = $query->row();
 
 		if ($fila->estado){
-			return "-1";
+
+			$this->db->where('cedula', $fila->cedula);
+			$this->db->update('usuario', array('estado' => 0));
+			return "0";
 		}
 		else {
-			$this->db->where('cedula', $fila->cedula);
-			$this->db->update('usuario', array('estado' => 1));
-			return "0";
+			return "-1";
+			
 		}
 	}
 
