@@ -297,7 +297,7 @@ public function insertar_datos_reportar_horas ($id_prestador,$n_horas,$fecha,$ob
 
     public function horario_trabajo($id_prestador,$id_proyecto){
 
-              $query1 = $this->db->query(" SELECT lunes,martes,miercoles,jueves,viernes,sabado,domingo 
+              $query1 = $this->db->query(" SELECT *
                                           FROM  participa 
                                           WHERE ci_prestador = $id_prestador AND id_proyecto = $id_proyecto ");
 
@@ -409,6 +409,21 @@ public function insertar_datos_reportar_horas ($id_prestador,$n_horas,$fecha,$ob
 
 
 
+            }
+
+            public function cambiar_estado_proyecto($ci,$id){
+
+                    $query = $this->db->query("UPDATE participa 
+                                               SET estado_proy = '0' 
+                                               WHERE ci_prestador = $ci AND id_proyecto = $id");
+
+                    if($query){
+
+                        return "0";
+                    }else{
+
+                        return "-1";
+                    }
             }
 
 

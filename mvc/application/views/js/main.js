@@ -42,7 +42,8 @@ var mensajes = {
   localidad_no_insertada:"No se pudo registrar la localidad",
   select_user: "Debe seleccionar un usuario",
   usuario_no_registrado:"No se pudo registrar el usuario.",
-  usuario_no_actualizado: "No se pudo actualziar el usario"
+  usuario_no_actualizado: "No se pudo actualizar el usuario",
+  finalizar_proyecto: "No se pudo finalizar el proyecto"
 },
 success:{
   asesor_f:"Asesor encontrado",
@@ -60,7 +61,8 @@ success:{
   coordinador:"ahora es el coordinador de la escuela de ",
   usuario_deshab:"esta deshabilitado",
   usuario_registrado:"El usuario ha sido registrado exitosamente",
-  usuario_actualizado: "El usuario ha sido actualizado existosamente"
+  usuario_actualizado: "El usuario ha sido actualizado existosamente",
+  finalizar_proyecto: "Finalizado el Proyecto exitosamente"
 
 },
 warning:{
