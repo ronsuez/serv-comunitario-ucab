@@ -48,10 +48,16 @@
 $active_group = 'default';
 $active_record = TRUE;
 
+<<<<<<< HEAD
 $db['default']['hostname'] = "localhost";
 $db['default']['username'] = 'root';
 $db['default']['password'] = 'admin';
 $db['default']['database'] = "actualizada";
+=======
+$db['default']['hostname'] = 'localhost';
+$db['default']['username'] = 'root';
+$db['default']['password'] = 'admin';
+>>>>>>> ffdbdc52ebbe9573a520a98ed63a8bbd785de42e
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
