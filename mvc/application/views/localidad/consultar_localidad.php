@@ -1,3 +1,4 @@
+
 <div class="container theme-showcase"> <!-- inicio container-->
 	<div class="row" >
 		<div class="col-sm-12">
@@ -8,7 +9,7 @@
 				<div class="panel-body">
 					
 					<!-- dattos perosnales y academicos-->
-						<fieldset disabled>
+										
 						<div id="cont1">       
 	  
 										<div class="panel-group" id="accordion">
@@ -77,16 +78,19 @@
 								                 </div>
 
 
-
 											</div>
+											
 										</div>
+										
 									</div>
-								</div>
+									
+								</div> 
+							</br>
+									<button id="modificar" type="submit" class="btn btn-success">Guardar</button>
 						</div>
 				</div>		
 			</div>
 		</div>	
-	</fieldset>
 	</div>
 </div>	
 
@@ -108,8 +112,110 @@ $(document).ready(function(){
 
      
 
+//##################### modificar
 
-    });
+
+//funcionalidad para la regla alfebetica
+jQuery.validator.addMethod("alpha", function(value, element) {
+  return this.optional(element) || value == value.match(/^[a-zA-Z ]+$/);
+},"Solo caracteres (Aa-Zz).");
+
+$("#form-localidad").validate({
+
+ 
+  rules: {
+    nombre_localidad1: {
+      required: true,
+      alpha:true
+    },representante_localidad1 :{
+      required: true,
+      alpha:true
+    },email_representante_localidad1 :{
+      required: true,
+      email_representante_localidad1: true
+    },telefono_representante_localidad1:{
+      required: true,
+      number: true,
+      maxlength:11,
+      minlength:11
+    },direccion_localidad1:{
+      required:true
+    }
+  },
+
+  messages:{
+    nombre_localidad1 : {
+      required: mensajes.reglas.requerido,
+
+    },representante_localidad1 :{
+      required: mensajes.reglas.requerido
+
+    },email_representante_localidad1 : {
+      required: mensajes.reglas.requerido,
+      email:mensajes.reglas.requerido
+
+    },telefono_representante_localidad1 :{
+      required : mensajes.reglas.requerido,
+      number :mensajes.reglas.numerico,
+      minlength:mensajes.reglas.minimo_tlf,
+      maxlength:mensajes.reglas.maximo_tlf
+
+    },direccion_localidad1:{
+      required:mensajes.reglas.localidad
+
+    }
+  }
+
+});
+
+ $("#modificar").click(function() {
+
+
+  e.preventDefault();
+
+  if ($(this).valid()) {
+
+   // var datos = $(this).serialize();
+  var nombre=$("#nombre_localidad1").val();
+  var responsable=$("#representante_localidad1").val();
+  var email=$("#email_representante_localidad1").val();
+  var telefono=$("#telefono_representante_localidad1").val();
+  var parroquia=$("#parroquia_localidad1").val();
+  var direccion=$("#direccion_localidad1").val();
+
+  
+    $.post("modificar_datos_localidad",{
+    nombre_loc1:nombre,
+    responsable_loc1:responsable,
+    email_loc1:email,
+    telefono_loc1:telefono,
+    parroquia_loc1:parroquia,
+    direccion_loc1:direccion,
+  
+    
+    },
+    function(data){
+        if(data=="0"){
+
+               toastr.success(mensajes.success.localidad_insertada);
+
+               //resetForm($('#form-localidad'));
+               
+          }else{
+
+              toastr.error(mensajes.error.localidad_no_insertada);
+        
+            }
+      });
+
+  } else{  
+    toastr.error(mensajes.error.form_nv);
+  }
+
+});
+
+
+
 
 
 
