@@ -135,27 +135,27 @@ button a:hover{
 
     <br></br>
 
-   <table class="table table-hover" id="tabla_consulta">
+       <table class="table table-hover" id="tabla_consulta">
                  <thead>
-                      <tr>
-                       <th><p class="navbar-text" >Lunes</p></th>
-                        <th><p class="navbar-text" >Martes</p></th>
-                        <th><p class="navbar-text" >Miercoles</p></th>
-                        <th><p class="navbar-text" >Jueves</p></th>
-                        <th><p class="navbar-text" >Viernes</p></th>
-                        <th><p class="navbar-text" >Sabado</p></th>
-                        <th><p class="navbar-text" >Domingo</p></th>
+                      <tr class="success">
+                       <th><p>Lunes</p></th>
+                        <th><p>Martes</p></th>
+                        <th><p>Miercoles</p></th>
+                        <th><p>Jueves</p></th>
+                        <th><p>Viernes</p></th>
+                        <th><p>Sabado</p></th>
+                        <th><p >Domingo</p></th>
                       </tr>
                   </thead>
                   <tbody>
                       <tr>
-                      <td class="lunes"><p class="navbar-text" ></p></td>
-                      <td class="martes"><p class="navbar-text" ></p></td>
-                      <td class="miercoles"><p class="navbar-text" ></p></td>   
-                      <td class="jueves"><p class="navbar-text" ></p></td>    
-                      <td class="viernes" ><p class="navbar-text" >Hola</p></td>
-                      <td class="sabado" ><p class="navbar-text" >Hola</p></td>    
-                      <td class="domingo" ><p class="navbar-text" >Hola</p></td>           
+                      <td class="lunes"><p  ></p></td>
+                      <td class="martes"><p  ></p></td>
+                      <td class="miercoles"><p  ></p></td>   
+                      <td class="jueves"><p  ></p></td>    
+                      <td class="viernes" ><p ></p></td>
+                      <td class="sabado" ><p  ></p></td>    
+                      <td class="domingo" ><p  ></p></td>           
                       </tr>
                   </tbody>
           </table>
