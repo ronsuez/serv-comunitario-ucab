@@ -212,7 +212,8 @@
                     <div class="panel-heading">Asesores del proyecto</div>
                     <div class="panel-body">
                         
-                  
+                    <ul class="list-group listado-asesor">
+                    <ul> 
 
 
                   <div id="add-asesor-box">      

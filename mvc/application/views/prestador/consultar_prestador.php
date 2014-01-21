@@ -143,37 +143,30 @@ button a:hover{
 
     <br></br>
 
-    <table class="table" id="tabla_consulta">
-
-      <tr>            
-
-       <td><p class="navbar-text" >Lunes</p></td><td class="lunes"><p class="navbar-text" >Hola</p></td>
-
-       <td><p class="navbar-text" >Martes</p></td><td class="martes"><p class="navbar-text" >Hola</p></td>
-
-      </tr>
-
-      <tr>
-
-        <td><p class="navbar-text" >Miercoles</p></td><td class="miercoles"><p class="navbar-text" >Hola</p></td>
-
-        <td><p class="navbar-text" >Jueves</p></td><td class="jueves"><p class="navbar-text" >Hola</p></td>
-
-      </tr>
-
-      <tr>
-
-        <td><p class="navbar-text" >Viernes</p></td><td class="viernes" ><p class="navbar-text" ></p></td>
-        <td><p class="navbar-text" >Sabado</p></td><td class="sabado"><p class="navbar-text" ></p></td>
-
-      </tr>
-
-      <tr>
-        <td><p class="navbar-text" >Domingo</p></td><td class="domingo" ><p class="navbar-text" ></p></td>
-
-      </tr>
-
-    </table>
+       <table class="table table-hover" id="tabla_consulta">
+                 <thead>
+                      <tr class="success">
+                       <th><p>Lunes</p></th>
+                        <th><p>Martes</p></th>
+                        <th><p>Miercoles</p></th>
+                        <th><p>Jueves</p></th>
+                        <th><p>Viernes</p></th>
+                        <th><p>Sabado</p></th>
+                        <th><p >Domingo</p></th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr>
+                      <td class="lunes"><p  ></p></td>
+                      <td class="martes"><p  ></p></td>
+                      <td class="miercoles"><p  ></p></td>   
+                      <td class="jueves"><p  ></p></td>    
+                      <td class="viernes" ><p ></p></td>
+                      <td class="sabado" ><p  ></p></td>    
+                      <td class="domingo" ><p  ></p></td>           
+                      </tr>
+                  </tbody>
+          </table>
 
     <br></br>
   </div>
@@ -347,6 +340,7 @@ $('body').unbind('change').on('change','#l_proyectos',function(ev){
 
 
               });
+              
               $("#fecha_ini_proy").val(horas[0]["fecha_ini_proyecto"]);
               var estado = horas[0]["estado_proy"];
 
@@ -355,6 +349,9 @@ $('body').unbind('change').on('change','#l_proyectos',function(ev){
               }else{
               $("#estado_proy_prestador").val("Inactivo");
               }
+
+              $('#tabla_consulta td:contains("null")').text("");
+
 
     
       });

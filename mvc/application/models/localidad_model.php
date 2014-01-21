@@ -1,3 +1,4 @@
+
 <?php class Localidad_model extends CI_Model {
 
 

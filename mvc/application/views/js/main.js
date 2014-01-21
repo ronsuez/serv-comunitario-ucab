@@ -125,9 +125,8 @@ var main_datos={
           escuela : "",
           mencion: "",
           semestre: "",
-        },usuario:{
-          nombre: "" 
-          }        
+        }
+        
 };
 
 var datos_de_localidad=[
@@ -265,8 +264,11 @@ $(document).on("click",".nav-top li a",function (e) {
 
   url = $(this).attr("href");
 
+  $(".nav-top li").removeClass("active");
 
-   $.ajax({
+  $(this).parent().addClass("active"); 
+
+  $.ajax({
            beforeSend: function(){
                // Handle the beforeSend event
                $('#main-panel-body').html('<div id="loading"><img src="./jar-loading.gif"></div>');
@@ -741,6 +743,12 @@ $('body').on('click','a.key_asesor', function (ev) {
           var datos_personales =JSON.parse(data)[0];
           $("#nombre_asesor_res").val(datos_personales.nombre_asesor);
           $("#apellido_asesor_res").val(datos_personales.apellido_asesor);
+          
+          //si estamos en la tab de crear proyecto 
+          if($(".pestanas li[class='active']").text()==="Crear"){
+
+              $(".listado-asesor").append("<li class='list-group-item'>"+datos_personales.nombre_asesor+" "+datos_personales.apellido_asesor+"</li>");
+          }
         }
       });
 });
@@ -874,6 +882,7 @@ function b_consultar_asesor(query,option){
 
       $(".search_results.asesor").html("<ul class='list-group'>"+content+"</ul>");
 
+      
     }else{
 
 
@@ -1585,7 +1594,6 @@ $('body').on('click','a.key_localidad', function (ev) {
 
 
   });
-
 
 
 
