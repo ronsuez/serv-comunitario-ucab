@@ -231,7 +231,7 @@ $("#main-panel a").on("click",function (e) {
 
   e.preventDefault();
   
-  nav_pestanas_principal($(this).attr("id"),$(this).attr("href"),$(this).text(),null);  
+    nav_pestanas_principal($(this).attr("id"),$(this).attr("href"),$(this).text(),null); 
   
 });
 
@@ -1056,7 +1056,7 @@ function nav_pestanas_principal(id_pestana,url,texto,tab){
           $.ajax({
            beforeSend: function(){
                // Handle the beforeSend event
-               $('#main-panel-body').html('<div id="loading"><img src="./jar-loading.gif"></div>');
+               $('#main-panel-body').html('<div id="loading"><img src="./servcom-ucab.gif"></div>');
                
              },
              type: "GET",
@@ -1089,7 +1089,7 @@ function nav_pestanas_principal(id_pestana,url,texto,tab){
                       }
 
                       
-                    },1000);
+                    },3000);
                    }
                    
                  });
@@ -1111,7 +1111,7 @@ function nav_tabs(tab){
 
 
     // add loading image to div
-    $(href).html('<div id="loading"><img src="./loading.gif"></div>');
+    $(href).html('<div id="loading"><img src="./servcom-ucab.gif"></div>');
 
     pane.tab('show');
     
@@ -1121,7 +1121,13 @@ function nav_tabs(tab){
       url: url,
       success: function (data) {
                   // replace div's content with returned data
-                    $(href).html(data);
+
+
+                     setTimeout(function() {
+                      $(href).html(data);
+      
+                    },3000);
+                    
                   
                 }
 
