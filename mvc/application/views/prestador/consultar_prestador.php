@@ -135,31 +135,30 @@ button a:hover{
 
     <br></br>
 
-    <table class="table" id="tabla_consulta">
-
-      <tr>            
-
-       <td><p class="navbar-text" >Lunes</p></td><td class="lunes"><p class="navbar-text" >Hola</p></td>
-
-       <td><p class="navbar-text" >Martes</p></td><td class="martes"><p class="navbar-text" >Hola</p></td>
-
-      </tr>
-
-      <tr>
-
-        <td><p class="navbar-text" >Miercoles</p></td><td class="miercoles"><p class="navbar-text" >Hola</p></td>
-
-        <td><p class="navbar-text" >Jueves</p></td><td class="jueves"><p class="navbar-text" >Hola</p></td>
-
-      </tr>
-
-      <tr>
-
-        <td><p class="navbar-text" >Viernes</p></td><td class="viernes" ><p class="navbar-text" >Hola</p></td>
-
-      </tr>
-
-    </table>
+       <table class="table table-hover" id="tabla_consulta">
+                 <thead>
+                      <tr class="success">
+                       <th><p>Lunes</p></th>
+                        <th><p>Martes</p></th>
+                        <th><p>Miercoles</p></th>
+                        <th><p>Jueves</p></th>
+                        <th><p>Viernes</p></th>
+                        <th><p>Sabado</p></th>
+                        <th><p >Domingo</p></th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr>
+                      <td class="lunes"><p  ></p></td>
+                      <td class="martes"><p  ></p></td>
+                      <td class="miercoles"><p  ></p></td>   
+                      <td class="jueves"><p  ></p></td>    
+                      <td class="viernes" ><p ></p></td>
+                      <td class="sabado" ><p  ></p></td>    
+                      <td class="domingo" ><p  ></p></td>           
+                      </tr>
+                  </tbody>
+          </table>
 
     <br></br>
   </div>
@@ -167,7 +166,9 @@ button a:hover{
   <center>
     <p>
     
-      <button  id= "btn_carta_culminacion" type="button" class="btn btn-info">Finalizar Prestacion en este Proyecto </button>
+       <button id="finalizar_proyecto" type="button" class="btn btn-info">Finalizar Proyecto actual </button>
+    
+      <button  id= "btn_carta_culminacion" type="button" class="btn btn-info">Imprimir carta Culminacion</button>
       
       <button id="btn_not_culminacion" type="button" class="btn btn-info">Imprimir Notificacion Culminacion</button>
     
@@ -206,7 +207,7 @@ button a:hover{
 
           <label>Fecha </label>
 
-          <input type="text" id="fecha_modal" class="form-control" placeholder="Fecha de Actividad">
+          <input type="text" class="datepicker form-control" value="<?php echo  date("Y-m-d") ;?>" id="fecha_modal" data-date-format="yyyy-mm-dd">
 
           <label>Observación </label>
 
@@ -332,6 +333,7 @@ $('body').unbind('change').on('change','#l_proyectos',function(ev){
 
 
               });
+              $('#tabla_consulta td:contains("null")').text("");
 
     
       });
@@ -347,7 +349,7 @@ $('body').unbind('change').on('change','#l_proyectos',function(ev){
                      $.each(horas_insertadas,function(index){
 
                          td += "<tr><td>"+horas_insertadas[index]["observaciones_proyecto"]+"</td>";
-                         td += "<td>"+horas_insertadas[index]["ci_prestador"]+"</td>";
+                         td += "<td>"+horas_insertadas[index]["realizado_por"]+"</td>";
                          td += "<td>"+horas_insertadas[index]["cant_horas"]+"</td>";
                          td += "<td>"+horas_insertadas[index]["fecha"]+"</td></tr>";
                      });
@@ -415,6 +417,7 @@ $("#enviar_datos_modal").on("click",function () {
   var observacion=$("#observacion_modal").val();
   var idproyecto = $("#codigo_proyecto").val();
   var estado = $("#estado_proyecto").val();
+  var realizado_por = main_datos.usuario.nombre;
 
  
 
@@ -431,18 +434,19 @@ $("#enviar_datos_modal").on("click",function () {
     observaciones_proyecto:observacion,
     idproyecto: idproyecto,
     estadoact: estado,
+    realizado_por:realizado_por
 
     },
     function(data){
 
       var td;
 
-        if(data=="0"){
+        if(data==0){
 
                toastr.success(mensajes.success.reporte_horas);
 
                          td += "<tr><td>"+observacion+"</td>";
-                         td += "<td>"+ci+"</td>";
+                         td += "<td>"+realizado_por+"</td>";
                          td += "<td>"+n_horas+"</td>";
                          td += "<td>"+fecha+"</td></tr>";
                   
@@ -509,6 +513,7 @@ $("#btn_not_culminacion").on('click',function () {
       generar_reporte("generar_not_culminacion",0,ci,id);
 });
 
+$("#fecha_modal").datepicker();
 
 });
 

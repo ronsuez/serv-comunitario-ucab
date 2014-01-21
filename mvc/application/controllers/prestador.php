@@ -249,8 +249,9 @@ class Prestador extends CI_Controller {
 		$observaciones = $this->input->post('observaciones_proyecto');
 		$id_proyecto = $this->input->post('idproyecto');
 		$estado_proyecto = $this->input->post('estadoact');	
+		$realizado_por = $this->input->post('realizado_por');
 
-		echo $salida = ($this->prestador_model->insertar_datos_reportar_horas($id_prestador,$n_horas,$fecha,$observaciones,$id_proyecto,$estado_proyecto));
+		echo $salida = ($this->prestador_model->insertar_datos_reportar_horas($id_prestador,$n_horas,$fecha,$observaciones,$id_proyecto,$estado_proyecto,$realizado_por));
 
 	}
 

@@ -29,6 +29,11 @@
    			 	}
  ?>
 
+ <script>
+    main_datos.usuario.nombre =<?php echo "'".$user."'"; ?> ; 
+
+</script>
+
 <style type="text/css">
 
 *{margin: 0px; padding: 0px;}

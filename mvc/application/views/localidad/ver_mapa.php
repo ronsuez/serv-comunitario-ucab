@@ -217,7 +217,7 @@ function set_localidad_info(lat,lng,id_localidad,nombre){
     <div class="col-sm-12">
       <div class="panel panel-default">  <!-- panel total inicio-->
         <div class="panel-heading">
-          <h3 class="panel-title">Mapa de localidades</h3>
+          <h3 class="panel-title">Mapa de Organizaciones</h3>
         </div>
         <div class="panel-body">
 
@@ -230,12 +230,12 @@ function set_localidad_info(lat,lng,id_localidad,nombre){
            
 
           
-          <div id="map_canvas2"  style="width: 1040px;height:380px;"></div>
+          <div id="map_canvas2"  style="width: 800px;height:380px;"></div>
           
           </br></br>
           <div id="panel">
-            <input  type="submit" class="btn btn-success" onclick="clearMarkers();"  value="Ocultar Comunidades">
-            <input  id="poblarmapa" type="button" class="btn btn-success" value="mostar comonudades">
+            <input  type="submit" class="btn btn-success" onclick="clearMarkers();"  value="Ocultar Organizaciones">
+            <input  id="poblarmapa" type="button" class="btn btn-success" value="Mostar Organizaciones">
        
                  <!-- Single button -->
           <div class="btn-group">
