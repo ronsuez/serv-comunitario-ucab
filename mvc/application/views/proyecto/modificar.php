@@ -145,7 +145,7 @@
 
 	<div class="panel panel-default">
 		<div class="panel-heading"> Listado de Asesores</div>
-		<div class="listado_prestadores panel-body">
+		<div class="listado_asesores panel-body">
 			
 		</div>
 	</div>
