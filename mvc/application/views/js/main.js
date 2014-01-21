@@ -262,8 +262,11 @@ $(document).on("click",".nav-top li a",function (e) {
 
   url = $(this).attr("href");
 
+  $(".nav-top li").removeClass("active");
 
-   $.ajax({
+  $(this).parent().addClass("active"); 
+
+  $.ajax({
            beforeSend: function(){
                // Handle the beforeSend event
                $('#main-panel-body').html('<div id="loading"><img src="./jar-loading.gif"></div>');
@@ -1582,7 +1585,6 @@ $('body').on('click','a.key_localidad', function (ev) {
 
 
   });
-
 
 
 

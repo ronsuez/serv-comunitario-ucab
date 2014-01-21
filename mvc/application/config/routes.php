@@ -120,5 +120,9 @@ $route['generar_not_culminacion']="prestador/generar_nc";
 
 $route['set_photo']="prestador/set_photo";
 
+/*acerca de*/
+
+$route['acerca_de']='welcome/acerca_de';
+
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
