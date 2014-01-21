@@ -88,6 +88,14 @@ button a:hover{
 
           <input  id="codigo_proyecto" type="text"  class="form-control">
 
+          <label>Fecha Inicio Proyecto </label> 
+
+          <input  id="fecha_ini_proy" type="text"  class="form-control">
+
+          <label>Estado del Proyecto del Prestador </label> 
+
+          <input  id="estado_proy_prestador" type="text"  class="form-control">
+
         </fieldset>
 
     </ol>
@@ -193,7 +201,7 @@ button a:hover{
 
         <div class="modal-body">
 
-          <label>Realizado por </label> 
+          <label>Prestador </label> 
 
           <fieldset disabled>
 
@@ -257,8 +265,6 @@ $(document).ready(function(){
    $("#nombre_prestador_modal").val(main_datos.prestador.nombre+" "+main_datos.prestador.apellido);
 
    //listo los proyectos del prestador
-   
-   
 
   $(".collapse").collapse();
 
@@ -316,6 +322,8 @@ $('body').unbind('change').on('change','#l_proyectos',function(ev){
         $("#fecha_creacion").val(datos_proyecto[0]["fecha_ini"]);
         $("#estado_proyecto").val(datos_proyecto[0]["estado_proyecto"]);
         $("#codigo_proyecto").val(datos_proyecto[0]["id_proyecto"]);
+
+       
               // console.log(buscar_proyectos_prestador);
 
         id_proy=datos_proyecto[0]["id_proyecto"];
@@ -325,7 +333,6 @@ $('body').unbind('change').on('change','#l_proyectos',function(ev){
 
             var horas=JSON.parse(data);
           
-              var horas;
 
               $.each(horas[0],function(index){
 
@@ -333,7 +340,18 @@ $('body').unbind('change').on('change','#l_proyectos',function(ev){
 
 
               });
+              
+              $("#fecha_ini_proy").val(horas[0]["fecha_ini_proyecto"]);
+              var estado = horas[0]["estado_proy"];
+
+              if (estado == 1){
+              $("#estado_proy_prestador").val("Activo");
+              }else{
+              $("#estado_proy_prestador").val("Inactivo");
+              }
+
               $('#tabla_consulta td:contains("null")').text("");
+
 
     
       });
@@ -370,8 +388,12 @@ $('body').unbind('change').on('change','#l_proyectos',function(ev){
 
                   var horas_totales_proyectos = JSON.parse(data);
           
-                  console.log(horas_totales_proyectos[0]["sum1"]);
+                  var checkhoras = horas_totales_proyectos[0]["sum1"];
                   $("#total_horas_proyectos").html(horas_totales_proyectos[0]["sum1"]);
+
+                    if(checkhoras >90){
+                      $("button.reportar-horas").attr("disabled", true);
+                    }
 
           });
 
@@ -514,6 +536,26 @@ $("#btn_not_culminacion").on('click',function () {
 });
 
 $("#fecha_modal").datepicker();
+
+$("#finalizar_proyecto").on('click',function(){
+    
+    var ci = main_datos.prestador.cedula;
+    var id = $("#codigo_proyecto").val();
+
+    $.post("finalizar_proyecto",{id_prestador: ci, id_proyecto: id },function(data){
+
+
+         if (data == 0){
+          toastr.success(mensajes.success.finalizar_proyecto);
+         }else{
+          toastr.error(mensajes.error.error_finalizar_proyecto);
+         }
+          
+          });
+});
+
+
+
 
 });
 

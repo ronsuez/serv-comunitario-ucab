@@ -371,6 +371,19 @@ public function preparar_datos_reporte($datos_prestador = false ,$datos_proyecto
 
 	}
 
+	public function finalizar_proyecto(){
+
+		$ci  = $this->input->post('id_prestador');
+		$id = $this->input->post('id_proyecto');
+
+		$salida =$this->prestador_model->cambiar_estado_proyecto($ci,$id);
+			if($salida == -1){
+			echo "-1";
+		}else{
+			echo "0";
+		}
+	}
+
 }
 
 /* End of file welcome.php */

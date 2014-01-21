@@ -94,6 +94,7 @@ $route['horario_trabajo'] = "prestador/horario_trabajo";
 $route['datos_horas_insertadas'] = "prestador/datos_horas_insertadas";
 $route['suma_horas'] = "prestador/suma_horas";
 $route['suma_horas_totales'] = "prestador/suma_horas_totales";
+$route['finalizar_proyecto'] = "prestador/finalizar_proyecto";
 
 
 /* routing for localidades controller */
