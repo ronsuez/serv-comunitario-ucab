@@ -250,7 +250,7 @@ button a:hover{
 <script>
 $(document).ready(function(){
 
-
+$("#finalizar_proyecto").attr("disabled", true);
 //deshabilitamos  los botones de reporte-horas
 
   $("button.reportar-horas").attr("disabled","disabled");
@@ -340,7 +340,7 @@ $('body').unbind('change').on('change','#l_proyectos',function(ev){
 
 
               });
-              
+
               $("#fecha_ini_proy").val(horas[0]["fecha_ini_proyecto"]);
               var estado = horas[0]["estado_proy"];
 
@@ -349,7 +349,6 @@ $('body').unbind('change').on('change','#l_proyectos',function(ev){
               }else{
               $("#estado_proy_prestador").val("Inactivo");
               }
-
               $('#tabla_consulta td:contains("null")').text("");
 
 
@@ -393,6 +392,7 @@ $('body').unbind('change').on('change','#l_proyectos',function(ev){
 
                     if(checkhoras >90){
                       $("button.reportar-horas").attr("disabled", true);
+                      $("#finalizar_proyecto").attr("disabled", false);
                     }
 
           });

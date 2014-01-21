@@ -334,9 +334,10 @@ public function preparar_datos_reporte($datos_prestador = false ,$datos_proyecto
 
 			 $datos_prestador=$this->prestador_model->listar_datos_prestador($ci);
 			 $datos_proyecto=$this->prestador_model->datos_coordinador_asociado($id);
+			 $nombre_proyecto = $this->prestador_model->datos_proyecto($id);
 			 
 
-			 $this->preparar_datos_reporte($datos_prestador,$datos_proyecto,NULL,$tipo);
+			 $this->preparar_datos_reporte($datos_prestador,$datos_proyecto,$nombre_proyecto,$tipo);
 		 		
 
 	}
