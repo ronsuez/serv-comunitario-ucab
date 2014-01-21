@@ -226,7 +226,9 @@ class Administrador extends CI_Controller {
 
 		$salida = $this->administrador_model->asignar_coord_principal($cedula);
 
-		echo $salida;
+		
+		echo json_encode(array("status"=>$salida));
+
 
 	}
 
@@ -236,7 +238,7 @@ class Administrador extends CI_Controller {
 
 		$salida = $this->administrador_model->desasignar_coord_principal($cedula);
 
-		echo $salida;
+		echo json_encode(array("status"=>$salida));
 
 	}
 
@@ -264,7 +266,7 @@ class Administrador extends CI_Controller {
 			echo json_encode(array("status"=>0));
 		}else
 			{
-				echo json_encode(array("status"=>-1));
+			echo json_encode(array("status"=>-1));
 		}
 
 	}

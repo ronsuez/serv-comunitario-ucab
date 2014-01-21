@@ -63,8 +63,8 @@ success:{
   usuario_hab:"esta habilitado",
   usuario_deshab:"esta deshabilitado",
   usuario_registrado:"El usuario ha sido registrado exitosamente",
-  usuario_actualizado: "El usuario ha sido actualizado existosamente"
-
+  usuario_actualizado: "El usuario ha sido actualizado existosamente",
+  des_coord: "El coordinador ya no esta definido como principal",
 },
 warning:{
   coor_principal: "El coordinador ya esta definido como principal",
@@ -339,9 +339,9 @@ e.preventDefault();
 
             $.post("def_coordinador", {ci:usuario.val()}, function(data){
                 
-                console.log(data);
+                var salida = JSON.parse(data);
 
-                if (data===0) {
+                if (!salida["status"]) {
                   show_messages("success","El usuario "+usuario.text()+" "+mensajes.success.coordinador+" "+escuela.text());
 
                 }
@@ -362,7 +362,7 @@ e.preventDefault();
 });
 
 
-//Boton para cambiar el estado principal en el coordinador de cada escuela
+//Boton para cambiar a 0 el estado principal en el coordinador de cada escuela
 $(document).on("click","#listado_usuarios a.des_coord",function (e) {
         
 e.preventDefault();
@@ -372,16 +372,18 @@ e.preventDefault();
 
       var escuela = $(this).closest('td').parent().find("td").eq(0);
 
+      console.log(escuela.text());
+
       console.log(usuario.val());
 
           if(usuario.val()){
 
             $.post("des_coordinador", {ci:usuario.val()}, function(data){
                 
-                console.log(data);
+                var salida = JSON.parse(data);
 
-                if (data===0) {
-                  show_messages("success","El usuario "+usuario.text()+" "+mensajes.success.coor_principal+" "+escuela.text());
+                if (!salida["status"]) {
+                  show_messages("success","El usuario "+usuario.text()+" "+mensajes.success.des_coord+" "+escuela.text());
 
                 }
                 else {
@@ -414,9 +416,9 @@ $(document).on("click","#listado_usuarios .hab",function (e) {
 
             $.post("hab_coordinador", {ci:usuario.val()}, function(data){
                 
-                console.log(data);
+                var salida = JSON.parse(data);
 
-                if (data.status===0) {
+                if (!salida["status"]) {
                    show_messages("success","El usuario "+usuario.text()+" "+mensajes.success.usuario_hab);
 
                 }
@@ -450,9 +452,9 @@ $(document).on("click","#listado_usuarios .deshab",function (e) {
 
             $.post("deshab_coordinador", {ci:usuario.val()}, function(data){
                 
-                console.log(data.status);
+                  var salida = JSON.parse(data);
 
-                if (data.status===0) {
+                if (!salida["status"]) {
                    show_messages("success","El usuario "+usuario.text()+" "+mensajes.success.usuario_deshab);
 
                 }

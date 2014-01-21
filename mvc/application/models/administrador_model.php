@@ -135,12 +135,12 @@
 		$fila = $query->row();
 
 		if ($fila->principal){
-			return "-1";
+			return -1;
 		}
 		else {
 			$this->db->where('cedula', $fila->cedula);
 			$this->db->update('usuario', array('principal' => 1));
-			return "0";
+			return 0;
 		}
 	}
 
@@ -159,10 +159,10 @@
 			
 			$this->db->where('cedula', $fila->cedula);
 			$this->db->update('usuario', array('principal' => 0));
-			return "0";
+			return 0;
 		}
 		else { //si no es coordinador principal
-			return "-1";
+			return -1;
 
 		}
 	}
