@@ -54,7 +54,7 @@ $route['completar_datos_usuario'] = 'usuario/completar_datos_usuario';
  $route['ge_administrador'] = 'administrador/index';
  $route['gest-usuarios'] = 'administrador/admin_usuarios';
  $route['b_listar_usuario'] = 'usuario/listar';
- $route['registrar_usuario'] = 'administrador/registrar_usuario';
+ $route['registrar_datos_usuario'] = 'administrador/registrar_datos_usuario';
  $route['admin_coo'] = 'administrador/admin_coordinadores';
  $route['traer_usuarios'] = 'administrador/ver_usuarios';
  $route['def_coordinador'] = 'administrador/def_coordinador';
@@ -95,13 +95,18 @@ $route['datos_horas_insertadas'] = "prestador/datos_horas_insertadas";
 $route['suma_horas'] = "prestador/suma_horas";
 $route['suma_horas_totales'] = "prestador/suma_horas_totales";
 
+
 /* routing for localidades controller */
 $route['gest-localidad']="localidad/index";
 $route['listar_loc']="localidad/listar";
 $route['insertar_localidad']="localidad/insertar";
 $route['consultar_localidad']="localidad/consultar";
 $route['insertar_datos_localidad']="localidad/insertar_datos_localidad";
-$route['consultar_datos_localidad']="localidad/ver_datos_localidad";
+$route['modificar_datos_localidad']="localidad/modificar_datos_localidad";
+$route['ver_mapa']="localidad/mapa";
+$route['b_listar_localidades']="localidad/listar_localidad";
+$route['consutar_datos_busquedad_localidad']="localidad/ver_datos_localidad";
+$route['proy_on_ejec']="localidad/pro_en_ejec";
 
 
 /*reportes*/

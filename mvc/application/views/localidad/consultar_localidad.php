@@ -6,23 +6,9 @@
 					<h3 class="panel-title">Consulta de localidades</h3>
 				</div>
 				<div class="panel-body">
-					<div class="panel panel-default">
-						<div class="panel-heading">
-						  <h3 class="panel-title">Buscar Localidad</h3>
-						</div>
-						<div class="panel-body">								  
-							<div class="input-group input-group-sm">
-								<input id="nombre_loc" type="text" class="form-control" placeholder="Introduzca nombre de la localidad a consultar"></input>
-								<span class="input-group-btn">
-									<button id="btn_datos_localidad" class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
-								</span>
-							</div><!-- /input-group -->
-						</div>
-					</div>
 					
-					</br></br>
 					<!-- dattos perosnales y academicos-->
-										
+						<fieldset disabled>
 						<div id="cont1">       
 	  
 										<div class="panel-group" id="accordion">
@@ -38,12 +24,24 @@
 											<div class="panel-body">
 			
 
-												<ul>
-														<li>Responsable : <span id="representante_localidad"></span></li>
-														<li>Telefono :<span id="telefono_representante_localidad"></span></li>
-														<li>Email :<span id="email_representante_localidad"></span></li>
-														
-												</ul>
+												<div class="form-group">
+								                  <label for="">Nombre de la Organización </label>
+								                  <input id="nombre_localidad1" name="nombre_localidad" type="text" class="form-control" ></input>
+								                </div>
+								                 <div class="form-group">
+								                  <label for="">Responsable </label>
+								                  <input id="representante_localidad1" name="representante_localidad" type="text" class="form-control" ></input>
+								                </div>
+
+								                <div class="form-group">
+								                  <label for="">Correo Electrónico </label>
+								                  <input id="email_representante_localidad1" name="email_representante_localidad" type="email" class="form-control"></input>
+								                </div>
+
+									            <div class="form-group">
+									              <label for="">Telefono </label>
+									              <input  id="telefono_representante_localidad1" name="telefono_representante_localidad" type="text" class="form-control" ></input>
+									            </div>
 
 											</div>
 										</div>
@@ -60,15 +58,24 @@
 										<div id="collapseTwo" class="panel-collapse collapse in">
 											<div class="panel-body">
 		   
-				
-												<ul>
-														<li>Estado : Bolivar</span></li>
-														<li>Municipio : Caroni</span></li>
-														<li>Parroquia :<span id="parroquia_localidad"></span></li>
-														<li>Latitud :<span id="latitud_localidad"></span></li>
-														<li>longitud :<span id="longitud_localidad"></span></li>
-														
-												</ul>
+												<div class="form-group">
+								                     <label for="estado">Estado</label>
+								                          <input id="estado" name="estado" type="text" class="form-control" value="Bolivar" readonly></input>
+								               </div>
+								                <div class="form-group">
+								                     <label for="municipio">Municipio</label>
+								                      <input id="municipio" name="municipio" type="text" class="form-control" value="Caroni" readonly></input>
+								               </div>
+								                <div class="form-group">
+								                      <label for="parroquia">Parroquia </label>
+								                      <input class="form-control" name="parroquia_localidad" id="parroquia_localidad1" ></input>
+								                 </div>
+											   
+											   <div class="form-group">
+								                      <label for="direccion">Dirección </label>
+								                      <input class="form-control" name="direccion_localidad" id="direccion_localidad1" ></input>
+								                 </div>
+
 
 
 											</div>
@@ -79,65 +86,35 @@
 				</div>		
 			</div>
 		</div>	
+	</fieldset>
 	</div>
 </div>	
 
 <script>
 $(document).ready(function(){
 
-    $("#btn_datos_localidad").click(function(){
+	$(".collapse").collapse();
+  						  
+     	$("#nombre_localidad").val();
+     	$("#representante_localidad").val(main_datos.localidad.responsable);
+     	$("#email_representante_localidad").val(main_datos.localidad.email);
+       	$("#telefono_representante_localidad").val(main_datos.localidad.telefono);
+                            
+
+ //datos ubicacion
+ 	$("#parroquia_localidad").val(main_datos.localidad.parroquia);
+  	$("#direccion_localidad").val(main_datos.localidad.direccion);
+							
+
+     
 
 
-       // alert($("#id_cedula").val());
-          
-          var nombre=$("#nombre_loc").val();
-
-                  if(!nombre){
-
-                          toastr.warning(mensajes.error.campo_vacio);
-                  }else{
-
-                      $.post("consultar_datos_localidad",{id:nombre},function(data){
-
-                            var estado =JSON.parse(data)["estado"]; 
-
-                                   console.log(JSON.parse(data));
-
-                             
-                              if(estado === "-1"){
-									//cambiar a mensajes.error.localidad_nf
-                                  toastr.error(mensajes.error.localidad_nf);
-
-
-                              }else{
-
-                                 toastr.success(mensajes.success.localidad_f);
-
-
-
-                              var datos_representante =JSON.parse(data)["datos_representante"][0];
-							  var datos_ubicacion =JSON.parse(data)["datos_ubicacion"][0];
-							  
-                            $("#nombre_localidad1").val(datos_representante.nombre_localidad);
-                            $("#representante_localidad").text(datos_representante.representante_localidad);
-                            $("#telefono_representante_localidad").text(datos_representante.telefono_representante_localidad);
-                            $("#email_representante_localidad").text(datos_representante.email_representante_localidad);
-
-
-                              //datos ubicacion
-
-                            $("#parroquia_localidad").text(datos_ubicacion.parroquia_localidad);
-							 $("#latitud_localidad").text(datos_ubicacion.latitud_localidad);
-							  $("#longitud_localidad").text(datos_ubicacion.longitud_localidad);
-
-                        }
-                         });
-                    
-                        }  
     });
 
 
-  });
 
  
+
+
+
 </script>
