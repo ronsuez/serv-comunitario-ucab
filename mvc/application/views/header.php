@@ -70,6 +70,12 @@
 <!-- Plugin para subir archivos w/ ajax-->
 <script src=<?php echo  base_url()."application/views/js/ajaxfileupload.js" ; ?> type="text/javascript"></script>
 
+<!-- Librerias de date-picker -->
+
+<link href="<?php echo base_url() ; ?>application/views/css/datepicker.css" rel="stylesheet">
+<script src=<?php echo  base_url()."application/views/js/bootstrap-datepicker.js" ; ?> type="text/javascript"></script>
+
+
   </head>
 
   <body>

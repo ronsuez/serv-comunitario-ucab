@@ -123,8 +123,9 @@ var main_datos={
           escuela : "",
           mencion: "",
           semestre: "",
-        }
-        
+        },usuario:{
+          nombre: "" 
+          }        
 };
 
 var datos_de_localidad=[
