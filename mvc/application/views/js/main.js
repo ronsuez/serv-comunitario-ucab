@@ -1605,6 +1605,15 @@ $('body').on('click','a.key_localidad', function (ev) {
 
 
 
+//Velocidad de Carrusel
+
+$(document).ready(function(){
+  $('.carousel').carousel({
+    interval: 2000
+  });
+});
+
+
 
 //fin-archivo
 
