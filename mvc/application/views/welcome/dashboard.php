@@ -190,7 +190,7 @@ body {
 		</div>
 		<div class="navbar-collapse collapse">
 			<ul class="nav navbar-nav nav-top">
-				<li class="active"><a href="/">Home</a></li>
+				<li class="active"><a href="/">Inicio</a></li>
 				<li class=""><a href="acerca_de">Acerca de</a></li>
 				<li class=""><a href="#contact">Contacto</a></li>
 			</ul>
