@@ -15,7 +15,7 @@
 |
 */
 
-$config['base_url']        = "http://".$_SERVER['HTTP_HOST']."/serv-comunitario-ucab/mvc/";
+$config['base_url']        = "http://".$_SERVER['HTTP_HOST']."/sc/mvc/";
 
 /*
 |--------------------------------------------------------------------------

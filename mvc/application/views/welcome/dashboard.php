@@ -10,6 +10,8 @@
         			 $user =$this->session->userdata("name")." ".$this->session->userdata("last_name");
 
         			 $escuela = $this->session->userdata("escuela");
+
+        			 $cedula = $this->session->userdata("cedula");
 	
    			 }
 
@@ -31,6 +33,7 @@
 
  <script>
     main_datos.usuario.nombre =<?php echo "'".$user."'"; ?> ; 
+    main_datos.usuario.cedula =<?php echo "'".$cedula."'"; ?> ; 
 
 </script>
 
@@ -264,10 +267,10 @@ body {
 				</div>
 
 				<!--  Carousel - consult the Twitter Bootstrap docs at
-				http://twitter.github.com/bootstrap/javascript.html#carousel -->
-				<div id="this-carousel-id" class="carousel slide"><!-- class of slide for animation -->
+				http://twitter.github.com/bootstrap/javascript.html#carousel 
+				<div id="this-carousel-id" class="carousel slide">
 					<div class="carousel-inner">
-						<div class="item active"><!-- class of active since it's the first item -->
+						<div class="item active"><!-- class of active since it's the first item 
 							<img src="compubus.jpg" alt="" />
 							<div class="carousel-caption">
 								<h2>Servicio Comunitario</h2>
@@ -285,13 +288,12 @@ body {
 								<h2>Servicio Comunitario</h2>
 							</div>
 						</div>
-					</div><!-- /.carousel-inner -->
+					</div><!-- /.carousel-inner 
   <!--  Next and Previous controls below
-  href values must reference the id for this carousel -->
+  href values must reference the id for this carousel 
   <a class="carousel-control left" href="#this-carousel-id" data-slide="prev">&lsaquo;</a>
   <a class="carousel-control right" href="#this-carousel-id" data-slide="next">&rsaquo;</a>
 </div><!-- /.carousel -->
-
 			</div>
 			<p class="footer">Page rendered in <strong>0.0236</strong> seconds</p>
 
