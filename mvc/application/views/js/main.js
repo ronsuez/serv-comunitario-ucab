@@ -42,7 +42,8 @@ var mensajes = {
   localidad_no_insertada:"No se pudo registrar la localidad",
   select_user: "Debe seleccionar un usuario",
   usuario_no_registrado:"No se pudo registrar el usuario.",
-  usuario_no_actualizado: "No se pudo actualziar el usario"
+  usuario_no_actualizado: "No se pudo actualizar el usuario",
+  finalizar_proyecto: "No se pudo finalizar el proyecto"
 },
 success:{
   asesor_f:"Asesor encontrado",
@@ -60,7 +61,8 @@ success:{
   coordinador:"ahora es el coordinador de la escuela de ",
   usuario_deshab:"esta deshabilitado",
   usuario_registrado:"El usuario ha sido registrado exitosamente",
-  usuario_actualizado: "El usuario ha sido actualizado existosamente"
+  usuario_actualizado: "El usuario ha sido actualizado existosamente",
+  finalizar_proyecto: "Finalizado el Proyecto exitosamente"
 
 },
 warning:{
@@ -123,9 +125,8 @@ var main_datos={
           escuela : "",
           mencion: "",
           semestre: "",
-        },usuario:{
-          nombre: "" 
-          }        
+        }
+        
 };
 
 var datos_de_localidad=[
@@ -232,7 +233,7 @@ $("#main-panel a").on("click",function (e) {
 
   e.preventDefault();
   
-    nav_pestanas_principal($(this).attr("id"),$(this).attr("href"),$(this).text(),null); 
+  nav_pestanas_principal($(this).attr("id"),$(this).attr("href"),$(this).text(),null);  
   
 });
 
@@ -263,11 +264,14 @@ $(document).on("click",".nav-top li a",function (e) {
 
   url = $(this).attr("href");
 
+  $(".nav-top li").removeClass("active");
 
-   $.ajax({
+  $(this).parent().addClass("active"); 
+
+  $.ajax({
            beforeSend: function(){
                // Handle the beforeSend event
-               $('#main-panel-body').html('<div id="loading"><img src="./servcom-ucab.gif"></div>');
+               $('#main-panel-body').html('<div id="loading"><img src="./jar-loading.gif"></div>');
                
              },
              type: "GET",
@@ -398,152 +402,6 @@ $(document).on("click","#listado_usuarios .deshab",function (e) {
  
 
 });
-
-
-// funciones localidad ###############################################################################
-
-// funcion keyup para localidades
-
-  $("body").on("keyup","#input_nombre_loc", function(event){
-
-  var query = $(this).val();
-  var option = "";
-  console.log($(this).val());
-
-  if(query!=""){
-    if ($.isNumeric(query)){
-      console.log(query+"input was 0-9");
-      option = "cedula";
-      b_consultar_localidad(query,option);
-    } else{
-      console.log(query+"input was a-z");
-      option = "nombre";
-      b_consultar_localidad(query,option);
-    }
-  }
-
-  event.stopPropagation();
-
-});
-
-
-// fin key up localidades
-
-// funcion consultar localidad 
-
-function b_consultar_localidad(query,option){
-
-  $.post("b_listar_localidades",{q:query,o:option},function(data){
-
-    console.log(data); 
-    
-    if(data!="-1"){
-
-
-      
-      var array=JSON.parse(data);
-
-      console.log(array.length);
-      
-      if (array.length === 1) 
-        toastr.success(array.length+" "+mensajes.success.localidad_f);
-      else
-        toastr.success(array.length+" "+mensajes.success.localidades_f);
-      
-      var content ="";
-
-      $.each(array,function(i){
-        content = content +'<li class="list-group-item"><a class="key_localidad" href="'+ array[i]["id_localidad"] +' "> '+ array[i]["nombre_localidad"]+'</a></li>';
-
-      });
-
-      
-      
-        
-
-
-      $("#datos_busqueda_localidad").html("<ul class='list-group'>"+content+"</ul>");
-
-
-       //$("#inscribir_localidad").css("display", "none"); // se oculta todo
-       //$("#pestana_registrar").css("display", "none"); // se oculta todo
-
-         }else{
-
-      $("#datos_busqueda_localidad").html('<div class="no-results">No se encontraron resultados</div>');
-
-    //  $("#pestana_registrar").fadeToggle("1000");
-     // $("#inscribir_localidad").fadeToggle("1000");
-     // $("#consultar").css("display", "none"); // se oculta todo
-     // $("#pestana_cosnultar").css("display", "none"); // se oculta todo
-
-
-    }   
-
-  });
-}
-
-$('body').on('click','a.key_localidad', function (ev) {
-
-  
-  //$("#consultar").fadeToggle("1000");
-  //$("#pestana_cosnultar").fadeToggle("1000");
-
-  
-  
-  
-  ev.preventDefault();
-
-  console.log($(this).attr("href"));
-  var idlocalidad=$(this).attr("href");
-
-  $.post("consutar_datos_busquedad_localidad",{id:$(this).attr("href")},function(data){
-
-    var estado =JSON.parse(data)["estado"];
-
-    var listado=JSON.parse(data)["datos_localidad"];
-
-    //almaceno la cedula del usuario para realizar operaciones sobre el 
-
-     /* main_datos.localidad.nombre=listado["nombre_localidad"];
-      main_datos.localidad.responsable=listado["representante_localidad"];
-      main_datos.localidad.email=listado["email_representante_localidad"];
-      main_datos.localidad.telefono=listado["telefono_representante_localidad"];
-      main_datos.localidad.parroquia=listado["parroquia_localidad"];
-      main_datos.localidad.direccion=listado["direccion_localidad"];*/
-    
-     $("#nombre_localidad1").val(listado.nombre_localidad);
-     $("#representante_localidad1").val(listado.representante_localidad);
-     $("#email_representante_localidad1").val(listado.email_representante_localidad);
-     $("#telefono_representante_localidad1").val(listado.telefono_representante_localidad);
-     $("#parroquia_localidad1").val(listado.parroquia_localidad);
-     $("#direccion_localidad1").val(listado.direccion_localidad);
-
-    
-
-    console.log(JSON.parse(data));
-
-   
-    toastr.success(mensajes.success.localidad_datos_cargados);  
-
-  });
-
-    //limpiamos el input y escondemos la busqueda 
-    $("#datos_busqueda_localidad").empty();
-
-    $("#input_nombre_loc").val("");
-
-    ev.stopPropagation();
-
-
-  });
-
-
-
-
-// fin funcion consultar localidad
-
-// Fin funciones localidad #################################################################################3
 
 $("body").on("keyup","#id_prestador_cedula", function(event){
 
@@ -1210,7 +1068,7 @@ function nav_pestanas_principal(id_pestana,url,texto,tab){
           $.ajax({
            beforeSend: function(){
                // Handle the beforeSend event
-               $('#main-panel-body').html('<div id="loading"><img src="./servcom-ucab.gif"></div>');
+               $('#main-panel-body').html('<div id="loading"><img src="./jar-loading.gif"></div>');
                
              },
              type: "GET",
@@ -1243,7 +1101,7 @@ function nav_pestanas_principal(id_pestana,url,texto,tab){
                       }
 
                       
-                    },3000);
+                    },1000);
                    }
                    
                  });
@@ -1265,7 +1123,7 @@ function nav_tabs(tab){
 
 
     // add loading image to div
-    $(href).html('<div id="loading"><img src="./servcom-ucab.gif"></div>');
+    $(href).html('<div id="loading"><img src="./loading.gif"></div>');
 
     pane.tab('show');
     
@@ -1275,13 +1133,7 @@ function nav_tabs(tab){
       url: url,
       success: function (data) {
                   // replace div's content with returned data
-
-
-                     setTimeout(function() {
-                      $(href).html(data);
-      
-                    },3000);
-                    
+                    $(href).html(data);
                   
                 }
 
@@ -1599,7 +1451,171 @@ function mostrar_opciones(){
 
   }
   
- 
+  //##################################################################################################
+//############################  Localidades  #######################################################
+// funciones localidad ###############################################################################
+
+// funcion keyup para localidades
+
+  $("body").on("keyup","#input_nombre_loc", function(event){
+
+  var query = $(this).val();
+  var option = "";
+  console.log($(this).val());
+
+  if(query!=""){
+    if ($.isNumeric(query)){
+      console.log(query+"input was 0-9");
+      option = "cedula";
+      b_consultar_localidad(query,option);
+    } else{
+      console.log(query+"input was a-z");
+      option = "nombre";
+      b_consultar_localidad(query,option);
+    }
+  }
+
+  event.stopPropagation();
+
+});
+
+
+// fin key up localidades
+
+// funcion consultar localidad 
+
+function b_consultar_localidad(query,option){
+
+  $.post("b_listar_localidades",{q:query,o:option},function(data){
+
+    console.log(data); 
+    
+    if(data!="-1"){
+
+
+      
+      var array=JSON.parse(data);
+
+      console.log(array.length);
+      
+      if (array.length === 1) 
+        toastr.success(array.length+" "+mensajes.success.localidad_f);
+      else
+        toastr.success(array.length+" "+mensajes.success.localidades_f);
+      
+      var content ="";
+
+      $.each(array,function(i){
+        content = content +'<li class="list-group-item"><a class="key_localidad" href="'+ array[i]["id_localidad"] +' "> '+ array[i]["nombre_localidad"]+'</a></li>';
+
+      });
+
+      
+      
+        
+
+
+      $("#datos_busqueda_localidad").html("<ul class='list-group'>"+content+"</ul>");
+
+
+      $("#inscribir_localidad").css("display", "none"); // se oculta todo
+       $("#pestana_registrar").css("display", "none"); // se oculta todo
+
+         }else{
+
+      $("#datos_busqueda_localidad").html('<div class="no-results">No se encontraron resultados</div>');
+
+      $("#pestana_registrar").fadeToggle("1000");
+      $("#inscribir_localidad").fadeToggle("1000");
+      $("#consultar").css("display", "none"); // se oculta todo
+       $("#pestana_cosnultar").css("display", "none"); // se oculta todo
+
+
+    }   
+
+  });
+}
+
+$('body').on('click','a.key_localidad', function (ev) {
+
+  
+  $("#consultar").fadeToggle("1000");
+  $("#pestana_cosnultar").fadeToggle("1000");
+
+  
+  
+  
+  ev.preventDefault();
+
+  console.log($(this).attr("href"));
+  var idlocalidad=$(this).attr("href");
+
+  $.post("consutar_datos_busquedad_localidad",{id:$(this).attr("href")},function(data){
+
+    var estado =JSON.parse(data)["estado"];
+
+    var listado=JSON.parse(data)["datos_localidad"];
+
+    //almaceno la cedula del usuario para realizar operaciones sobre el 
+
+     /* main_datos.localidad.nombre=listado["nombre_localidad"];
+      main_datos.localidad.responsable=listado["representante_localidad"];
+      main_datos.localidad.email=listado["email_representante_localidad"];
+      main_datos.localidad.telefono=listado["telefono_representante_localidad"];
+      main_datos.localidad.parroquia=listado["parroquia_localidad"];
+      main_datos.localidad.direccion=listado["direccion_localidad"];*/
+    
+     $("#nombre_localidad1").val(listado.nombre_localidad);
+     $("#representante_localidad1").val(listado.representante_localidad);
+     $("#email_representante_localidad1").val(listado.email_representante_localidad);
+     $("#telefono_representante_localidad1").val(listado.telefono_representante_localidad);
+     $("#parroquia_localidad1").val(listado.parroquia_localidad);
+     $("#direccion_localidad1").val(listado.direccion_localidad);
+
+    
+
+    console.log(JSON.parse(data));
+
+   
+    toastr.success(mensajes.success.localidad_datos_cargados);  
+
+  });
+
+
+
+
+
+    //limpiamos el input y escondemos la busqueda 
+    $("#datos_busqueda_localidad").empty();
+
+    $("#input_nombre_loc").val("");
+
+    ev.stopPropagation();
+
+
+  });
+
+
+
+// fin funcion consultar localidad
+
+// Fin funciones localidad #################################################################################3
+
+//##################################################################################################
+//############################  Localidades  #######################################################
+// funciones localidad ###############################################################################
+
+
+
+//Velocidad de Carrusel
+
+$(document).ready(function(){
+  $('.carousel').carousel({
+    interval: 2000
+  });
+});
+
+
 
 //fin-archivo
 

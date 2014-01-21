@@ -169,6 +169,10 @@ body {
 	text-align: center;
 }
 
+.carousel img {
+	display:block;
+	margin:auto;
+}
 
 </style>
 
@@ -194,22 +198,22 @@ body {
 			<a class="navbar-brand" href="#">Servcom-UCAB</a>
 		</div>
 		<div class="navbar-collapse collapse">
-			<ul class="nav navbar-nav nav-top">
-				<li class="active"><a href="/">Home</a></li>
-				<li class=""><a href="acerca_de">Acerca de</a></li>
-				<li class=""><a href="#contact">Contacto</a></li>
+			<ul class="barra-superior nav navbar-nav nav-top">
+				<li class="active"><a href="/">Inicio</a></li>
+				<li class=""><a id="acerca" href="acerca_de">Acerca de</a></li>
+				<li class=""><a href="#">Contacto</a></li>
 			</ul>
 			<ul class ="nav navbar-nav pull-right">
 				<li class="dropdown ">
 					<a href="#" id="#user" class="dropdown-toggle" data-toggle="dropdown"><?php echo $user ?> <span class="glyphicon glyphicon-user"></span> <b class="caret"></b></a>
 					<ul class="pull-right dropdown-menu">
-						<li><a href="logout">Salir</a></li>
-						<li><a href="#">Another action</a></li>
+						<li class="lola"><a href="logout">Salir</a></li>
+						<!-- <li><a href="#">Another action</a></li>
 						<li><a href="#">Something else here</a></li>
 						<li class="divider"></li>
 						<li class="dropdown-header">Nav header</li>
 						<li><a href="#">Separated link</a></li>
-						<li><a href="#">One more separated link</a></li>
+						<li><a href="#">One more separated link</a></li> -->
 					</ul>
 				</li>
 			</ul>
@@ -253,50 +257,41 @@ body {
 			<div class="panel panel-success">
 				<div class="panel-heading">
 					<h3 id="main-title" class="panel-title"><span id="tab-title">Administracion</span> <span class="pull-right escuela"><?php echo $escuela; ?></span></h3>
-
 				</div>
 
 				<div id="main-panel-body" class="panel-body">
 					<h1>Bienvenido al Sistema de Gestion de Servicio Comunitario</h1>
-
-					<div id="body" class="row">
-						<div id="about" class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-							<p>
-								El sistema permite la administración de los proyectos y prestadores de servicio comunitario
-								de la Universidad Católica Andrés Bello.</p>
-
-								<p>
-									El proyecto nace como una iniciativa
-									de los estudiantes de la cátedra de Desarrollo del Software para automatizar
-									el proceso de gestión del servicio comunitario realizado por proyección a la comunidad y las escuelas de
-									cada carrera. 
-								</p>
-
-								<p>
-									El sistema esta escrito en PHP,JS,HTML,CSS utilizando el framework MVC <em>Codeingiter</em>
-									integrado con el framework CSS <em>Bootstrap</em> para el diseño de la interfaz de usuario. 
-								</p>
-
-								<p>
-									Servcom-UCAB está alojado en la nube a través de un servicio de PaaS provisto por <em>Openshift</em> de Red Hat , ademas el 
-									código fuente del sistema está publicado en github ya que se utilizó git como herramienta de control de versiones
-									para el desarrollo distribuido del sistema. 
-								</p>
-
-
-								<p>
-									EL repositorio de Servcom-UCAB esta disponible en <a href="https://github.com/ronsuez/serv-comunitario-ucab" target="_blank">Servcom-ucab</a>.							
-								</p>
-							</div>
-				
-					</div>
-
-
 				</div>
 
-						
+				<!--  Carousel - consult the Twitter Bootstrap docs at
+				http://twitter.github.com/bootstrap/javascript.html#carousel -->
+				<div id="this-carousel-id" class="carousel slide"><!-- class of slide for animation -->
+					<div class="carousel-inner">
+						<div class="item active"><!-- class of active since it's the first item -->
+							<img src="compubus.jpg" alt="" />
+							<div class="carousel-caption">
+								<h2>Servicio Comunitario</h2>
+							</div>
+						</div>
+						<div class="item">
+							<img src="desempleo.jpg" alt="" />
+							<div class="carousel-caption">
+								<h2>Servicio Comunitario</h2>
+							</div>
+						</div>
+						<div class="item">
+							<img src="campus.jpg" alt="" />
+							<div class="carousel-caption">
+								<h2>Servicio Comunitario</h2>
+							</div>
+						</div>
+					</div><!-- /.carousel-inner -->
+  <!--  Next and Previous controls below
+  href values must reference the id for this carousel -->
+  <a class="carousel-control left" href="#this-carousel-id" data-slide="prev">&lsaquo;</a>
+  <a class="carousel-control right" href="#this-carousel-id" data-slide="next">&rsaquo;</a>
+</div><!-- /.carousel -->
 
-			
 			</div>
 			<p class="footer">Page rendered in <strong>0.0236</strong> seconds</p>
 

@@ -1,5 +1,5 @@
 
-<footer>Developed by doofenshmirtz Evil Inc.</footer>
+<footer>Desarrollado por Estudiantes de Desarrollo de Software 2013/2014</footer>
 
 </body>
 
