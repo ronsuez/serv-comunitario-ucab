@@ -4,6 +4,17 @@ $(document).ready(function() {
 
 
 
+    //validacion de permisologias
+      if(escuela_usuario === "Proyeccion a la comunidad"){
+
+            $(".pestanas [href='#inscribir_proyecto']").remove();
+
+            $(".pestanas [href='#asesor']").remove();
+
+            //$(".pestanas [href='#consultar_proyecto']").click();
+            
+      }
+
 
 
 

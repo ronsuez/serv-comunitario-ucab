@@ -1,3 +1,4 @@
+
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Localidad extends CI_Controller {
@@ -51,6 +52,12 @@ class Localidad extends CI_Controller {
 	
 		$this->load->view($this->controller.'consultar_localidad');
 	}
+
+	public function mapa()
+	{
+	
+		$this->load->view($this->controller.'ver_mapa');
+	}
 	
 	public function insertar_datos_localidad(){			
 
@@ -68,12 +75,48 @@ class Localidad extends CI_Controller {
 	
 
 	}
+
+	public function modificar_datos_localidad(){			
+
+	$nombre = $this->input->post('nombre_loc1');
+	$responsable = $this->input->post('responsable_loc1');
+	$email = $this->input->post('email_loc1');
+	$telefono = $this->input->post('telefono_loc1');	
+	$parroquia = $this->input->post ('parroquia_loc1');
+	$direccion = $this->input->post ('direccion_loc1');
+	
+		echo $salida = ($this->localidad_model->modificar_datos_localidad($nombre,$responsable,$email,$telefono,$parroquia,$direccion));
+	
+
+	}
+
+// esta funcion es para buscar loclaidades
+	public function listar_localidad(){
+
+		$query  = $this->input->post('q');
+		$option = $this->input->post('o');
+
+		//echo "server->".$query."->".$option;
+
+		$salida= $this->localidad_model->buscar_localidad($query,$option);
+
+
+			if($salida!="-1"){
+
+				echo json_encode($salida);
+	
+			}else{
+
+				echo "-1";
+			}
+
+	}
 	
 	public function ver_datos_localidad() {
 
 		$id=$this->input->post('id');
 
-		$salida=$this->localidad_model->listar_datos_localidad($id);
+		$salida=$this->localidad_model->listar_datos_local($id);
 
 		if($salida == -1){
 
@@ -87,11 +130,30 @@ class Localidad extends CI_Controller {
 		}
 	}   
 	
+
+	// esta funcio  es para poblar el mapa
 	public function listar()
 	{
 		
 			echo json_encode($this->localidad_model->listar());
 	}
+
+
+	//funcion para listar los proyectos en ejecucion en una localidad
+
+	public function pro_en_ejec(){
+
+			$id=$this->input->post('id');
+
+		$salida=$this->localidad_model->listar_proyectos_asociados($id);
+
+		echo json_encode($salida);
+
+
+	}
+
+
+
 
 }
 

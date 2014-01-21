@@ -128,6 +128,15 @@ var main_datos={
           }        
 };
 
+var datos_de_localidad=[
+'nombre_localidad',
+'representante_localidad',
+'email_representante_localidad',
+'telefono_representante_localidad',
+'parroquia_localidad',
+'direccion_localidad'
+];
+
 
 
 var datos_de_proyecto = ["nombre_proyecto",
@@ -159,7 +168,7 @@ var datos_de_usuario=[
 'escuela',
 ];
 
-var escuela = "";
+var escuela_usuario = "";
 var act_datos_usuario = 0;
 var act_datos_prestador = 0;
 var prestador_tiene_proyectos=0;
@@ -201,8 +210,7 @@ toastr.options = {
 
       // funciones para los handlers de las solicitudes via ajax.
       $( document ).ajaxStart(function() {
-       console.log($(this).activeElement);
-
+    
        console.log( "Triggered ajaxStart handler." );
 
      });
@@ -575,8 +583,11 @@ $('body').on('click','a.key_prestador', function (ev) {
 //consulto si el prestador tiene proyectos asociados , 
  // si tiene , se esconde la pestana asignar proyetcor
 
-
+ 
     listar_proyecto(cedula,0);
+  
+
+
 
     //limpiamos el input y escondemos la busqueda 
     $("#datos_busqueda").empty();
@@ -806,6 +817,16 @@ function popular_datos_prestador(listado){
 
 
 }
+
+function vaciar_datos_prestador(){
+
+$.each(main_datos.prestador,function(index,value){ 
+ 
+       main_datos.prestador[index]="";  
+
+ });
+
+}
 //funcion manejadora de tabs
 
 function handler_tab(container,tab,state){
@@ -876,12 +897,10 @@ function b_consultar_prestador(query,option,escuela){
 
   $.post("b_listar_prestadores",{q:query,o:option,esc:escuela},function(data){
 
-    console.log(data); 
+    console.log("salida"+data); 
     
     if(data!="-1"){
-
-
-      
+  
       var array=JSON.parse(data);
 
       console.log(array.length);
@@ -905,6 +924,8 @@ function b_consultar_prestador(query,option,escuela){
 
     }else{
 
+      console.log("hola");
+
       $("#datos_busqueda").html('<div class="no-results">No se encontraron resultados <br><button id="btn-inscribir_prestador" type="button"  class="btn btn-primary">Inscribir prestador</button></div>');
       
 
@@ -916,6 +937,9 @@ function b_consultar_prestador(query,option,escuela){
 
 
 function b_consultar_usuario(query,option){
+
+
+    console.log("");
 
 
   $.post("b_listar_usuario",{q:query,o:option},function(data){
@@ -1000,7 +1024,8 @@ function show_messages(type,messages){
 function nav_pestanas_principal(id_pestana,url,texto,tab){
 
 
-  
+  vaciar_datos_prestador();
+
   var pestana;
 
   if(url ==="gest-proyecto"){
@@ -1102,7 +1127,6 @@ function nav_tabs(tab){
                 }
 
               });
-
 
 
   }
@@ -1353,6 +1377,9 @@ function listar_proyecto(cedula,op){
   }
 
     //defino las pestanas para el prestador
+
+
+
     if(!prestador_tiene_proyectos){
 
          $("div [href='#asignar_pro']").show();
@@ -1360,10 +1387,12 @@ function listar_proyecto(cedula,op){
          $("div [href='#consultar_pre']").hide();
       }else{
          $("div [href='#asignar_pro']").hide();
-         $("div [href='#consultar_pre']").show();
+
+    
+          $("div [href='#consultar_pre']").show();
 
       }
-
+  
 
    });
 
@@ -1410,6 +1439,162 @@ function mostrar_opciones(){
 
 
   }
+  
+  //##################################################################################################
+//############################  Localidades  #######################################################
+// funciones localidad ###############################################################################
+
+// funcion keyup para localidades
+
+  $("body").on("keyup","#input_nombre_loc", function(event){
+
+  var query = $(this).val();
+  var option = "";
+  console.log($(this).val());
+
+  if(query!=""){
+    if ($.isNumeric(query)){
+      console.log(query+"input was 0-9");
+      option = "cedula";
+      b_consultar_localidad(query,option);
+    } else{
+      console.log(query+"input was a-z");
+      option = "nombre";
+      b_consultar_localidad(query,option);
+    }
+  }
+
+  event.stopPropagation();
+
+});
+
+
+// fin key up localidades
+
+// funcion consultar localidad 
+
+function b_consultar_localidad(query,option){
+
+  $.post("b_listar_localidades",{q:query,o:option},function(data){
+
+    console.log(data); 
+    
+    if(data!="-1"){
+
+
+      
+      var array=JSON.parse(data);
+
+      console.log(array.length);
+      
+      if (array.length === 1) 
+        toastr.success(array.length+" "+mensajes.success.localidad_f);
+      else
+        toastr.success(array.length+" "+mensajes.success.localidades_f);
+      
+      var content ="";
+
+      $.each(array,function(i){
+        content = content +'<li class="list-group-item"><a class="key_localidad" href="'+ array[i]["id_localidad"] +' "> '+ array[i]["nombre_localidad"]+'</a></li>';
+
+      });
+
+      
+      
+        
+
+
+      $("#datos_busqueda_localidad").html("<ul class='list-group'>"+content+"</ul>");
+
+
+      $("#inscribir_localidad").css("display", "none"); // se oculta todo
+       $("#pestana_registrar").css("display", "none"); // se oculta todo
+
+         }else{
+
+      $("#datos_busqueda_localidad").html('<div class="no-results">No se encontraron resultados</div>');
+
+      $("#pestana_registrar").fadeToggle("1000");
+      $("#inscribir_localidad").fadeToggle("1000");
+      $("#consultar").css("display", "none"); // se oculta todo
+       $("#pestana_cosnultar").css("display", "none"); // se oculta todo
+
+
+    }   
+
+  });
+}
+
+$('body').on('click','a.key_localidad', function (ev) {
+
+  
+  $("#consultar").fadeToggle("1000");
+  $("#pestana_cosnultar").fadeToggle("1000");
+
+  
+  
+  
+  ev.preventDefault();
+
+  console.log($(this).attr("href"));
+  var idlocalidad=$(this).attr("href");
+
+  $.post("consutar_datos_busquedad_localidad",{id:$(this).attr("href")},function(data){
+
+    var estado =JSON.parse(data)["estado"];
+
+    var listado=JSON.parse(data)["datos_localidad"];
+
+    //almaceno la cedula del usuario para realizar operaciones sobre el 
+
+     /* main_datos.localidad.nombre=listado["nombre_localidad"];
+      main_datos.localidad.responsable=listado["representante_localidad"];
+      main_datos.localidad.email=listado["email_representante_localidad"];
+      main_datos.localidad.telefono=listado["telefono_representante_localidad"];
+      main_datos.localidad.parroquia=listado["parroquia_localidad"];
+      main_datos.localidad.direccion=listado["direccion_localidad"];*/
+    
+     $("#nombre_localidad1").val(listado.nombre_localidad);
+     $("#representante_localidad1").val(listado.representante_localidad);
+     $("#email_representante_localidad1").val(listado.email_representante_localidad);
+     $("#telefono_representante_localidad1").val(listado.telefono_representante_localidad);
+     $("#parroquia_localidad1").val(listado.parroquia_localidad);
+     $("#direccion_localidad1").val(listado.direccion_localidad);
+
+    
+
+    console.log(JSON.parse(data));
+
+   
+    toastr.success(mensajes.success.localidad_datos_cargados);  
+
+  });
+
+
+
+
+
+    //limpiamos el input y escondemos la busqueda 
+    $("#datos_busqueda_localidad").empty();
+
+    $("#input_nombre_loc").val("");
+
+    ev.stopPropagation();
+
+
+  });
+
+
+
+
+// fin funcion consultar localidad
+
+// Fin funciones localidad #################################################################################3
+
+//##################################################################################################
+//############################  Localidades  #######################################################
+// funciones localidad ###############################################################################
+
 
 
 
