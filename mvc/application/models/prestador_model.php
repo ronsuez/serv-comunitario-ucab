@@ -274,7 +274,7 @@ public function asociar_proyecto($f_proyecto,$proyecto,$prestador,$lunes,$martes
 
 /*pantalla consultar proyecto */
 
-public function insertar_datos_reportar_horas ($id_prestador,$n_horas,$fecha,$observaciones,$id_proyecto,$estado_proyecto){
+public function insertar_datos_reportar_horas ($id_prestador,$n_horas,$fecha,$observaciones,$id_proyecto,$estado_proyecto,$realizado_por){
 
     $query = $this->db->query(" SELECT ci_asesor,ci_coord FROM proyecto WHERE id_proyecto = $id_proyecto");
 
@@ -283,8 +283,8 @@ public function insertar_datos_reportar_horas ($id_prestador,$n_horas,$fecha,$ob
                                 $ci_asesor = $query_filas->ci_asesor;
                                 $ci_coord = $query_filas->ci_coord;
 
-    $query_2= $this->db->query("INSERT INTO control_horas(fecha, cant_horas, ci_prestador, id_proyecto, ci_coord, ci_asesor, observaciones_proyecto, estado_proy_pres)
-                                VALUES ('$fecha',$n_horas,$id_prestador,$id_proyecto,$ci_coord,$ci_asesor,'$observaciones','$estado_proyecto')");
+    $query_2= $this->db->query("INSERT INTO control_horas(fecha, cant_horas, ci_prestador, id_proyecto, ci_coord, ci_asesor, observaciones_proyecto, estado_proy_pres, realizado_por)
+                                VALUES ('$fecha',$n_horas,$id_prestador,$id_proyecto,$ci_coord,$ci_asesor,'$observaciones','$estado_proyecto','$realizado_por')");
 
         if($query && $query_2){
 
@@ -315,7 +315,7 @@ public function insertar_datos_reportar_horas ($id_prestador,$n_horas,$fecha,$ob
 
     public function datos_horas_insertadas ($id_prestador,$id_proyecto){
 
-              $query1 = $this->db->query(" SELECT observaciones_proyecto, ci_prestador, cant_horas, fecha  
+              $query1 = $this->db->query(" SELECT observaciones_proyecto, ci_prestador, cant_horas, fecha  , realizado_por
                                            FROM control_horas
                                            WHERE ci_prestador = $id_prestador AND id_proyecto = $id_proyecto ");
 
