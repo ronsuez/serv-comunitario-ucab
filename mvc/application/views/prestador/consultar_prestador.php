@@ -135,37 +135,30 @@ button a:hover{
 
     <br></br>
 
-    <table class="table" id="tabla_consulta">
-
-      <tr>            
-
-       <td><p class="navbar-text" >Lunes</p></td><td class="lunes"><p class="navbar-text" >Hola</p></td>
-
-       <td><p class="navbar-text" >Martes</p></td><td class="martes"><p class="navbar-text" >Hola</p></td>
-
-      </tr>
-
-      <tr>
-
-        <td><p class="navbar-text" >Miercoles</p></td><td class="miercoles"><p class="navbar-text" >Hola</p></td>
-
-        <td><p class="navbar-text" >Jueves</p></td><td class="jueves"><p class="navbar-text" >Hola</p></td>
-
-      </tr>
-
-      <tr>
-
-        <td><p class="navbar-text" >Viernes</p></td><td class="viernes" ><p class="navbar-text" ></p></td>
-        <td><p class="navbar-text" >Sabado</p></td><td class="sabado"><p class="navbar-text" ></p></td>
-
-      </tr>
-
-      <tr>
-        <td><p class="navbar-text" >Domingo</p></td><td class="domingo" ><p class="navbar-text" ></p></td>
-
-      </tr>
-
-    </table>
+   <table class="table table-hover" id="tabla_consulta">
+                 <thead>
+                      <tr>
+                       <th><p class="navbar-text" >Lunes</p></th>
+                        <th><p class="navbar-text" >Martes</p></th>
+                        <th><p class="navbar-text" >Miercoles</p></th>
+                        <th><p class="navbar-text" >Jueves</p></th>
+                        <th><p class="navbar-text" >Viernes</p></th>
+                        <th><p class="navbar-text" >Sabado</p></th>
+                        <th><p class="navbar-text" >Domingo</p></th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr>
+                      <td class="lunes"><p class="navbar-text" ></p></td>
+                      <td class="martes"><p class="navbar-text" ></p></td>
+                      <td class="miercoles"><p class="navbar-text" ></p></td>   
+                      <td class="jueves"><p class="navbar-text" ></p></td>    
+                      <td class="viernes" ><p class="navbar-text" >Hola</p></td>
+                      <td class="sabado" ><p class="navbar-text" >Hola</p></td>    
+                      <td class="domingo" ><p class="navbar-text" >Hola</p></td>           
+                      </tr>
+                  </tbody>
+          </table>
 
     <br></br>
   </div>
@@ -340,6 +333,7 @@ $('body').unbind('change').on('change','#l_proyectos',function(ev){
 
 
               });
+              $('#tabla_consulta td:contains("null")').text("");
 
     
       });
