@@ -261,8 +261,7 @@ body {
 
 				<div id="main-panel-body" class="panel-body">
 					<h1>Bienvenido al Sistema de Gestion de Servicio Comunitario</h1>
-				</div>
-
+					
 				<!--  Carousel - consult the Twitter Bootstrap docs at
 				http://twitter.github.com/bootstrap/javascript.html#carousel -->
 				<div id="this-carousel-id" class="carousel slide"><!-- class of slide for animation -->
@@ -291,6 +290,8 @@ body {
   <a class="carousel-control left" href="#this-carousel-id" data-slide="prev">&lsaquo;</a>
   <a class="carousel-control right" href="#this-carousel-id" data-slide="next">&rsaquo;</a>
 </div><!-- /.carousel -->
+
+				</div>
 
 			</div>
 			<p class="footer">Page rendered in <strong>0.0236</strong> seconds</p>
