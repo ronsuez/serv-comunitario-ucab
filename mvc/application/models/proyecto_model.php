@@ -74,7 +74,7 @@ public function get_id(){
       
     }
 
-    public function registrar_proyecto($info){
+    public function registrar_proyecto($info,$ci_coord = false , $ci_asesor = false){
 
                 
 
@@ -95,17 +95,25 @@ public function get_id(){
             $recursos_proyecto = $info[11]["value"];
             $cronograma_proyecto = $info[12]["value"];
 
-
-
-
             $date = date("Y-m-d");
 
 
             $query = $this->db->query("INSERT INTO proyecto(fecha_ini,nombre_proyecto,ci_coord,ci_asesor,diagnostico_proyecto,justificacion_proyecto,impacto_proyecto,obj_generales_proyecto,obj_especificos_proyecto,metas_proyecto,producto_proyecto,plan_trabajo_proyecto,recursos_requeridos_proyecto,cronograma_proyecto,estado_proyecto) 
-                                       VALUES ('$date','$nombre_proyecto',$suscribe,$ejecuta,'$diagnostico_proyecto','$justificacion_proyecto','$impacto_proyecto','$obj_generales_proyecto','$obj_especificos_proyecto','$metas_proyecto','$producto_proyecto','$plan_trabajo_proyecto','$recursos_proyecto','$cronograma_proyecto','$estado')");
+                                       VALUES ('$date','$nombre_proyecto',$ci_coord,$ci_asesor,'$diagnostico_proyecto','$justificacion_proyecto','$impacto_proyecto','$obj_generales_proyecto','$obj_especificos_proyecto','$metas_proyecto','$producto_proyecto','$plan_trabajo_proyecto','$recursos_proyecto','$cronograma_proyecto','$estado')");
 
             if ($query)
-                return $this->get_id();
+                
+                $id_proyecto = $this->get_id();
+ 
+            
+
+            $query_ejecuta = $this->db->query("INSERT INTO ejecuta VALUES ($id_proyecto,$ci_coord,$ci_asesor,$ejecuta)");
+
+
+                    if($query_ejecuta){
+                        return $this->get_id();
+                    }
+
             else
                 return "-1";
 

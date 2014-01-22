@@ -110,6 +110,22 @@ var datos_de_prestador=[
 'semestre_prestador'
 ];
 
+var campos_proyecto = [
+    'titulo_proyecto',
+    'suscribe',
+    'ejecuta',
+    'text-diagnostico',
+    'text-justificacion',
+    'text-impacto',
+    'text-objetivos-g', 
+    'text-objetivos-e',
+    'text-metas',
+    'text-producto', 
+    'text-plan-trabajo', 
+    'text-recursos', 
+    'text-cronograma'
+];
+
 
 var main_datos={
 
@@ -124,7 +140,30 @@ var main_datos={
           expediente : "",
           escuela : "",
           mencion: "",
-          semestre: "",
+          semestre: ""
+        },proyecto:{
+          ci_asesor: "",
+          ci_coord: "",
+          cronograma_proyecto: "",
+          diagnostico_proyecto: "",
+          estado_proyecto: "",
+          fecha_ini: "",
+          id_proyecto: "",
+          impacto_proyecto: "",
+          justificacion_proyecto: "",
+          metas_proyecto: "",
+          nombre_proyecto: "",
+          obj_especificos_proyecto: "",
+          obj_generales_proyecto: "",
+          plan_trabajo_proyecto: "",
+          producto_proyecto: "",
+          recursos_requeridos_proyecto: ""
+
+        }
+
+        ,usuario :{
+          nombre:"",
+          cedula:"",
         }
         
 };
@@ -172,6 +211,7 @@ var datos_de_usuario=[
 var escuela_usuario = "";
 var act_datos_usuario = 0;
 var act_datos_prestador = 0;
+var act_datos_proyecto = 0;
 var prestador_tiene_proyectos=0;
 var escuela = "";
 var img_name = "";
@@ -500,6 +540,13 @@ $('body').on('click','a.key_proyecto', function (ev) {
   var listado = JSON.parse(data);
 
   
+//se guardan temporalmente los datos del proyecto
+    $.each(listado[0],function(index){
+
+      main_datos.proyecto[index] = listado[0][index];
+
+    });
+
 
   $.each(datos_de_proyecto, function(i){
 
@@ -509,6 +556,8 @@ $('body').on('click','a.key_proyecto', function (ev) {
    $("#f_proyecto").val(listado[0][datos_de_proyecto[1]]);
    $("#e_proyecto").val(listado[0][datos_de_proyecto[2]]);
    $("#c_proyecto").val(listado[0][datos_de_proyecto[3]]);
+
+
  });
 
 
@@ -747,7 +796,7 @@ $('body').on('click','a.key_asesor', function (ev) {
           //si estamos en la tab de crear proyecto 
           if($(".pestanas li[class='active']").text()==="Crear"){
 
-              $(".listado-asesor").append("<li class='list-group-item'>"+datos_personales.nombre_asesor+" "+datos_personales.apellido_asesor+"</li>");
+              $(".listado-asesor").append("<li id='"+datos_personales.ci_asesor+"' class='list-group-item'>"+datos_personales.nombre_asesor+" "+datos_personales.apellido_asesor+"</li>");
           }
         }
       });
@@ -822,6 +871,23 @@ function popular_datos_prestador(listado){
     $.each(datos_de_prestador, function(i){
 
      $("#"+datos_de_prestador[i]).val(array[i]);
+
+   });
+
+
+}
+
+function popular_datos_proyecto(){
+
+    var array = $.map(main_datos.proyecto, function(value, index) {
+    
+    return [value];
+    
+    });
+
+    $.each(datos_de_proyecto, function(i){
+
+     $("#"+datos_de_proyecto[i]).val(array[i]);
 
    });
 
