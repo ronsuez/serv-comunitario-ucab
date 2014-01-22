@@ -226,10 +226,50 @@ class Administrador extends CI_Controller {
 
 		$salida = $this->administrador_model->asignar_coord_principal($cedula);
 
-		echo $salida;
+		
+		echo json_encode(array("status"=>$salida));
+
 
 	}
 
+	public function des_coordinador() {
+
+		$cedula = $this->input->post('ci');
+
+		$salida = $this->administrador_model->desasignar_coord_principal($cedula);
+
+		echo json_encode(array("status"=>$salida));
+
+	}
+
+
+	public function hab_coordinador() {
+
+		$cedula = $this->input->post('ci');
+	
+		$msga = "Se habilito el usuario ".$cedula;
+		$msgc = "Ha sido habilitado";
+
+		$salida = $this->administrador_model->habilitar_coord($cedula);
+
+		$correo = $this->administrador_model->obtener_correo_coord($cedula);
+
+
+		if($salida=="0"){
+			
+			/*if($this->send_mail($correo,"Notificación",$msgc)){
+				echo "0";
+			}else
+			{
+				echo "-1";
+			}*/
+			echo json_encode(array("status"=>0));
+		}else
+			{
+			echo json_encode(array("status"=>-1));
+		}
+
+	}
 
 	public function deshab_coordinador() {
 
@@ -244,16 +284,18 @@ class Administrador extends CI_Controller {
 
 		if($salida=="0"){
 			
-			if($this->send_mail($correo,"Notificación",$msgc)){
+			/*if($this->send_mail($correo,"Notificación",$msgc)){
 				echo "0";
 			}else
 			{
 				echo "-1";
-			}
+			}*/
+
+			echo json_encode(array("status"=>0));
 
 		}else
 			{
-				echo "-1";
+				echo json_encode(array("status"=>-1));
 		}
 
 	}

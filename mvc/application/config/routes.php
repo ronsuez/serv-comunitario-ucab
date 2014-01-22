@@ -53,11 +53,14 @@ $route['completar_datos_usuario'] = 'usuario/completar_datos_usuario';
  /* administrador de usuarios */
  $route['ge_administrador'] = 'administrador/index';
  $route['gest-usuarios'] = 'administrador/admin_usuarios';
+ $route['registrar_usuario'] = 'administrador/registrar_usuario';
  $route['b_listar_usuario'] = 'usuario/listar';
  $route['registrar_datos_usuario'] = 'administrador/registrar_datos_usuario';
  $route['admin_coo'] = 'administrador/admin_coordinadores';
  $route['traer_usuarios'] = 'administrador/ver_usuarios';
  $route['def_coordinador'] = 'administrador/def_coordinador';
+ $route['des_coordinador'] = 'administrador/des_coordinador';
+ $route['hab_coordinador'] = 'administrador/hab_coordinador';
  $route['deshab_coordinador'] = 'administrador/deshab_coordinador';
  
 
