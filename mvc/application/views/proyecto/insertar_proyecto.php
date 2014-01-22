@@ -212,7 +212,8 @@
                     <div class="panel-heading">Asesores del proyecto</div>
                     <div class="panel-body">
                         
-                  
+                    <ul class="list-group listado-asesor">
+                    <ul> 
 
 
                   <div id="add-asesor-box">      
@@ -233,6 +234,22 @@
 <script type="text/javascript">
 
 $(document).ready(function() {
+
+//llamamos la funcion para listar las localidades
+
+listar_localidades();
+
+  var ruta = "registrar_proyecto";
+
+  if (act_datos_proyecto != 0) {
+
+    popular_datos_proyecto();
+    
+    ruta = "actualizar_proyecto";
+
+    $("#enviar").val("Actualizar proyecto");
+  }
+
 
         $("#add-asesor-box").hide(); //se esconde el boton para agregar asesor
 
@@ -297,15 +314,15 @@ $(document).ready(function() {
     });
 
 
-//llamamos la funcion para listar las localidades
 
-listar_localidades();
 
 
      $("#addform-proyecto").bind("submit",function (e){
 
 
       e.preventDefault();
+
+
 
 
       if ($(this).valid()){
@@ -329,10 +346,16 @@ listar_localidades();
 
         var titulo = JSON.stringify($(this).serializeArray());
 
+        var asesor = $(".listado-asesor li").attr("id");
+
+        var coordinador = main_datos.usuario.cedula;
+
+
+
 
           //handler para enviar los datos del proyecto y registrarlo
 
-        $.post("registrar_proyecto",{estado:1,texto:dinamic_text,datos:titulo},function (data){
+        $.post(ruta,{estado:1,texto:dinamic_text,datos:titulo,ci_asesor:asesor,ci_coord:coordinador},function (data){
            
 
               $("#inscribir_proyecto").html(data);
@@ -340,6 +363,9 @@ listar_localidades();
               
        });
 
+    }else{
+
+      console.log(ruta);
     }
 
 });

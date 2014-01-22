@@ -42,8 +42,13 @@ var mensajes = {
   localidad_no_insertada:"No se pudo registrar la localidad",
   select_user: "Debe seleccionar un usuario",
   usuario_no_registrado:"No se pudo registrar el usuario.",
+<<<<<<< HEAD
   usuario_no_actualizado: "No se pudo actualziar el usario"
 
+=======
+  usuario_no_actualizado: "No se pudo actualizar el usuario",
+  finalizar_proyecto: "No se pudo finalizar el proyecto"
+>>>>>>> 88324a390f51c6d7c0bca4ac206b150d4c8c9870
 },
 success:{
   asesor_f:"Asesor encontrado",
@@ -64,7 +69,12 @@ success:{
   usuario_deshab:"esta deshabilitado",
   usuario_registrado:"El usuario ha sido registrado exitosamente",
   usuario_actualizado: "El usuario ha sido actualizado existosamente",
+<<<<<<< HEAD
   des_coord: "El coordinador ya no esta definido como principal",
+=======
+  finalizar_proyecto: "Finalizado el Proyecto exitosamente"
+
+>>>>>>> 88324a390f51c6d7c0bca4ac206b150d4c8c9870
 },
 warning:{
   coor_principal: "El coordinador ya esta definido como principal",
@@ -113,6 +123,22 @@ var datos_de_prestador=[
 'semestre_prestador'
 ];
 
+var campos_proyecto = [
+    'titulo_proyecto',
+    'suscribe',
+    'ejecuta',
+    'text-diagnostico',
+    'text-justificacion',
+    'text-impacto',
+    'text-objetivos-g', 
+    'text-objetivos-e',
+    'text-metas',
+    'text-producto', 
+    'text-plan-trabajo', 
+    'text-recursos', 
+    'text-cronograma'
+];
+
 
 var main_datos={
 
@@ -127,7 +153,30 @@ var main_datos={
           expediente : "",
           escuela : "",
           mencion: "",
-          semestre: "",
+          semestre: ""
+        },proyecto:{
+          ci_asesor: "",
+          ci_coord: "",
+          cronograma_proyecto: "",
+          diagnostico_proyecto: "",
+          estado_proyecto: "",
+          fecha_ini: "",
+          id_proyecto: "",
+          impacto_proyecto: "",
+          justificacion_proyecto: "",
+          metas_proyecto: "",
+          nombre_proyecto: "",
+          obj_especificos_proyecto: "",
+          obj_generales_proyecto: "",
+          plan_trabajo_proyecto: "",
+          producto_proyecto: "",
+          recursos_requeridos_proyecto: ""
+
+        }
+
+        ,usuario :{
+          nombre:"",
+          cedula:"",
         }
         
 };
@@ -175,6 +224,7 @@ var datos_de_usuario=[
 var escuela_usuario = "";
 var act_datos_usuario = 0;
 var act_datos_prestador = 0;
+var act_datos_proyecto = 0;
 var prestador_tiene_proyectos=0;
 var escuela = "";
 var img_name = "";
@@ -267,8 +317,11 @@ $(document).on("click",".nav-top li a",function (e) {
 
   url = $(this).attr("href");
 
+  $(".nav-top li").removeClass("active");
 
-   $.ajax({
+  $(this).parent().addClass("active"); 
+
+  $.ajax({
            beforeSend: function(){
                // Handle the beforeSend event
                $('#main-panel-body').html('<div id="loading"><img src="./jar-loading.gif"></div>');
@@ -571,6 +624,13 @@ $('body').on('click','a.key_proyecto', function (ev) {
   var listado = JSON.parse(data);
 
   
+//se guardan temporalmente los datos del proyecto
+    $.each(listado[0],function(index){
+
+      main_datos.proyecto[index] = listado[0][index];
+
+    });
+
 
   $.each(datos_de_proyecto, function(i){
 
@@ -580,6 +640,8 @@ $('body').on('click','a.key_proyecto', function (ev) {
    $("#f_proyecto").val(listado[0][datos_de_proyecto[1]]);
    $("#e_proyecto").val(listado[0][datos_de_proyecto[2]]);
    $("#c_proyecto").val(listado[0][datos_de_proyecto[3]]);
+
+
  });
 
 
@@ -814,6 +876,12 @@ $('body').on('click','a.key_asesor', function (ev) {
           var datos_personales =JSON.parse(data)[0];
           $("#nombre_asesor_res").val(datos_personales.nombre_asesor);
           $("#apellido_asesor_res").val(datos_personales.apellido_asesor);
+          
+          //si estamos en la tab de crear proyecto 
+          if($(".pestanas li[class='active']").text()==="Crear"){
+
+              $(".listado-asesor").append("<li id='"+datos_personales.ci_asesor+"' class='list-group-item'>"+datos_personales.nombre_asesor+" "+datos_personales.apellido_asesor+"</li>");
+          }
         }
       });
 });
@@ -893,6 +961,23 @@ function popular_datos_prestador(listado){
 
 }
 
+function popular_datos_proyecto(){
+
+    var array = $.map(main_datos.proyecto, function(value, index) {
+    
+    return [value];
+    
+    });
+
+    $.each(datos_de_proyecto, function(i){
+
+     $("#"+datos_de_proyecto[i]).val(array[i]);
+
+   });
+
+
+}
+
 function vaciar_datos_prestador(){
 
 $.each(main_datos.prestador,function(index,value){ 
@@ -947,6 +1032,7 @@ function b_consultar_asesor(query,option){
 
       $(".search_results.asesor").html("<ul class='list-group'>"+content+"</ul>");
 
+      
     }else{
 
 
@@ -1661,7 +1747,6 @@ $('body').on('click','a.key_localidad', function (ev) {
 
 
 
-
 // fin funcion consultar localidad
 
 // Fin funciones localidad #################################################################################3
@@ -1670,6 +1755,15 @@ $('body').on('click','a.key_localidad', function (ev) {
 //############################  Localidades  #######################################################
 // funciones localidad ###############################################################################
 
+
+
+//Velocidad de Carrusel
+
+$(document).ready(function(){
+  $('.carousel').carousel({
+    interval: 2000
+  });
+});
 
 
 

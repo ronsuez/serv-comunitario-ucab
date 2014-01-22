@@ -137,12 +137,19 @@
 				</div>
 			</div>
 						<!-- boton para generar reporte de un proyecto -->
+            <button id="btn_edit_proy" type="button" class="button-generar  btn btn-success">Editar datos del proyecto</button>
+			<button id="gen_reporte_proy" type="button" class="button-generar pull-right btn btn-success" data-loading-text="Generando reporte" >Generar PDF</button>
 
-			<button id="gen_reporte_proy" type="button" class="button-generar pull-right btn btn-success" data-loading-text="Generando reporte" >Generar reporte PDF</button>
 		</div>
 
 	</div>
 
+	<div class="panel panel-default">
+		<div class="panel-heading"> Listado de Asesores</div>
+		<div class="listado_asesores panel-body">
+			
+		</div>
+	</div>
 
 	<div class="panel panel-default">
 		<div class="panel-heading"> Listado de Prestadores</div>
@@ -217,6 +224,19 @@
 
 	
 	
+
+	$("#btn_edit_proy").on("click",function(){
+
+		  act_datos_proyecto= 1;
+			
+		  nav_pestanas_principal("pestana-proyectos","gest-proyecto","Proyectos","inscribir_proyecto"); 
+
+
+  
+
+	});
+
+
 
 	$("#gen_reporte_proy").on("click",function(){
 

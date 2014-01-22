@@ -9,6 +9,7 @@
     $datos_p = get_object_vars($datos);
     $datos_Co = get_object_vars($nombre);
     
+    
   
     $fecha = "A los ".date("d")." días del mes de ".date("m")." de ".date("Y");
  ?>
@@ -29,7 +30,7 @@
             Cédula de Identidad Nº<u> <?=$datos_p['ci_prestador']?></u> 
             estudiante de la Escuela de <u> <?=$datos_p['escuela_prestador']?> </u>, 
             ha cumplido satisfactoriamente con las 120 horas de servicio, 
-            así como con los objetivos y actividades previstos en el Plan de trabajo del proyecto ___________________________________________________. con el cual finalizó su Servicio Comunitario.</p>
+            así como con los objetivos y actividades previstos en el Plan de trabajo del proyecto <u> <?=$nombre_pro[0]['nombre_proyecto']?></u>. con el cual finalizó su Servicio Comunitario.</p>
           <p>Igualmente se hace constar que sus actuaciones han sido acordes a lo establecido en la Ley del Servicio Comunitario del 
             Estudiante de Eduacion Superior publicada en Gaceta Oficial Nº 38.272 del 14 de septiembre de 2005 y en el Reglamento del Servicio Comunitario del Estudiante de Educacion Superior, aprobado por el Consejo Universitario de la Universidad Católica Andres Bello.</p>
            <p>En Ciudad Guayana, <?php echo $fecha ?></p>

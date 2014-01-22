@@ -249,8 +249,9 @@ class Prestador extends CI_Controller {
 		$observaciones = $this->input->post('observaciones_proyecto');
 		$id_proyecto = $this->input->post('idproyecto');
 		$estado_proyecto = $this->input->post('estadoact');	
+		$realizado_por = $this->input->post('realizado_por');
 
-		echo $salida = ($this->prestador_model->insertar_datos_reportar_horas($id_prestador,$n_horas,$fecha,$observaciones,$id_proyecto,$estado_proyecto));
+		echo $salida = ($this->prestador_model->insertar_datos_reportar_horas($id_prestador,$n_horas,$fecha,$observaciones,$id_proyecto,$estado_proyecto,$realizado_por));
 
 	}
 
@@ -333,9 +334,10 @@ public function preparar_datos_reporte($datos_prestador = false ,$datos_proyecto
 
 			 $datos_prestador=$this->prestador_model->listar_datos_prestador($ci);
 			 $datos_proyecto=$this->prestador_model->datos_coordinador_asociado($id);
+			 $nombre_proyecto = $this->prestador_model->datos_proyecto($id);
 			 
 
-			 $this->preparar_datos_reporte($datos_prestador,$datos_proyecto,NULL,$tipo);
+			 $this->preparar_datos_reporte($datos_prestador,$datos_proyecto,$nombre_proyecto,$tipo);
 		 		
 
 	}
@@ -368,6 +370,19 @@ public function preparar_datos_reporte($datos_prestador = false ,$datos_proyecto
 			 $this->preparar_datos_reporte($datos_prestador,$datos_proyecto,$nombre_proyecto,$tipo);
 		 		
 
+	}
+
+	public function finalizar_proyecto(){
+
+		$ci  = $this->input->post('id_prestador');
+		$id = $this->input->post('id_proyecto');
+
+		$salida =$this->prestador_model->cambiar_estado_proyecto($ci,$id);
+			if($salida == -1){
+			echo "-1";
+		}else{
+			echo "0";
+		}
 	}
 
 }

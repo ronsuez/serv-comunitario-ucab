@@ -97,6 +97,7 @@ $route['horario_trabajo'] = "prestador/horario_trabajo";
 $route['datos_horas_insertadas'] = "prestador/datos_horas_insertadas";
 $route['suma_horas'] = "prestador/suma_horas";
 $route['suma_horas_totales'] = "prestador/suma_horas_totales";
+$route['finalizar_proyecto'] = "prestador/finalizar_proyecto";
 
 
 /* routing for localidades controller */
@@ -122,6 +123,10 @@ $route['generar_not_culminacion']="prestador/generar_nc";
 /*fotos*/
 
 $route['set_photo']="prestador/set_photo";
+
+/*acerca de*/
+
+$route['acerca_de']='welcome/acerca_de';
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

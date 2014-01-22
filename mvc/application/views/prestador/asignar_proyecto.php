@@ -95,54 +95,48 @@ button a:hover{
     </ol>
 </div>
 		</div>
-	</div>
+	
       
 	
 
 
-		    <center><h3 id="texto">Horario de trabajo</h3></center>
+		   <center><h3 id="texto">Horario de trabajo</h3></center>
 
     <br></br>
 
-    <table class="table" id="tabla_consulta">
 
-      <tr>            
+              <table class="table table-hover" id="tabla_consulta">
+                               <thead>
+                                    <tr class="success">
+                                     <th><p>Lunes</p></th>
+                                      <th><p>Martes</p></th>
+                                      <th><p>Miercoles</p></th>
+                                      <th><p>Jueves</p></th>
+                                      <th><p>Viernes</p></th>
+                                      <th><p>Sabado</p></th>
+                                      <th><p >Domingo</p></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="lunes"><p class="navbar-text" ><input id="h_lunes" type="text" class="form-control" placeholder="HH:MM - HH:MM"></p></td>
+                                        <td class="martes"><p class="navbar-text" ><input id="h_martes" type="text" class="form-control" placeholder="HH:MM - HH:MM"></p></td>
+                                        <td class="martes"><p class="navbar-text" ><input id="h_miercoles" type="text" class="form-control" placeholder="HH:MM - HH:MM"></p></td>  
+                                        <td class="jueves"><p class="navbar-text" ><input id="h_jueves" type="text" class="form-control" placeholder="HH:MM - HH:MM"></p></td>
+                                        <td class="viernes" ><p class="navbar-text" ><input id="h_viernes" type="text" class="form-control" placeholder="HH:MM - HH:MM"></p></td>    
+                                        <td class="sabado"><p class="navbar-text" ><input id="h_sabado" type="text" class="form-control" placeholder="HH:MM - HH:MM"></p></td>
+                                        <td class="domingo" ><p class="navbar-text" ><input id="h_domingo" type="text" class="form-control" placeholder="HH:MM - HH:MM"></p></td>  
+                                    </tr>
+                                </tbody>
+              </table>
 
-       <td><p class="navbar-text" >Lunes</p></td><td class="lunes"><p class="navbar-text" ><input id="h_lunes" type="text" class="form-control" placeholder="HH:MM - HH:MM"></p></td>
-
-       <td><p class="navbar-text" >Martes</p></td><td class="martes"><p class="navbar-text" ><input id="h_martes" type="text" class="form-control" placeholder="HH:MM - HH:MM"></p></td>
-
-      </tr>
-
-      <tr>
-
-        <td><p class="navbar-text" >Miercoles</p></td><td class="miercoles"><p class="navbar-text" ><input id="h_miercorles" type="text" class="form-control" placeholder="HH:MM - HH:MM"></p></td>
-
-        <td><p class="navbar-text" >Jueves</p></td><td class="jueves"><p class="navbar-text" ><input id="h_jueves" type="text" class="form-control" placeholder="HH:MM - HH:MM"></p></td>
-
-      </tr>
-
-      <tr>
-
-        <td><p class="navbar-text" >Viernes</p></td><td class="viernes" ><p class="navbar-text" ><input id="h_viernes" type="text" class="form-control" placeholder="HH:MM - HH:MM"></p></td>
- 		<td><p class="navbar-text" >Sabado</p></td><td class="sabado"><p class="navbar-text" ><input id="h_sabado" type="text" class="form-control" placeholder="HH:MM - HH:MM"></p></td>
-
-      </tr>
-
-       <tr>
-
-        <td><p class="navbar-text" >Domingo</p></td><td class="domingo" ><p class="navbar-text" ><input id="h_domingo" type="text" class="form-control" placeholder="HH:MM - HH:MM"></p></td>
- 		
-
-      </tr>
-
-    </table>
+    
 
     <br>
 
-		<button class="btn btn-default" id="asociar_proyecto" type="submit">  Asociar proyecto a prestador</button>	
+		<center><button class="btn btn-default" id="asociar_proyecto" type="submit">  Asociar proyecto a prestador</button>	</center><br><br>
 
-</div>	<!-- fin container -->
+</div></div>	<!-- fin container -->
 
 
 
