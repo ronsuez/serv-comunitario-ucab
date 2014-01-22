@@ -885,9 +885,11 @@ function popular_datos_proyecto(){
     
     });
 
-    $.each(datos_de_proyecto, function(i){
+    console.log(array);
 
-     $("#"+datos_de_proyecto[i]).val(array[i]);
+    $.each(campos_proyecto, function(i){
+
+     $("#"+campos_proyecto[i]).text(array[i]);
 
    });
 
