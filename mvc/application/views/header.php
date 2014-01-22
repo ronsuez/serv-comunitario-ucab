@@ -41,18 +41,11 @@
         <!-- Libreria de servcom-core.js -->
     <script src=<?php echo  base_url()."application/views/js/main.js"; ?> type="text/javascript"></script>
     
-<<<<<<< HEAD
-<!-- Libreria para el uso de la API de google maps -->
-
-<!-- <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAplQ1u5cTjjFvQ7WKBajuP1LmnK-6pDkI&sensor=false">
-                          </script>
--->
-=======
 
 <!-- Libreria para el uso de la API de google maps -->
 <!--  <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAplQ1u5cTjjFvQ7WKBajuP1LmnK-6pDkI&sensor=false">
                           </script> -->
->>>>>>> 88324a390f51c6d7c0bca4ac206b150d4c8c9870
+
 
 <!-- Librerias para el editor de texto enriquecido (ckeditor.js)-->
   <script src=<?php echo  base_url()."application/views/js/ckeditor/ckeditor.js" ; ?>  type="text/javascript" ></script>

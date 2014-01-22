@@ -42,13 +42,9 @@ var mensajes = {
   localidad_no_insertada:"No se pudo registrar la localidad",
   select_user: "Debe seleccionar un usuario",
   usuario_no_registrado:"No se pudo registrar el usuario.",
-<<<<<<< HEAD
-  usuario_no_actualizado: "No se pudo actualziar el usario"
-
-=======
   usuario_no_actualizado: "No se pudo actualizar el usuario",
   finalizar_proyecto: "No se pudo finalizar el proyecto"
->>>>>>> 88324a390f51c6d7c0bca4ac206b150d4c8c9870
+
 },
 success:{
   asesor_f:"Asesor encontrado",
@@ -69,12 +65,8 @@ success:{
   usuario_deshab:"esta deshabilitado",
   usuario_registrado:"El usuario ha sido registrado exitosamente",
   usuario_actualizado: "El usuario ha sido actualizado existosamente",
-<<<<<<< HEAD
-  des_coord: "El coordinador ya no esta definido como principal",
-=======
   finalizar_proyecto: "Finalizado el Proyecto exitosamente"
 
->>>>>>> 88324a390f51c6d7c0bca4ac206b150d4c8c9870
 },
 warning:{
   coor_principal: "El coordinador ya esta definido como principal",
