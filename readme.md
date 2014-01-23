@@ -1,3 +1,11 @@
+
+<br />
+
+<p align="center">
+	<img src="http://servcom-ucab.rsuezdev.com/sc/mvc/Logo_sc.png" alt="PDGestureTableView" title="PDGestureTableView" width="470px" />
+</p>
+
+
 ## Servcom UCAB Guayana
 
 El sistema permite la administracion de los proyectos y prestadores de servicio comunitario de la Universidad Catolica Andres Bello.
