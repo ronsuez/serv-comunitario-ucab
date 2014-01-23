@@ -19,7 +19,7 @@
        <div class="panel-body">
            <div class="form-group">
                <label for="titulo_proyecto">Título del Proyecto</label>
-               <input  name="titulo_proyecto" type="text" class="form-control" id="titulo_proyecto" data-rule-required="true">
+               <input  name="titulo_proyecto" type="text" class="form-control" id="titulo_proyecto" data-rule-required="true" placeholder="Introduzca nombre del Proyecto">
            </div>
 
            <div class="form-group">
