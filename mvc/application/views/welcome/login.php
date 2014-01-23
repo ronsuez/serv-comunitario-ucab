@@ -86,7 +86,7 @@ h2, h4 {
 				<h4 class="form-signin-heading">Para acceder a los servicios del sistema</h4>
 					  <div class="form-group">
 							    <label for="user">Usuario</label>
-							    <input type="text" name="user" id="user" class="form-control" placeholder="Nombre de ususario" required autofocus>
+							    <input type="text" name="user" id="user" class="form-control" placeholder="Nombre de usuario" required autofocus>
 					</div>
 					  <div class="form-group">
 							    <label for="pass">Contrase&#241;a</label>
