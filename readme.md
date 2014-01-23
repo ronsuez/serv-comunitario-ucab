@@ -27,8 +27,9 @@ Servcom-UCAB esta alojado en la nube a traves de un servicio de PaaS provisto po
 - Luis Seijas
   y contando...
 
-### Departamento de pruebas y documentacion :
--Norka Mederos
+## Pruebas y documentación :
+- Norka Mederos
+- Ana Urquiola 
 
 
 ### Frameworks utilizados
@@ -46,7 +47,7 @@ Servcom-UCAB esta alojado en la nube a traves de un servicio de PaaS provisto po
 ### Plugins utilizados
 
 - Ckeditor(Para el texto enriquecido) 
-	=> <a href="http://jqueryvalidation.org/" target="_blank">Pagina oficial</a>
+	=> <a href="http://ckeditor.com/" target="_blank">Pagina oficial</a>
 
 - JqueryValidate (Para las validaciones de los formularios) 
 	=> <a href="http://jqueryvalidation.org/" target="_blank">Pagina oficial</a>
