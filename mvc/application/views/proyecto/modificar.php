@@ -38,13 +38,13 @@
 			<label for="proyecto">Nombre del proyecto</label>
 			<h5 id="nombre_proyecto">xxxxxxxx</h5>
 
-			<label for="proyecto">Fecha de creacion del proyecto</label>
+			<label for="proyecto">Fecha de creación del proyecto</label>
 			<h5 id="fecha_ini">xxxxxxxx</h5>
 
 			<label for="proyecto">Estado del proyecto</label>
 			<h5 id="estado_proyecto">xxxxxxxx</h5>	
 			
-			<label for="proyecto">Codigo del proyecto</label>
+			<label for="proyecto">Código del proyecto</label>
 			<h5 id="id_proyecto">xxxxxxxx</h5>	
 
 			<!--Descripcion /textarea -->	
@@ -63,13 +63,13 @@
 					<div id="collapseOne" class="panel-collapse collapse ">
 						<div class="panel-body">
 
-							<label class="content-label"> Diagnostico</label>
+							<label class="content-label"> Diagnóstico</label>
 							<div id="diagnostico_proyecto">
 
 							</div>
 
 
-							<label class="content-label">Justificacion</label>
+							<label class="content-label">Justificación</label>
 							<div id="justificacion_proyecto">
 							</div>
                            
@@ -121,11 +121,11 @@
 					<div id="collapseThree" class="panel-collapse collapse">
 						<div class="panel-body">
 
-							<label class="content-label">Plan de trabajo</label>
+							<label class="content-label">Plan de Trabajo</label>
 							<div id="plan_trabajo_proyecto">
 							</div>
 
-							<label class="content-label">Recursos requeridos</label>
+							<label class="content-label">Recursos Requeridos</label>
 							<div id="recursos_requeridos_proyecto">
 							</div>
 
@@ -137,8 +137,8 @@
 				</div>
 			</div>
 						<!-- boton para generar reporte de un proyecto -->
-            <button id="btn_edit_proy" type="button" class="button-generar  btn btn-success">Editar datos del proyecto</button>
-			<button id="gen_reporte_proy" type="button" class="button-generar pull-right btn btn-success" data-loading-text="Generando reporte" >Generar PDF</button>
+            <button id="btn_edit_proy" type="button" class="button-generar  btn btn-warning">Editar datos del proyecto</button>
+			<button id="gen_reporte_proy" type="button" class="button-generar pull-right btn btn-info" data-loading-text="Generando reporte" >Generar PDF</button>
 
 		</div>
 
