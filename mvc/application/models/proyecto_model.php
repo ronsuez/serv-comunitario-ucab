@@ -36,7 +36,23 @@ public function get_id(){
         
 
 
-            $query = $this->db->query("SELECT  *  FROM proyecto WHERE id_proyecto='$id_proyecto' " );
+            $query = $this->db->query("SELECT   id_proyecto ,
+                                                fecha_ini  , 
+                                                 nombre_proyecto ,
+                                                 ci_coord  ,  
+                                                 ci_asesor  , 
+                                                 diagnostico_proyecto ,   
+                                                 justificacion_proyecto , 
+                                                 impacto_proyecto    ,
+                                                 obj_generales_proyecto , 
+                                                 obj_especificos_proyecto ,   
+                                                 metas_proyecto  ,
+                                                 producto_proyecto,   
+                                                 plan_trabajo_proyecto,   
+                                                 recursos_requeridos_proyecto ,   
+                                                 cronograma_proyecto estado_proyecto
+
+                                     FROM proyecto WHERE id_proyecto='$id_proyecto' " );
 
                 if ($query->num_rows() > 0)
                 {

@@ -1,3 +1,10 @@
+<br />
+
+<p align="center">
+	<img src="https://raw.github.com/ronsuez/serv-comunitario-ucab/master/mvc/Logo_sc.png" alt="Servcom UCABG" title="Servcom UCABG" width="470px" />
+</p>
+
+
 ## Servcom UCAB Guayana
 
 El sistema permite la administracion de los proyectos y prestadores de servicio comunitario de la Universidad Catolica Andres Bello.
@@ -20,6 +27,9 @@ Servcom-UCAB esta alojado en la nube a traves de un servicio de PaaS provisto po
 - Luis Seijas
   y contando...
 
+## Pruebas y documentación :
+- Norka Mederos
+- Ana Urquiola 
 
 
 ### Frameworks utilizados
@@ -37,7 +47,7 @@ Servcom-UCAB esta alojado en la nube a traves de un servicio de PaaS provisto po
 ### Plugins utilizados
 
 - Ckeditor(Para el texto enriquecido) 
-	=> <a href="http://jqueryvalidation.org/" target="_blank">Pagina oficial</a>
+	=> <a href="http://ckeditor.com/" target="_blank">Pagina oficial</a>
 
 - JqueryValidate (Para las validaciones de los formularios) 
 	=> <a href="http://jqueryvalidation.org/" target="_blank">Pagina oficial</a>

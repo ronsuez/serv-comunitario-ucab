@@ -147,7 +147,7 @@ $("#inscribir-asesor").bind("submit",function (e){
       console.log(data);
       console.log("datos insertar_asesor");
     });
-  }else{  
+  } else {  
     console.log('NO VALIDO');
   }
 });
