@@ -2,7 +2,7 @@
 <br />
 
 <p align="center">
-	<img src="http://servcom-ucab.rsuezdev.com/sc/mvc/Logo_sc.png" alt="PDGestureTableView" title="PDGestureTableView" width="470px" />
+	<img src="https://raw.github.com/ronsuez/serv-comunitario-ucab/master/mvc/Logo_sc.png" alt="Servcom UCABG" title="Servcom UCABG" width="470px" />
 </p>
 
 
