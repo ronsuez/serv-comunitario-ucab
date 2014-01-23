@@ -316,7 +316,7 @@ $(document).on("click",".nav-top li a",function (e) {
   $.ajax({
            beforeSend: function(){
                // Handle the beforeSend event
-               $('#main-panel-body').html('<div id="loading"><img src="./jar-loading.gif"></div>');
+               $('#main-panel-body').html('<div id="loading"><img src="./servcom-ucab.gif"></div>');
                
              },
              type: "GET",
@@ -1210,7 +1210,7 @@ function nav_pestanas_principal(id_pestana,url,texto,tab){
           $.ajax({
            beforeSend: function(){
                // Handle the beforeSend event
-               $('#main-panel-body').html('<div id="loading"><img src="./jar-loading.gif"></div>');
+               $('#main-panel-body').html('<div id="loading"><img src="./servcom-ucab.gif"></div>');
                
              },
              type: "GET",
