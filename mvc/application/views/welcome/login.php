@@ -26,7 +26,7 @@
 
 body {
 	background-color: #e6e6e6;
-	margin-top: 0px;
+	padding-top: 0px
 }
 
 h2, h4 {
@@ -46,6 +46,15 @@ h2, h4 {
 	font-size: 12px;
 }
 
+.logo img {
+	margin-top: 20%;
+	height: 30%;
+	width: 80%;
+}
+
+.logo h3{
+	margin-left: 20%;
+}
 
 
 </style>
@@ -60,15 +69,13 @@ h2, h4 {
 		</div> -->
 
 		<div class="col-xs-12 col-md-12">
-			<br>
-			<div class="logo"><a href="https://schooltraq.com/">Servcom-UCAB</a></div>
 
 		<div id ="help-box" class="col-md-7 col-sm-7 col-lg-7">
-			<br>
-			<div class="logo"><a href="#">Servcom-UCAB</a></div>
+			<!-- <div class="logo"><a href="#">Servcom-UCAB</a></div> -->
 
-			<h3 class="login-heading">¡Qué bueno tenerte de vuelta! :)</h3>
-			<div class="login-links">
+			<div class="logo">
+				<img src="Logo_sc.png" alt="logo">
+				<!-- <h3 class="login-heading">¡Qué bueno tenerte de vuelta! :)</h3> -->
 			</div>
 		</div>
 

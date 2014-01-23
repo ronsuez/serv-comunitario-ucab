@@ -244,7 +244,7 @@ $("#registrar_datos_usuario").submit(function (e) {
 
 			function(data){
 
-				if(data=="0") {
+				if(data==0) {
 
 					toastr.success(mensajes.success.usuario_actualizado);
 					resetForm($('#registrar_datos_usuario'));
