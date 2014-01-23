@@ -1,4 +1,3 @@
-
 <br />
 
 <p align="center">
@@ -28,6 +27,8 @@ Servcom-UCAB esta alojado en la nube a traves de un servicio de PaaS provisto po
 - Luis Seijas
   y contando...
 
+### Departamento de pruebas y documentacion :
+-Norka Mederos
 
 
 ### Frameworks utilizados
