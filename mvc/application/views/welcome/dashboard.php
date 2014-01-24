@@ -280,25 +280,25 @@ body {
 				<div id="this-carousel-id" class="carousel slide"><!-- class of slide for animation -->
 					<div class="carousel-inner">
 						<div class="item active"><!-- class of active since it's the first item -->
-							<img src="compubus.jpg" alt="" height="400px" width ="1200px"   />
+							<img src="foto1.jpg" alt="" height="800px" width ="1600px"   />
 							<div class="carousel-caption">
 								<h2>Servicio Comunitario</h2>
 							</div>
 						</div>
 						<div class="item">
-							<img src="photo(2).jpg" alt="" height="400px" width ="1200px"   />
-							<div class="carousel-caption">
-								<h2>CompuBus 2</h2>
-							</div>
-						</div>
-						<div class="item">
-							<img src="photo(3).jpg" alt=""height="400px" width ="1200px"  />
+							<img src="foto2.jpg" alt="" height="800px" width ="1600px"   />
 							<div class="carousel-caption">
 								<h2>Servicio Comunitario</h2>
 							</div>
 						</div>
 						<div class="item">
-							<img src="photo(4).jpg" alt=""height="400px" width ="1200px"  />
+							<img src="foto3.jpg" alt=""height="800px" width ="1600px"  />
+							<div class="carousel-caption">
+								<h2>Servicio Comunitario</h2>
+							</div>
+						</div>
+						<div class="item">
+							<img src="foto4.jpg" alt=""height="800px" width ="1600px"  />
 							<div class="carousel-caption">
 								<h2>Servicio Comunitario</h2>
 							</div>
