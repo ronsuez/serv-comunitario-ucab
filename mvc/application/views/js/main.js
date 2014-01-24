@@ -1672,7 +1672,7 @@ function ver_usuarios(url){
 function generar_reporte(url,estado,ci_prestador,id_proyecto){
 
 
- $.post(url,{state:estado,ci:ci_prestador,id:id_proyecto},function(data){
+ $.post(url,{state:estado,ci:ci_prestador,id_proyecto:id_proyecto},function(data){
 
 
   
