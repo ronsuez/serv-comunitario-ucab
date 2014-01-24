@@ -50,7 +50,7 @@ public function get_id(){
                                                  producto_proyecto,   
                                                  plan_trabajo_proyecto,   
                                                  recursos_requeridos_proyecto ,   
-                                                 cronograma_proyecto estado_proyecto
+                                                 cronograma_proyecto, estado_proyecto
 
                                      FROM proyecto WHERE id_proyecto='$id_proyecto' " );
 
@@ -90,12 +90,58 @@ public function get_id(){
       
     }
 
-    public function registrar_proyecto($info,$ci_coord = false , $ci_asesor = false){
+ public function actualizar_proyecto($id,$info,$ci_coord = false , $ci_asesor = false){
+
+                              
+        $this->db->where('id_proyecto',$id);
+        
+        var_dump($info);
+
+            $nombre_proyecto = $info[0]["value"];
+            $suscribe = $info[1]["value"];
+            $ejecuta = $info[2]["value"];
+            $estado = "activo";
+            $diagnostico_proyecto = $info[3]["value"];
+            $justificacion_proyecto = $info[4]["value"];
+            $impacto_proyecto = $info[5]["value"];
+            $obj_generales_proyecto = $info[6]["value"];
+            $obj_especificos_proyecto = $info[7]["value"];
+            $metas_proyecto = $info[8]["value"];
+            $producto_proyecto = $info[9]["value"];
+            $plan_trabajo_proyecto = $info[10]["value"];
+            $recursos_proyecto = $info[11]["value"];
+            $cronograma_proyecto = $info[12]["value"];
+
+        $query = $this->db->update('proyecto', array(
+
+            'nombre_proyecto' => $nombre_proyecto,
+            'diagnostico_proyecto' => $diagnostico_proyecto,
+            'justificacion_proyecto' => $justificacion_proyecto,
+            'impacto_proyecto' => $impacto_proyecto,
+            'obj_generales_proyecto' => $obj_generales_proyecto,
+            'obj_especificos_proyecto' => $obj_especificos_proyecto,
+            'metas_proyecto' => $metas_proyecto,
+            'producto_proyecto' => $producto_proyecto,
+            'plan_trabajo_proyecto' => $plan_trabajo_proyecto,
+            'recursos_requeridos_proyecto' => $recursos_proyecto,
+            'cronograma_proyecto' => $cronograma_proyecto)
+        );
+
+        if($query){
+            return "0";
+        }
+        else{
+            return "-1";
+        }
+
+    
+
+    }
+
+
+public function registrar_proyecto($info,$ci_coord = false , $ci_asesor = false){
 
                 
-
-                      
-
             $nombre_proyecto = $info[0]["value"];
             $suscribe = $info[1]["value"];
             $ejecuta = $info[2]["value"];
@@ -134,6 +180,7 @@ public function get_id(){
                 return "-1";
 
     }
+
 
     
       public function listar_datos_asesor($q,$o){

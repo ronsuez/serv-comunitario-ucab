@@ -152,6 +152,34 @@ class Proyecto extends CI_Controller {
 		   }
 
 
+
+
+	 public function actualizar(){
+
+		    $informacion = json_decode($this->input->post('texto'),true);
+
+		    $datos = json_decode($this->input->post('datos'),true);
+
+		    $estado = $this->input->post('estado');
+
+		    $asesor = $this->input->post('ci_asesor');
+
+		    $coordinador = $this->input->post('ci_coord');
+
+		    $id = $this->input->post('id');
+
+		    $array = array_merge($datos, $informacion);
+
+		    $id = $this->proyecto_model->actualizar_proyecto($id,$array,$asesor,$coordinador);
+
+		    echo $id;
+
+		  //	$this->generar_reporte($id,$estado);
+
+
+		   }
+
+
 	public function insertar_asesor(){
 		$nombre = $this->input->post('nombre_ase');
 		$apellido = $this->input->post('apellido_ase');

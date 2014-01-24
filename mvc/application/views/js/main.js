@@ -73,31 +73,7 @@ warning:{
   des_coord: "El coordinador ya no esta definido como principal",
   coor_deshabilitado: "Este coordinador ya se encuentra deshabilitado",
   coor_habilitado: "Este coordinador ya se encuentra habilitado"
-},
-
-requerido: '*Este es campo es requerido',
-matches: 'The %s field does not match the %s field.',
-"default": 'The %s field is still set to default, please change.',
-valid_email: 'The %s field must contain a valid email address.',
-valid_emails: 'The %s field must contain all valid email addresses.',
-min_length: 'The %s field must be at least %s characters in length.',
-max_length: 'The %s field must not exceed %s characters in length.',
-exact_length: 'The %s field must be exactly %s characters in length.',
-greater_than: 'The %s field must contain a number greater than %s.',
-less_than: 'The %s field must contain a number less than %s.',
-alpha: 'The %s field must only contain alphabetical characters.',
-alpha_numeric: 'The %s field must only contain alpha-numeric characters.',
-alpha_dash: 'The %s field must only contain alpha-numeric characters, underscores, and dashes.',
-numeric: 'The %s field must contain only numbers.',
-integer: 'The %s field must contain an integer.',
-decimal: 'The %s field must contain a decimal number.',
-is_natural: 'The %s field must contain only positive numbers.',
-is_natural_no_zero: 'The %s field must contain a number greater than zero.',
-valid_ip: 'The %s field must contain a valid IP.',
-valid_base64: 'The %s field must contain a base64 string.',
-valid_credit_card: 'The %s field must contain a valid credit card number.',
-is_file_type: 'The %s field must contain only %s files.',
-pre: 'The %s field must contain a valid URL.'
+}
 
 };
 
@@ -128,7 +104,8 @@ var campos_proyecto = [
     'text-producto', 
     'text-plan-trabajo', 
     'text-recursos', 
-    'text-cronograma'
+    'text-cronograma',
+    'id_proyecto'
 ];
 
 
@@ -147,6 +124,7 @@ var main_datos={
           mencion: "",
           semestre: ""
         },proyecto:{
+          id_proyecto:"",
           ci_asesor: "",
           ci_coord: "",
           cronograma_proyecto: "",
@@ -184,7 +162,8 @@ var datos_de_localidad=[
 
 
 
-var datos_de_proyecto = ["nombre_proyecto",
+var datos_de_proyecto = [
+"nombre_proyecto",
 "fecha_ini",
 "estado_proyecto",
 "id_proyecto",
@@ -613,8 +592,11 @@ $('body').on('click','a.key_proyecto', function (ev) {
 
  $.post("listar_datos_proyecto",{id_proyecto:key_proyecto},function(data){
 
+  console.log("key proyecto lol") ;
+
   var listado = JSON.parse(data);
 
+    console.log(listado[0]);
   
 //se guardan temporalmente los datos del proyecto
     $.each(listado[0],function(index){
@@ -955,20 +937,29 @@ function popular_datos_prestador(listado){
 
 function popular_datos_proyecto(){
 
-    var array = $.map(main_datos.proyecto, function(value, index) {
+  /*  var array = $.map(main_datos.proyecto, function(value, index) {
     
     return [value];
     
     });
 
     console.log(array);
+*/
 
-    $.each(campos_proyecto, function(i){
+    console.log(main_datos.proyecto);
 
-     $("#"+campos_proyecto[i]).text(array[i]);
-
-   });
-
+    $("#"+campos_proyecto[0]).val(main_datos.proyecto.nombre_proyecto);
+    $("#"+campos_proyecto[3]).html(main_datos.proyecto.diagnostico_proyecto);
+    $("#"+campos_proyecto[4]).html(main_datos.proyecto.justificacion_proyecto);
+    $("#"+campos_proyecto[5]).html(main_datos.proyecto.impacto_proyecto);
+    $("#"+campos_proyecto[6]).html(main_datos.proyecto.obj_generales_proyecto);
+    $("#"+campos_proyecto[7]).html(main_datos.proyecto.obj_especificos_proyecto);
+    $("#"+campos_proyecto[8]).html(main_datos.proyecto.metas_proyecto);
+    $("#"+campos_proyecto[9]).html(main_datos.proyecto.producto_proyecto);
+    $("#"+campos_proyecto[10]).html(main_datos.proyecto.plan_trabajo_proyecto);
+    $("#"+campos_proyecto[11]).html(main_datos.proyecto.recursos_requeridos_proyecto);
+    $("#"+campos_proyecto[12]).html(main_datos.proyecto.cronograma_proyecto);
+    $("#"+campos_proyecto[13]).html(main_datos.proyecto.id_proyecto);
 
 }
 

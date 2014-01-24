@@ -67,6 +67,7 @@ $route['completar_datos_usuario'] = 'usuario/completar_datos_usuario';
 /* routing for proyecto controller__*/
 $route['gest-proyecto']="proyecto/index";
 $route['insertar_proyecto']="proyecto/inscribir";
+$route['actualizar_proyecto']="proyecto/actualizar";
 $route['consultar_proyecto']="proyecto/modificar";
 $route['asesor']="proyecto/asesor";
 $route['insertar_asesor']="proyecto/insertar_asesor";
