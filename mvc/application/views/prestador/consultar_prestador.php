@@ -60,9 +60,9 @@ button a:hover{
 <br><br>
 
 <ol class="breadcrumb">
-  <h5> Proyecto actuales</h5>
+  <h5> Proyectos Actuales</h5>
  <select id="l_proyectos" class="form-control">
-  <option value="">Seleccione proyecto</option>
+  <option value="">Seleccione Proyecto</option>
   
 </select>
 
@@ -72,11 +72,11 @@ button a:hover{
 
         <fieldset disabled>
             
-          <label>Nombre del proyecto </label>          
+          <label>Nombre del Proyecto </label>          
              
           <input  id="nombre_proyecto" type="text"  class="form-control">  
 
-          <label>Fecha de creacion </label> 
+          <label>Fecha de Creación </label> 
 
           <input id="fecha_creacion" type="text"  class="form-control">
 
@@ -84,11 +84,11 @@ button a:hover{
 
           <input id="estado_proyecto" type="text"  class="form-control">
 
-          <label>Codigo </label> 
+          <label>Código </label> 
 
           <input  id="codigo_proyecto" type="text"  class="form-control">
 
-          <label>Fecha Inicio Proyecto </label> 
+          <label>Fecha de Inicio de Proyecto </label> 
 
           <input  id="fecha_ini_proy" type="text"  class="form-control">
 
@@ -105,12 +105,12 @@ button a:hover{
 </ol>
 
 
-    <center><h3 id="texto">Listado de horas guardadas</h3></center>
+    <center><h3 id="texto">Listado de Horas Guardadas</h3></center>
 
   <table id="informacion_proyecto" class="table table-hover">
     <thead>
       <tr>
-        <th>Observacion</th>
+        <th>Observación</th>
         <th>Realizado por</th>
         <th>Horas</th>
         <th>Fecha Modif.</th>
@@ -126,10 +126,10 @@ button a:hover{
 <br><br>
 <center>
 
-<button type="button" class="reportar-horas btn btn-success" data-toggle="modal" href="#myModal">Reportar Horas</button>
+<button type="button" class="reportar-horas btn btn-info" data-toggle="modal" href="#myModal">Reportar Horas</button>
 
 <!-- Indicates a successful or positive action -->
-<button type="button" id="btn_consultar_proyecto" class="btn btn-success" >Consultar Proyecto</a></button>
+<button type="button" id="btn_consultar_proyecto" class="btn btn-info" >Consultar Proyecto</a></button>
 
 
 </center>
@@ -139,7 +139,7 @@ button a:hover{
 
 <!--tabla horario de trabajo-->
 
-    <center><h3 id="texto">Horario de trabajo</h3></center>
+    <center><h3 id="texto">Horario de Trabajo</h3></center>
 
     <br></br>
 
@@ -148,10 +148,10 @@ button a:hover{
                       <tr class="success">
                        <th><p>Lunes</p></th>
                         <th><p>Martes</p></th>
-                        <th><p>Miercoles</p></th>
+                        <th><p>Miércoles</p></th>
                         <th><p>Jueves</p></th>
                         <th><p>Viernes</p></th>
-                        <th><p>Sabado</p></th>
+                        <th><p>Sábado</p></th>
                         <th><p >Domingo</p></th>
                       </tr>
                   </thead>
@@ -174,11 +174,11 @@ button a:hover{
   <center>
     <p>
     
-       <button id="finalizar_proyecto" type="button" class="btn btn-info">Finalizar Proyecto actual </button>
+       <button id="finalizar_proyecto" type="button" class="btn btn-info">Finalizar Proyecto Actual </button>
     
-      <button  id= "btn_carta_culminacion" type="button" class="btn btn-info">Imprimir carta Culminacion</button>
+      <button  id= "btn_carta_culminacion" type="button" class="btn btn-info">Imprimir Carta de Culminacion</button>
       
-      <button id="btn_not_culminacion" type="button" class="btn btn-info">Imprimir Notificacion Culminacion</button>
+      <button id="btn_not_culminacion" type="button" class="btn btn-info">Imprimir Notificación de Culminación</button>
     
     </p>
   </center>
@@ -209,7 +209,7 @@ button a:hover{
 
          </fieldset>
 
-          <label>Horas realizadas </label> 
+          <label>Horas Realizadas </label> 
 
           <input type="text" id="horas_realizadas_modal" class="form-control" placeholder="Ingrese horas realizadas">
 
@@ -253,16 +253,7 @@ $(document).ready(function(){
 $("#finalizar_proyecto").attr("disabled", true);
 //deshabilitamos  los botones de reporte-horas
 
- 
   $("button.reportar-horas").attr("disabled","disabled");
-
-
-
-  $("#btn_not_culminacion").attr("disabled",true);
-
-  $("#btn_carta_culminacion").attr("disabled",true);
-
-  $("#finalizar_proyecto").attr("disabled", true);
 
 //configuracion de las ventanas de alerta
 
@@ -392,71 +383,17 @@ $('body').unbind('change').on('change','#l_proyectos',function(ev){
             
           });
 
-       $.post("suma_horas_totales",{id_prestador:id },function(data){
-
-
+        $.post("suma_horas_totales",{id_prestador:id },function(data){
 
                   var horas_totales_proyectos = JSON.parse(data);
-
-                  var estado_proyecto_prestador = $("#estado_proy_prestador").val();
-
-
-
           
-
                   var checkhoras = horas_totales_proyectos[0]["sum1"];
-
                   $("#total_horas_proyectos").html(horas_totales_proyectos[0]["sum1"]);
 
-
-
-                    if(checkhoras < 90 && estado_proyecto_prestador == "Activo"){
-
-                      $("button.reportar-horas").attr("disabled", false);
-
+                    if(checkhoras >90){
+                      $("button.reportar-horas").attr("disabled", true);
                       $("#finalizar_proyecto").attr("disabled", false);
-
-                      $("#btn_not_culminacion").attr("disabled",true);
-
-                      $("#btn_carta_culminacion").attr("disabled",true);
-
-                    
-
-                    }else if(checkhoras < 90 && estado_proyecto_prestador == "Inactivo"){
-
-                      $("button.reportar-horas").attr("disabled", true);
-
-                      $("#finalizar_proyecto").attr("disabled", true);
-
-                      $("#btn_not_culminacion").attr("disabled",false);
-
-                      $("#btn_carta_culminacion").attr("disabled",true);
-
-
-
-                    }else if(checkhoras > 90 && estado_proyecto_prestador == "Inactivo"){
-
-                      $("button.reportar-horas").attr("disabled", true);
-
-                      $("#finalizar_proyecto").attr("disabled", true);
-
-                      $("#btn_not_culminacion").attr("disabled",false);
-
-                      $("#btn_carta_culminacion").attr("disabled",false);
-
-                    }else if(checkhoras > 90 && estado_proyecto_prestador == "Activo"){
-
-                      $("button.reportar-horas").attr("disabled", true);
-
-                      $("#finalizar_proyecto").attr("disabled", false);
-
-                      $("#btn_not_culminacion").attr("disabled",true);
-
-                      $("#btn_carta_culminacion").attr("disabled",true);
-
                     }
-
-
 
           });
 
@@ -563,7 +500,6 @@ $("#enviar_datos_modal").on("click",function () {
           }else{
 
               toastr.error(mensajes.error.error_reporte_horas);
-              $(btn).button('reset');
         
             }
       });
