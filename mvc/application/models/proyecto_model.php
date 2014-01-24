@@ -50,7 +50,8 @@ public function get_id(){
                                                  producto_proyecto,   
                                                  plan_trabajo_proyecto,   
                                                  recursos_requeridos_proyecto ,   
-                                                 cronograma_proyecto, estado_proyecto
+                                                 cronograma_proyecto,
+                                                 estado_proyecto
 
                                      FROM proyecto WHERE id_proyecto='$id_proyecto' " );
 
@@ -215,6 +216,35 @@ public function registrar_proyecto($info,$ci_coord = false , $ci_asesor = false)
           $query = $this->db->query("INSERT INTO asesor(ci_asesor,nombre_asesor,apellido_asesor,email_asesor,celular_asesor,telefono_asesor,direccion_asesor)
                                      VALUES ('$cedula','$nombre','$apellido','$email','$celular','$telefono','$direccion')");
           return $query;
+        }
+
+
+        public function listar_a_x_pro($id_asesor){
+
+
+        $sql = "SELECT  asesor.ci_asesor,nombre_asesor,apellido_asesor 
+
+        FROM asesor,proyecto 
+        WHERE proyecto.ci_asesor = ? AND
+              asesor.ci_asesor = proyecto.ci_asesor";
+
+
+
+        $query=$this->db->query($sql,$id_asesor);
+
+
+        if ($query->num_rows() > 0)
+        {
+
+            return $query->result_array();
+            
+        }else{
+
+            $salida =  "-1";    
+
+            return $salida;
+        }
+
         }
 
     
