@@ -212,9 +212,9 @@ body {
 		</div>
 		<div class="navbar-collapse collapse">
 			<ul class="barra-superior nav navbar-nav nav-top">
-				<li class="active"><a href="/">Inicio</a></li>
+				<li class="active"><a href="welcome_message" id="inicio">Inicio</a></li>
 				<li class=""><a id="acerca" href="acerca_de">Acerca de</a></li>
-				<li class=""><a href="#">Contacto</a></li>
+				<li class=""><a href="welcome_message" id="contacto">Contacto</a></li>
 			</ul>
 			<ul class ="nav navbar-nav pull-right">
 				<li class="dropdown ">
@@ -273,7 +273,7 @@ body {
 				</div>
 
 				<div id="main-panel-body" class="panel-body">
-					<h1>Bienvenido al Sistema de Gestion de Servicio Comunitario</h1>
+					<h1>Bienvenido al Sistema de Gestión de Servicio Comunitario</h1>
 					
 				<!--  Carousel - consult the Twitter Bootstrap docs at
 				http://twitter.github.com/bootstrap/javascript.html#carousel -->
