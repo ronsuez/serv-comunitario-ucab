@@ -255,6 +255,12 @@ $("#finalizar_proyecto").attr("disabled", true);
 
   $("button.reportar-horas").attr("disabled","disabled");
 
+  $("#btn_not_culminacion").attr("disabled",true);
+
+  $("#btn_carta_culminacion").attr("disabled",true);
+
+  $("#finalizar_proyecto").attr("disabled", true);
+
 //configuracion de las ventanas de alerta
 
    var ci =  main_datos.prestador.cedula;
@@ -385,15 +391,71 @@ $('body').unbind('change').on('change','#l_proyectos',function(ev){
 
         $.post("suma_horas_totales",{id_prestador:id },function(data){
 
+
+
                   var horas_totales_proyectos = JSON.parse(data);
+
+                  var estado_proyecto_prestador = $("#estado_proy_prestador").val();
+
+
+
           
+
                   var checkhoras = horas_totales_proyectos[0]["sum1"];
+
                   $("#total_horas_proyectos").html(horas_totales_proyectos[0]["sum1"]);
 
-                    if(checkhoras >90){
-                      $("button.reportar-horas").attr("disabled", true);
+
+
+                    if(checkhoras < 90 && estado_proyecto_prestador == "Activo"){
+
+                      $("button.reportar-horas").attr("disabled", false);
+
                       $("#finalizar_proyecto").attr("disabled", false);
+
+                      $("#btn_not_culminacion").attr("disabled",true);
+
+                      $("#btn_carta_culminacion").attr("disabled",true);
+
+                    
+
+                    }else if(checkhoras < 90 && estado_proyecto_prestador == "Inactivo"){
+
+                      $("button.reportar-horas").attr("disabled", true);
+
+                      $("#finalizar_proyecto").attr("disabled", true);
+
+                      $("#btn_not_culminacion").attr("disabled",false);
+
+                      $("#btn_carta_culminacion").attr("disabled",true);
+
+                      $("div [href='#asignar_pro']").show();
+
+
+
+                    }else if(checkhoras > 90 && estado_proyecto_prestador == "Inactivo"){
+
+                      $("button.reportar-horas").attr("disabled", true);
+
+                      $("#finalizar_proyecto").attr("disabled", true);
+
+                      $("#btn_not_culminacion").attr("disabled",false);
+
+                      $("#btn_carta_culminacion").attr("disabled",false);
+
+                    }else if(checkhoras > 90 && estado_proyecto_prestador == "Activo"){
+
+                      $("button.reportar-horas").attr("disabled", true);
+
+                      $("#finalizar_proyecto").attr("disabled", false);
+
+                      $("#btn_not_culminacion").attr("disabled",true);
+
+                      $("#btn_carta_culminacion").attr("disabled",true);
+
                     }
+
+
 
           });
 
