@@ -353,7 +353,7 @@ public function preparar_datos_reporte($datos_prestador = false ,$datos_proyecto
 
 			$tipo = "notificacion_culminacion";
 
-				if($this->input->post('id')){ 
+				if($this->input->post('id_proyecto')){ 
 
 					$id = $this->input->post('id');
 				}
