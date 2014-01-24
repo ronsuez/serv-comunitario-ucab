@@ -29,6 +29,9 @@ class Prestador extends CI_Controller {
 		$this->controller="prestador/";
 
 		$this->load->model("prestador_model");
+
+
+		$this->load->model("proyecto_model");
 		
 		$this->load->model("files_model");
 
