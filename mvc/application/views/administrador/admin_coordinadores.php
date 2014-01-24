@@ -137,11 +137,9 @@ $("#ad_con_usuarios").html(l_coord_adm_con);
       <tr>
        <td>Administración y Contaduría</td>
        <td>
-<<<<<<< HEAD
+
         <select id="ad_con_usuarios" class="form-control" style="width:50%">
-=======
-        <select id="ad_con_usuarios" class="form-control">
->>>>>>> 851bbd44a823485e6cfee66ed73d90199d035c9a
+
          <option value="">Seleccione</option>
        </select>
      </td>
@@ -164,11 +162,9 @@ $("#ad_con_usuarios").html(l_coord_adm_con);
   <tr>
    <td>Comunicación Social</td>
    <td>
-<<<<<<< HEAD
+
     <select id="com_social_usuarios" class="form-control" style="width:50%">
-=======
-    <select id="com_social_usuarios" class="form-control">
->>>>>>> 851bbd44a823485e6cfee66ed73d90199d035c9a
+
      <option value="">Seleccione</option>
    </select>
  </td>
@@ -192,11 +188,9 @@ $("#ad_con_usuarios").html(l_coord_adm_con);
 <tr>
  <td>Derecho</td>
  <td>
-<<<<<<< HEAD
+
   <select id="derecho_usuarios" class="form-control" style="width:50%">
-=======
-  <select id="derecho_usuarios" class="form-control">
->>>>>>> 851bbd44a823485e6cfee66ed73d90199d035c9a
+
    <option value="">Seleccione</option>
  </select>
 </td>
@@ -219,11 +213,9 @@ $("#ad_con_usuarios").html(l_coord_adm_con);
 <tr>
  <td>Educación</td>
  <td>
-<<<<<<< HEAD
+
   <select id="educacion_usuarios" class="form-control" style="width:50%">
-=======
-  <select id="educacion_usuarios" class="form-control">
->>>>>>> 851bbd44a823485e6cfee66ed73d90199d035c9a
+
    <option value="">Seleccione</option>
  </select>
 </td>
@@ -246,11 +238,9 @@ $("#ad_con_usuarios").html(l_coord_adm_con);
 <tr>
  <td>Ingeniería Civil</td>
  <td>
-<<<<<<< HEAD
+
   <select id="ing_civil_usuarios" class="form-control" style="width:50%">
-=======
-  <select id="ing_civil_usuarios" class="form-control">
->>>>>>> 851bbd44a823485e6cfee66ed73d90199d035c9a
+
    <option value="">Seleccione</option>
  </select>
 </td>
@@ -273,11 +263,9 @@ $("#ad_con_usuarios").html(l_coord_adm_con);
 <tr>
  <td>Ingeniería Industrial</td>
  <td>
-<<<<<<< HEAD
+
   <select id="ing_industrial_usuarios" class="form-control" style="width:50%">
-=======
-  <select id="ing_industrial_usuarios" class="form-control">
->>>>>>> 851bbd44a823485e6cfee66ed73d90199d035c9a
+
    <option value="">Seleccione</option>
  </select>
 </td>
@@ -300,11 +288,9 @@ $("#ad_con_usuarios").html(l_coord_adm_con);
 <tr>
  <td>Ingeniería Informática</td>
  <td>
-<<<<<<< HEAD
+
   <select id="ing_info_usuarios" class="form-control" style="width:50%">
-=======
-  <select id="ing_info_usuarios" class="form-control">
->>>>>>> 851bbd44a823485e6cfee66ed73d90199d035c9a
+
    <option value="">Seleccione</option>
  </select>
 </td>
@@ -327,11 +313,9 @@ $("#ad_con_usuarios").html(l_coord_adm_con);
 <tr>
  <td>Relaciones Industriales</td>
  <td>
-<<<<<<< HEAD
+
   <select id="rr_ii_usuarios" class="form-control" style="width:50%">
-=======
-  <select id="rr_ii_usuarios" class="form-control">
->>>>>>> 851bbd44a823485e6cfee66ed73d90199d035c9a
+
     <option value="">Seleccione</option>
   </select>
 </td>
@@ -355,11 +339,9 @@ $("#ad_con_usuarios").html(l_coord_adm_con);
 <tr>
   <td>Proyección a la Comunidad</td>
   <td>
-<<<<<<< HEAD
+
     <select id="pro_comunidad" class="form-control" style="width:50%">
-=======
-    <select id="pro_comunidad" class="form-control">
->>>>>>> 851bbd44a823485e6cfee66ed73d90199d035c9a
+
       <option value="">Seleccione</option>
     </select>
   </td>
@@ -384,7 +366,6 @@ $("#ad_con_usuarios").html(l_coord_adm_con);
 </table>
 
 </div>
-<<<<<<< HEAD
 
 <style type="text/css">
 
@@ -393,5 +374,3 @@ td {
 }
 
 </style>
-=======
->>>>>>> 851bbd44a823485e6cfee66ed73d90199d035c9a
