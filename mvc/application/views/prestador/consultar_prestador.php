@@ -443,7 +443,7 @@ $('body').unbind('change').on('change','#l_proyectos',function(ev){
 
                       $("#btn_carta_culminacion").attr("disabled",false);
 
-                    }else if(checkhoras > 90 && estado_proyecto_prestador == "Activo"){
+                    }else if(checkhoras >= 90 && estado_proyecto_prestador == "Activo"){
 
                       $("button.reportar-horas").attr("disabled", true);
 

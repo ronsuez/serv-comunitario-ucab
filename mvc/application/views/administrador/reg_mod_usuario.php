@@ -176,6 +176,15 @@ $(document).ready(function(){
 				number: true,
 				maxlength:11,
 				minlength:11
+			},
+			user: {
+				required: true
+			},
+			pass: {
+				required:true
+			},
+			conf_pass: {
+				required: true
 			}
 		},
 
@@ -196,30 +205,37 @@ $(document).ready(function(){
 			},
 			nombre : {
 				required: mensajes.reglas.requerido
-
 			},
 			apellido :{
 				required: mensajes.reglas.requerido
-
 			},
 			email : {
 				required: mensajes.reglas.requerido,
 				email: mensajes.reglas.email
-
 			},
 			celular: {
 				required: mensajes.reglas.requerido,
 				number: mensajes.reglas.numerico,
 				minlength: mensajes.reglas.minimo_tlf,
 				maxlength: mensajes.reglas.maximo_tlf
-
 			},
 			telefono: {
 				required: mensajes.reglas.requerido,
 				number: mensajes.reglas.numerico,
 				minlength: mensajes.reglas.minimo,
 				maxlength: mensajes.reglas.maximo
-
+			},
+			escuela: {
+				required: mensajes.reglas.requerido
+			},
+			user: {
+				required: mensajes.reglas.requerido
+			},
+			pass: {
+				required: mensajes.reglas.requerido
+			},
+			conf_pass: {
+				required: mensajes.reglas.requerido
 			}
 		}
 
@@ -228,13 +244,16 @@ $(document).ready(function(){
 $("#registrar_datos_usuario").submit(function (e) {
 
 	e.preventDefault();
-
-	var ruta = "registrar_datos_usuario";
+    var ruta = "registrar_datos_usuario";
+	var mensaje_success = mensajes.success.usuario_registrado;
+	var mensaje_error = mensajes.error.usuario_no_registrado;
 
   if (act_datos_usuario) {
     ruta = "actualizar_datos_usuario";
     $("#conf_pass").attr("disabled",false);
     $("#pass").attr("disabled",false);
+    mensaje_success = mensajes.success.usuario_actualizado;
+    mensaje_error = mensajes.error.usuario_no_actualizado;
   }
 
 	if ($(this).valid()) {
@@ -244,16 +263,18 @@ $("#registrar_datos_usuario").submit(function (e) {
 
 			function(data){
 
-				if(data==0) {
+				console.log(data);
 
-					toastr.success(mensajes.success.usuario_actualizado);
+				if(data==="0") {
+
+					toastr.success(mensaje_success);
 					resetForm($('#registrar_datos_usuario'));
 					act_datos_usuario = 0;
 					$("#boton_usuario").html("Registrar");
 					$("#titulo_registro").html("Registrar datos de usuarios");
 				}
 				else {
-					toastr.error(mensajes.error.usuario_no_actualizado);
+					toastr.error(mensaje_error);
 
 				}
 			});

@@ -20,9 +20,10 @@
 				'cedula' => $datos["cedula"],
 				'user' => $datos["user"],
 				'contrasena' => $datos["pass"],
-				'tipo' => $datos["tipo"]));
+				'tipo' => $datos["tipo"],
+				'estado' => 1));
 
-//se registran los datos de usuario dependiendo del tipo
+		//se registran los datos de usuario dependiendo del tipo
 		if ($tipo == "CO") {
 			$query = $this->db->insert('coordinador', array(
 				'ci_coord' => $datos["cedula"],
