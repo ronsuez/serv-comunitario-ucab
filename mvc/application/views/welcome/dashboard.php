@@ -10,6 +10,8 @@
         			 $user =$this->session->userdata("name")." ".$this->session->userdata("last_name");
 
         			 $escuela = $this->session->userdata("escuela");
+
+        			 $cedula =  $this->session->userdata("cedula");
 	
    			 }
 
@@ -31,7 +33,7 @@
 
  <script>
     main_datos.usuario.nombre =<?php echo "'".$user."'"; ?> ; 
-
+    main_datos.usuario.cedula =<?php echo "'".$cedula."'"; ?> ; 
 </script>
 
 <style type="text/css">

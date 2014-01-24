@@ -36,23 +36,7 @@ public function get_id(){
         
 
 
-            $query = $this->db->query("SELECT   id_proyecto ,
-                                                fecha_ini  , 
-                                                 nombre_proyecto ,
-                                                 ci_coord  ,  
-                                                 ci_asesor  , 
-                                                 diagnostico_proyecto ,   
-                                                 justificacion_proyecto , 
-                                                 impacto_proyecto    ,
-                                                 obj_generales_proyecto , 
-                                                 obj_especificos_proyecto ,   
-                                                 metas_proyecto  ,
-                                                 producto_proyecto,   
-                                                 plan_trabajo_proyecto,   
-                                                 recursos_requeridos_proyecto ,   
-                                                 cronograma_proyecto,
-                                                 estado_proyecto
-
+            $query = $this->db->query("SELECT  *
                                      FROM proyecto WHERE id_proyecto='$id_proyecto' " );
 
                 if ($query->num_rows() > 0)
@@ -140,7 +124,7 @@ public function get_id(){
     }
 
 
-public function registrar_proyecto($info,$ci_coord = false , $ci_asesor = false){
+public function registrar_proyecto($info,$ci_asesor = false, $ci_coord = false ){
 
                 
             $nombre_proyecto = $info[0]["value"];

@@ -118,7 +118,7 @@ class Proyecto extends CI_Controller {
   
 
 			 $salida=$this->proyecto_model->listar_proyectos($id);
-	
+				
 		
 			 $this->preparar_datos_reporte($salida,$estado);
 		 		

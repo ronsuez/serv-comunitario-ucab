@@ -1363,7 +1363,7 @@ function show_messages(type,messages){
 function nav_pestanas_principal(id_pestana,url,texto,tab,tag){
 
 
-  vaciar_datos_prestador();
+  //vaciar_datos_prestador();
 
   var pestana;
 
