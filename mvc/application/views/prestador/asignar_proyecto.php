@@ -134,8 +134,9 @@ button a:hover{
 
     <br>
 
-		<center><button class="btn btn-default" id="asociar_proyecto" type="submit">  Asociar proyecto a prestador</button>	</center><br><br>
-
+		<center><button class="btn btn-success" id="asociar_proyecto" type="submit">  Asociar proyecto a prestador</button>	</center>
+		<center><button class="btn btn-success" id="iniciar_prestacion" type="submit">  Generar Reporte</button></center>
+		<center><button class="btn btn-success" id="notificacion_asignacion" type="submit">  Generar notificacion</button></center>
 </div></div>	<!-- fin container -->
 
 
@@ -145,7 +146,8 @@ button a:hover{
 
 <script>
 $(document).ready(function(){
-
+$("#iniciar_prestacion").prop('disabled', true);
+	$("#notificacion_asignacion").prop('disabled', true);
 
 
 //final de la funcion que busca prestador
@@ -181,6 +183,32 @@ $("#asociar_proyecto").on("click",function(){
 		console.log(data);
 		console.log("datos asociar");
 	});
+});
+//----------------------------------------------
+$("#iniciar_prestacion").on('click',function () {
+  var ci = $("#ci_prestador").val();
+  var id = $("#c_proyecto").val();
+
+
+    console.log('cedula prestador',ci);
+	console.log('codigo_proyecto',id);
+
+      generar_reporte("generar_carta_inicio_prestacion",0,ci,id);
+
+     
+});
+//-------------------------------------------------------------------
+$("#notificacion_asignacion").on('click',function () {
+  var ci = $("#ci_prestador").val();
+  var id = $("#c_proyecto").val();
+
+
+    console.log('cedula prestador',ci);
+	console.log('codigo_proyecto',id);
+
+      generar_reporte("generar_carta_notificacion_asignacion",0,ci,id);
+
+     
 });
 });
 </script>

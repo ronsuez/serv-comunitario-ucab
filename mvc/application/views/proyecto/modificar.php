@@ -204,6 +204,8 @@
 
  $(document).ready(function () {
 
+
+ 	
 	$("#buscar_proyecto").on("click",function(e){
 
 			e.preventDefault();
@@ -229,7 +231,7 @@
 
 		  act_datos_proyecto= 1;
 			
-		  nav_pestanas_principal("pestana-proyectos","gest-proyecto","Proyectos","inscribir_proyecto"); 
+		  nav_pestanas_principal("pestana-proyectos","gest-proyecto","Proyectos","inscribir_proyecto","Modificar"); 
 
 
   

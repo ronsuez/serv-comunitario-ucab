@@ -774,6 +774,8 @@ $('body').on('click','a.key_proyecto', function (ev) {
 
  });
 
+        listar_asesores_x_pro(main_datos.proyecto.ci_asesor);
+
 
   
 });
@@ -1119,11 +1121,47 @@ function popular_datos_proyecto(){
 
 }
 
+
+function listar_asesores_x_pro(id_asesor){
+
+
+       var id_ase =id_asesor ;
+  
+      $.post("asesor_asociado",{id_asesor:id_ase},function(data){
+
+
+          var asesor = JSON.parse(data);
+;
+
+        var content = "div.listado_asesores";
+        var results = [];
+
+           results.push('<li class="list-group-item"> <a  class="key_asesor" href="' + asesor[0].ci_asesor + '">' + asesor[0].nombre_asesor+" "+asesor[0].apellido_asesor + "</a> </li>");
+
+      
+           $( "<ul/>", {
+            "class": "list-group",
+            html: results
+          }).appendTo(content);
+
+      });
+}
+
 function vaciar_datos_prestador(){
 
 $.each(main_datos.prestador,function(index,value){ 
  
        main_datos.prestador[index]="";  
+
+ });
+
+}
+
+function vaciar_datos_proyecto(){
+
+$.each(main_datos.proyecto,function(index,value){ 
+ 
+       main_datos.proyecto[index]="";  
 
  });
 
@@ -1322,15 +1360,21 @@ function show_messages(type,messages){
 
 }
 
-function nav_pestanas_principal(id_pestana,url,texto,tab){
+function nav_pestanas_principal(id_pestana,url,texto,tab,tag){
 
 
   vaciar_datos_prestador();
 
   var pestana;
 
+  var check_tag = tag;
+
+  var bool = 0;
+
   if(url ==="gest-proyecto"){
-    pestana = "inscribir_proyecto";
+      pestana = "inscribir_proyecto";
+
+      bool = 1;
 
   }else if (url ==="gest-prestador"){
 
@@ -1344,6 +1388,14 @@ function nav_pestanas_principal(id_pestana,url,texto,tab){
 
     pestana ="registrar_usuario";
   }
+
+    if(!bool){
+
+    vaciar_datos_prestador();
+
+    vaciar_datos_proyecto();
+ 
+    }
 
   console.log(pestana);
   
@@ -1380,6 +1432,9 @@ function nav_pestanas_principal(id_pestana,url,texto,tab){
 
                         $('.pestanas li  a[href="#' + tab + '"]').parent().addClass("active");
 
+                         if(tag){
+                          $('.pestanas li  a[href="#' + tab + '"]').text(tag); 
+                        }
 
                         $('.pestanas-content div[id="' + tab + '"]').addClass("active");
 
