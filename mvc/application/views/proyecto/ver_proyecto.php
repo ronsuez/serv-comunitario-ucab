@@ -4,6 +4,7 @@
 
 		$escuela="Escuela de ".$this->session->userdata("escuela");
 
+	
 
 ?>
  <link href="<?php echo base_url() ; ?>application/views/css/reporte.css" rel="stylesheet">

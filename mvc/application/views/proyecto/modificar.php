@@ -204,6 +204,8 @@
 
  $(document).ready(function () {
 
+
+ 	
 	$("#buscar_proyecto").on("click",function(e){
 
 			e.preventDefault();
@@ -229,7 +231,7 @@
 
 		  act_datos_proyecto= 1;
 			
-		  nav_pestanas_principal("pestana-proyectos","gest-proyecto","Proyectos","inscribir_proyecto"); 
+		  nav_pestanas_principal("pestana-proyectos","gest-proyecto","Proyectos","inscribir_proyecto","Modificar"); 
 
 
   
@@ -243,7 +245,7 @@
 
 			var id_proy = $("#id_proyecto").text();
 
-			generar_reporte("generar_reporte_proyecto",0,id_proy);
+			generar_reporte("generar_reporte_proyecto",0,0,id_proy);
 
 
 	});

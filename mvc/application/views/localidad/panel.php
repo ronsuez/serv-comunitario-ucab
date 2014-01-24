@@ -57,8 +57,8 @@
    <div class="header">
         
        <ul class="pestanas nav nav-tabs" id="myTab">
-          <li id="pestana_registrar"class="active"><a href="#inscribir_localidad" data-url="insertar_localidad" >Registrar Organizacion</a></li>
-          <li  id="pestana_cosnultar"class=""><a href="#consultar" data-url="consultar_localidad">Consultar/Modificar Organizacion</a></li>
+          <li id="pestana_registrar"class="active"><a href="#inscribir_localidad" data-url="insertar_localidad" >Registrar Organización</a></li>
+          <li  id="pestana_cosnultar"class=""><a href="#consultar" data-url="consultar_localidad">Consultar/Modificar Organización</a></li>
           <li  id="pestana_cosnultar_mapa"class=""><a href="#mapa" data-url="ver_mapa">Mapa de Organizaciones</a></li>
 
         </ul>

@@ -10,6 +10,8 @@
         			 $user =$this->session->userdata("name")." ".$this->session->userdata("last_name");
 
         			 $escuela = $this->session->userdata("escuela");
+
+        			 $cedula =  $this->session->userdata("cedula");
 	
    			 }
 
@@ -31,7 +33,7 @@
 
  <script>
     main_datos.usuario.nombre =<?php echo "'".$user."'"; ?> ; 
-
+    main_datos.usuario.cedula =<?php echo "'".$cedula."'"; ?> ; 
 </script>
 
 <style type="text/css">
@@ -212,9 +214,9 @@ body {
 		</div>
 		<div class="navbar-collapse collapse">
 			<ul class="barra-superior nav navbar-nav nav-top">
-				<li class="active"><a href="/">Inicio</a></li>
+				<li class="active"><a href="welcome_message" id="inicio">Inicio</a></li>
 				<li class=""><a id="acerca" href="acerca_de">Acerca de</a></li>
-				<li class=""><a href="#">Contacto</a></li>
+				<li class=""><a href="welcome_message" id="contacto">Contacto</a></li>
 			</ul>
 			<ul class ="nav navbar-nav pull-right">
 				<li class="dropdown ">
@@ -273,32 +275,32 @@ body {
 				</div>
 
 				<div id="main-panel-body" class="panel-body">
-					<h1>Bienvenido al Sistema de Gestion de Servicio Comunitario</h1>
+					<h1>Bienvenido al Sistema de Gestión de Servicio Comunitario</h1>
 					
 				<!--  Carousel - consult the Twitter Bootstrap docs at
 				http://twitter.github.com/bootstrap/javascript.html#carousel -->
 				<div id="this-carousel-id" class="carousel slide"><!-- class of slide for animation -->
 					<div class="carousel-inner">
 						<div class="item active"><!-- class of active since it's the first item -->
-							<img src="compubus.jpg" alt="" height="400px" width ="1200px"   />
+							<img src="foto1.jpg" alt="" height="800px" width ="1600px"   />
 							<div class="carousel-caption">
 								<h2>Servicio Comunitario</h2>
 							</div>
 						</div>
 						<div class="item">
-							<img src="photo(2).jpg" alt="" height="400px" width ="1200px"   />
-							<div class="carousel-caption">
-								<h2>CompuBus 2</h2>
-							</div>
-						</div>
-						<div class="item">
-							<img src="photo(3).jpg" alt=""height="400px" width ="1200px"  />
+							<img src="foto2.jpg" alt="" height="800px" width ="1600px"   />
 							<div class="carousel-caption">
 								<h2>Servicio Comunitario</h2>
 							</div>
 						</div>
 						<div class="item">
-							<img src="photo(4).jpg" alt=""height="400px" width ="1200px"  />
+							<img src="foto3.jpg" alt=""height="800px" width ="1600px"  />
+							<div class="carousel-caption">
+								<h2>Servicio Comunitario</h2>
+							</div>
+						</div>
+						<div class="item">
+							<img src="foto4.jpg" alt=""height="800px" width ="1600px"  />
 							<div class="carousel-caption">
 								<h2>Servicio Comunitario</h2>
 							</div>

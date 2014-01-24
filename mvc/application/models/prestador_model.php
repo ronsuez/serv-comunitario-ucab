@@ -425,6 +425,56 @@ public function insertar_datos_reportar_horas ($id_prestador,$n_horas,$fecha,$ob
                         return "-1";
                     }
             }
+            //-----------------------------------------------------------------------------------
+             public function datos_participa($ci,$id,$asesor){
+        $sql="SELECT fecha_ini_proyecto, lunes, martes, miercoles, jueves, viernes, sabado, domingo
+                                        FROM participa 
+                                        WHERE id_proyecto=$id AND ci_prestador=$ci AND ci_asesor=$asesor";
+        $query = $this->db->query($sql);
+        if($query->num_rows()>0){
+
+            return $query->result_array();
+        }else{
+
+            return "-1";
+        }
+    }
+    //-----------------------------------------------buscar nombre de asesor
+    public function asesorcito($ci_asesor){
+             $sql="SELECT nombre_asesor, apellido_asesor, celular_asesor, telefono_asesor
+                                        FROM asesor 
+                                        WHERE ci_asesor=$ci_asesor";
+            $query = $this->db->query($sql);
+            if($query->num_rows()>0){
+
+                return $query->result_array();
+            }else{
+
+                return "-1";
+            }   
+    }
+    //---------------------------------------------------------------
+    public function listar_id_loc($ci_asesor,$id_proyecto){
+        $sql="SELECT id_localidad
+              FROM ejecuta
+              WHERE ci_asesor=$ci_asesor AND id_proyecto=$id_proyecto";
+         $query = $this->db->query($sql);
+            if($query->num_rows()>0){
+                $prueba=$query->result_array();
+                $query1 = $prueba[0]['id_localidad'];
+                $sql2="SELECT nombre_institucion, direccion_localidad, email_representante_localidad, telefono_representante_localidad, nombre_localidad
+                        FROM localidad
+                        WHERE id_localidad=$query1";
+                $query2=$this->db->query($sql2);
+                if($query2->num_rows()>0){
+                    return $query2->result_array();
+
+                }
+            }else{
+
+                return "-1";
+            } 
+    }
 
 
 }    

@@ -1,4 +1,3 @@
-
 <style>
   .text-area{
 
@@ -214,11 +213,6 @@
         
         <ul class="list-group listado-asesor">
           <ul> 
-
-
-            <div id="add-asesor-box">      
-              <button class="btn btn-default" data-toggle="modal" data-target="#form-asesor">Inscribir Asesor</button>
-            </div>
 
           </div>
           

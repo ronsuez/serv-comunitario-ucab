@@ -4,7 +4,7 @@
 		<div class="col-sm-12">
 			<div class="panel panel-default">  <!-- panel total inicio-->
 				<div class="panel-heading">
-					<h3 class="panel-title">Consulta de localidades</h3>
+					<h3 class="panel-title">Consulta de Localidades</h3>
 				</div>
 				<div class="panel-body">
 					
@@ -27,21 +27,21 @@
 
 												<div class="form-group">
 								                  <label for="">Nombre de la Organización </label>
-								                  <input id="nombre_localidad1" name="nombre_localidad" type="text" class="form-control" ></input>
+								                  <input id="nombre_localidad1" name="nombre_localidad" type="text" class="form-control" placeholder='Ingrese nombre de la Organización'></input>
 								                </div>
 								                 <div class="form-group">
 								                  <label for="">Responsable </label>
-								                  <input id="representante_localidad1" name="representante_localidad" type="text" class="form-control" ></input>
+								                  <input id="representante_localidad1" name="representante_localidad" type="text" class="form-control" placeholder='Ingrese el Responsable de la Organización'></input>
 								                </div>
 
 								                <div class="form-group">
 								                  <label for="">Correo Electrónico </label>
-								                  <input id="email_representante_localidad1" name="email_representante_localidad" type="email" class="form-control"></input>
+								                  <input id="email_representante_localidad1" name="email_representante_localidad" type="email" class="form-control" placeholder='Ingrese email de contacto'></input>
 								                </div>
 
 									            <div class="form-group">
-									              <label for="">Telefono </label>
-									              <input  id="telefono_representante_localidad1" name="telefono_representante_localidad" type="text" class="form-control" ></input>
+									              <label for="">Teléfono </label>
+									              <input  id="telefono_representante_localidad1" name="telefono_representante_localidad" type="text" class="form-control" placeholder='Ingrese número telefónico de contacto' ></input>
 									            </div>
 
 											</div>
@@ -52,7 +52,7 @@
 										<div class="panel-heading">
 											<h4 class="panel-title">
 												<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-													Datos Ubicacion
+													Datos de Ubicación
 												</a>
 											</h4>
 										</div>
@@ -69,12 +69,12 @@
 								               </div>
 								                <div class="form-group">
 								                      <label for="parroquia">Parroquia </label>
-								                      <input class="form-control" name="parroquia_localidad" id="parroquia_localidad1" ></input>
+								                      <input class="form-control" name="parroquia_localidad" id="parroquia_localidad1" placeholder='Ingrese parroquia en la que se ubica la Organización'></input>
 								                 </div>
 											   
 											   <div class="form-group">
 								                      <label for="direccion">Dirección </label>
-								                      <input class="form-control" name="direccion_localidad" id="direccion_localidad1" ></input>
+								                      <input class="form-control" name="direccion_localidad" id="direccion_localidad1" placeholder='Ingrese la dirección de la Organización'></input>
 								                 </div>
 
 

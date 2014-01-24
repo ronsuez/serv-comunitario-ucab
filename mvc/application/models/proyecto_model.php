@@ -36,22 +36,7 @@ public function get_id(){
         
 
 
-            $query = $this->db->query("SELECT   id_proyecto ,
-                                                fecha_ini  , 
-                                                 nombre_proyecto ,
-                                                 ci_coord  ,  
-                                                 ci_asesor  , 
-                                                 diagnostico_proyecto ,   
-                                                 justificacion_proyecto , 
-                                                 impacto_proyecto    ,
-                                                 obj_generales_proyecto , 
-                                                 obj_especificos_proyecto ,   
-                                                 metas_proyecto  ,
-                                                 producto_proyecto,   
-                                                 plan_trabajo_proyecto,   
-                                                 recursos_requeridos_proyecto ,   
-                                                 cronograma_proyecto, estado_proyecto
-
+            $query = $this->db->query("SELECT  *
                                      FROM proyecto WHERE id_proyecto='$id_proyecto' " );
 
                 if ($query->num_rows() > 0)
@@ -95,7 +80,7 @@ public function get_id(){
                               
         $this->db->where('id_proyecto',$id);
         
-        var_dump($info);
+       // var_dump($info);
 
             $nombre_proyecto = $info[0]["value"];
             $suscribe = $info[1]["value"];
@@ -139,7 +124,7 @@ public function get_id(){
     }
 
 
-public function registrar_proyecto($info,$ci_coord = false , $ci_asesor = false){
+public function registrar_proyecto($info,$ci_asesor = false, $ci_coord = false ){
 
                 
             $nombre_proyecto = $info[0]["value"];
@@ -214,7 +199,42 @@ public function registrar_proyecto($info,$ci_coord = false , $ci_asesor = false)
         public function insertar_asesor($nombre,$apellido,$email,$cedula,$celular,$telefono,$direccion){
           $query = $this->db->query("INSERT INTO asesor(ci_asesor,nombre_asesor,apellido_asesor,email_asesor,celular_asesor,telefono_asesor,direccion_asesor)
                                      VALUES ('$cedula','$nombre','$apellido','$email','$celular','$telefono','$direccion')");
-          return $query;
+          
+        if($query){
+            return "0";
+        }
+        else{
+            return "-1";
+        }
+    }
+
+
+        public function listar_a_x_pro($id_asesor){
+
+
+        $sql = "SELECT  asesor.ci_asesor,nombre_asesor,apellido_asesor 
+
+        FROM asesor,proyecto 
+        WHERE proyecto.ci_asesor = ? AND
+              asesor.ci_asesor = proyecto.ci_asesor";
+
+
+
+        $query=$this->db->query($sql,$id_asesor);
+
+
+        if ($query->num_rows() > 0)
+        {
+
+            return $query->result_array();
+            
+        }else{
+
+            $salida =  "-1";    
+
+            return $salida;
+        }
+
         }
 
     

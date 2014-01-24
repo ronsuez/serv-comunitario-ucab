@@ -1,7 +1,7 @@
 <!--modal-inscribir asesor-->
 
 <div class="panel panel-default" id="asesores">
-    <div class="panel-heading">Asesores</div>
+    <div class="panel-heading">Inscrpción Asesor</div>
     <div class="panel-body">
 
         <form  id="inscribir-asesor" action="#" method="POST"> 
@@ -146,14 +146,23 @@
         celular_ase:celular,
     },
     function(data){
-      console.log(data);
-  });
 
-    resetForm($("#inscribir-asesor"));
+        console.log(data);
+        
+        if(data=="0"){
 
-} else {  
-    console.log('NO VALIDO');
-}
+            toastr.success(mensajes.success.asesor_inscrito);
+
+            resetForm($("#inscribir-asesor"));
+
+        } else{
+
+            toastr.error(mensajes.error.asesor_no_inscrito);
+
+        }
+    });
+
+    }
 });
 
  </script>

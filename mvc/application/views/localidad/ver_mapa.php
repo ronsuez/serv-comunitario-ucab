@@ -234,23 +234,23 @@ function set_localidad_info(lat,lng,id_localidad,nombre){
           
           </br></br>
           <div id="panel">
-            <input  type="submit" class="btn btn-success" onclick="clearMarkers();"  value="Ocultar Organizaciones">
-            <input  id="poblarmapa" type="button" class="btn btn-success" value="Mostar Organizaciones">
+            <input  type="submit" class="btn btn-info" onclick="clearMarkers();"  value="Ocultar Organizaciones">
+            <input  id="poblarmapa" type="button" class="btn btn-info" value="Mostar Organizaciones">
        
                  <!-- Single button -->
           <div class="btn-group">
            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-             Filtrar por escuela <span class="caret"></span>
+             Filtrar por Escuela <span class="caret"></span>
            </button>
            <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Administracion</a></li>
-            <li><a href="#">Comunicacion Social</a></li>
-             <li><a href="#">Contaduria</a></li>
+            <li><a href="#">Administración</a></li>
+            <li><a href="#">Comunicación Social</a></li>
+             <li><a href="#">Contaduría</a></li>
              <li><a href="#">Derecho</a></li>
-             <li><a href="#">Educacion</a></li>
-              <li><a href="#">Ingenieria Civil</a></li>
-               <li><a href="#">Ingenieria Industrial</a></li>
-             <li><a href="#">Ingenieria Informatica</a></li>
+             <li><a href="#">Educación</a></li>
+              <li><a href="#">Ingeniería Civil</a></li>
+               <li><a href="#">Ingeniería Industrial</a></li>
+             <li><a href="#">Ingeniería Informática</a></li>
            <li><a href="#">Relaciones Industriales</a></li>
            </ul>
           </div>

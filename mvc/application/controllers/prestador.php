@@ -29,6 +29,9 @@ class Prestador extends CI_Controller {
 		$this->controller="prestador/";
 
 		$this->load->model("prestador_model");
+
+
+		$this->load->model("proyecto_model");
 		
 		$this->load->model("files_model");
 
@@ -384,6 +387,83 @@ public function preparar_datos_reporte($datos_prestador = false ,$datos_proyecto
 			echo "0";
 		}
 	}
+	
+	//-------------------------------------------------------------------------------------------
+	    public function generar_constancia_inscripcion_proyecto($ci = false ,$id = false , $estado = false){
+
+
+            $tipo = "constancia_de_inscripcion_proyecto";
+
+
+                if($this->input->post('id')){ 
+
+                    $id = $this->input->post('id');
+                }
+
+                if($this->input->post('ci')){
+
+                    $ci = $this->input->post('ci');
+                }
+
+  
+
+             $datos_prestador=$this->prestador_model->listar_datos_prestador($ci);
+             $datos_proyecto=$this->proyecto_model->listar_proyectos($id);
+             $cedula_ase=$datos_proyecto[0]['ci_asesor'];
+             $array=$this->prestador_model->asesorcito($cedula_ase);
+             $array2=$this->prestador_model->listar_id_loc($datos_proyecto[0]['ci_asesor'],$datos_proyecto[0]['id_proyecto']);
+             $array3=$this->prestador_model->datos_participa($ci,$id,$datos_proyecto[0]['ci_asesor']);
+             $horas=$this->prestador_model->suma_horas($ci,$id);             //var_dump($array2);
+             //var_dump($array3);
+             //var_dump($horas);
+             $this->datos_reporte_proyecto($datos_prestador,$datos_proyecto,$array,$array2,$array3,$horas,$tipo);
+                
+
+    }
+
+    public function datos_reporte_proyecto($datos_prestador = false ,$datos_proyecto = false , $asesor = false, $localidad = false, $participa = false, $horas=false, $tipo ){
+                $array = array("datos"=>$datos_prestador['datos_prestador'],"datos_proyecto"=>$datos_proyecto,"datos_localidad"=>$localidad,"datos_asesor"=>$asesor,"datos_participa"=>$participa,"suma_horas"=>$horas);
+                     echo $this->load->view($this->controller.$tipo,$array,TRUE);
+
+    }
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ public function generar_notificacion_asignacion($ci = false ,$id = false , $estado = false){
+
+
+            $tipo = "carta_notificacion_asignacion";
+
+
+                if($this->input->post('id')){ 
+
+                    $id = $this->input->post('id');
+                }
+
+                if($this->input->post('ci')){
+
+                    $ci = $this->input->post('ci');
+                }
+
+  
+
+             $datos_prestador=$this->prestador_model->listar_datos_prestador($ci);
+             $datos_proyecto=$this->proyecto_model->listar_proyectos($id);
+             $cedula_ase=$datos_proyecto[0]['ci_asesor'];
+             $array=$this->prestador_model->asesorcito($cedula_ase);
+             $array2=$this->prestador_model->listar_id_loc($datos_proyecto[0]['ci_asesor'],$datos_proyecto[0]['id_proyecto']);
+             $array3=$this->prestador_model->datos_participa($ci,$id,$datos_proyecto[0]['ci_asesor']);
+             //$horas=$this->prestador_model->suma_horas($ci);             //var_dump($array2);
+             //var_dump($array);
+             //var_dump(horas);
+             $this->datos_notificacion_proyecto($datos_prestador,$datos_proyecto,$array,$array2,$tipo);
+                
+
+    }
+
+    public function datos_notificacion_proyecto($datos_prestador = false ,$datos_proyecto = false , $asesor = false, $localidad = false, $tipo ){
+                $array = array("datos"=>$datos_prestador['datos_prestador'],"datos_proyecto"=>$datos_proyecto,"datos_localidad"=>$localidad,"datos_asesor"=>$asesor);
+                     echo $this->load->view($this->controller.$tipo,$array,TRUE);
+
+    }
 
 }
 
