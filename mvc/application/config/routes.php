@@ -72,6 +72,7 @@ $route['insertar_proyecto']="proyecto/inscribir";
 $route['actualizar_proyecto']="proyecto/actualizar";
 $route['consultar_proyecto']="proyecto/modificar";
 $route['asesor']="proyecto/asesor";
+$route['asesor_asociado'] = 'proyecto/listar_a_x_proyecto';
 $route['insertar_asesor']="proyecto/insertar_asesor";
 $route['consultar_datos_asesor']="proyecto/ver_datos_asesor";
 $route['registrar_proyecto']="proyecto/registrar";

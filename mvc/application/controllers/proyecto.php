@@ -210,6 +210,18 @@ class Proyecto extends CI_Controller {
 		}
 	}
 
+
+
+	public function listar_a_x_proyecto(){
+
+		$id_asesor= $this->input->post('id_asesor');
+
+		$salida = $this->proyecto_model->listar_a_x_pro($id_asesor);
+
+		echo json_encode($salida);
+
+	}
+
 }
 
 /* End of file welcome.php */
