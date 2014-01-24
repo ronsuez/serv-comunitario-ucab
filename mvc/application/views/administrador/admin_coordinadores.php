@@ -113,10 +113,6 @@ $("#ad_con_usuarios").html(l_coord_adm_con);
 
 
 
-
-
-
-
 });
 
 </script>
@@ -132,22 +128,22 @@ $("#ad_con_usuarios").html(l_coord_adm_con);
   <!-- Table -->
   <table class="table">
     <thead>
-      <th>Escuela</th>
-      <th>Usuarios</th>
-      <th>Seleccionar</th>
+      <th>  Escuela</th>
+      <th>  Usuarios</th>
+      <th>  Seleccionar</th>
     </thead>
 
     <tbody id="listado_usuarios">
       <tr>
        <td>Administracion y contaduria</td>
        <td>
-        <select id="ad_con_usuarios">
+        <select id="ad_con_usuarios" class="form-control" style="width:50%">
          <option value="">Seleccione</option>
        </select>
      </td>
      <td>
       <div class="btn-group">
-        <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
           Opciones <span class="glyphicon glyphicon-cog"></span>
         </button>
         <ul class="dropdown-menu" role="menu">
@@ -164,13 +160,13 @@ $("#ad_con_usuarios").html(l_coord_adm_con);
   <tr>
    <td>Comunicacion Social</td>
    <td>
-    <select id="com_social_usuarios">
+    <select id="com_social_usuarios" class="form-control" style="width:50%">
      <option value="">Seleccione</option>
    </select>
  </td>
  <td>
   <div class="btn-group">
-    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
       Opciones <span class="glyphicon glyphicon-cog"></span>
     </button>
     <ul class="dropdown-menu" role="menu">
@@ -188,13 +184,13 @@ $("#ad_con_usuarios").html(l_coord_adm_con);
 <tr>
  <td>Derecho</td>
  <td>
-  <select id="derecho_usuarios">
+  <select id="derecho_usuarios" class="form-control" style="width:50%">
    <option value="">Seleccione</option>
  </select>
 </td>
 <td>
   <div class="btn-group">
-    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+    <button type="button" class="btn btn-default  dropdown-toggle" data-toggle="dropdown">
       Opciones <span class="glyphicon glyphicon-cog"></span>
     </button>
     <ul class="dropdown-menu" role="menu">
@@ -211,13 +207,13 @@ $("#ad_con_usuarios").html(l_coord_adm_con);
 <tr>
  <td>Educacion</td>
  <td>
-  <select id="educacion_usuarios">
+  <select id="educacion_usuarios" class="form-control" style="width:50%">
    <option value="">Seleccione</option>
  </select>
 </td>
 <td>
   <div class="btn-group">
-    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+    <button type="button" class="btn btn-default  dropdown-toggle" data-toggle="dropdown">
       Opciones <span class="glyphicon glyphicon-cog"></span>
     </button>
     <ul class="dropdown-menu" role="menu">
@@ -234,13 +230,13 @@ $("#ad_con_usuarios").html(l_coord_adm_con);
 <tr>
  <td>Ingenieria Civil</td>
  <td>
-  <select id="ing_civil_usuarios">
+  <select id="ing_civil_usuarios" class="form-control" style="width:50%">
    <option value="">Seleccione</option>
  </select>
 </td>
 <td>
   <div class="btn-group">
-    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+    <button type="button" class="btn btn-default  dropdown-toggle" data-toggle="dropdown">
       Opciones <span class="glyphicon glyphicon-cog"></span>
     </button>
     <ul class="dropdown-menu" role="menu">
@@ -257,13 +253,13 @@ $("#ad_con_usuarios").html(l_coord_adm_con);
 <tr>
  <td>Ingenieria Industrial</td>
  <td>
-  <select id="ing_industrial_usuarios">
+  <select id="ing_industrial_usuarios" class="form-control" style="width:50%">
    <option value="">Seleccione</option>
  </select>
 </td>
 <td>
   <div class="btn-group">
-    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+    <button type="button" class="btn btn-default  dropdown-toggle" data-toggle="dropdown">
       Opciones <span class="glyphicon glyphicon-cog"></span>
     </button>
     <ul class="dropdown-menu" role="menu">
@@ -280,13 +276,13 @@ $("#ad_con_usuarios").html(l_coord_adm_con);
 <tr>
  <td>Ingenieria Informatica</td>
  <td>
-  <select id="ing_info_usuarios">
+  <select id="ing_info_usuarios" class="form-control" style="width:50%">
    <option value="">Seleccione</option>
  </select>
 </td>
 <td>
   <div class="btn-group">
-    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+    <button type="button" class="btn btn-default  dropdown-toggle" data-toggle="dropdown">
       Opciones <span class="glyphicon glyphicon-cog"></span>
     </button>
     <ul class="dropdown-menu" role="menu">
@@ -303,13 +299,13 @@ $("#ad_con_usuarios").html(l_coord_adm_con);
 <tr>
  <td>Relaciones industrial</td>
  <td>
-  <select id="rr_ii_usuarios">
+  <select id="rr_ii_usuarios" class="form-control" style="width:50%">
     <option value="">Seleccione</option>
   </select>
 </td>
 <td>
   <div class="btn-group">
-    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+    <button type="button" class="btn btn-default  dropdown-toggle" data-toggle="dropdown">
       Opciones <span class="glyphicon glyphicon-cog"></span>
     </button>
     <ul class="dropdown-menu" role="menu">
@@ -327,13 +323,13 @@ $("#ad_con_usuarios").html(l_coord_adm_con);
 <tr>
   <td>Proyeccion a la comunidad</td>
   <td>
-    <select id="pro_comunidad">
+    <select id="pro_comunidad" class="form-control" style="width:50%">
       <option value="">Seleccione</option>
     </select>
   </td>
   <td>
     <div class="btn-group">
-      <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+      <button type="button" class="btn btn-default  dropdown-toggle" data-toggle="dropdown">
         Opciones <span class="glyphicon glyphicon-cog"></span>
       </button>
       <ul class="dropdown-menu" role="menu">
@@ -352,3 +348,11 @@ $("#ad_con_usuarios").html(l_coord_adm_con);
 </table>
 
 </div>
+
+<style type="text/css">
+
+td {
+  text-align: middle;
+}
+
+</style>
