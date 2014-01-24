@@ -322,7 +322,6 @@ if (act_datos_proyecto != 0) {
 
       e.preventDefault();
 
-
       if ($(this).valid()){
 
         var dinamic_text = "[";
@@ -348,18 +347,17 @@ if (act_datos_proyecto != 0) {
 
         var coordinador = main_datos.usuario.cedula;
 
-
+        var id_proyecto = main_datos.proyecto.id_proyecto;
 
 
           //handler para enviar los datos del proyecto y registrarlo
 
-          $.post(ruta,{estado:1,texto:dinamic_text,datos:titulo,ci_asesor:asesor,ci_coord:coordinador},function (data){
+        $.post(ruta,{id:id_proyecto,estado:1,texto:dinamic_text,datos:titulo,ci_asesor:asesor,ci_coord:coordinador},function (data){
            
 
-            $("#inscribir_proyecto").html(data);
-
-            
-          });
+              $("#inscribir_proyecto").html(data);
+              
+       });
 
         }else{
 

@@ -15,9 +15,9 @@
 
    			if($this->session->userdata("panel_admin")=="1"){
 
-   			 	$menu='<li class=""><a id="pestana-usuarios" href="gest-usuarios">Usuarios</a>';
-   			 	// $menu.='<li class=""><a id="pestana-historial" href="ver-historial">Historial</a></li>';
-   			 	// $menu.='<li class=""><a id="pestana-config" href="config">Configuracion</a></li>';
+   			 	$menu='<li class="active"><a id="pestana-usuarios" href="gest-usuarios">Usuarios</a>';
+   			 	$menu.='<li class=""><a id="pestana-historial" href="ver-historial">Historial</a></li>';
+   			 	$menu.='<li class=""><a id="pestana-config" href="config">Configuracion</a></li>';
    			 	$escuela = " ";
    			 
    			 }else{
@@ -169,9 +169,22 @@ body {
 	text-align: center;
 }
 
-.carousel img {
+/**.carousel img {
 	display:block;
 	margin:auto;
+}**/
+
+.carousel img {
+	min-height: 500px;
+	
+
+}
+.carousel-inner{
+	max-height: 600px;
+
+
+	
+
 }
 
 </style>
@@ -256,30 +269,36 @@ body {
 
 			<div class="panel panel-success">
 				<div class="panel-heading">
-					<h3 id="main-title" class="panel-title"><span id="tab-title">Administración</span> <span class="pull-right escuela"><?php echo $escuela; ?></span></h3>
+					<h3 id="main-title" class="panel-title"><span id="tab-title">Administracion</span> <span class="pull-right escuela"><?php echo $escuela; ?></span></h3>
 				</div>
 
 				<div id="main-panel-body" class="panel-body">
-					<h1>Bienvenido al Sistema de Gestión de Servicio Comunitario</h1>
+					<h1>Bienvenido al Sistema de Gestion de Servicio Comunitario</h1>
 					
 				<!--  Carousel - consult the Twitter Bootstrap docs at
 				http://twitter.github.com/bootstrap/javascript.html#carousel -->
 				<div id="this-carousel-id" class="carousel slide"><!-- class of slide for animation -->
 					<div class="carousel-inner">
 						<div class="item active"><!-- class of active since it's the first item -->
-							<img src="compubus.jpg" alt="" />
+							<img src="compubus.jpg" alt="" height="400px" width ="1200px"   />
 							<div class="carousel-caption">
 								<h2>Servicio Comunitario</h2>
 							</div>
 						</div>
 						<div class="item">
-							<img src="desempleo.jpg" alt="" />
+							<img src="photo(2).jpg" alt="" height="400px" width ="1200px"   />
+							<div class="carousel-caption">
+								<h2>CompuBus 2</h2>
+							</div>
+						</div>
+						<div class="item">
+							<img src="photo(3).jpg" alt=""height="400px" width ="1200px"  />
 							<div class="carousel-caption">
 								<h2>Servicio Comunitario</h2>
 							</div>
 						</div>
 						<div class="item">
-							<img src="campus.jpg" alt="" />
+							<img src="photo(4).jpg" alt=""height="400px" width ="1200px"  />
 							<div class="carousel-caption">
 								<h2>Servicio Comunitario</h2>
 							</div>
