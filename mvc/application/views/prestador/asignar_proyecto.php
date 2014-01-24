@@ -183,6 +183,8 @@ $("#asociar_proyecto").on("click",function(){
 		console.log(data);
 		console.log("datos asociar");
 	});
+	$("#iniciar_prestacion").prop('disabled', false);
+	$("#notificacion_asignacion").prop('disabled', false);
 });
 //----------------------------------------------
 $("#iniciar_prestacion").on('click',function () {
