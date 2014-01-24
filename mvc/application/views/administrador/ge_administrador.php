@@ -43,7 +43,7 @@ $(document).ready(function() {
 <div class="header">
   <h1>Gestión de Usuarios</h1>
   <ul class="pestanas nav nav-tabs" id="tab_usuarios">
-    <li class=""><a href="#registrar_usuario" data-url="registrar_usuario" >Registrar</a></li>
+    <li class=""><a href="#registrar_usuario" data-url="registrar_usuario">Registrar</a></li>
     <li class=""><a href="#modificar_usuario" data-url="admin_coo">Modificar/Deshabilitar</a></li>
   </ul>
 </div>

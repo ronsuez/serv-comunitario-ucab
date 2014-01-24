@@ -169,9 +169,22 @@ body {
 	text-align: center;
 }
 
-.carousel img {
+/**.carousel img {
 	display:block;
 	margin:auto;
+}**/
+
+.carousel img {
+	min-height: 500px;
+	
+
+}
+.carousel-inner{
+	max-height: 600px;
+
+
+	
+
 }
 
 </style>
@@ -267,19 +280,25 @@ body {
 				<div id="this-carousel-id" class="carousel slide"><!-- class of slide for animation -->
 					<div class="carousel-inner">
 						<div class="item active"><!-- class of active since it's the first item -->
-							<img src="compubus.jpg" alt="" />
+							<img src="compubus.jpg" alt="" height="400px" width ="1200px"   />
 							<div class="carousel-caption">
 								<h2>Servicio Comunitario</h2>
 							</div>
 						</div>
 						<div class="item">
-							<img src="desempleo.jpg" alt="" />
+							<img src="photo(2).jpg" alt="" height="400px" width ="1200px"   />
+							<div class="carousel-caption">
+								<h2>CompuBus 2</h2>
+							</div>
+						</div>
+						<div class="item">
+							<img src="photo(3).jpg" alt=""height="400px" width ="1200px"  />
 							<div class="carousel-caption">
 								<h2>Servicio Comunitario</h2>
 							</div>
 						</div>
 						<div class="item">
-							<img src="campus.jpg" alt="" />
+							<img src="photo(4).jpg" alt=""height="400px" width ="1200px"  />
 							<div class="carousel-caption">
 								<h2>Servicio Comunitario</h2>
 							</div>

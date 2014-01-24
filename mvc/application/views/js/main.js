@@ -295,7 +295,7 @@ $(document).on("click",".nav-top li a",function (e) {
   $.ajax({
            beforeSend: function(){
                // Handle the beforeSend event
-               $('#main-panel-body').html('<div id="loading"><img src="./jar-loading.gif"></div>');
+               $('#main-panel-body').html('<div id="loading"><img src="./servcom-ucab.gif"></div>');
                
              },
              type: "GET",
@@ -1072,7 +1072,7 @@ function b_consultar_prestador(query,option,escuela){
 
       console.log("hola");
 
-      $("#datos_busqueda").html('<div class="no-results">No se encontraron resultados <br><button id="btn-inscribir_prestador" type="button"  class="btn btn-primary">Inscribir prestador</button></div>');
+      $("#datos_busqueda").html('<div class="no-results">No se encontraron resultados <br><button id="btn-inscribir_prestador" type="button"  class="btn btn-success">Inscribir Prestador</button></div>');
       
 
     }   
@@ -1203,7 +1203,7 @@ function nav_pestanas_principal(id_pestana,url,texto,tab){
           $.ajax({
            beforeSend: function(){
                // Handle the beforeSend event
-               $('#main-panel-body').html('<div id="loading"><img src="./jar-loading.gif"></div>');
+               $('#main-panel-body').html('<div id="loading"><img src="./servcom-ucab.gif"></div>');
                
              },
              type: "GET",

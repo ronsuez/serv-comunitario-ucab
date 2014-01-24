@@ -22,7 +22,7 @@ form label.error {
 		
 			<div class="form-group">
 				<label for="cedula">C&eacute;dula</label>
-				<input type="text" name="cedula" id="ci" class="form-control" placeholder="Introduzca la cedula del nuevo usuario" autofocus>
+				<input type="text" name="cedula" id="ci" class="form-control" placeholder="Introduzca la cédula del nuevo usuario" autofocus>
 			</div>
 
 			<div class="form-group">
@@ -47,17 +47,17 @@ form label.error {
 
 			<div class="form-group">
 				<label for="email">Email</label>
-				<input type="text" name="email" id="email" class="form-control" placeholder="Correo electronico">
+				<input type="text" name="email" id="email" class="form-control" placeholder="Correo electrónico">
 			</div>
 			
 			<div class="form-group">
 				<label for="celular">Celular</label>
-				<input type="text" name="celular" id="celular" class="form-control" placeholder="Numero de celular">
+				<input type="text" name="celular" id="celular" class="form-control" placeholder="Número de celular">
 			</div>
 
 			<div class="form-group">
-				<label for="telefono">Telefono de habitaci&oacute;n</label>
-				<input type="text" name="telefono" id="telefono" class="form-control" placeholder="Telefono de habitaci&oacute;n">
+				<label for="telefono">Teléfono de habitaci&oacute;n</label>
+				<input type="text" name="telefono" id="telefono" class="form-control" placeholder="Teléfono de habitaci&oacute;n">
 			</div>
 
 			<div class="form-group">
@@ -88,12 +88,12 @@ form label.error {
 
 	  			<div class="form-group">
 					<label for="user">Usuario</label>
-					<input type="text" name="user" id="user" class="form-control" placeholder="Introduzca la contrasena que tendra el nuevo usuario">
+					<input type="text" name="user" id="user" class="form-control" placeholder="Introduzca nombre de usuario">
 				</div>
 
 	    		<div class="form-group">
 					<label for="pass">Contrase&ntilde;a</label>
-					<input type="password" name="pass" id="pass" class="form-control" placeholder="Introduzca la contrasena que tendra el nuevo usuario">
+					<input type="password" name="pass" id="pass" class="form-control" placeholder="Introduzca clave de acceso al sistema">
 				</div>
 
 				<div class="form-group">
@@ -106,7 +106,7 @@ form label.error {
 
 			<br>
 
-	<button id="boton_usuario" class="btn btn-primary" type="submit">Registrar</button>
+	<button id="boton_usuario" class="btn btn-success" type="submit">Registrar</button>
 		</form>
 		
 </div><!--fin panel registrar/modificar -->

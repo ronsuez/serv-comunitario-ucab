@@ -10,7 +10,7 @@
   <div class="panel panel-default">
 
             <div class="panel-heading">
-              <h3 class="panel-title">Buscar prestador</h3>
+              <h3 class="panel-title">Buscar Prestador</h3>
             </div>
             <div class="panel-body">
               
@@ -29,15 +29,15 @@
                       <button type="button" class="filtro-escuela btn btn-default" disabled>Todas las escuelas</button>
                       <button type="button" class="sel-escuela btn btn-default dropdown-toggle" data-toggle="dropdown">
                         <span class="caret"></span>
-                        <span class="sr-only">Seleccionar escuela</span>
+                        <span class="sr-only">Seleccionar Escuela</span>
                       </button>
                       <ul class="menu-escuelas dropdown-menu" role="menu">
-                        <li><a class="Ingenieria Informatica" href="#">Informatica</a></li>
+                        <li><a class="Ingenieria Informatica" href="#">Informática</a></li>
                         <li><a class="Ingenieria Civil" href="#">Civil</a></li>
                         <li><a class="Ingenieria Industrial"  href="#">Industrial</a></li>
-                        <li><a class="Comunicacion Social" href="#">Comunicacion Social</a></li>
-                        <li><a class="Educacion" href="#">Educacion</a></li>
-                        <li><a href="#">Relaciones industriales</a></li>
+                        <li><a class="Comunicacion Social" href="#">Comunicación Social</a></li>
+                        <li><a class="Educacion" href="#">Educación</a></li>
+                        <li><a href="#">Relaciones Industriales</a></li>
                         <li><a href="#">Todas las escuelas</a></li>
                       </ul>
                </div>
@@ -73,8 +73,8 @@
               <div class="col-xs-6">
 
                                   <!-- Button trigger modal -->
-                  <button class="btn btn-primary" data-toggle="modal" data-target="#upload_photo">
-                    Subir/actualizar Foto
+                  <button class="btn btn-success" data-toggle="modal" data-target="#upload_photo">
+                    Subir/Actualizar Foto
                   </button>
 
                   <!-- Modal -->
@@ -83,7 +83,7 @@
                       <div class="modal-content">
                         <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                          <h4 class="modal-title" id="myModalLabel">Subir foto</h4>
+                          <h4 class="modal-title" id="myModalLabel">Subir Foto</h4>
                         </div>
                         <div class="modal-body">
                         
@@ -100,7 +100,7 @@
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                          <button type="button" class="form-submit btn btn-primary">Subir foto</button>
+                          <button type="button" class="form-submit btn btn-success">Subir foto</button>
                         </div>
                       </div><!-- /.modal-content -->
                     </div><!-- /.modal-dialog -->
