@@ -46,29 +46,29 @@ button a:hover{
 <div class="container">
      
 
-			
-			<!--formulario de busqueda de proyectos-->
+      
+      <!--formulario de busqueda de proyectos-->
 
-		<div class="panel panel-default">
-		<div class="panel-heading">Busqueda de proyectos</div>
-		<div class="result-search panel-body">
-		
-			<div class="input-group input-group-sm">
+    <div class="panel panel-default">
+    <div class="panel-heading">Busqueda de proyectos</div>
+    <div class="result-search panel-body">
+    
+      <div class="input-group input-group-sm">
                 <input  type="text" class="q_proyecto form-control" placeholder="Introduzca el nombre del proyecto"></input>
                 <span class="input-group-btn">
                   <button id="buscar_proyecto" class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
                 </span>
               </div><!-- /input-group -->
-		
+    
 
-			<div class="results proyecto">
-				
-				<div class="search_results proyecto">
-				
+      <div class="results proyecto">
+        
+        <div class="search_results proyecto">
+        
 
-				</div>
-			</div><br>
-			<div id="consultar_proyecto">
+        </div>
+      </div><br>
+      <div id="consultar_proyecto">
 
     <ol class="breadcrumb">
 
@@ -94,13 +94,13 @@ button a:hover{
 
     </ol>
 </div>
-		</div>
-	
+    </div>
+  
       
-	
+  
 
 
-		   <center><h3 id="texto">Horario de trabajo</h3></center>
+       <center><h3 id="texto">Horario de trabajo</h3></center>
 
     <br></br>
 
@@ -134,10 +134,10 @@ button a:hover{
 
     <br>
 
-		<center><button class="btn btn-success" id="asociar_proyecto" type="submit">  Asociar proyecto a prestador</button>	</center>
-		<center><button class="btn btn-success" id="iniciar_prestacion" type="submit">  Generar Reporte</button></center>
-		<center><button class="btn btn-success" id="notificacion_asignacion" type="submit">  Generar notificacion</button></center>
-</div></div>	<!-- fin container -->
+    <center><button class="btn btn-success " id="asociar_proyecto" type="submit">  Asociar proyecto a prestador</button> </center>
+    <center><button class="btn btn-info" id="iniciar_prestacion" type="submit">  Generar Reporte</button></center>
+    <center><button class="btn btn-info" id="notificacion_asignacion" type="submit">  Generar notificacion</button></center>
+</div></div>  <!-- fin container -->
 
 
 
@@ -147,42 +147,44 @@ button a:hover{
 <script>
 $(document).ready(function(){
 $("#iniciar_prestacion").prop('disabled', true);
-	$("#notificacion_asignacion").prop('disabled', true);
+  $("#notificacion_asignacion").prop('disabled', true);
 
 
 //final de la funcion que busca prestador
 $("#asociar_proyecto").on("click",function(){
 
 
-	//var asesor=$("#cedula_asesor").val();
-	var fecha_proy=$("#f_proyecto").val();
-	var prestador=$("#ci_prestador").val();
-	var cod_proy=$("#c_proyecto").val();
-	var lunes=$("#h_lunes").val();
-	var martes=$("#h_martes").val();
-	var miercoles=$("#h_miercorles").val();
-	var jueves=$("#h_jueves").val();
-	var viernes=$("#h_viernes").val();
-	var sabado=$("#h_sabado").val();
-	var domingo=$("#h_domingo").val();
+  //var asesor=$("#cedula_asesor").val();
+  var fecha_proy=$("#f_proyecto").val();
+  var prestador=$("#ci_prestador").val();
+  var cod_proy=$("#c_proyecto").val();
+  var lunes=$("#h_lunes").val();
+  var martes=$("#h_martes").val();
+  var miercoles=$("#h_miercorles").val();
+  var jueves=$("#h_jueves").val();
+  var viernes=$("#h_viernes").val();
+  var sabado=$("#h_sabado").val();
+  var domingo=$("#h_domingo").val();
 
 
-	$.post("asociar",{
-	cedula_pres:prestador,
-	fecha_proyecto:fecha_proy,
-	codigo_proyecto:cod_proy,
-	lu:lunes,
-	ma:martes,
-	mier:miercoles,
-	jue:jueves,
-	vier:viernes,
-	sa:sabado,
-	dom:domingo,
-	},
-	function(data){
-		console.log(data);
-		console.log("datos asociar");
-	});
+  $.post("asociar",{
+  cedula_pres:prestador,
+  fecha_proyecto:fecha_proy,
+  codigo_proyecto:cod_proy,
+  lu:lunes,
+  ma:martes,
+  mier:miercoles,
+  jue:jueves,
+  vier:viernes,
+  sa:sabado,
+  dom:domingo,
+  },
+  function(data){
+    console.log(data);
+    console.log("datos asociar");
+  });
+  $("#iniciar_prestacion").prop('disabled', false);
+  $("#notificacion_asignacion").prop('disabled', false);
 });
 //----------------------------------------------
 $("#iniciar_prestacion").on('click',function () {
@@ -191,7 +193,7 @@ $("#iniciar_prestacion").on('click',function () {
 
 
     console.log('cedula prestador',ci);
-	console.log('codigo_proyecto',id);
+  console.log('codigo_proyecto',id);
 
       generar_reporte("generar_carta_inicio_prestacion",0,ci,id);
 
@@ -204,7 +206,7 @@ $("#notificacion_asignacion").on('click',function () {
 
 
     console.log('cedula prestador',ci);
-	console.log('codigo_proyecto',id);
+  console.log('codigo_proyecto',id);
 
       generar_reporte("generar_carta_notificacion_asignacion",0,ci,id);
 
