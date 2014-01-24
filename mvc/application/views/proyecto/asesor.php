@@ -1,7 +1,7 @@
 <!--modal-inscribir asesor-->
 
 <div class="panel panel-default" id="asesores">
-    <div class="panel-heading">Asesores</div>
+    <div class="panel-heading">Inscrpción Asesor</div>
     <div class="panel-body">
 
         <form  id="inscribir-asesor" action="#" method="POST"> 
@@ -153,7 +153,7 @@
 
             toastr.success(mensajes.success.asesor_inscrito);
 
-                //resetForm($("#inscribir-asesor"));
+            resetForm($("#inscribir-asesor"));
 
         } else{
 
