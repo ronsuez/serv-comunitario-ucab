@@ -1,4 +1,3 @@
-
 <style>
   .text-area{
 
@@ -217,7 +216,7 @@
 
 
             <div id="add-asesor-box">      
-              <button class="btn btn-default" data-toggle="modal" data-target="#form-asesor">Inscribir Asesor</button>
+              <button class="btn btn-success" data-toggle="modal" data-target="#form-asesor">Inscribir Asesor</button>
             </div>
 
           </div>

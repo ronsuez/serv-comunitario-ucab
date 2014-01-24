@@ -40,6 +40,7 @@
 
 $route['default_controller'] = "welcome";
 $route['404_override'] = '';
+$route['welcome_message'] = "welcome/welcome_message";
 
 /*gestion de usuarios*/
 $route['login'] = 'usuario/login_attempt';
