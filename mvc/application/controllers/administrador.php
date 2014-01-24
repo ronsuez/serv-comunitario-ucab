@@ -182,14 +182,14 @@ class Administrador extends CI_Controller {
 		$salida = $this->administrador_model->registrar_datos_usuario($datos, $tipo);
 
 		if(!$salida){
+			echo "0";
+			// if($this->send_mail($email,"Bienvenido a Servcom",$cuerpo)){
 
-			if($this->send_mail($email,"Bienvenido a Servcom",$cuerpo)){
-
-				echo "0";
-			}else
-			{
-				echo "-1";
-			}
+			// 	echo "0";
+			// }else
+			// {
+			// 	echo "-1";
+			// }
 		}else
 			{
 				echo "-1";
