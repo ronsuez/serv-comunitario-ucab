@@ -20,14 +20,14 @@
 
             <div class="form-group">
 
-                <label>Cedula</label>
-                <input type="text" id="cedula_asesor" name="cedula_asesor" class="form-control" placeholder="Introduzca Cedula del Asesor">
+                <label>Cédula</label>
+                <input type="text" id="cedula_asesor" name="cedula_asesor" class="form-control" placeholder="Introduzca Cédula del Asesor">
             </div>
 
             <div class="form-group">
 
-                <label>Direccion</label>
-                <input type="text" id="direccion_asesor" name="direccion_asesor" class="form-control" placeholder="Introduzca Direccion de habitacion del Asesor">
+                <label>Dirección</label>
+                <input type="text" id="direccion_asesor" name="direccion_asesor" class="form-control" placeholder="Introduzca Dirección de habitación del Asesor">
 
             </div>  
 
@@ -39,8 +39,8 @@
 
             <div class="form-group">
 
-                <label>Telefono</label>
-                <input type="text" id="telefono_asesor" name="telefono_asesor" class="form-control" placeholder="Introduzca Telefono del Asesor">
+                <label>Teléfono</label>
+                <input type="text" id="telefono_asesor" name="telefono_asesor" class="form-control" placeholder="Introduzca Teléfono del Asesor">
             </div>  
 
             <div class="form-group">

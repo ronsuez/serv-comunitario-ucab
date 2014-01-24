@@ -95,7 +95,7 @@ form label.error{
 
         <div class="panel-body">
           <div class="form-group">
-            <label for="">Numero de Expediente</label>
+            <label for="">Número de Expediente</label>
             <input type="text" id="no_exp_prestador" name="expediente" class="form-control" placeholder="Introduzca el numero de expediente"></input>
           </div>  
           <div class="form-group">
@@ -147,7 +147,7 @@ form label.error{
             <input type="submit" id="boton_prestador" class="btn btn-success" value="Registrar" ></input>
 
             <!-- Indicates caution should be taken with this action -->
-            <button type="reset" class="btn btn-default">Cancelar</button>
+            <button type="reset" class="btn btn-danger">Cancelar</button>
 
 
           </div>  

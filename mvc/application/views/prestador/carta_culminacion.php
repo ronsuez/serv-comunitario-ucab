@@ -17,8 +17,9 @@
     <body>
        <div id="contenedor">
            <div id="cabecera"> 
-           <h6>codigo</h6>
-           <img src=<?php echo base_url()."application/views/proyecto/images/ucab.jpg";?> alt="ucab" max-height="90" max-width="90"/>
+           <center>
+           <img src=<?php echo base_url()."application/views/proyecto/images/ucab.jpg";?> alt="ucab" height="60px" width="330" />
+           </center>
            </div>
            
        <div id="contenido">

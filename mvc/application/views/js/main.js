@@ -1081,7 +1081,7 @@ function b_consultar_prestador(query,option,escuela){
 
       console.log("hola");
 
-      $("#datos_busqueda").html('<div class="no-results">No se encontraron resultados <br><button id="btn-inscribir_prestador" type="button"  class="btn btn-primary">Inscribir prestador</button></div>');
+      $("#datos_busqueda").html('<div class="no-results">No se encontraron resultados <br><button id="btn-inscribir_prestador" type="button"  class="btn btn-success">Inscribir Prestador</button></div>');
       
 
     }   

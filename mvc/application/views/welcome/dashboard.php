@@ -256,11 +256,11 @@ body {
 
 			<div class="panel panel-success">
 				<div class="panel-heading">
-					<h3 id="main-title" class="panel-title"><span id="tab-title">Administracion</span> <span class="pull-right escuela"><?php echo $escuela; ?></span></h3>
+					<h3 id="main-title" class="panel-title"><span id="tab-title">Administración</span> <span class="pull-right escuela"><?php echo $escuela; ?></span></h3>
 				</div>
 
 				<div id="main-panel-body" class="panel-body">
-					<h1>Bienvenido al Sistema de Gestion de Servicio Comunitario</h1>
+					<h1>Bienvenido al Sistema de Gestión de Servicio Comunitario</h1>
 					
 				<!--  Carousel - consult the Twitter Bootstrap docs at
 				http://twitter.github.com/bootstrap/javascript.html#carousel -->
