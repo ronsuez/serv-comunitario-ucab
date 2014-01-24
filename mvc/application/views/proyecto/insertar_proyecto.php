@@ -214,11 +214,6 @@
         <ul class="list-group listado-asesor">
           <ul> 
 
-
-            <div id="add-asesor-box">      
-              <button class="btn btn-success" data-toggle="modal" data-target="#form-asesor">Inscribir Asesor</button>
-            </div>
-
           </div>
           
         </div>
