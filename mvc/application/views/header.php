@@ -37,11 +37,7 @@
   	
       <!-- libreria de bootstrap.js -->
     <script src=<?php echo  base_url()."application/views/bootstrap/js/bootstrap.js"; ?> type="text/javascript"></script>
-     
-        <!-- Libreria de servcom-core.js -->
-    <script src=<?php echo  base_url()."application/views/js/main.js"; ?> type="text/javascript"></script>
-    
-
+ 
 <!-- Libreria para el uso de la API de google maps -->
 <!--  <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAplQ1u5cTjjFvQ7WKBajuP1LmnK-6pDkI&sensor=false">
                           </script> -->
@@ -75,6 +71,10 @@
 <link href="<?php echo base_url() ; ?>application/views/css/datepicker.css" rel="stylesheet">
 <script src=<?php echo  base_url()."application/views/js/bootstrap-datepicker.js" ; ?> type="text/javascript"></script>
 
+    
+        <!-- Libreria de servcom-core.js -->
+    <script src=<?php echo  base_url()."application/views/js/main.js"; ?> type="text/javascript"></script>
+    
 
   </head>
 

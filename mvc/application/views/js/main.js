@@ -77,6 +77,12 @@ warning:{
 
 };
 
+
+jQuery.validator.addMethod("alpha", function(value, element) {
+  return this.optional(element) || value == value.match(/^[a-zA-Z ]+$/);
+},"Solo caracteres (Aa-Zz).");
+
+
 var datos_de_prestador=[
 'ci_prestador',
 'nombre_prestador',
