@@ -355,7 +355,7 @@ public function preparar_datos_reporte($datos_prestador = false ,$datos_proyecto
 
 				if($this->input->post('id_proyecto')){ 
 
-					$id = $this->input->post('id');
+					$id = $this->input->post('id_proyecto');
 				}
 
 				if($this->input->post('ci')){
