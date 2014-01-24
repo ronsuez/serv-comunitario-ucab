@@ -31,6 +31,11 @@ class Welcome extends CI_Controller {
 		}
 
 
+	public function welcome_message() {
+		$this->load->view($this->controller.'welcome_message');
+	}
+
+
 	public function index()
 	{
 	
@@ -39,6 +44,7 @@ class Welcome extends CI_Controller {
 
 		$this->load->view($this->controller.'login',$page_struct);
 	}
+
 
 	public function registro(){
 
