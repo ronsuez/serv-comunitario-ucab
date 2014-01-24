@@ -137,7 +137,9 @@ $("#ad_con_usuarios").html(l_coord_adm_con);
       <tr>
        <td>Administración y Contaduría</td>
        <td>
+
         <select id="ad_con_usuarios" class="form-control" style="width:50%">
+
          <option value="">Seleccione</option>
        </select>
      </td>
@@ -161,6 +163,7 @@ $("#ad_con_usuarios").html(l_coord_adm_con);
    <td>Comunicación Social</td>
    <td>
     <select id="com_social_usuarios" class="form-control" style="width:50%">
+
      <option value="">Seleccione</option>
    </select>
  </td>
@@ -230,6 +233,7 @@ $("#ad_con_usuarios").html(l_coord_adm_con);
 <tr>
  <td>Ingeniería Civil</td>
  <td>
+
   <select id="ing_civil_usuarios" class="form-control" style="width:50%">
    <option value="">Seleccione</option>
  </select>
@@ -253,6 +257,8 @@ $("#ad_con_usuarios").html(l_coord_adm_con);
 <tr>
  <td>Ingeniería Industrial</td>
  <td>
+
+
   <select id="ing_industrial_usuarios" class="form-control" style="width:50%">
    <option value="">Seleccione</option>
  </select>
@@ -276,7 +282,9 @@ $("#ad_con_usuarios").html(l_coord_adm_con);
 <tr>
  <td>Ingeniería Informática</td>
  <td>
+
   <select id="ing_info_usuarios" class="form-control" style="width:50%">
+
    <option value="">Seleccione</option>
  </select>
 </td>
@@ -300,6 +308,7 @@ $("#ad_con_usuarios").html(l_coord_adm_con);
  <td>Relaciones Industriales</td>
  <td>
   <select id="rr_ii_usuarios" class="form-control" style="width:50%">
+
     <option value="">Seleccione</option>
   </select>
 </td>
@@ -323,7 +332,9 @@ $("#ad_con_usuarios").html(l_coord_adm_con);
 <tr>
   <td>Proyección a la Comunidad</td>
   <td>
+
     <select id="pro_comunidad" class="form-control" style="width:50%">
+
       <option value="">Seleccione</option>
     </select>
   </td>

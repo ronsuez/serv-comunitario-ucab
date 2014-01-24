@@ -31,6 +31,7 @@ var mensajes = {
 
  },
  error:{
+  asesor_no_inscrito: "El asesor no se pudo inscribir",
   campo_vacio: "No se permiten campos vacios.",
   form_nv : "Los datos del formulario no son validos",
   proyecto_nf:"No existen proyectos que coincidan con la busqueda.",
@@ -50,6 +51,7 @@ success:{
   asesor_f:"Asesor encontrado",
   asesores_f:"Asesores encontrados",
   asesor_datos_cargados:"Los datos del asesor fueron cargados correctamente",
+  asesor_inscrito:"Asesor inscrito",
   prestador_f:"Prestador encontrado.",
   prestadores_f:"Prestadores encontrados.",
   prestador_datos_cargados:"Los datos del prestador fueron cargados correctamente",
@@ -66,6 +68,7 @@ success:{
   usuario_registrado:"El usuario ha sido registrado exitosamente",
   usuario_actualizado: "El usuario ha sido actualizado existosamente",
   finalizar_proyecto: "Finalizado el Proyecto exitosamente"
+
 
 },
 warning:{
@@ -1323,8 +1326,7 @@ function resetForm($form) {
   
   $form.find('input:text, input:password, input:file, select, textarea').val('');
   $form.find("input[name='email']").val('');
-  $form.find('input:radio, input:checkbox')
-  .removeAttr('checked').removeAttr('selected');
+  $form.find('input:radio, input:checkbox').removeAttr('checked').removeAttr('selected');
 
 }
 
@@ -1801,7 +1803,7 @@ function mostrar_opciones(){
 
 $(document).ready(function(){
   $('.carousel').carousel({
-    interval: 2000
+    interval: 4000
   });
 });
 

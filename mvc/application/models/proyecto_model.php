@@ -215,8 +215,14 @@ public function registrar_proyecto($info,$ci_coord = false , $ci_asesor = false)
         public function insertar_asesor($nombre,$apellido,$email,$cedula,$celular,$telefono,$direccion){
           $query = $this->db->query("INSERT INTO asesor(ci_asesor,nombre_asesor,apellido_asesor,email_asesor,celular_asesor,telefono_asesor,direccion_asesor)
                                      VALUES ('$cedula','$nombre','$apellido','$email','$celular','$telefono','$direccion')");
-          return $query;
+          
+        if($query){
+            return "0";
         }
+        else{
+            return "-1";
+        }
+    }
 
 
         public function listar_a_x_pro($id_asesor){

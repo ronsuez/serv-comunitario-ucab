@@ -189,12 +189,8 @@ class Proyecto extends CI_Controller {
 		$direccion = $this->input->post('direccion_ase');
 		$celular = $this->input->post('celular_ase');
 		$salida = $this->proyecto_model->insertar_asesor($nombre,$apellido,$email,$cedula,$celular,$telefono,$direccion);
-		if($salida === 1){
-			echo("Asesor no insertado");
-			
-		}else{
-			echo("Asesor ingresado con exito");
-		}
+		echo $salida;
+
 	}
 
 		public function ver_datos_asesor(){
