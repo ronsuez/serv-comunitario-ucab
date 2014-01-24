@@ -1265,7 +1265,7 @@ function b_consultar_usuario(query,option){
 
       });
 
-      
+        
 
       $("#datos_busqueda").html("<ul class='list-group'>"+content+"</ul>");
 
