@@ -1,4 +1,3 @@
-</style>
 <div id="container">
 
 	<div id="body">

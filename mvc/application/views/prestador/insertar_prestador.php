@@ -171,9 +171,6 @@ $(document).ready(function(){
 
 
 //funcionalidad para la regla alfebetica
-jQuery.validator.addMethod("alpha", function(value, element) {
-  return this.optional(element) || value == value.match(/^[a-zA-Z ]+$/);
-},"Solo caracteres (Aa-Zz).");
 
 $("#form-prestador").validate({
 
