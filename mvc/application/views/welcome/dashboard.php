@@ -15,9 +15,9 @@
 
    			if($this->session->userdata("panel_admin")=="1"){
 
-   			 	$menu='<li class="active"><a id="pestana-usuarios" href="gest-usuarios">Usuarios</a>';
-   			 	$menu.='<li class=""><a id="pestana-historial" href="ver-historial">Historial</a></li>';
-   			 	$menu.='<li class=""><a id="pestana-config" href="config">Configuracion</a></li>';
+   			 	$menu='<li class=""><a id="pestana-usuarios" href="gest-usuarios">Usuarios</a>';
+   			 	// $menu.='<li class=""><a id="pestana-historial" href="ver-historial">Historial</a></li>';
+   			 	// $menu.='<li class=""><a id="pestana-config" href="config">Configuracion</a></li>';
    			 	$escuela = " ";
    			 
    			 }else{
@@ -256,11 +256,11 @@ body {
 
 			<div class="panel panel-success">
 				<div class="panel-heading">
-					<h3 id="main-title" class="panel-title"><span id="tab-title">Administracion</span> <span class="pull-right escuela"><?php echo $escuela; ?></span></h3>
+					<h3 id="main-title" class="panel-title"><span id="tab-title">Administración</span> <span class="pull-right escuela"><?php echo $escuela; ?></span></h3>
 				</div>
 
 				<div id="main-panel-body" class="panel-body">
-					<h1>Bienvenido al Sistema de Gestion de Servicio Comunitario</h1>
+					<h1>Bienvenido al Sistema de Gestión de Servicio Comunitario</h1>
 					
 				<!--  Carousel - consult the Twitter Bootstrap docs at
 				http://twitter.github.com/bootstrap/javascript.html#carousel -->

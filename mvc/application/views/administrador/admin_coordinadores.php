@@ -113,10 +113,6 @@ $("#ad_con_usuarios").html(l_coord_adm_con);
 
 
 
-
-
-
-
 });
 
 </script>
@@ -124,30 +120,34 @@ $("#ad_con_usuarios").html(l_coord_adm_con);
 
 <div class="panel panel-default">
   <!-- Default panel contents -->
-  <div class="panel-heading">administrador de coordinadores</div>
+  <div class="panel-heading">Administrador de Coordinadores</div>
   <div class="panel-body">
-    <p>la siguiente tabla muestra el listado de escuelas y los coordiandores asociados</p>
+    <p>La siguiente tabla muestra el listado de escuelas y los coordinadores asociados</p>
   </div>
 
   <!-- Table -->
   <table class="table">
     <thead>
-      <th>Escuela</th>
-      <th>Usuarios</th>
-      <th>Seleccionar</th>
+      <th>  Escuela</th>
+      <th>  Usuarios</th>
+      <th>  Seleccionar</th>
     </thead>
 
     <tbody id="listado_usuarios">
       <tr>
-       <td>Administracion y contaduria</td>
+       <td>Administración y Contaduría</td>
        <td>
-        <select id="ad_con_usuarios">
+<<<<<<< HEAD
+        <select id="ad_con_usuarios" class="form-control" style="width:50%">
+=======
+        <select id="ad_con_usuarios" class="form-control">
+>>>>>>> 851bbd44a823485e6cfee66ed73d90199d035c9a
          <option value="">Seleccione</option>
        </select>
      </td>
      <td>
       <div class="btn-group">
-        <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
           Opciones <span class="glyphicon glyphicon-cog"></span>
         </button>
         <ul class="dropdown-menu" role="menu">
@@ -162,15 +162,19 @@ $("#ad_con_usuarios").html(l_coord_adm_con);
     
   </tr>
   <tr>
-   <td>Comunicacion Social</td>
+   <td>Comunicación Social</td>
    <td>
-    <select id="com_social_usuarios">
+<<<<<<< HEAD
+    <select id="com_social_usuarios" class="form-control" style="width:50%">
+=======
+    <select id="com_social_usuarios" class="form-control">
+>>>>>>> 851bbd44a823485e6cfee66ed73d90199d035c9a
      <option value="">Seleccione</option>
    </select>
  </td>
  <td>
   <div class="btn-group">
-    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
       Opciones <span class="glyphicon glyphicon-cog"></span>
     </button>
     <ul class="dropdown-menu" role="menu">
@@ -188,13 +192,17 @@ $("#ad_con_usuarios").html(l_coord_adm_con);
 <tr>
  <td>Derecho</td>
  <td>
-  <select id="derecho_usuarios">
+<<<<<<< HEAD
+  <select id="derecho_usuarios" class="form-control" style="width:50%">
+=======
+  <select id="derecho_usuarios" class="form-control">
+>>>>>>> 851bbd44a823485e6cfee66ed73d90199d035c9a
    <option value="">Seleccione</option>
  </select>
 </td>
 <td>
   <div class="btn-group">
-    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+    <button type="button" class="btn btn-default  dropdown-toggle" data-toggle="dropdown">
       Opciones <span class="glyphicon glyphicon-cog"></span>
     </button>
     <ul class="dropdown-menu" role="menu">
@@ -209,15 +217,19 @@ $("#ad_con_usuarios").html(l_coord_adm_con);
 
 </tr>
 <tr>
- <td>Educacion</td>
+ <td>Educación</td>
  <td>
-  <select id="educacion_usuarios">
+<<<<<<< HEAD
+  <select id="educacion_usuarios" class="form-control" style="width:50%">
+=======
+  <select id="educacion_usuarios" class="form-control">
+>>>>>>> 851bbd44a823485e6cfee66ed73d90199d035c9a
    <option value="">Seleccione</option>
  </select>
 </td>
 <td>
   <div class="btn-group">
-    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+    <button type="button" class="btn btn-default  dropdown-toggle" data-toggle="dropdown">
       Opciones <span class="glyphicon glyphicon-cog"></span>
     </button>
     <ul class="dropdown-menu" role="menu">
@@ -232,15 +244,19 @@ $("#ad_con_usuarios").html(l_coord_adm_con);
 
 </tr>
 <tr>
- <td>Ingenieria Civil</td>
+ <td>Ingeniería Civil</td>
  <td>
-  <select id="ing_civil_usuarios">
+<<<<<<< HEAD
+  <select id="ing_civil_usuarios" class="form-control" style="width:50%">
+=======
+  <select id="ing_civil_usuarios" class="form-control">
+>>>>>>> 851bbd44a823485e6cfee66ed73d90199d035c9a
    <option value="">Seleccione</option>
  </select>
 </td>
 <td>
   <div class="btn-group">
-    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+    <button type="button" class="btn btn-default  dropdown-toggle" data-toggle="dropdown">
       Opciones <span class="glyphicon glyphicon-cog"></span>
     </button>
     <ul class="dropdown-menu" role="menu">
@@ -255,15 +271,19 @@ $("#ad_con_usuarios").html(l_coord_adm_con);
 
 </tr>
 <tr>
- <td>Ingenieria Industrial</td>
+ <td>Ingeniería Industrial</td>
  <td>
-  <select id="ing_industrial_usuarios">
+<<<<<<< HEAD
+  <select id="ing_industrial_usuarios" class="form-control" style="width:50%">
+=======
+  <select id="ing_industrial_usuarios" class="form-control">
+>>>>>>> 851bbd44a823485e6cfee66ed73d90199d035c9a
    <option value="">Seleccione</option>
  </select>
 </td>
 <td>
   <div class="btn-group">
-    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+    <button type="button" class="btn btn-default  dropdown-toggle" data-toggle="dropdown">
       Opciones <span class="glyphicon glyphicon-cog"></span>
     </button>
     <ul class="dropdown-menu" role="menu">
@@ -278,15 +298,19 @@ $("#ad_con_usuarios").html(l_coord_adm_con);
 
 </tr>
 <tr>
- <td>Ingenieria Informatica</td>
+ <td>Ingeniería Informática</td>
  <td>
-  <select id="ing_info_usuarios">
+<<<<<<< HEAD
+  <select id="ing_info_usuarios" class="form-control" style="width:50%">
+=======
+  <select id="ing_info_usuarios" class="form-control">
+>>>>>>> 851bbd44a823485e6cfee66ed73d90199d035c9a
    <option value="">Seleccione</option>
  </select>
 </td>
 <td>
   <div class="btn-group">
-    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+    <button type="button" class="btn btn-default  dropdown-toggle" data-toggle="dropdown">
       Opciones <span class="glyphicon glyphicon-cog"></span>
     </button>
     <ul class="dropdown-menu" role="menu">
@@ -301,15 +325,19 @@ $("#ad_con_usuarios").html(l_coord_adm_con);
 
 </tr>
 <tr>
- <td>Relaciones industrial</td>
+ <td>Relaciones Industriales</td>
  <td>
-  <select id="rr_ii_usuarios">
+<<<<<<< HEAD
+  <select id="rr_ii_usuarios" class="form-control" style="width:50%">
+=======
+  <select id="rr_ii_usuarios" class="form-control">
+>>>>>>> 851bbd44a823485e6cfee66ed73d90199d035c9a
     <option value="">Seleccione</option>
   </select>
 </td>
 <td>
   <div class="btn-group">
-    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+    <button type="button" class="btn btn-default  dropdown-toggle" data-toggle="dropdown">
       Opciones <span class="glyphicon glyphicon-cog"></span>
     </button>
     <ul class="dropdown-menu" role="menu">
@@ -325,15 +353,19 @@ $("#ad_con_usuarios").html(l_coord_adm_con);
 </tr>
 
 <tr>
-  <td>Proyeccion a la comunidad</td>
+  <td>Proyección a la Comunidad</td>
   <td>
-    <select id="pro_comunidad">
+<<<<<<< HEAD
+    <select id="pro_comunidad" class="form-control" style="width:50%">
+=======
+    <select id="pro_comunidad" class="form-control">
+>>>>>>> 851bbd44a823485e6cfee66ed73d90199d035c9a
       <option value="">Seleccione</option>
     </select>
   </td>
   <td>
     <div class="btn-group">
-      <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+      <button type="button" class="btn btn-default  dropdown-toggle" data-toggle="dropdown">
         Opciones <span class="glyphicon glyphicon-cog"></span>
       </button>
       <ul class="dropdown-menu" role="menu">
@@ -352,3 +384,14 @@ $("#ad_con_usuarios").html(l_coord_adm_con);
 </table>
 
 </div>
+<<<<<<< HEAD
+
+<style type="text/css">
+
+td {
+  text-align: middle;
+}
+
+</style>
+=======
+>>>>>>> 851bbd44a823485e6cfee66ed73d90199d035c9a
