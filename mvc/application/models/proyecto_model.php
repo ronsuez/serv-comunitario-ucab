@@ -80,7 +80,7 @@ public function get_id(){
                               
         $this->db->where('id_proyecto',$id);
         
-        var_dump($info);
+       // var_dump($info);
 
             $nombre_proyecto = $info[0]["value"];
             $suscribe = $info[1]["value"];

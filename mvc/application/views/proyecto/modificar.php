@@ -245,7 +245,7 @@
 
 			var id_proy = $("#id_proyecto").text();
 
-			generar_reporte("generar_reporte_proyecto",0,id_proy);
+			generar_reporte("generar_reporte_proyecto",0,0,id_proy);
 
 
 	});
