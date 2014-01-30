@@ -8,11 +8,11 @@
 
   $datos_prestador = get_object_vars($datos);
   //$localidad= get_object_vars($datos_localidad);
- // var_dump($datos_participa);
-  $aux=$datos_asesor[0]['nombre_asesor'];
+ //var_dump($datos_localidad);
+  //$aux=$datos_asesor[0]['nombre_asesor'];
 
-  //var_dump($suma_horas);
-  //var_dump($datos_prestador);
+ // var_dump($datos_participa);
+  //var_dump($datos_asesor);
   //var_dump($datos_proyecto);
     
   
@@ -30,13 +30,6 @@
               <h3>CONSTANCIA DE INSCRIPCIÓN <br>PROYECTO SERVICIO COMUNITARIO</h3>
               <div id="encabezado"><p>En Ciudad Guayana, <?php echo $fecha ?></div> 
               <p>Proyecto de Servicio Comunitario<br>del Estudiante de Educación Superior<br>Período  Académico: ___________</p> 
-            <!--Cédula de Identidad Nº<u> <?//=$datos_p['ci_prestador']?></u> 
-            estudiante de la Escuela de <u> <?//=$datos_p['escuela_prestador']?> </u>, 
-          pene.</p>
-          <p>Igualmente se hace constar que sus actuaciones han sido acordes a lo establecido en la Ley del Servicio Comunitario del 
-            Estudiante de Eduacion Superior publicada en Gaceta Oficial Nº 38.272 del 14 de septiembre de 2005 y en el Reglamento del 
-            Servicio Comunitario del Estudiante de Educacion Superior, aprobado por el Consejo Universitario de la Universidad 
-            Católica Andres Bello.</p>-->
             </div>
             <h4>1. DATOS DEL ESTUDIANTE</h4>
             <p>Apellidos y Nombres:<?=$datos_prestador['nombre_prestador']."  ".$datos_prestador['apellido_prestador'];?><br>
@@ -54,21 +47,19 @@
             Representante de la Institución receptora del Servicio:<?=$datos_asesor[0]['nombre_asesor'].'  '.$datos_asesor[0]['apellido_asesor']?><br>
             Teléfono de Oficina:<?=$datos_asesor[0]['telefono_asesor']?>   Teléfono Celular:<?=$datos_asesor[0]['celular_asesor']?><br>
             Lugar de Prestación del Servicio: <?=$datos_localidad[0]['nombre_localidad']?><br>
-            Fecha de inicio: <?=$datos_participa[0]['fecha_ini_proyecto']?> Número de Horas semanales de Prestación del Servicio: <?=$suma_horas[0]['sum1']?>
+            Fecha de inicio: <?=$datos_participa[0]['fecha_ini_proyecto']?>
             </p>
             <p>Horario de prestación Servicio:<br>
-            Lunes  Martes   Miércoles   Jueves   Viernes    Sábado    Domingo<br></p>
-            <p><?=$datos_participa[0]['lunes'].'  '.$datos_participa[0]['martes'].'  '.$datos_participa[0]['miercoles'].'  '.$datos_participa[0]['jueves'].'  '.$datos_participa[0]['viernes'].'  '.$datos_participa[0]['sabado'].'  '.$datos_participa[0]['domingo']?></p>
-            <h4>Observaciones:__________________________________________________________________________________<br>
-            ____________________________________________________________________________________________________</h4>
+            <table class="detail-view2" repeat_header="1" cellpadding="1" cellspacing="5"
+            border="1"><tr><td>Lunes</td><td>Martes</td><td>Miercoles</td><td>Jueves</td><td>Viernes</td><td>Sabado</td><td>Domingo</td></tr><tr><td><?=$datos_participa[0]['lunes']?></td><td><?=$datos_participa[0]['martes']?></td><td><?=$datos_participa[0]['miercoles']?></td><td><?=$datos_participa[0]['jueves']?></td><td><?=$datos_participa[0]['viernes']?></td><td><?=$datos_participa[0]['sabado']?></td><td><?=$datos_participa[0]['domingo']?></td></tr></table>
+            <br><br><h4>Observaciones:__________________________________________________________________________________</h4>
             <div id="encabezado"><p>__________________________________<br>
             Coordinador(a) de Servicio Comunitario<br>
             del Estudiante de Estudiante Superior<br>
              Escuela de <?=$datos_prestador['escuela_prestador']?>
             </p></div>
-            <p>Estudiante<br>C.I: <?=$datos_prestador['ci_prestador']?></p>
+            <p>_____________________<br>Estudiante<br>C.I: <?=$datos_prestador['ci_prestador']?></p>
             
            </u></p>
-    
     </body>
 </html>
