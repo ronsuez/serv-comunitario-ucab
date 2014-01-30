@@ -8,7 +8,7 @@
 
   $datos_prestador = get_object_vars($datos);
 
-  //$aux=$datos_asesor[0]['nombre_asesor'];
+  $aux=$datos_asesor[0]['nombre_asesor'];
 
 
     

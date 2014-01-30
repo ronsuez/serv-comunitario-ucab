@@ -306,9 +306,9 @@ class Prestador extends CI_Controller {
 
 	/*reportes*/
 
-public function preparar_datos_reporte($datos_prestador = false ,$datos_proyecto = false , $nombre_proyecto = false, $nombre_comunidad = false, $nombre_asesor = false, $tipo ){
+public function preparar_datos_reporte($datos_prestador = false ,$datos_proyecto = false , $nombre_proyecto = false, $tipo ){
 
-				$array = array("datos"=>$datos_prestador['datos_prestador'],"nombre"=>$datos_proyecto['datos_proyecto'], "nombre_pro"=>$nombre_proyecto, "info_comunidad"=>$nombre_comunidad , "nombre_asesor"=>$nombre_asesor);
+				$array = array("datos"=>$datos_prestador['datos_prestador'],"nombre"=>$datos_proyecto['datos_proyecto'], "nombre_pro"=>$nombre_proyecto);
 		
 
 			 echo $this->load->view($this->controller.$tipo,$array,TRUE);
@@ -368,11 +368,9 @@ public function preparar_datos_reporte($datos_prestador = false ,$datos_proyecto
 			 $datos_prestador=$this->prestador_model->listar_datos_prestador($ci);
 				 $datos_proyecto=$this->prestador_model->datos_coordinador_asociado($id);
 			 $nombre_proyecto = $this->prestador_model->datos_proyecto($id);
-			 $nombre_comunidad = $this->prestador_model->nombre_comunidad($id);
-			 $nombre_asesor = $this->prestador_model->nombre_asesor($id);
 			
 		
-			 $this->preparar_datos_reporte($datos_prestador,$datos_proyecto,$nombre_proyecto,$nombre_comunidad,$nombre_asesor,$tipo);
+			 $this->preparar_datos_reporte($datos_prestador,$datos_proyecto,$nombre_proyecto,$tipo);
 		 		
 
 	}
@@ -415,7 +413,7 @@ public function preparar_datos_reporte($datos_prestador = false ,$datos_proyecto
              $array=$this->prestador_model->asesorcito($cedula_ase);
              $array2=$this->prestador_model->listar_id_loc($datos_proyecto[0]['ci_asesor'],$datos_proyecto[0]['id_proyecto']);
              $array3=$this->prestador_model->datos_participa($ci,$id,$datos_proyecto[0]['ci_asesor']);
-            // $horas=$this->prestador_model->suma_horas($ci,$id);             //var_dump($array2);
+             $horas=$this->prestador_model->suma_horas($ci,$id);             //var_dump($array2);
              //var_dump($array3);
              //var_dump($horas);
              $this->datos_reporte_proyecto($datos_prestador,$datos_proyecto,$array,$array2,$array3,$horas,$tipo);

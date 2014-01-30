@@ -44,8 +44,7 @@ var mensajes = {
   select_user: "Debe seleccionar un usuario",
   usuario_no_registrado:"No se pudo registrar el usuario.",
   usuario_no_actualizado: "No se pudo actualizar el usuario",
-  finalizar_proyecto: "No se pudo finalizar el proyecto",
-  proyecto_no_asociado: "El proyecto no ha sido asociado al prestador"
+  finalizar_proyecto: "No se pudo finalizar el proyecto"
 
 },
 success:{
@@ -68,8 +67,8 @@ success:{
   usuario_deshab:"esta deshabilitado",
   usuario_registrado:"El usuario ha sido registrado exitosamente",
   usuario_actualizado: "El usuario ha sido actualizado existosamente",
-  finalizar_proyecto: "Finalizado el Proyecto exitosamente",
-  proyecto_asociado:"El proyecto ha sido asociado con exito al prestador"
+  finalizar_proyecto: "Finalizado el Proyecto exitosamente"
+
 
 },
 warning:{
@@ -1453,13 +1452,12 @@ function nav_pestanas_principal(id_pestana,url,texto,tab,tag){
 
   var check_tag = tag;
 
-  var bool = 0;
+  var bool = 1;
 
   if(url ==="gest-proyecto"){
     pestana = "inscribir_proyecto";
 
-      bool = 1;
-
+    bool = 0;
 
   }else if (url ==="gest-prestador"){
 
@@ -1478,10 +1476,9 @@ function nav_pestanas_principal(id_pestana,url,texto,tab,tag){
 
     vaciar_datos_prestador();
 
-    vaciar_datos_proyecto();
- 
-    }
+    //vaciar_datos_proyecto();
 
+  }
 
   console.log(pestana);
   
