@@ -230,13 +230,14 @@ function set_localidad_info(lat,lng,id_localidad,nombre){
            
 
           
-          <div id="map_canvas2"  style="width: 800px;height:380px;"></div>
+         <center> <div id="map_canvas2"  style="width: 800px;height:380px;"></div> </center>
           
           </br></br>
           <div id="panel">
+            <center>
             <input  type="submit" class="btn btn-info" onclick="clearMarkers();"  value="Ocultar Organizaciones">
-            <input  id="poblarmapa" type="button" class="btn btn-info" value="Mostar Organizaciones">
-       
+            <input  id="poblarmapa" type="button" class="btn btn-info" value="Mostar Organizaciones"></center>
+
          <!--        <!-- Single button
           <div class="btn-group">
            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
