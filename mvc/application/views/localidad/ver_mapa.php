@@ -237,7 +237,7 @@ function set_localidad_info(lat,lng,id_localidad,nombre){
             <input  type="submit" class="btn btn-info" onclick="clearMarkers();"  value="Ocultar Organizaciones">
             <input  id="poblarmapa" type="button" class="btn btn-info" value="Mostar Organizaciones">
        
-                 <!-- Single button -->
+         <!--        <!-- Single button
           <div class="btn-group">
            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
              Filtrar por Escuela <span class="caret"></span>
@@ -253,7 +253,7 @@ function set_localidad_info(lat,lng,id_localidad,nombre){
              <li><a href="#">Ingeniería Informática</a></li>
            <li><a href="#">Relaciones Industriales</a></li>
            </ul>
-          </div>
+          </div> -->
             
             <!--<input onclick="deleteMarkers();" type=button value="Delete Markers"> -->
              <!-- <input onclick="drop();" type="submit" class="btn btn-success" value="Cargar Comunidades"> -->
