@@ -70,20 +70,22 @@ button a:hover{
 
     <ol class="breadcrumb">
 
-        <fieldset disabled>
+        
             
           <label>Nombre del Proyecto </label>          
-             
+          
           <input  id="nombre_proyecto" type="text"  class="form-control">  
 
           <label>Fecha de Creación </label> 
 
           <input id="fecha_creacion" type="text"  class="form-control">
-
+          <button id="bnt-ayuda-estado" type="button" class="ayuda-pop btn btn-default pull-right" data-container="body" data-toggle="popover" data-placement="left" data-content="Activo: El proyecto actualmente se encuentra en desarrollo    Finalizado: El proyecto no se encuentra en ejecucion " data-original-title="" title="">
+           <span class="glyphicon glyphicon-info-sign"></span> 
+          </button>
           <label>Estado  </label> 
-
+    
           <input id="estado_proyecto" type="text"  class="form-control">
-
+          
           <label>Código </label> 
 
           <input  id="codigo_proyecto" type="text"  class="form-control">
@@ -91,12 +93,15 @@ button a:hover{
           <label>Fecha de Inicio de Proyecto </label> 
 
           <input  id="fecha_ini_proy" type="text"  class="form-control">
+           <button id="bnt-ayuda-estado-prestador" type="button" class="ayuda-pop btn btn-default pull-right" data-container="body" data-toggle="popover" data-placement="left" data-content="Activo: El prestador se encuentra desarrollando el proyecto   Finalizado: Proyecto en el cual el prestador ha terminado su participacion" data-original-title="" title="">
+           <span class="glyphicon glyphicon-info-sign"></span> 
+          </button>
 
           <label>Estado del Prestador en el Proyecto </label> 
 
           <input  id="estado_proy_prestador" type="text"  class="form-control">
 
-        </fieldset>
+        
 
     </ol>
 </div>
@@ -249,6 +254,7 @@ button a:hover{
 
 <script>
 $(document).ready(function(){
+  $(".ayuda-pop").popover();
 
 $("#finalizar_proyecto").attr("disabled", true);
 //deshabilitamos  los botones de reporte-horas
@@ -353,7 +359,7 @@ $('body').unbind('change').on('change','#l_proyectos',function(ev){
               if (estado == 1){
               $("#estado_proy_prestador").val("Activo");
               }else{
-              $("#estado_proy_prestador").val("Inactivo");
+              $("#estado_proy_prestador").val("Finalizado");
               }
               $('#tabla_consulta td:contains("null")').text("");
 
