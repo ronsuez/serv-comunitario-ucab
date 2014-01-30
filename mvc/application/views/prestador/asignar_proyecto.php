@@ -50,7 +50,7 @@ button a:hover{
       <!--formulario de busqueda de proyectos-->
 
     <div class="panel panel-default">
-    <div class="panel-heading">Busqueda de proyectos</div>
+    <div class="panel-heading">Búsqueda de Proyectos</div>
     <div class="result-search panel-body">
     
       <div class="input-group input-group-sm">
@@ -74,11 +74,11 @@ button a:hover{
 
         <fieldset disabled>
             
-          <label>Nombre del proyecto </label>          
+          <label>Nombre del Proyecto </label>          
              
           <input  id="n_proyecto" type="text"  class="form-control">  
 
-          <label>Fecha de creacion </label> 
+          <label>Fecha de Creación </label> 
 
           <input id="f_proyecto" type="text"  class="form-control">
 
@@ -86,7 +86,7 @@ button a:hover{
 
           <input id="e_proyecto" type="text"  class="form-control">
 
-          <label>Codigo </label> 
+          <label>Código </label> 
 
           <input  id="c_proyecto" type="text"  class="form-control">
 
@@ -100,7 +100,7 @@ button a:hover{
   
 
 
-       <center><h3 id="texto">Horario de trabajo</h3></center>
+       <center><h3 id="texto">Horario de Trabajo</h3></center>
 
     <br></br>
 
@@ -110,7 +110,7 @@ button a:hover{
                                     <tr class="success">
                                      <th><p>Lunes</p></th>
                                       <th><p>Martes</p></th>
-                                      <th><p>Miercoles</p></th>
+                                      <th><p>Miércoles</p></th>
                                       <th><p>Jueves</p></th>
                                       <th><p>Viernes</p></th>
                                       <th><p>Sabado</p></th>
@@ -134,9 +134,11 @@ button a:hover{
 
     <br>
 
-    <center><button class="btn btn-success " id="asociar_proyecto" type="submit">  Asociar proyecto a prestador</button> </center>
-    <center><button class="btn btn-info" id="iniciar_prestacion" type="submit">  Generar Reporte</button></center>
-    <center><button class="btn btn-info" id="notificacion_asignacion" type="submit">  Generar notificacion</button></center>
+    <center><button class="btn btn-success " id="asociar_proyecto" type="submit">  Asociar proyecto a prestador</button>
+    <button class="btn btn-info" id="iniciar_prestacion" type="submit">  Generar Reporte</button>
+    <button class="btn btn-info" id="notificacion_asignacion" type="submit">  Generar notificacion</button></center>
+
+    <br>
 </div></div>  <!-- fin container -->
 
 
