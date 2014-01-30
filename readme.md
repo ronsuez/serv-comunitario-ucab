@@ -25,7 +25,7 @@ Servcom-UCAB esta alojado en la nube a traves de un servicio de PaaS provisto po
 - Mireya Orta
 - Ana Urquiola
 - Luis Seijas
-  y contando...
+- Norka Mederos
 
 ## Pruebas y documentación :
 - Norka Mederos
