@@ -184,6 +184,13 @@ $("#asociar_proyecto").on("click",function(){
   function(data){
     console.log(data);
     console.log("datos asociar");
+    if(data=='1'){
+      toastr.success(mensajes.success.proyecto_asociado);
+  	};
+  	
+  	if (data=='null'){
+  		toastr.error(mensajes.error.proyecto_no_asociado);
+  	};
   });
   $("#iniciar_prestacion").prop('disabled', false);
   $("#notificacion_asignacion").prop('disabled', false);
