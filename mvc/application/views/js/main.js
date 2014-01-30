@@ -8,14 +8,14 @@
  *           All the actions, consults, validations and 
  *           Data processing for the SERVCOM application.
  */  
-
+  
 
 //================================================================//
 //================================================================//
 //======================Variables goblales  ======================//
 //================================================================//
 //================================================================//
-
+  
 var mensajes = {
 
  reglas:{
@@ -44,7 +44,8 @@ var mensajes = {
   select_user: "Debe seleccionar un usuario",
   usuario_no_registrado:"No se pudo registrar el usuario.",
   usuario_no_actualizado: "No se pudo actualizar el usuario",
-  finalizar_proyecto: "No se pudo finalizar el proyecto"
+  finalizar_proyecto: "No se pudo finalizar el proyecto",
+  proyecto_no_asociado: "El proyecto no ha sido asociado al prestador"
 
 },
 success:{
@@ -67,8 +68,8 @@ success:{
   usuario_deshab:"esta deshabilitado",
   usuario_registrado:"El usuario ha sido registrado exitosamente",
   usuario_actualizado: "El usuario ha sido actualizado existosamente",
-  finalizar_proyecto: "Finalizado el Proyecto exitosamente"
-
+  finalizar_proyecto: "Finalizado el Proyecto exitosamente",
+  proyecto_asociado:"El proyecto ha sido asociado con exito al prestador"
 
 },
 warning:{
@@ -101,63 +102,63 @@ var datos_de_prestador=[
 ];
 
 var campos_proyecto = [
-'titulo_proyecto',
-'suscribe',
-'ejecuta',
-'text-diagnostico',
-'text-justificacion',
-'text-impacto',
-'text-objetivos-g', 
-'text-objetivos-e',
-'text-metas',
-'text-producto', 
-'text-plan-trabajo', 
-'text-recursos', 
-'text-cronograma',
-'id_proyecto'
+    'titulo_proyecto',
+    'suscribe',
+    'ejecuta',
+    'text-diagnostico',
+    'text-justificacion',
+    'text-impacto',
+    'text-objetivos-g', 
+    'text-objetivos-e',
+    'text-metas',
+    'text-producto', 
+    'text-plan-trabajo', 
+    'text-recursos', 
+    'text-cronograma',
+    'id_proyecto'
 ];
 
 
 var main_datos={
 
-  prestador : {
-    cedula : "",
-    nombre : "",
-    apellido : "",
-    email : "",
-    celular: "",
-    telefono: "",
-    direccion: "",
-    expediente : "",
-    escuela : "",
-    mencion: "",
-    semestre: ""
-  },proyecto:{
-    id_proyecto:"",
-    ci_asesor: "",
-    ci_coord: "",
-    cronograma_proyecto: "",
-    diagnostico_proyecto: "",
-    estado_proyecto: "",
-    fecha_ini: "",
-    id_proyecto: "",
-    impacto_proyecto: "",
-    justificacion_proyecto: "",
-    metas_proyecto: "",
-    nombre_proyecto: "",
-    obj_especificos_proyecto: "",
-    obj_generales_proyecto: "",
-    plan_trabajo_proyecto: "",
-    producto_proyecto: "",
-    recursos_requeridos_proyecto: ""
+        prestador : {
+          cedula : "",
+          nombre : "",
+          apellido : "",
+          email : "",
+          celular: "",
+          telefono: "",
+          direccion: "",
+          expediente : "",
+          escuela : "",
+          mencion: "",
+          semestre: ""
+        },proyecto:{
+          id_proyecto:"",
+          ci_asesor: "",
+          ci_coord: "",
+          cronograma_proyecto: "",
+          diagnostico_proyecto: "",
+          estado_proyecto: "",
+          fecha_ini: "",
+          id_proyecto: "",
+          impacto_proyecto: "",
+          justificacion_proyecto: "",
+          metas_proyecto: "",
+          nombre_proyecto: "",
+          obj_especificos_proyecto: "",
+          obj_generales_proyecto: "",
+          plan_trabajo_proyecto: "",
+          producto_proyecto: "",
+          recursos_requeridos_proyecto: ""
 
-  }
+        }
 
-  ,usuario :{
-    nombre:"",
-    cedula:"",
-  }
-
+        ,usuario :{
+          nombre:"",
+          cedula:"",
+        }
+        
 };
 
 var datos_de_localidad=[
@@ -244,7 +245,7 @@ toastr.options = {
 
       // funciones para los handlers de las solicitudes via ajax.
       $( document ).ajaxStart(function() {
-
+    
        console.log( "Triggered ajaxStart handler." );
 
      });
@@ -302,7 +303,7 @@ $(document).on("click",".nav-top li a",function (e) {
   $(this).parent().addClass("active"); 
 
   $.ajax({
-   beforeSend: function(){
+           beforeSend: function(){
                // Handle the beforeSend event
                $('#main-panel-body').html('<div id="loading"><img src="./servcom-ucab.gif"></div>');
                
@@ -312,13 +313,13 @@ $(document).on("click",".nav-top li a",function (e) {
              success: function (data) {
                       // replace div's content with returned data
                       
-                      setTimeout(function() {
-                        $('#main-panel-body').html(data);
-
-                      },1000);
-                    }               
-
-                  });
+                     setTimeout(function() {
+                      $('#main-panel-body').html(data);
+      
+                    },1000);
+              }               
+          
+});
 
 });
 
@@ -359,235 +360,152 @@ $(document).on("click","#ver_pre",function (e) {
 
 //Boton para definir el coordinador de cada escuela
 $(document).on("click","#listado_usuarios a.coord",function (e) {
+    
+e.preventDefault();
 
-  e.preventDefault();
+      var usuario= $(this).closest('td').parent().find("td select option:selected");
 
-  var usuario= $(this).closest('td').parent().find("td select option:selected");
+      var escuela = $(this).closest('td').parent().find("td").eq(0);
 
-  var escuela = $(this).closest('td').parent().find("td").eq(0);
+      console.log(usuario.val());
 
-  console.log(usuario.val());
+          if(usuario.val()){
 
-  if(usuario.val()){
+            $.post("def_coordinador", {ci:usuario.val()}, function(data){
+                
+                var salida = JSON.parse(data);
 
-    $.post("def_coordinador", {ci:usuario.val()}, function(data){
+                if (!salida["status"]) {
+                  show_messages("success","El usuario "+usuario.text()+" "+mensajes.success.coordinador+" "+escuela.text());
 
-      var salida = JSON.parse(data);
+                }
+                else {
 
-      if (!salida["status"]) {
-        show_messages("success","El usuario "+usuario.text()+" "+mensajes.success.coordinador+" "+escuela.text());
+                  show_messages("warning",mensajes.warning.coor_principal);
+                  
+                }
+            
+            });
+            
+          }else{
 
-      }
-      else {
+              show_messages("error",mensajes.error.select_user);
 
-        show_messages("warning",mensajes.warning.coor_principal);
-
-      }
-
-    });
-
-  }else{
-
-    show_messages("error",mensajes.error.select_user);
-
-  }
-
+          }
 
 });
 
 
 //Boton para cambiar a 0 el estado principal en el coordinador de cada escuela
 $(document).on("click","#listado_usuarios a.des_coord",function (e) {
+        
+e.preventDefault();
 
-  e.preventDefault();
-
-  var usuario= $(this).closest('td').parent().find("td select option:selected");
-
-
-  var escuela = $(this).closest('td').parent().find("td").eq(0);
-
-  console.log(escuela.text());
-
-  console.log(usuario.val());
-
-  if(usuario.val()){
-
-    $.post("des_coordinador", {ci:usuario.val()}, function(data){
-
-      var salida = JSON.parse(data);
-
-      if (!salida["status"]) {
-        show_messages("success","El usuario "+usuario.text()+" "+mensajes.success.des_coord+" "+escuela.text());
-
-      }
-      else {
-
-        show_messages("warning",mensajes.warning.des_coord);
-
-      }
-
-    });
-
-  }else{
-
-    show_messages("error",mensajes.error.select_user);
-
-  }
+      var usuario= $(this).closest('td').parent().find("td select option:selected");
 
 
+      var escuela = $(this).closest('td').parent().find("td").eq(0);
+
+      console.log(escuela.text());
+
+      console.log(usuario.val());
+
+          if(usuario.val()){
+
+            $.post("des_coordinador", {ci:usuario.val()}, function(data){
+                
+                var salida = JSON.parse(data);
+
+                if (!salida["status"]) {
+                  show_messages("success","El usuario "+usuario.text()+" "+mensajes.success.des_coord+" "+escuela.text());
+
+                }
+                else {
+
+                  show_messages("warning",mensajes.warning.des_coord);
+                  
+                }
+            
+            });
+            
+          }else{
+
+              show_messages("error",mensajes.error.select_user);
+
+          }
 
 });
-
-// });
 
 
 // Boton para habilitar los usarios
 $(document).on("click","#listado_usuarios .hab",function (e) {
 
-  e.preventDefault();
+      e.preventDefault();
 
-  var usuario= $(this).closest('td').parent().find("td select option:selected");
+      var usuario= $(this).closest('td').parent().find("td select option:selected");
 
-  console.log(usuario.val());
+      console.log(usuario.val());
 
-  if(usuario.val()){
+          if(usuario.val()){
 
-    $.post("hab_coordinador", {ci:usuario.val()}, function(data){
+            $.post("hab_coordinador", {ci:usuario.val()}, function(data){
+                
+                var salida = JSON.parse(data);
 
-      var salida = JSON.parse(data);
+                if (!salida["status"]) {
+                   show_messages("success","El usuario "+usuario.text()+" "+mensajes.success.usuario_hab);
 
-      if (!salida["status"]) {
-       show_messages("success","El usuario "+usuario.text()+" "+mensajes.success.usuario_hab);
+                }
+                else {
 
-     }
-     else {
+                  show_messages("warning",mensajes.warning.coor_habilitado);
+                  
+                }
+            
+            });
 
-      show_messages("warning",mensajes.warning.coor_habilitado);
+          }else{
 
-    }
+              show_messages("error",mensajes.error.select_user);
 
-  });
-
-  }else{
-
-    show_messages("error",mensajes.error.select_user);
-
-  }
-
+          }
+ 
 });
-
-
-//     //Variables para los coordinadores principales
-//     var l_principal;
-//     var l_princ_adm_con;
-//     var l_princ_derecho;
-//     var l_princ_educacion;
-//     var l_princ_com_social;
-//     var l_princ_ing_civil;
-//     var l_princ_ing_industrial;
-//     var l_princ_ing_info;
-//     var l_princ_rr_ii;
-
-// $(document).on("click","#listado_usuarios a",function (e) {
-
-//   e.preventDefault();
-
-//     $.get("traer_usuarios",function(data){
-
-//     l_principal=JSON.parse(data)["principal"];
-
-//     $.each(l_principal,function(index){
-
-//       switch(l_principal[index].escuela_coord){
-
-//         case "Educacion":
-//         l_princ_educacion=l_principal[index].nombre_coord;
-//         break;  
-
-//         case "Ingenieria Informatica":
-//         l_princ_ing_info=l_principal[index].nombre_coord;
-//         break;
-
-//         case "Derecho":
-//         l_princ_derecho=l_principal[index].nombre_coord;
-//         break;
-
-//         case "Ingenieria Industrial":
-//         l_princ_ing_industrial=l_principal[index].nombre_coord;
-//         break;
-
-//         case "Ingenieria Civil":
-//         l_princ_ing_civil=l_principal[index].nombre_coord;
-//         break;
-
-//         case "Comunicacion Social":
-//         l_princ_com_social=l_principal[index].nombre_coord;
-//         break;
-
-//         case "Administracion":
-//         l_princ_adm_con=l_principal[index].nombre_coord;
-//         break;
-
-//         case "Contaduria":
-//         l_princ_adm_con=l_principal[index].nombre_coord;
-//         break;
-
-//         case "Relaciones Industriales":
-//         l_princ_rr_ii=l_principal[index].nombre_coord;
-//         break;
-
-//       }
-
-//     });
-
-// $("#educacion_princ").html(l_princ_educacion);
-// $("#ing_info_princ").html(l_princ_ing_info);
-// $("#com_social_princ").html(l_princ_com_social);
-// $("#derecho_princ").html(l_princ_derecho);
-// $("#ing_industrial_princ").html(l_princ_ing_industrial);
-// $("#ing_civil_princ").html(l_princ_ing_civil);
-// $("#rr_ii_princ").html(l_princ_rr_ii);
-// $("#ad_con_princ").html(l_princ_adm_con);
-
-
-// });
-
-
 
 
 // Boton para deshabilitar los usarios
 $(document).on("click","#listado_usuarios .deshab",function (e) {
 
-  e.preventDefault();
+      e.preventDefault();
 
-  var usuario= $(this).closest('td').parent().find("td select option:selected");
+      var usuario= $(this).closest('td').parent().find("td select option:selected");
 
-  console.log(usuario.val());
+      console.log(usuario.val());
 
-  if(usuario.val()){
+          if(usuario.val()){
 
-    $.post("deshab_coordinador", {ci:usuario.val()}, function(data){
+            $.post("deshab_coordinador", {ci:usuario.val()}, function(data){
+                
+                  var salida = JSON.parse(data);
 
-      var salida = JSON.parse(data);
+                if (!salida["status"]) {
+                   show_messages("success","El usuario "+usuario.text()+" "+mensajes.success.usuario_deshab);
 
-      if (!salida["status"]) {
-       show_messages("success","El usuario "+usuario.text()+" "+mensajes.success.usuario_deshab);
+                }
+                else {
 
-     }
-     else {
+                  show_messages("warning",mensajes.warning.coor_deshabilitado);
+                  
+                }
+            
+            });
 
-      show_messages("warning",mensajes.warning.coor_deshabilitado);
+          }else{
 
-    }
+              show_messages("error",mensajes.error.select_user);
 
-  });
-
-  }else{
-
-    show_messages("error",mensajes.error.select_user);
-
-  }
-
+          }
+ 
 });
 
 
@@ -595,7 +513,7 @@ $(document).on("click","#listado_usuarios .deshab",function (e) {
 
 // funcion keyup para localidades
 
-$("body").on("keyup","#input_nombre_loc", function(event){
+  $("body").on("keyup","#input_nombre_loc", function(event){
 
   var query = $(this).val();
   var option = "";
@@ -631,7 +549,7 @@ function b_consultar_localidad(query,option){
     if(data!="-1"){
 
 
-
+      
       var array=JSON.parse(data);
 
       console.log(array.length);
@@ -650,7 +568,7 @@ function b_consultar_localidad(query,option){
 
       
       
-
+        
 
 
       $("#datos_busqueda_localidad").html("<ul class='list-group'>"+content+"</ul>");
@@ -659,7 +577,7 @@ function b_consultar_localidad(query,option){
        //$("#inscribir_localidad").css("display", "none"); // se oculta todo
        //$("#pestana_registrar").css("display", "none"); // se oculta todo
 
-     }else{
+         }else{
 
       $("#datos_busqueda_localidad").html('<div class="no-results">No se encontraron resultados</div>');
 
@@ -669,14 +587,14 @@ function b_consultar_localidad(query,option){
      // $("#pestana_cosnultar").css("display", "none"); // se oculta todo
 
 
-   }   
+    }   
 
- });
+  });
 }
 
 $('body').on('click','a.key_localidad', function (ev) {
 
-
+  
   //$("#consultar").fadeToggle("1000");
   //$("#pestana_cosnultar").fadeToggle("1000");
 
@@ -702,22 +620,22 @@ $('body').on('click','a.key_localidad', function (ev) {
       main_datos.localidad.telefono=listado["telefono_representante_localidad"];
       main_datos.localidad.parroquia=listado["parroquia_localidad"];
       main_datos.localidad.direccion=listado["direccion_localidad"];*/
+    
+     $("#nombre_localidad1").val(listado.nombre_localidad);
+     $("#representante_localidad1").val(listado.representante_localidad);
+     $("#email_representante_localidad1").val(listado.email_representante_localidad);
+     $("#telefono_representante_localidad1").val(listado.telefono_representante_localidad);
+     $("#parroquia_localidad1").val(listado.parroquia_localidad);
+     $("#direccion_localidad1").val(listado.direccion_localidad);
 
-      $("#nombre_localidad1").val(listado.nombre_localidad);
-      $("#representante_localidad1").val(listado.representante_localidad);
-      $("#email_representante_localidad1").val(listado.email_representante_localidad);
-      $("#telefono_representante_localidad1").val(listado.telefono_representante_localidad);
-      $("#parroquia_localidad1").val(listado.parroquia_localidad);
-      $("#direccion_localidad1").val(listado.direccion_localidad);
+    
 
+    console.log(JSON.parse(data));
 
+   
+    toastr.success(mensajes.success.localidad_datos_cargados);  
 
-      console.log(JSON.parse(data));
-
-
-      toastr.success(mensajes.success.localidad_datos_cargados);  
-
-    });
+  });
 
     //limpiamos el input y escondemos la busqueda 
     $("#datos_busqueda_localidad").empty();
@@ -745,9 +663,9 @@ $("body").on("keyup","#id_prestador_cedula", function(event){
 
   /*seteo la variable de actualizacion en falso */
   
-  $("#prestador-tab-content").hide();
+$("#prestador-tab-content").hide();
 
-  $("#data-re-prestador").hide();
+$("#data-re-prestador").hide();
 
 
 
@@ -778,7 +696,7 @@ $("body").on("keyup","#id_usuario", function(event){
   console.log($(this).val());
 
   if(query!=""){
-
+    
     if ($.isNumeric(query)){
       console.log(query+"input was 0-9");
       option = "cedula";
@@ -787,7 +705,7 @@ $("body").on("keyup","#id_usuario", function(event){
       console.log(query+"input was a-z");
       option = "user";
     }
-    b_consultar_usuario(query,option);
+          b_consultar_usuario(query,option);
 
   }
 
@@ -807,7 +725,7 @@ $("body").on("keyup",".q_proyecto", function(event){
 
     $(".results").css("display","block");
 
-    $(".results").css("height","auto");
+      $(".results").css("height","auto");
     
     busqueda("buscar_proyecto",query);
 
@@ -821,7 +739,7 @@ $("body").on("keyup",".q_proyecto", function(event){
 
 
 $('body').on('click','a.key_proyecto', function (ev) {
-
+  
  ev.preventDefault();
 
  $(".results.proyecto").css("display","none");
@@ -835,50 +753,50 @@ $('body').on('click','a.key_proyecto', function (ev) {
 
   var listado = JSON.parse(data);
 
-  console.log(listado[0]);
+    console.log(listado[0]);
   
 //se guardan temporalmente los datos del proyecto
-$.each(listado[0],function(index){
+    $.each(listado[0],function(index){
 
-  main_datos.proyecto[index] = listado[0][index];
+      main_datos.proyecto[index] = listado[0][index];
 
-});
-
-
-$.each(datos_de_proyecto, function(i){
-
- $("#"+datos_de_proyecto[i]).html(listado[0][datos_de_proyecto[i]]);
-
- $("#n_proyecto").val(listado[0][datos_de_proyecto[0]]);
- $("#f_proyecto").val(listado[0][datos_de_proyecto[1]]);
- $("#e_proyecto").val(listado[0][datos_de_proyecto[2]]);
- $("#c_proyecto").val(listado[0][datos_de_proyecto[3]]);
+    });
 
 
-});
+  $.each(datos_de_proyecto, function(i){
 
-listar_asesores_x_pro(main_datos.proyecto.ci_asesor);
+   $("#"+datos_de_proyecto[i]).html(listado[0][datos_de_proyecto[i]]);
+
+   $("#n_proyecto").val(listado[0][datos_de_proyecto[0]]);
+   $("#f_proyecto").val(listado[0][datos_de_proyecto[1]]);
+   $("#e_proyecto").val(listado[0][datos_de_proyecto[2]]);
+   $("#c_proyecto").val(listado[0][datos_de_proyecto[3]]);
 
 
+ });
 
+        listar_asesores_x_pro(main_datos.proyecto.ci_asesor);
+
+
+  
 });
         //listar prestadores asociados al pryecto
-        listar_prestadores_x_proy(key_proyecto);
-
-        ev.stopPropagation();
-
-      });
+       listar_prestadores_x_proy(key_proyecto);
+       
+       ev.stopPropagation();
+ 
+     });
 
 
 $('body').on('click','a.key_prestador', function (ev) {
-
+  
   ev.preventDefault();
 
 
 
   $("#prestador-tab-content").show();
 
-  act_datos_prestador = 1;
+   act_datos_prestador = 1;
 
   if (act_datos_prestador) {
     $("#boton_prestador").val("Actualizar datos");
@@ -899,45 +817,45 @@ $('body').on('click','a.key_prestador', function (ev) {
     console.log(JSON.parse(data));
 
      //almaceno la cedula del usuario para realizar operaciones sobre el 
-     main_datos.prestador.cedula=listado["ci_prestador"];
-     main_datos.prestador.nombre=listado["nombre_prestador"];
-     main_datos.prestador.apellido=listado["apellido_prestador"];
-     main_datos.prestador.expediente=listado["no_exp_prestador"];
-     main_datos.prestador.telefono=listado["telefono_prestador"];
-     main_datos.prestador.email=listado["email_prestador"];
-     main_datos.prestador.celular=listado["celular_prestador"];
-     main_datos.prestador.direccion=listado["direccion_prestador"];
-     main_datos.prestador.mencion=listado["mencion_prestador"];
-     main_datos.prestador.semestre=listado["semestre_prestador"];
-     main_datos.prestador.escuela=listado["escuela_prestador"];
+      main_datos.prestador.cedula=listado["ci_prestador"];
+      main_datos.prestador.nombre=listado["nombre_prestador"];
+      main_datos.prestador.apellido=listado["apellido_prestador"];
+      main_datos.prestador.expediente=listado["no_exp_prestador"];
+      main_datos.prestador.telefono=listado["telefono_prestador"];
+      main_datos.prestador.email=listado["email_prestador"];
+      main_datos.prestador.celular=listado["celular_prestador"];
+      main_datos.prestador.direccion=listado["direccion_prestador"];
+      main_datos.prestador.mencion=listado["mencion_prestador"];
+      main_datos.prestador.semestre=listado["semestre_prestador"];
+      main_datos.prestador.escuela=listado["escuela_prestador"];
 
 
       //popular datos del prestador 
 
-      popular_datos_prestador();
+        popular_datos_prestador();
 
-      $("#info-nombre_prestador").html(main_datos.prestador.nombre+""+main_datos.prestador.apellido);
+    $("#info-nombre_prestador").html(main_datos.prestador.nombre+""+main_datos.prestador.apellido);
 
       set_photo();
+ 
+
+    show_messages("success",mensajes.success.prestador_datos_cargados);
+    
+     $("#data-re-prestador").show();
 
 
-      show_messages("success",mensajes.success.prestador_datos_cargados);
 
-      $("#data-re-prestador").show();
-
-
-
-    });
-
-
+  });
+  
+ 
 
 
 //consulto si el prestador tiene proyectos asociados , 
  // si tiene , se esconde la pestana asignar proyetcor
 
  
- listar_proyecto(cedula,0);
-
+    listar_proyecto(cedula,0);
+  
 
 
 
@@ -953,7 +871,7 @@ $('body').on('click','a.key_prestador', function (ev) {
 
 
 $('body').on('click','a.key_usuario', function (ev) {
-
+  
   ev.preventDefault();
 
   act_datos_usuario = 1;
@@ -968,58 +886,58 @@ $('body').on('click','a.key_usuario', function (ev) {
   }
 
 //imprime en la consola la cedula 
-var ci = $(this).attr("href");
+  var ci = $(this).attr("href");
 
-var t = $(this).find("span.tipo").text();
+  var t = $(this).find("span.tipo").text();
 
-var id_tipo;
+  var id_tipo;
 
-if(t=="CO"){
-  id_tipo="_coord";
-  $("#carrera").fadeIn(1000);
-  $("#escuela").fadeIn(1000);
-
-}else if(t=="DI"){
-  id_tipo="_di";
-  $("#carrera").fadeIn(1000);
-  $("#escuela").fadeIn(1000);
-
-}else if(t=="PR"){
-  id_tipo="_pr";
-  $("#carrera").fadeOut(1000);
-  $("#escuela").fadeOut(1000);
-}
-
-
-$.post("get_info_user",{cedula:ci,tipo:t},function(data){
-
-  var datos_usuario = JSON.parse(data)["datos_usuario"];
-
-  var datos_p_usuario = JSON.parse(data)["datos_p_usuario"];
-
-  console.log(datos_usuario);
-
-  $.each(datos_de_usuario, function(i){
-
-    if(datos_de_usuario[i]==="tipo_usuario"){
-      console.log(t);
-      $("#tipo_usuario").val(t);
-    }else{
-
-      $("#"+datos_de_usuario[i]).val(datos_p_usuario[datos_de_usuario[i]+id_tipo]);
-
+    if(t=="CO"){
+          id_tipo="_coord";
+          $("#carrera").fadeIn(1000);
+          $("#escuela").fadeIn(1000);
+      
+    }else if(t=="DI"){
+          id_tipo="_di";
+          $("#carrera").fadeIn(1000);
+          $("#escuela").fadeIn(1000);
+       
+    }else if(t=="PR"){
+          id_tipo="_pr";
+           $("#carrera").fadeOut(1000);
+          $("#escuela").fadeOut(1000);
     }
+
+
+  $.post("get_info_user",{cedula:ci,tipo:t},function(data){
+
+      var datos_usuario = JSON.parse(data)["datos_usuario"];
+
+      var datos_p_usuario = JSON.parse(data)["datos_p_usuario"];
+
+        console.log(datos_usuario);
+
+      $.each(datos_de_usuario, function(i){
+
+                if(datos_de_usuario[i]==="tipo_usuario"){
+                    console.log(t);
+                    $("#tipo_usuario").val(t);
+                }else{
+                    
+                $("#"+datos_de_usuario[i]).val(datos_p_usuario[datos_de_usuario[i]+id_tipo]);
+
+                }
+
+        });
+
+      $("#user").val(datos_usuario["user"]);
+      $("#pass").val(datos_usuario["contrasena"]);
+      $("#conf_pass").val(datos_usuario["contrasena"]);
 
   });
 
-  $("#user").val(datos_usuario["user"]);
-  $("#pass").val(datos_usuario["contrasena"]);
-  $("#conf_pass").val(datos_usuario["contrasena"]);
-
-});
-
   //habilitamos la nav de registro 
-
+    
     //limpiamos el input y escondemos la busqueda 
     $("#datos_busqueda").empty();
 
@@ -1035,14 +953,14 @@ $.post("get_info_user",{cedula:ci,tipo:t},function(data){
 
 
 $("body").on("click",".reportar-horas", function(event){
+  
+    if(!$("#l_proyectos").val()){
 
-  if(!$("#l_proyectos").val()){
+        event.preventDefault();
 
-    event.preventDefault();
+        console.log("seleccione un proyecto");
 
-    console.log("seleccione un proyecto");
-
-  }
+    }
 
 });
 $("body").on("keyup","#b_asesor", function(event){
@@ -1054,7 +972,7 @@ $("body").on("keyup","#b_asesor", function(event){
 
     $(".results").css("display","block");
 
-    $(".results").css("height","auto");
+      $(".results").css("height","auto");
 
     if ($.isNumeric(query)){
       console.log(query+"input was 0-9");
@@ -1075,27 +993,27 @@ $('body').on('click','a.key_asesor', function (ev) {
   ev.preventDefault();
 
 
-  $(".results.asesor").css("display","none");
-  $("div.search_results.asesor").empty();
+ $(".results.asesor").css("display","none");
+ $("div.search_results.asesor").empty();
 
   console.log($(this).attr("href"));
 
   var cedula=$(this).attr("href");
   $.post("consultar_datos_asesor",{q:$(this).attr("href"),o:'cedula'},function(data){
-    var estado =JSON.parse(data)["estado"]; 
-    console.log(JSON.parse(data));
-    if(estado == -1){
-      toastr.error("Asesor no encontrado");
-    }else{
-      toastr.success("Asesor encontrado");
-      var datos_personales =JSON.parse(data)[0];
-      $("#nombre_asesor_res").val(datos_personales.nombre_asesor);
-      $("#apellido_asesor_res").val(datos_personales.apellido_asesor);
-
+      var estado =JSON.parse(data)["estado"]; 
+        console.log(JSON.parse(data));
+        if(estado == -1){
+          toastr.error("Asesor no encontrado");
+        }else{
+          toastr.success("Asesor encontrado");
+          var datos_personales =JSON.parse(data)[0];
+          $("#nombre_asesor_res").val(datos_personales.nombre_asesor);
+          $("#apellido_asesor_res").val(datos_personales.apellido_asesor);
+          
           //si estamos en la tab de crear proyecto 
           if($(".pestanas li[class='active']").text()==="Crear"){
 
-            $(".listado-asesor").append("<li id='"+datos_personales.ci_asesor+"' class='list-group-item'>"+datos_personales.nombre_asesor+" "+datos_personales.apellido_asesor+"</li>");
+              $(".listado-asesor").append("<li id='"+datos_personales.ci_asesor+"' class='list-group-item'>"+datos_personales.nombre_asesor+" "+datos_personales.apellido_asesor+"</li>");
           }
         }
       });
@@ -1104,24 +1022,24 @@ $('body').on('click','a.key_asesor', function (ev) {
 //listener para subir las imagenes
 
 $('body').on('click','.btn-subir-foto', function (ev) {
-  console.log("imagen");
+      console.log("imagen");
 });
 
 
 $('body').on("click","#btn-inscribir_prestador",function(){
 
-  $("#prestador-tab-content").show();
+        $("#prestador-tab-content").show();
 
-  act_datos_prestador = 0;
+        act_datos_prestador = 0;
 
-  $("#form-prestador")[0].reset();
+        $("#form-prestador")[0].reset();
 
-  $("#boton_prestador").val("Registrar");
-  $("#titulo_registro").html("Registrar prestador");
+    $("#boton_prestador").val("Registrar");
+    $("#titulo_registro").html("Registrar prestador");
+    
 
 
-
-});
+  });
 
 
 
@@ -1161,17 +1079,17 @@ $('body').on("click","#btn-inscribir_prestador",function(){
 
 function popular_datos_prestador(listado){
 
-  var array = $.map(main_datos.prestador, function(value, index) {
-
+    var array = $.map(main_datos.prestador, function(value, index) {
+    
     return [value];
     
-  });
+    });
 
-  $.each(datos_de_prestador, function(i){
+    $.each(datos_de_prestador, function(i){
 
-   $("#"+datos_de_prestador[i]).val(array[i]);
+     $("#"+datos_de_prestador[i]).val(array[i]);
 
- });
+   });
 
 
 }
@@ -1185,7 +1103,7 @@ function popular_datos_proyecto(){
     });
 
     console.log(array);
-    */
+*/
 
     console.log(main_datos.proyecto);
 
@@ -1202,39 +1120,39 @@ function popular_datos_proyecto(){
     $("#"+campos_proyecto[12]).html(main_datos.proyecto.cronograma_proyecto);
     $("#"+campos_proyecto[13]).html(main_datos.proyecto.id_proyecto);
 
-  }
+}
 
 
-  function listar_asesores_x_pro(id_asesor){
+function listar_asesores_x_pro(id_asesor){
 
 
-   var id_ase =id_asesor ;
-
-   $.post("asesor_asociado",{id_asesor:id_ase},function(data){
-
-
-    var asesor = JSON.parse(data);
-    ;
-
-    var content = "div.listado_asesores";
-    var results = [];
-
-    results.push('<li class="list-group-item"> <a  class="key_asesor" href="' + asesor[0].ci_asesor + '">' + asesor[0].nombre_asesor+" "+asesor[0].apellido_asesor + "</a> </li>");
+       var id_ase =id_asesor ;
+  
+      $.post("asesor_asociado",{id_asesor:id_ase},function(data){
 
 
-    $( "<ul/>", {
-      "class": "list-group",
-      html: results
-    }).appendTo(content);
+          var asesor = JSON.parse(data);
+;
 
-  });
- }
+        var content = "div.listado_asesores";
+        var results = [];
 
- function vaciar_datos_prestador(){
+           results.push('<li class="list-group-item"> <a  class="key_asesor" href="' + asesor[0].ci_asesor + '">' + asesor[0].nombre_asesor+" "+asesor[0].apellido_asesor + "</a> </li>");
 
-  $.each(main_datos.prestador,function(index,value){ 
+      
+           $( "<ul/>", {
+            "class": "list-group",
+            html: results
+          }).appendTo(content);
 
-   main_datos.prestador[index]="";  
+      });
+}
+
+function vaciar_datos_prestador(){
+
+$.each(main_datos.prestador,function(index,value){ 
+ 
+       main_datos.prestador[index]="";  
 
  });
 
@@ -1242,9 +1160,9 @@ function popular_datos_proyecto(){
 
 function vaciar_datos_proyecto(){
 
-  $.each(main_datos.proyecto,function(index,value){ 
-
-   main_datos.proyecto[index]="";  
+$.each(main_datos.proyecto,function(index,value){ 
+ 
+       main_datos.proyecto[index]="";  
 
  });
 
@@ -1323,7 +1241,7 @@ function b_consultar_prestador(query,option,escuela){
     console.log("salida"+data); 
     
     if(data!="-1"){
-
+  
       var array=JSON.parse(data);
 
       console.log(array.length);
@@ -1339,7 +1257,7 @@ function b_consultar_prestador(query,option,escuela){
       $.each(array,function(i){
        content = content +'<li class="list-group-item"><a class="key_prestador" href="'+ array[i]["ci_prestador"] +' "> '+'Cedula: '+array[i]["ci_prestador"]+' '+'Alumno: '+array[i]["nombre_prestador"]+' '+array[i]["Apellido_prestador"]+'</a></li>';
 
-     });
+      });
 
       
 
@@ -1362,7 +1280,7 @@ function b_consultar_prestador(query,option,escuela){
 function b_consultar_usuario(query,option){
 
 
-  console.log("");
+    console.log("");
 
 
   $.post("b_listar_usuario",{q:query,o:option},function(data){
@@ -1372,7 +1290,7 @@ function b_consultar_usuario(query,option){
     if(data!="-1"){
 
 
-
+      
       var array=JSON.parse(data);
 
       console.log(array.length);
@@ -1381,32 +1299,32 @@ function b_consultar_usuario(query,option){
         show_messages("success",array.length+" "+mensajes.success.prestador_f);
       else
        show_messages("success",array.length+" "+mensajes.success.prestadores_f);
+      
+      var content ="";
 
-     var content ="";
+      $.each(array,function(i){
+        content = content +'<li class="list-group-item"><a class="key_usuario" href="'+ array[i]["cedula"] +' "><span class="tipo">'+array[i]["tipo"]+'</span>:'+array[i]["user"]+'</a></li>';
 
-     $.each(array,function(i){
-      content = content +'<li class="list-group-item"><a class="key_usuario" href="'+ array[i]["cedula"] +' "><span class="tipo">'+array[i]["tipo"]+'</span>:'+array[i]["user"]+'</a></li>';
+      });
 
-    });
+        
 
+      $("#datos_busqueda").html("<ul class='list-group'>"+content+"</ul>");
 
+    }else{
 
-     $("#datos_busqueda").html("<ul class='list-group'>"+content+"</ul>");
+      $("#datos_busqueda").html('<div class="no-results">No se encontraron resultados</div>');
+      
 
-   }else{
+    }   
 
-    $("#datos_busqueda").html('<div class="no-results">No se encontraron resultados</div>');
-
-
-  }   
-
-});
+  });
 }
 
 
 function resetForm($form) {
 
-
+  
   $form.find('input:text, input:password, input:file, select, textarea').val('');
   $form.find("input[name='email']").val('');
   $form.find('input:radio, input:checkbox').removeAttr('checked').removeAttr('selected');
@@ -1418,27 +1336,27 @@ function show_messages(type,messages){
 
   toastr.clear($("body").find(".toast"));
 
-  switch (type){
+      switch (type){
 
-    case "error": 
-    toastr.error(messages);
+        case "error": 
+          toastr.error(messages);
+                  
+        break;
 
-    break;
+        case "warning": 
+          toastr.warning(messages);
+                  
+        break;
 
-    case "warning": 
-    toastr.warning(messages);
+        case "success": 
+          toastr.success(messages);
+                  
+        break;
 
-    break;
+        default:
 
-    case "success": 
-    toastr.success(messages);
-
-    break;
-
-    default:
-
-    break;
-  }
+        break;
+      }
   
 
 }
@@ -1452,12 +1370,12 @@ function nav_pestanas_principal(id_pestana,url,texto,tab,tag){
 
   var check_tag = tag;
 
-  var bool = 1;
+  var bool = 0;
 
   if(url ==="gest-proyecto"){
-    pestana = "inscribir_proyecto";
+      pestana = "inscribir_proyecto";
 
-    bool = 0;
+      bool = 1;
 
   }else if (url ==="gest-prestador"){
 
@@ -1472,13 +1390,13 @@ function nav_pestanas_principal(id_pestana,url,texto,tab,tag){
     pestana ="registrar_usuario";
   }
 
-  if(!bool){
+    if(!bool){
 
     vaciar_datos_prestador();
 
-    //vaciar_datos_proyecto();
-
-  }
+    vaciar_datos_proyecto();
+ 
+    }
 
   console.log(pestana);
   
@@ -1501,45 +1419,45 @@ function nav_pestanas_principal(id_pestana,url,texto,tab,tag){
              success: function (data) {
                       // replace div's content with returned data
                       
-                      setTimeout(function() {
-                        $('#main-panel-body').html(data);
+                     setTimeout(function() {
+                      $('#main-panel-body').html(data);
 
-                        if(!tab){
-                          $('.pestanas li  a[href="#'+pestana+'"]').parent().addClass("active");
+                      if(!tab){
+                        $('.pestanas li  a[href="#'+pestana+'"]').parent().addClass("active");
+                        
+                        $('body .pestanas-content div[id="'+pestana+'"]').addClass("active");
 
-                          $('body .pestanas-content div[id="'+pestana+'"]').addClass("active");
+                        $('body .pestanas li[class$="active"] a').click();
 
-                          $('body .pestanas li[class$="active"] a').click();
+                      }else{
 
-                        }else{
+                        $('.pestanas li  a[href="#' + tab + '"]').parent().addClass("active");
 
-                          $('.pestanas li  a[href="#' + tab + '"]').parent().addClass("active");
-
-                          if(tag){
-                            $('.pestanas li  a[href="#' + tab + '"]').text(tag); 
-                          }
-
-                          $('.pestanas-content div[id="' + tab + '"]').addClass("active");
-
-                          $('body .pestanas li[class$="active"] a').click();
-
-                          console.log(tab);
-
-
+                         if(tag){
+                          $('.pestanas li  a[href="#' + tab + '"]').text(tag); 
                         }
 
+                        $('.pestanas-content div[id="' + tab + '"]').addClass("active");
 
-                      },1000);
-                    }
+                        $('body .pestanas li[class$="active"] a').click();
 
-                  });
+                        console.log(tab);
+
+
+                      }
+
+                      
+                    },1000);
+                   }
+                   
+                 });
 
 }
 
 function nav_tabs(tab){
 
 
-
+ 
 
   var url = tab.attr("data-url");
   var href = tab.attr("href");
@@ -1561,7 +1479,7 @@ function nav_tabs(tab){
       url: url,
       success: function (data) {
                   // replace div's content with returned data
-                  $(href).html(data);
+                    $(href).html(data);
                   
                 }
 
@@ -1582,7 +1500,7 @@ function listar_localidades(){
      //carga via ajax el listado de localidades 
      $.get("listar_loc", function (data) {
 
-
+      
                   var salida = JSON.parse(data);// update the section with the {categorie's list}
 
                   var localidades= '<option value ="">Seleccione</option>';
@@ -1630,9 +1548,9 @@ function listar_prestadores_x_proy(id){
 
         show_messages("error",mensajes.error.prestador_pnf);
 
-        $(content).html('<span class="no-results">No se encontraron resultados</span>');
+       $(content).html('<span class="no-results">No se encontraron resultados</span>');
 
-      }else{
+     }else{
 
 
        $(content+" .no-results").remove();
@@ -1646,20 +1564,20 @@ function listar_prestadores_x_proy(id){
 
        if(results.length>1)
         show_messages("success",results.length+" "+mensajes.success.prestadores_f);
-      else
+       else
         show_messages("success",results.length+" "+mensajes.success.prestador_f);
 
-      $( "<ul/>", {
+       $( "<ul/>", {
         "class": "list-group",
         html: results
       }).appendTo(content);
 
 
-    }
+     }
 
 
 
-  });
+   });
 
    }
 /*
@@ -1675,7 +1593,7 @@ function busqueda(url,value){
 
   console.log("busqueda: "+value);
 
-  if(value){
+ if(value){
 
 
    $.post(url,{query:value},function(data){
@@ -1691,11 +1609,11 @@ function busqueda(url,value){
     if(data==="-1"){
 
       show_messages("error",mensajes.error.proyecto_nf);
+     
 
+     $("div.search_results.proyecto").html('<span class="no-results">No se encontraron resultados</span>');
 
-      $("div.search_results.proyecto").html('<span class="no-results">No se encontraron resultados</span>');
-
-    }else{
+   }else{
 
 
      $("div.search_results .no-results").remove();
@@ -1708,22 +1626,22 @@ function busqueda(url,value){
     });
 
      if(results.length>1){
-      show_messages("success",results.length+" "+mensajes.success.proyectos_f);
-    }
-    else{
-      show_messages("success",results.length+" "+mensajes.success.proyecto_f);
-    }
+        show_messages("success",results.length+" "+mensajes.success.proyectos_f);
+     }
+     else{
+        show_messages("success",results.length+" "+mensajes.success.proyecto_f);
+      }
 
-    $( "<ul/>", {
+     $( "<ul/>", {
       "class": "list-group",
       html: results
     }).appendTo( ".search_results.proyecto" );
 
 
-  }
+   }
 
 
-});
+ });
    
    
  }else{
@@ -1740,15 +1658,15 @@ function busqueda(url,value){
 
 function ver_usuarios(url){
 
-  var d_users;
+    var d_users;
 
-  $.get(url,function(data){
+   $.get(url,function(data){
 
-    d_users=data;
+        d_users=data;
 
 
 
-  });
+ });
 
 }
 
@@ -1758,13 +1676,13 @@ function generar_reporte(url,estado,ci_prestador,id_proyecto){
  $.post(url,{state:estado,ci:ci_prestador,id_proyecto:id_proyecto},function(data){
 
 
-
+  
    var button = $(".button-generar");
 
    $(button).button('loading');
 
    $.post("ver_reporte",{reporte:data},function (data){
-
+     
      window.open(data, '_blank', 'fullscreen=yes');
      
 
@@ -1777,43 +1695,43 @@ function generar_reporte(url,estado,ci_prestador,id_proyecto){
 
 
 function listar_proyecto(cedula,op){
+    
+
+    $.post("b_proyecto_prestador",{ci:cedula,option:op},function(data){
 
 
-  $.post("b_proyecto_prestador",{ci:cedula,option:op},function(data){
+        if(data!="-1"){
 
 
-    if(data!="-1"){
+              show_messages("success","Este prestador tiene un proyecto asignado");
 
-
-      show_messages("success","Este prestador tiene un proyecto asignado");
-
-      prestador_tiene_proyectos=1;
+              prestador_tiene_proyectos=1;
 
               if(op){ //si quiero listar sus proyectos
 
 
-                var array=JSON.parse(data);
+              var array=JSON.parse(data);
 
-                var content ='<option value="">Seleccione </option>';
+              var content ='<option value="">Seleccione </option>';
 
-                $.each(array,function(i){
-                  content = content +'<option value="'+ array[i]["id_proyecto"] +'"> '+ array[i]["nombre_proyecto"]+'</option>';
+              $.each(array,function(i){
+                content = content +'<option value="'+ array[i]["id_proyecto"] +'"> '+ array[i]["nombre_proyecto"]+'</option>';
 
-                });
+              });
 
-                $("#l_proyectos").html(content);
-              } 
-
-            }else{
-
-
-
-              show_messages("warning","Este prestador no tiene proyectos asignados");
+              $("#l_proyectos").html(content);
+             } 
+    
+  }else{
 
 
-              prestador_tiene_proyectos=0;
+     
+      show_messages("warning","Este prestador no tiene proyectos asignados");
 
-            }
+
+      prestador_tiene_proyectos=0;
+
+  }
 
     //defino las pestanas para el prestador
 
@@ -1821,65 +1739,65 @@ function listar_proyecto(cedula,op){
 
     if(!prestador_tiene_proyectos){
 
-     $("div [href='#asignar_pro']").show();
+         $("div [href='#asignar_pro']").show();
+      
+         $("div [href='#consultar_pre']").hide();
+      }else{
+         $("div [href='#asignar_pro']").hide();
 
-     $("div [href='#consultar_pre']").hide();
-   }else{
-     $("div [href='#asignar_pro']").hide();
+    
+          $("div [href='#consultar_pre']").show();
 
+      }
+  
 
-     $("div [href='#consultar_pre']").show();
+   });
 
-   }
-
-
- });
-
-
+    
 }
 
 
 
 function mostrar_opciones(){
 
-  if(!prestador_tiene_proyectos){
+      if(!prestador_tiene_proyectos){
 
-   $("div [href='#asignar_pro']").show();
- }else{
-   $("div [href='#asignar_pro']").hide();
+         $("div [href='#asignar_pro']").show();
+      }else{
+         $("div [href='#asignar_pro']").hide();
 
- }
+      }
 }
 
 
-function set_photo(){
+ function set_photo(){
 
-  $.post('set_photo',{ci:main_datos.prestador.cedula},function(data){
+      $.post('set_photo',{ci:main_datos.prestador.cedula},function(data){
 
-    console.log(data);
+          console.log(data);
 
-    img_name = JSON.parse(data);
+          img_name = JSON.parse(data);
 
-    if(img_name['filename']){
+            if(img_name['filename']){
 
               //img_path = $(location).attr('hostname');
               img_path="files/"+img_name['filename'];
-
+           
 
             }else{
 
               img_path =  "http://1120.gogiro.com/wp-content/uploads/2012/04/facebook-profile-picture-no-pic-avatar.jpg";
             }
 
-            console.log("hola");
+              console.log("hola");
 
-            $(".foto-prestador img").attr("src",img_path);
-          });
-
-
-}
+               $(".foto-prestador img").attr("src",img_path);
+    });
 
 
+  }
+  
+ 
 
 
 //Velocidad de Carrusel

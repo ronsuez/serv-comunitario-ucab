@@ -127,7 +127,7 @@
 
 	public function asignar_coord_principal($ci) {
 
-		$this->db->where('cedula', $ci);
+		$this->db->where("cedula", $ci);
 
 		$this->db->select('cedula, principal');
 
