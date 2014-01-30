@@ -73,9 +73,9 @@ class Administrador extends CI_Controller {
 	public function ver_usuarios()
 	{
 
-			 $salida=$this->usuario_model->traer_usuarios();
+		$salida=$this->usuario_model->traer_usuarios();
 	
-			 echo json_encode($salida);
+		echo json_encode($salida);
 		 		
 			 
 	}

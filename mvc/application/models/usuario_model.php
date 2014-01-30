@@ -171,15 +171,20 @@ public function insertar_datos_usuario($datos){
 
         $sql_proyeccion="SELECT ci_pr,apellido_pr,nombre_pr FROM proyeccion_comunidad";
 
+        $sql_principal="SELECT ci_coord, nombre_coord, apellido_coord, escuela_coord
+                        FROM coordinador, usuario
+                        WHERE coordinador.ci_coord = usuario.cedula AND
+                              usuario.principal = 1";
 
-              $q1=$this->db->query($sql_directores);
+        $q1=$this->db->query($sql_directores);
 
-              $q2=$this->db->query($sql_coordinadores);
+        $q2=$this->db->query($sql_coordinadores);
 
-              $q3=$this->db->query($sql_proyeccion);
+        $q3=$this->db->query($sql_proyeccion);
 
-              return array('directores'=>$q1->result_array(),'coordinadores'=>$q2->result_array(),'proyeccion'=>$q3->result_array());
+        $q4=$this->db->query($sql_principal);
 
+        return array('directores'=>$q1->result_array(),'coordinadores'=>$q2->result_array(),'proyeccion'=>$q3->result_array(),'principal'=>$q4->result_array());
 
 
     } 
