@@ -44,7 +44,8 @@ var mensajes = {
   select_user: "Debe seleccionar un usuario",
   usuario_no_registrado:"No se pudo registrar el usuario.",
   usuario_no_actualizado: "No se pudo actualizar el usuario",
-  finalizar_proyecto: "No se pudo finalizar el proyecto"
+  finalizar_proyecto: "No se pudo finalizar el proyecto",
+  proyecto_no_asociado: "El proyecto no ha sido asociado al prestador"
 
 },
 success:{
@@ -67,8 +68,8 @@ success:{
   usuario_deshab:"esta deshabilitado",
   usuario_registrado:"El usuario ha sido registrado exitosamente",
   usuario_actualizado: "El usuario ha sido actualizado existosamente",
-  finalizar_proyecto: "Finalizado el Proyecto exitosamente"
-
+  finalizar_proyecto: "Finalizado el Proyecto exitosamente",
+  proyecto_asociado:"El proyecto ha sido asociado con exito al prestador"
 
 },
 warning:{
