@@ -89,6 +89,53 @@ $(document).ready(function() {
 
           }
 
+
+        //seccion para principales
+
+        // l_principal=JSON.parse(data)["principal"];
+
+        // $.each(l_principal,function(index){
+
+        //   switch(l_principal[index].escuela_coord){
+
+        //     case "Educacion":
+        //     l_princ_educacion+=l_principal[index].nombre_coord;
+        //     break;  
+
+        //     case "Ingenieria Informatica":
+        //     l_princ_ing_info+=l_principal[index].nombre_coord;
+        //     break;
+
+        //     case "Derecho":
+        //     l_coord_derecho+=
+        //     break;
+
+        //     case "Ingenieria Industrial":
+        //     l_coord_ing_industrial+='<option value="'+l_coordinadores[index].ci_coord+'">'+l_coordinadores[index].nombre_coord+' '+l_coordinadores[index].apellido_coord+'</option>';
+        //     break;
+
+        //     case "Ingenieria Civil":
+        //     l_coord_ing_civil+='<option value="'+l_coordinadores[index].ci_coord+'">'+l_coordinadores[index].nombre_coord+' '+l_coordinadores[index].apellido_coord+'</option>';
+        //     break;
+
+        //     case "Comunicacion Social":
+        //     l_coord_com_social+='<option value="'+l_coordinadores[index].ci_coord+'">'+l_coordinadores[index].nombre_coord+' '+l_coordinadores[index].apellido_coord+'</option>';
+        //     break;
+
+        //     case "Administracion":
+        //     l_coord_adm_con+='<option value="'+l_coordinadores[index].ci_coord+'">'+l_coordinadores[index].nombre_coord+' '+l_coordinadores[index].apellido_coord+'</option>';
+        //     break;
+
+        //     case "Contaduria":
+        //     l_coord_adm_con+='<option value="'+l_coordinadores[index].ci_coord+'">'+l_coordinadores[index].nombre_coord+' '+l_coordinadores[index].apellido_coord+'</option>';
+        //     break;
+
+        //     case "Relaciones Industriales":
+        //     l_coord_rr_ii+='<option value="'+l_coordinadores[index].ci_coord+'">'+l_coordinadores[index].nombre_coord+' '+l_coordinadores[index].apellido_coord+'</option>';
+        //     break;
+
+        //   }
+
         });
 
 $("#educacion_usuarios").html(l_coord_educacion);

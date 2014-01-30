@@ -415,7 +415,7 @@ public function preparar_datos_reporte($datos_prestador = false ,$datos_proyecto
              $array=$this->prestador_model->asesorcito($cedula_ase);
              $array2=$this->prestador_model->listar_id_loc($datos_proyecto[0]['ci_asesor'],$datos_proyecto[0]['id_proyecto']);
              $array3=$this->prestador_model->datos_participa($ci,$id,$datos_proyecto[0]['ci_asesor']);
-             $horas=$this->prestador_model->suma_horas($ci,$id);             //var_dump($array2);
+            // $horas=$this->prestador_model->suma_horas($ci,$id);             //var_dump($array2);
              //var_dump($array3);
              //var_dump($horas);
              $this->datos_reporte_proyecto($datos_prestador,$datos_proyecto,$array,$array2,$array3,$horas,$tipo);
