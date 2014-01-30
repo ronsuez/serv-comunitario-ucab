@@ -249,27 +249,26 @@
 
 
 public function asociar_proyecto($f_proyecto,$proyecto,$prestador,$lunes,$martes,$miercoles,$jueves,$viernes,$sabado,$domingo){
-  
-  $query2 = $this->db->query("SELECT ci_prestador
-                              FROM participa
-                              WHERE ci_prestador='$prestador' AND estado_proy='1'");
-  $query3 = $this->db->query("SELECT * 
+  $query1 = $this->db->query("SELECT ci_asesor,ci_coord
                               FROM proyecto
-                              WHERE id_proyecto='$proyecto' AND estado_proyecto='activo'");
-  if ($query2->num_rows()<1 AND $query3->num_rows()>0) {
-      $query1 = $this->db->query("SELECT ci_asesor,ci_coord
-                              FROM proyecto
-                              WHERE id_proyecto = '$proyecto' and estado_proyecto='activo'");
-      $fecha_ini = $query3->row()->fecha_ini;
-      $asesor = $query1->row()->ci_asesor;
-      $coordinador = $query1->row()->ci_coord;
-      $query = $this->db->query("INSERT INTO participa(ci_prestador,id_proyecto,ci_coord,ci_asesor,fecha_ini_proyecto,estado_proy,lunes,martes,miercoles,jueves,viernes,sabado,domingo)
-                             VALUES ('$prestador','$proyecto','$coordinador','$asesor','$fecha_ini','1','$lunes','$martes','$miercoles','$jueves','$viernes','$sabado','$domingo')");
+                              WHERE id_proyecto = $proyecto and estado_proyecto='activo'");
 
-      return "1";
-  }else{
-      
-  }
+  $asesor = $query1->row()->ci_asesor;
+  $coordinador = $query1->row()->ci_coord;
+  
+  /*$query2 = $this->db->query("SELECT escuela_prestador
+                              FROM prestador
+                              WHERE ci_prestador = $prestador");
+  $escuela = $query2->row()->escuela_prestador;
+  $query3 = $this->db->query("SELECT ci_coord 
+                              FROM coordinador
+                              WHERE escuela_coord='$escuela'");
+  $coordinador = $query3->row()->ci_coord;*/
+  $query = $this->db->query("INSERT INTO participa(ci_prestador,id_proyecto,ci_coord,ci_asesor,lunes,martes,miercoles,jueves,viernes,sabado,domingo)
+                             VALUES ('$prestador','$proyecto','$coordinador','$asesor','$lunes','$martes','$miercoles','$jueves','$viernes','$sabado','$domingo')");
+  return $query;
+
+
 }
 
 
@@ -426,10 +425,11 @@ public function insertar_datos_reportar_horas ($id_prestador,$n_horas,$fecha,$ob
                         return "-1";
                     }
             }
-            public function datos_participa($ci,$id,$asesor){
+            //-----------------------------------------------------------------------------------
+             public function datos_participa($ci,$id,$asesor){
         $sql="SELECT fecha_ini_proyecto, lunes, martes, miercoles, jueves, viernes, sabado, domingo
                                         FROM participa 
-                                        WHERE id_proyecto='$id' AND ci_prestador='$ci' AND ci_asesor='$asesor'";
+                                        WHERE id_proyecto=$id AND ci_prestador=$ci AND ci_asesor=$asesor";
         $query = $this->db->query($sql);
         if($query->num_rows()>0){
 
@@ -443,7 +443,7 @@ public function insertar_datos_reportar_horas ($id_prestador,$n_horas,$fecha,$ob
     public function asesorcito($ci_asesor){
              $sql="SELECT nombre_asesor, apellido_asesor, celular_asesor, telefono_asesor
                                         FROM asesor 
-                                        WHERE ci_asesor='$ci_asesor'";
+                                        WHERE ci_asesor=$ci_asesor";
             $query = $this->db->query($sql);
             if($query->num_rows()>0){
 
@@ -457,7 +457,7 @@ public function insertar_datos_reportar_horas ($id_prestador,$n_horas,$fecha,$ob
     public function listar_id_loc($ci_asesor,$id_proyecto){
         $sql="SELECT id_localidad
               FROM ejecuta
-              WHERE ci_asesor='$ci_asesor' AND id_proyecto='$id_proyecto'";
+              WHERE ci_asesor=$ci_asesor AND id_proyecto=$id_proyecto";
          $query = $this->db->query($sql);
             if($query->num_rows()>0){
                 $prueba=$query->result_array();

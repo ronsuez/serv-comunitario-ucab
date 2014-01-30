@@ -92,7 +92,7 @@ button a:hover{
 
           <input  id="fecha_ini_proy" type="text"  class="form-control">
 
-          <label>Estado del Prestador en el Proyecto </label> 
+          <label>Estado del Proyecto del Prestador </label> 
 
           <input  id="estado_proy_prestador" type="text"  class="form-control">
 
