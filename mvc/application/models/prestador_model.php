@@ -476,5 +476,44 @@ public function insertar_datos_reportar_horas ($id_prestador,$n_horas,$fecha,$ob
             } 
     }
 
+    public function nombre_comunidad($id){
+
+
+            $sql = ("SELECT nombre_localidad
+                     FROM localidad
+                     WHERE id_localidad = ( SELECT id_localidad
+                                            FROM  ejecuta
+                                            WHERE id_proyecto = $id )");
+
+            $query2 = $this->db->query($sql);
+
+
+            if($query2->num_rows()>0){
+                return $query2->result_array();
+            }else{
+                return "-1";
+            }
+    }
+
+
+    public function nombre_asesor($id){
+
+
+            $sql = ("SELECT nombre_asesor
+                      FROM asesor
+                      WHERE ci_asesor = ( SELECT ci_asesor
+                                          FROM ejecuta
+                                          WHERE id_proyecto = $id )");
+
+            $query2 = $this->db->query($sql);
+
+
+            if($query2->num_rows()>0){
+                return $query2->result_array();
+            }else{
+                return "-1";
+            }
+    }
+
 
 }    

@@ -94,6 +94,19 @@ class Administrador extends CI_Controller {
 	}
 
 
+	public function preparar_datos_reporte_nc($data,$data1,$data2,$data3,$estado){
+
+		$array = array("datos"=>$data, "datos1"=>$data1, "datos2"=>$data2, "datos3"=>$data3, "estado"=>$estado);
+
+
+		echo $this->load->view($this->controller."ver_proyecto",$array,TRUE);
+
+	}
+
+
+
+
+
 
 	public function generar_reporte($id = false , $estado = false){
 
