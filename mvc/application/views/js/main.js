@@ -1369,12 +1369,12 @@ function nav_pestanas_principal(id_pestana,url,texto,tab,tag){
 
   var check_tag = tag;
 
-  var bool = 1;
+  var bool = 0;
 
   if(url ==="gest-proyecto"){
       pestana = "inscribir_proyecto";
 
-      bool = 0;
+      bool = 1;
 
   }else if (url ==="gest-prestador"){
 
@@ -1393,7 +1393,7 @@ function nav_pestanas_principal(id_pestana,url,texto,tab,tag){
 
     vaciar_datos_prestador();
 
-    //vaciar_datos_proyecto();
+    vaciar_datos_proyecto();
  
     }
 
