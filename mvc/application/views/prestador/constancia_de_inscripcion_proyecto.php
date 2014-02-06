@@ -9,11 +9,13 @@
   $datos_prestador = get_object_vars($datos);
   //$localidad= get_object_vars($datos_localidad);
  // var_dump($datos_participa);
-  $aux=$datos_asesor[0]['nombre_asesor'];
+//  $aux=$datos_asesor[0]['nombre_asesor'];
 
   //var_dump($suma_horas);
   //var_dump($datos_prestador);
   //var_dump($datos_proyecto);
+
+  var_dump($datos_localidad);
     
   
     $fecha = "A los ".date("d")." días del mes de ".date("m")." de ".date("Y");

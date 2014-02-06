@@ -323,9 +323,9 @@ public function preparar_datos_reporte($datos_prestador = false ,$datos_proyecto
 			$tipo = "carta_culminacion";
 
 
-				if($this->input->post('id')){ 
+				if($this->input->post('id_proyecto')){ 
 
-					$id = $this->input->post('id');
+					$id = $this->input->post('id_proyecto');
 				}
 
 				if($this->input->post('ci')){
@@ -340,7 +340,7 @@ public function preparar_datos_reporte($datos_prestador = false ,$datos_proyecto
 			 $nombre_proyecto = $this->prestador_model->datos_proyecto($id);
 			 
 
-			 $this->preparar_datos_reporte($datos_prestador,$datos_proyecto,$nombre_proyecto,$tipo);
+			 $this->preparar_datos_reporte($datos_prestador,$datos_proyecto,$nombre_proyecto,0,0,$tipo);
 		 		
 
 	}

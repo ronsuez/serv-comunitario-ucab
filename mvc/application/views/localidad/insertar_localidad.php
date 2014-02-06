@@ -176,7 +176,7 @@ $(document).ready(function() {
 
   <div class="panel-body">
   </br></br>
-  <div id="map_canvas"  style="width: 800px;height:380px;"></div></br></br>
+  <div id="map_canvas"  style="width: auto;height:380px;"></div></br></br>
   <div id="coordinates">
     <label for="estado">Latitud</label>
   </br>
