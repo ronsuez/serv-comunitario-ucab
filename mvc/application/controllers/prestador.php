@@ -316,6 +316,34 @@ public function preparar_datos_reporte($datos_prestador = false ,$datos_proyecto
 	}
    
 
+   	public function generar_ch($ci = false ,$id = false , $estado = false){
+
+
+			$tipo = "control_horas";
+
+
+				if($this->input->post('id_proyecto')){ 
+
+					$id = $this->input->post('id_proyecto');
+				}
+
+				if($this->input->post('ci')){
+
+					$ci = $this->input->post('ci');
+				}
+
+  
+
+			 $datos_prestador=$this->prestador_model->listar_datos_prestador($ci);
+			 $datos_proyecto=$this->prestador_model->datos_coordinador_asociado($id);
+			 $nombre_proyecto = $this->prestador_model->datos_proyecto($id);
+			 
+
+			 $this->preparar_datos_reporte($datos_prestador,$datos_proyecto,$nombre_proyecto,0,0,$tipo);
+		 		
+
+	}
+
 
 	public function generar_cc($ci = false ,$id = false , $estado = false){
 
@@ -351,29 +379,29 @@ public function preparar_datos_reporte($datos_prestador = false ,$datos_proyecto
 
 	public function generar_nc($ci = false , $estado = false){
 
-			$tipo = "notificacion_culminacion";
+		$tipo = "notificacion_culminacion";
 
-				if($this->input->post('id_proyecto')){ 
+		if($this->input->post('id_proyecto')){ 
 
-					$id = $this->input->post('id_proyecto');
-				}
+			$id = $this->input->post('id_proyecto');
+		}
 
-				if($this->input->post('ci')){
+		if($this->input->post('ci')){
 
-					$ci = $this->input->post('ci');
-				}
+			$ci = $this->input->post('ci');
+		}
 
-  
 
-			 $datos_prestador=$this->prestador_model->listar_datos_prestador($ci);
-				 $datos_proyecto=$this->prestador_model->datos_coordinador_asociado($id);
-			 $nombre_proyecto = $this->prestador_model->datos_proyecto($id);
-			 $nombre_comunidad = $this->prestador_model->nombre_comunidad($id);
-			 $nombre_asesor = $this->prestador_model->nombre_asesor($id);
-			
+
+		$datos_prestador=$this->prestador_model->listar_datos_prestador($ci);
+		$datos_proyecto=$this->prestador_model->datos_coordinador_asociado($id);
+		$nombre_proyecto = $this->prestador_model->datos_proyecto($id);
+		$nombre_comunidad = $this->prestador_model->nombre_comunidad($id);
+		$nombre_asesor = $this->prestador_model->nombre_asesor($id);
+
 		
-			 $this->preparar_datos_reporte($datos_prestador,$datos_proyecto,$nombre_proyecto,$nombre_comunidad,$nombre_asesor,$tipo);
-		 		
+		$this->preparar_datos_reporte($datos_prestador,$datos_proyecto,$nombre_proyecto,$nombre_comunidad,$nombre_asesor,$tipo);
+
 
 	}
 

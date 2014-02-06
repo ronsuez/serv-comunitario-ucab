@@ -8,7 +8,7 @@ class Reportes extends CI_Controller {
      $view = $this->input->post("reporte");
 
    
-      $filename="reporte".date("Y-m-d");          
+      $filename="reporte_".date("Y-m-d_h:i:s");          
     // As PDF creation takes a bit of memory, we're saving the created file in /downloads/reports/
     $pdfFilePath = FCPATH."application/reports/$filename.pdf"; 
    // if (file_exists($pdfFilePath) == FALSE)

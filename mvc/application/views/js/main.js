@@ -134,6 +134,7 @@ var main_datos={
           escuela : "",
           mencion: "",
           semestre: ""
+
         },proyecto:{
           id_proyecto:"",
           ci_asesor: "",
@@ -142,7 +143,6 @@ var main_datos={
           diagnostico_proyecto: "",
           estado_proyecto: "",
           fecha_ini: "",
-          id_proyecto: "",
           impacto_proyecto: "",
           justificacion_proyecto: "",
           metas_proyecto: "",
@@ -152,7 +152,6 @@ var main_datos={
           plan_trabajo_proyecto: "",
           producto_proyecto: "",
           recursos_requeridos_proyecto: ""
-
         }
 
         ,usuario :{
