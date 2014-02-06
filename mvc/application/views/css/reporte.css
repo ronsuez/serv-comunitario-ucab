@@ -131,3 +131,17 @@ table td {
                 line-height:50px;
             }
             
+  @page { size: 8.5in 11in; margin-left: 0.79in; margin-right: 0.79in; margin-top: 0.39in; margin-bottom: 0.79in }
+    P { margin-bottom: 0in; direction: ltr; color: #000000; line-height: 150%; text-align: justify; widows: 2; orphans: 2 }
+    P.western { font-family: "Bookman Old Style", serif; font-size: 12pt; so-language: es-ES }
+    P.cjk { font-family: "Times New Roman", serif; font-size: 12pt }
+    P.ctl { font-family: "Bookman Old Style", serif; font-size: 12pt; so-language: ar-SA }
+    H4 { margin-top: 0in; margin-bottom: 0in; direction: ltr; color: #000000; text-align: justify; widows: 2; orphans: 2 }
+    H4.western { font-family: "Bookman Old Style", serif; font-size: 10pt; so-language: es-VE }
+    H4.cjk { font-family: "Times New Roman", serif; font-size: 10pt }
+    H4.ctl { font-family: "Bookman Old Style", serif; so-language: ar-SA }
+    H6 { margin-top: 0in; margin-bottom: 0in; direction: ltr; color: #000000; text-align: justify; widows: 2; orphans: 2; text-decoration: underline }
+    H6.western { font-family: "Lucida Bright", serif; font-size: 11pt; so-language: es-VE }
+    H6.cjk { font-family: "Times New Roman", serif; font-size: 11pt }
+    H6.ctl { font-family: "Lucida Bright", serif; font-size: 12pt; so-language: ar-SA }
+  

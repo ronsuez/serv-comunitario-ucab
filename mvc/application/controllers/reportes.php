@@ -25,8 +25,6 @@ class Reportes extends CI_Controller {
 
     $pdf->WriteHTML($css,1);
 
-    //$pdf->WriteHTML($css_cc,2);
-
     $pdf->WriteHTML($html,2); // write the HTML into the PDF
     $pdf->Output($pdfFilePath, 'F'); // save to file because we can
    ////}else{
