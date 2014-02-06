@@ -58,6 +58,7 @@ success:{
   prestador_datos_cargados:"Los datos del prestador fueron cargados correctamente",
   reporte_horas: "Horas Insertadas Satisfactoriamente",
   prestador_insertado:"El prestador fue inscrito en el Sistema",
+  prestador_asociado_proyecto:"El prestador fue inscrito en el proyecto",
   proyecto_f:"Proyecto encontrado.",
   proyectos_f:"Proyectos encontrados.",
   localidad_f: "Localidad  encontrada.",
@@ -1686,7 +1687,8 @@ function generar_reporte(url,estado,ci_prestador,id_proyecto){
      window.open(data, '_blank', 'fullscreen=yes');
      
 
-     $(button).button('reset');      
+     $(button).button('reset'); 
+
    });
 
  });

@@ -134,21 +134,17 @@ button a:hover{
 
     <br>
 
-    <div class="row">
+    <center>
 
-      <div class="col-xs-3">
+      <p>
         <button class="btn btn-success " id="asociar_proyecto" type="submit">  Asociar proyecto</button>
-      </div>
-
-      <div class="col-xs-4">
+    
        <button class="btn btn-info" id="iniciar_prestacion" type="submit">  Generar reporte de inscripcion </button>
-       </div>
-     
-     <div class="col-xs-4">
+    
      <button class="btn btn-info" id="notificacion_asignacion" type="submit">  Generar notificación de asignacion</button>
-   </div>
+   </p>
  
- </div>
+ </center>
 
 </div></div>
 
@@ -197,6 +193,9 @@ $("#asociar_proyecto").on("click",function(){
   function(data){
     console.log(data);
     console.log("datos asociar");
+
+    show_messages("success",mensajes.success.prestador_asociado_proyecto);
+
   });
   $("#iniciar_prestacion").prop('disabled', false);
   $("#notificacion_asignacion").prop('disabled', false);
@@ -209,6 +208,8 @@ $("#iniciar_prestacion").on('click',function () {
 
     console.log('cedula prestador',ci);
   console.log('codigo_proyecto',id);
+
+
 
       generar_reporte("generar_carta_inicio_prestacion",0,ci,id);
 

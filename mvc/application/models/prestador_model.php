@@ -20,7 +20,7 @@
             FROM  prestador
             WHERE ci_prestador = $cedula");
 
-        if ($query1->num_rows() > 0 || $query2->num_rows() > 0)
+        if ($query1->num_rows() > 0 )
         {
 
             $salida =  array('estado'=>"1",'datos_prestador' =>$query1->row());

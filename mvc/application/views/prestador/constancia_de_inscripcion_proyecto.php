@@ -14,6 +14,8 @@
   //var_dump($suma_horas);
   //var_dump($datos_prestador);
   //var_dump($datos_proyecto);
+
+  var_dump($datos_localidad);
     
   
     $fecha = "A los ".date("d")." días del mes de ".date("m")." de ".date("Y");
