@@ -88,8 +88,7 @@
                         <div class="modal-body">
                         
                                    <form method="post" action="" id="upload_file">
-                                      <label for="title">Nombre</label>
-                                      <input type="text" name="title" id="title" disabled/>
+                                      <input type="hidden" name="title" id="title" disabled/>
                                       
                                       <br>
                                       <label for="userfile">Archivo</label>
@@ -100,7 +99,7 @@
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                          <button type="button" class="form-submit btn btn-success">Subir foto</button>
+                          <button id="subir_foto" type="button" class="form-submit btn btn-success" data-loading-text="Subiendo foto" >Subir foto</button>
                         </div>
                       </div><!-- /.modal-content -->
                     </div><!-- /.modal-dialog -->
@@ -210,6 +209,11 @@ $(document).ready(function() {
 
     $('#upload_file').submit(function(e) {
       e.preventDefault();
+
+         $("#subir_foto").button('loading');
+
+ 
+
       $.ajaxFileUpload({
          url         :'./uploadHandler/upload_file/', 
          secureuri      :false,
@@ -229,6 +233,8 @@ $(document).ready(function() {
 
             }
             alert(data.msg);
+
+            $("#subir_foto").button('reset');
 
             $('#upload_photo').modal('hide');
 

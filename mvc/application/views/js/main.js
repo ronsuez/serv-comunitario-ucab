@@ -1091,6 +1091,12 @@ function popular_datos_prestador(listado){
 
    });
 
+    if(act_datos_prestador){
+
+      $("#boton_prestador").val("actualizar datos") ;
+
+    }
+
 
 }
 

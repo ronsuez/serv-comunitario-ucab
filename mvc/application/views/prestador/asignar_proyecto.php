@@ -191,11 +191,16 @@ $("#asociar_proyecto").on("click",function(){
   dom:domingo,
   },
   function(data){
-    console.log(data);
-    console.log("datos asociar");
+    
+    if(data=="1"){
 
     show_messages("success",mensajes.success.prestador_asociado_proyecto);
 
+    }else{
+    show_messages("error","El prestador ya fue inscrito en este proyecto");
+
+
+    }
   });
   $("#iniciar_prestacion").prop('disabled', false);
   $("#notificacion_asignacion").prop('disabled', false);
