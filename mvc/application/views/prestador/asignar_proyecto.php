@@ -133,10 +133,22 @@ button a:hover{
     
 
     <br>
-        <center><button class="btn btn-success " id="asociar_proyecto" type="submit">  Asociar proyecto a prestador</button>
-       <button class="btn btn-info" id="iniciar_prestacion" type="submit">  Generar reporte de inscripcion de proyecto</button>
-     <button class="btn btn-info" id="notificacion_asignacion" type="submit">  Generar notificación de asignacion de proyecto</button></center>
+
+    <div class="row">
+
+      <div class="col-xs-3">
+        <button class="btn btn-success " id="asociar_proyecto" type="submit">  Asociar proyecto</button>
+      </div>
+
+      <div class="col-xs-4">
+       <button class="btn btn-info" id="iniciar_prestacion" type="submit">  Generar reporte de inscripcion </button>
+       </div>
+     
+     <div class="col-xs-4">
+     <button class="btn btn-info" id="notificacion_asignacion" type="submit">  Generar notificación de asignacion</button>
+   </div>
  
+ </div>
 
 </div></div>
 
