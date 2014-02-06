@@ -230,7 +230,7 @@ function set_localidad_info(lat,lng,id_localidad,nombre){
            
 
           
-         <center> <div id="map_canvas2"  style="width: 800px;height:380px;"></div> </center>
+         <center> <div id="map_canvas2"  style="width: auto;height:380px;"></div> </center>
           
           </br></br>
           <div id="panel">
