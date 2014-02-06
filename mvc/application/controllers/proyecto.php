@@ -139,8 +139,7 @@ class Proyecto extends CI_Controller {
 
 		    $coordinador = $this->input->post('ci_coord');
 
-
-		     $array = array_merge($datos, $informacion);
+		    $array = array_merge($datos, $informacion);
 
 		    $id = $this->proyecto_model->registrar_proyecto($array,$asesor,$coordinador);
 

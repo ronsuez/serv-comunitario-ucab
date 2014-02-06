@@ -120,11 +120,11 @@ $route['proy_on_ejec']="localidad/pro_en_ejec";
 
 /*reportes*/
 $route['ver_reporte'] = 'reportes/index';
-
 $route['generar_carta_culminacion']="prestador/generar_cc";
 $route['generar_carta_inicio_prestacion']="prestador/generar_constancia_inscripcion_proyecto";
 $route['generar_carta_notificacion_asignacion']="prestador/generar_notificacion_asignacion";
 $route['generar_not_culminacion']="prestador/generar_nc";
+$route['generar_control_horas']="prestador/generar_ch";
 
 /*fotos*/
 
